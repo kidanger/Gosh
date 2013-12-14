@@ -4,12 +4,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct s_Gosh_Iterator
-{
-    void * m_container;
-    void * m_pos;
-    void * (*current)( struct s_Gosh_Iterator * it);
-    void * (*next)( struct s_Gosh_Iterator * it);
+typedef struct s_Gosh_Iterator {
+	void * m_container;
+	void * m_pos;
+	void * (*current)(struct s_Gosh_Iterator * it);
+	void * (*next)(struct s_Gosh_Iterator * it);
 } Gosh_Iterator;
 
 /** @def DEF_DYNAMIC_TAB
@@ -26,53 +25,53 @@ typedef struct s_Gosh_Iterator
   * @note we use void pointer to simplify prototypes.
   */
 #define DEF_DYNAMIC_TAB(TYPE) \
-    struct s_Gosh_Iterator ; \
-    \
-    typedef struct \
-    { \
-      struct s_Gosh_Iterator (*begin)(void * container); \
-      size_t (*size)(void * container); \
-      TYPE (* m_data);\
-      size_t m_size; \
-    } DynamicTab_ ## TYPE; \
-    \
-    void * gosh_next_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
-    { \
-        DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)it->m_container; \
-        if( ! it->m_pos )\
-            return it->m_pos = ptr->m_data; \
-        TYPE * pos = it->m_pos; \
-        if( ++pos - ptr->m_data >= ptr->m_size ) \
-            pos = NULL; \
-        it->m_pos = pos; \
-        return (void *)pos; \
-    } \
-    \
-    void * gosh_current_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
-    { \
-        return it->m_pos;\
-    } \
-    \
-    Gosh_Iterator gosh_begin_dynamicTab_ ## TYPE (void * container) \
-    { \
-        DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
-        Gosh_Iterator tmp = \
-              { (void*)ptr, NULL, gosh_next_dynamicTab_ ## TYPE, gosh_current_dynamicTab_ ## TYPE}; \
-        return tmp;\
-    } \
-    \
-    size_t gosh_size_dynamicTab_ ## TYPE (void * container)\
-    { \
-        DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
-        return ptr->m_size; \
-    } \
-    \
-    DynamicTab_ ## TYPE gosh_create_dynamicTab_ ## TYPE (void) \
-    { \
-        DynamicTab_ ## TYPE tmp= \
-            { gosh_begin_dynamicTab_ ## TYPE, gosh_size_dynamicTab_ ## TYPE, NULL, 0 }; \
-        return tmp; \
-    }
+	struct s_Gosh_Iterator ; \
+	\
+	typedef struct \
+	{ \
+		struct s_Gosh_Iterator (*begin)(void * container); \
+		size_t (*size)(void * container); \
+		TYPE (* m_data);\
+		size_t m_size; \
+	} DynamicTab_ ## TYPE; \
+	\
+	void * gosh_next_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
+	{ \
+		DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)it->m_container; \
+		if( ! it->m_pos )\
+			return it->m_pos = ptr->m_data; \
+		TYPE * pos = it->m_pos; \
+		if( ++pos - ptr->m_data >= ptr->m_size ) \
+			pos = NULL; \
+		it->m_pos = pos; \
+		return (void *)pos; \
+	} \
+	\
+	void * gosh_current_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
+	{ \
+		return it->m_pos;\
+	} \
+	\
+	Gosh_Iterator gosh_begin_dynamicTab_ ## TYPE (void * container) \
+	{ \
+		DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
+		Gosh_Iterator tmp = \
+		                    { (void*)ptr, NULL, gosh_next_dynamicTab_ ## TYPE, gosh_current_dynamicTab_ ## TYPE}; \
+		return tmp;\
+	} \
+	\
+	size_t gosh_size_dynamicTab_ ## TYPE (void * container)\
+	{ \
+		DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
+		return ptr->m_size; \
+	} \
+	\
+	DynamicTab_ ## TYPE gosh_create_dynamicTab_ ## TYPE (void) \
+	{ \
+		DynamicTab_ ## TYPE tmp= \
+		                         { gosh_begin_dynamicTab_ ## TYPE, gosh_size_dynamicTab_ ## TYPE, NULL, 0 }; \
+		return tmp; \
+	}
 
 
 

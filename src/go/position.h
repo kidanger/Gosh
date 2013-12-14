@@ -28,24 +28,24 @@ typedef unsigned short Position;
 #define POSITION_EST_VALIDE(p) (!POSITION_EQ((p), POSITION_INVALIDE))
 
 #define POSITION_GAUCHE(p, taille) \
-        (POSITION_X((p)) > 0 ? \
-        POSITION(POSITION_X((p)) - 1, POSITION_Y((p))) : \
-         POSITION_INVALIDE)
+	(POSITION_X((p)) > 0 ? \
+	 POSITION(POSITION_X((p)) - 1, POSITION_Y((p))) : \
+	 POSITION_INVALIDE)
 
 #define POSITION_DROITE(p, taille) \
-        (POSITION_X((p)) < (taille)-1 ? \
-        POSITION(POSITION_X((p)) + 1, POSITION_Y((p))) : \
-         POSITION_INVALIDE)
+	(POSITION_X((p)) < (taille)-1 ? \
+	 POSITION(POSITION_X((p)) + 1, POSITION_Y((p))) : \
+	 POSITION_INVALIDE)
 
 #define POSITION_HAUT(p, taille) \
-        (POSITION_Y((p)) > 0 ? \
-        POSITION(POSITION_X((p)), POSITION_Y((p)) - 1) : \
-         POSITION_INVALIDE)
+	(POSITION_Y((p)) > 0 ? \
+	 POSITION(POSITION_X((p)), POSITION_Y((p)) - 1) : \
+	 POSITION_INVALIDE)
 
 #define POSITION_BAS(p, taille) \
-        (POSITION_Y((p)) < (taille)-1 ? \
-        POSITION(POSITION_X((p)), POSITION_Y((p)) + 1) : \
-         POSITION_INVALIDE)
+	(POSITION_Y((p)) < (taille)-1 ? \
+	 POSITION(POSITION_X((p)), POSITION_Y((p)) + 1) : \
+	 POSITION_INVALIDE)
 
 #endif
 
