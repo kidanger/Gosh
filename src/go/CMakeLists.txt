@@ -1,11 +1,9 @@
 project(go)
 
+aux_source_directory(. LIBGO_SOURCES)
 add_library(go STATIC
 	../alloc.c
-	plateau.c
-	ensemble_colore.c
-	ensemble_positions.c
-	chaine.c
+	${LIBGO_SOURCES}
 )
 
 install(TARGETS go DESTINATION lib)
