@@ -39,7 +39,7 @@ typedef struct s_Gosh_Iterator
     void * gosh_next_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
     { \
         DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)it->m_container; \
-        if( ! it->m_pos );\
+        if( ! it->m_pos )\
             return it->m_pos = ptr->m_data; \
         TYPE * pos = it->m_pos; \
         if( ++pos - ptr->m_data >= ptr->m_size ) \

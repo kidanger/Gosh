@@ -14,7 +14,7 @@
   */
 #define gosh_foreach(TYPE, ELEMENT_NAME, CONTAINER) \
     for( Gosh_Iterator it = (CONTAINER).begin( &(CONTAINER) ); \
-         (ELEMENT_NAME) = it.next( &it ) ; \
+         ((ELEMENT_NAME) = it.next( &it )) ; \
         )
 
 #endif // GOSH_FOREACH_H

@@ -18,9 +18,9 @@
 #include <assert.h>
 #include <time.h>
 
-#include "../go/plateau.h"
-#include "../go/ensemble_positions.h"
-#include "../go/genericTab.h"
+#include "go/plateau.h"
+#include "go/ensemble_positions.h"
+#include "go/genericTab.h"
 
 #define COLORS // TODO: move to cmake files
 
