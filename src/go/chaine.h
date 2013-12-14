@@ -16,7 +16,7 @@
 #ifndef GOSH_GO_CHAINE
 #define GOSH_GO_CHAINE
 
-#include "go/ensemble_colore.h"
+#include "ensemble_colore.h"
 
 typedef EnsembleColore Chaine;
 

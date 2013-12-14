@@ -16,8 +16,8 @@
 #ifndef GOSH_GO_ENSEMBLE_COLORE
 #define GOSH_GO_ENSEMBLE_COLORE
 
-#include "go/ensemble_positions.h"
-#include "go/couleur.h"
+#include "ensemble_positions.h"
+#include "couleur.h"
 
 typedef struct ensemble_colore* EnsembleColore;
 
