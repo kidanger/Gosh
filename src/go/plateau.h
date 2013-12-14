@@ -3,9 +3,9 @@
 
 #include <stdlib.h> // size_t
 
-#include "go/couleur.h"
-#include "go/position.h"
-#include "go/chaine.h"
+#include "couleur.h"
+#include "position.h"
+#include "chaine.h"
 
 typedef struct plateau* Plateau;
 

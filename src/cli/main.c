@@ -3,8 +3,9 @@
 #include <assert.h>
 #include <time.h>
 
-#include "go/plateau.h"
-#include "go/ensemble_positions.h"
+#include "../go/plateau.h"
+#include "../go/ensemble_positions.h"
+#include "../go/genericTab.h"
 
 #define COLORS // TODO: move to cmake files
 
@@ -37,6 +38,18 @@ void afficher_plateau(Plateau plateau) {
 		}
 		printf("\n");
 	}
+}
+
+DEF_DYNAMIC_TAB(int)
+
+void test_gosh_foreach(void)
+{
+     DynamicTab_int container = gosh_create_dynamicTab_int();
+     int * elem = NULL;
+     gosh_foreach(int, elem, container)
+     {
+        printf("%d\n", *elem);
+     }
 }
 
 int main(int argc, const char *argv[]) {
@@ -113,7 +126,7 @@ int main(int argc, const char *argv[]) {
 		}
 
 		detruire_plateau(plateau);
-	}
+    }
 
 	return EXIT_SUCCESS;
 }

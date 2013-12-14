@@ -4,73 +4,76 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-/** @def DEF_GENERIC_TAB
+typedef struct s_Gosh_Iterator
+{
+    void * m_container;
+    void * m_pos;
+    void * (*current)( struct s_Gosh_Iterator * it);
+    void * (*next)( struct s_Gosh_Iterator * it);
+} Gosh_Iterator;
+
+/** @def DEF_DYNAMIC_TAB
   * @author Denis Migdal
   * @date 14/12/2013
   * @ingroup go
-  * @brief declare a generic vector container.
+  * @brief declare a container for dynamic tabs.
   *
   * Not really usefull but provides an exemple for container which can be used
   * by gosh_foreach.
-  * @todo cut declaration and definitions.
+  * @todo separate declaration and definition (1).
+  * @todo create the same for a generic list (2) ?
   * @todo add some stuffs like resize/getElement()/destroy()/setElement/end()/previous()/compareIterator()
-  * @todo create the same for a generic list ?
+  * @note we use void pointer to simplify prototypes.
   */
-#define DEF_GENERIC_TAB(SIZE) \
-    struct s_Gosh_Iterator_GenericTab_ ## SIZE ## t; \
+#define DEF_DYNAMIC_TAB(TYPE) \
+    struct s_Gosh_Iterator ; \
     \
-    typedef struct s_GenericTab_ ## SIZE ## t \
+    typedef struct \
     { \
-      struct s_Gosh_Iterator_GenericTab_ ## SIZE ## t (*begin)(struct s_GenericTab_ ## SIZE ## t * ptr); \
-      size_t (*size)(struct s_GenericTab_ ## SIZE ## t * ptr); \
-      char (* m_data) [(SIZE)];\
+      struct s_Gosh_Iterator (*begin)(void * container); \
+      size_t (*size)(void * container); \
+      TYPE (* m_data);\
       size_t m_size; \
-    } GenericTab_ ## SIZE ## t; \
+    } DynamicTab_ ## TYPE; \
     \
-    typedef struct s_Gosh_Iterator_GenericTab_ ## SIZE ## t \
-    {\
-        GenericTab_ ## SIZE ## t * m_container; \
-        size_t m_pos; \
-        bool (*next)( struct s_Gosh_Iterator_GenericTab_ ## SIZE ## t * ); \
-        char * (*current)( struct s_Gosh_Iterator_GenericTab_ ## SIZE ## t * ); \
-    } Gosh_Iterator_GenericTab_ ## SIZE ## t;\
-    \
-    bool gosh_next_genericTab_ ## SIZE ## t( Gosh_Iterator_GenericTab_ ## SIZE ## t * ptr ) \
+    void * gosh_next_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
     { \
-        if( ptr->m_pos == (size_t)-1 );\
-            return false; \
-        if( ++(ptr->m_pos) >= ptr->m_container->m_size ) \
-        { \
-            ptr->m_pos = (size_t) -1; \
-            return false; \
-        } \
-        return true; \
+        DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)it->m_container; \
+        if( ! it->m_pos );\
+            return it->m_pos = ptr->m_data; \
+        TYPE * pos = it->m_pos; \
+        if( ++pos - ptr->m_data >= ptr->m_size ) \
+            pos = NULL; \
+        it->m_pos = pos; \
+        return (void *)pos; \
     } \
     \
-    char * gosh_current_genericTab_ ## SIZE ## t ( Gosh_Iterator_GenericTab_ ## SIZE ## t * ptr ) \
+    void * gosh_current_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
     { \
-        return ptr->m_pos == (size_t) -1 ? \
-                    NULL: \
-                    ptr->m_container->m_data[ptr->m_pos]; \
+        return it->m_pos;\
     } \
     \
-    Gosh_Iterator_GenericTab_ ## SIZE ## t gosh_begin_genericTab_ ## SIZE ## t(GenericTab_ ## SIZE ## t * ptr) \
+    Gosh_Iterator gosh_begin_dynamicTab_ ## TYPE (void * container) \
     { \
-        Gosh_Iterator_GenericTab_ ## SIZE ## t tmp = \
-              {ptr, 0, gosh_next_genericTab_ ## SIZE ## t, gosh_current_genericTab_ ## SIZE ## t}; \
+        DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
+        Gosh_Iterator tmp = \
+              { (void*)ptr, NULL, gosh_next_dynamicTab_ ## TYPE, gosh_current_dynamicTab_ ## TYPE}; \
         return tmp;\
     } \
     \
-    size_t gosh_size_genericTab_ ## SIZE ## t(GenericTab_ ## SIZE ## t * ptr)\
+    size_t gosh_size_dynamicTab_ ## TYPE (void * container)\
     { \
+        DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
         return ptr->m_size; \
     } \
     \
-    GenericTab_ ## SIZE ## t gosh_create_genericTab_ ## SIZE ## t (void) \
+    DynamicTab_ ## TYPE gosh_create_dynamicTab_ ## TYPE (void) \
     { \
-        GenericTab_ ## SIZE ## t tmp= \
-            { gosh_begin_genericTab_ ## SIZE ## t, gosh_size_genericTab_ ## SIZE ## t, NULL, 0 }; \
+        DynamicTab_ ## TYPE tmp= \
+            { gosh_begin_dynamicTab_ ## TYPE, gosh_size_dynamicTab_ ## TYPE, NULL, 0 }; \
         return tmp; \
     }
+
+
 
 #endif // GENERICTAB_H
