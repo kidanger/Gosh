@@ -80,9 +80,6 @@ int main(int argc, const char *argv[]) {
 		ensemble_positions_ajouter(ensPos, POSITION(4, 2));
 
 		Position pos;
-		FOREACH_POSITIONS(ensPos, pos,
-			printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
-		)
 
 		detruire_ensemble_positions(ensPos);
 	}
@@ -110,9 +107,6 @@ int main(int argc, const char *argv[]) {
 		if (chaine) {
 			printf("chaine:\n");
 			Position pos;
-			FOREACH_POSITIONS(ensemble_colore_positions(chaine), pos,
-				printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
-			)
 			detruire_ensemble_colore(chaine);
 		} else {
 			printf("pas de chaine\n");

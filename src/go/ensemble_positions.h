@@ -3,7 +3,8 @@
 
 #include <stdbool.h>
 
-#include "go/position.h"
+#include "position.h"
+#include "gosh_foreach.h"
 
 typedef struct ensemble_positions* EnsemblePositions;
 
@@ -21,16 +22,6 @@ IterateurEnsemblePositions ensemble_positions_tete(EnsemblePositions);
 bool ensemble_positions_suivant(IterateurEnsemblePositions);
 Position ensemble_positions_courant(IterateurEnsemblePositions);
 void ensemble_positions_detruire_iterateur(IterateurEnsemblePositions);
-
-#define FOREACH_POSITIONS(_ens, _pos, _do)\
-	{ \
-		IterateurEnsemblePositions _it = ensemble_positions_tete(_ens); \
-		while (ensemble_positions_suivant(_it)) { \
-			_pos = ensemble_positions_courant(_it); \
-			_do \
-		} \
-		ensemble_positions_detruire_iterateur(_it); \
-	}
 
 #endif
 
