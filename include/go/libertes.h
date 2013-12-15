@@ -13,21 +13,18 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_ENSEMBLE_COLORE
-#define GOSH_GO_ENSEMBLE_COLORE
+#ifndef GOSH_GO_LIBERTES
+#define GOSH_GO_LIBERTES
 
-#include "ensemble_positions.h"
-#include "couleur.h"
+#include "go/plateau.h"
+#include "go/chaine.h"
+#include "go/ensemble_positions.h"
 
-typedef struct ensemble_colore* EnsembleColore;
+typedef EnsemblePosition Libertes;
 
-EnsembleColore creer_ensemble_colore();
-void detruire_ensemble_colore(EnsembleColore ensemble);
+/** @brief Détermine l’ensemble des libertés d’une chaine donnée en fonction
+ * de la position des pions sur le plateau. */
+Libertes determiner_libertes(Plateau plateau, Chaine chaine);
 
-Couleur ensemble_colore_couleur(EnsembleColore ensemble);
-EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble);
-
-void ensemble_colore_set_couleur(EnsembleColore ensemble, Couleur couleur);
 
 #endif
-

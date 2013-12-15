@@ -20,4 +20,3 @@
 bool chaine_appartient(Chaine chaine, Position position) {
 	return ensemble_position_appartient(ensemble_colore_positions(chaine), position);
 }
-

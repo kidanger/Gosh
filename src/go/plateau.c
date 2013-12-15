@@ -45,6 +45,10 @@ Couleur plateau_get(Plateau plateau, int i, int j) {
 	return CASE_AT(plateau, i, j);
 }
 
+Couleur plateau_get_at(Plateau plateau, Position pos) {
+	return CASE_AT_P(plateau, pos);
+}
+
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
 	CASE_AT(plateau, i, j) = couleur;
 }
@@ -84,6 +88,7 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 			}
 		}
 	}
+	detruire_ensemble_position(possibles);
 
 	return chaine;
 }

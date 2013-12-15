@@ -1,6 +1,5 @@
-project(go)
-
 aux_source_directory(. LIBGO_SOURCES)
+
 add_library(go STATIC
 	${LIBGO_SOURCES}
 )

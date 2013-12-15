@@ -21,25 +21,38 @@
 #include "gosh_foreach.h"
 #include "go/plateau.h"
 #include "go/ensemble_positions.h"
+#include "go/libertes.h"
+#include "go/territoire.h"
 #include "go/genericTab.h"
 
-#define COLORS // TODO: move to cmake files
-
-#ifdef COLORS
 #define C_WHITE "\033[00m"
 #define C_GREEN "\033[32m"
 #define C_RED "\033[31m"
-#else
-#define C_WHITE ""
-#define C_GREEN ""
-#define C_RED ""
-#endif
+#define C_YELLOW "\033[33m"
+#define C_GREY "\033[37m"
+#define C_BLUE "\033[34m"
+
 
 void afficher_plateau(Plateau plateau) {
 	size_t taille = plateau_get_taille(plateau);
 	// pour tester les chaines
 	Position position_chaine = POSITION(taille / 2, taille / 2);
 	Chaine chaine = plateau_determiner_chaine(plateau, position_chaine);
+	Libertes libertes = determiner_libertes(plateau, chaine);
+	Territoire territoire = determiner_territoire(plateau, POSITION(taille - 1, taille - 1));
+
+	const char* couleur_territoire;
+	switch (ensemble_colore_couleur(territoire)) {
+		case BLANC:
+			couleur_territoire = C_YELLOW;
+			break;
+		case NOIR:
+			couleur_territoire = C_BLUE;
+			break;
+		case VIDE:
+			couleur_territoire = C_GREY;
+			break;
+	}
 
 	for (int y = 0; y < taille; y++) {
 		for (int x = 0; x < taille; x++) {
@@ -49,8 +62,12 @@ void afficher_plateau(Plateau plateau) {
 			const char* ansi = C_WHITE;
 			if (chaine != NULL && chaine_appartient(chaine, POSITION(x, y)))
 				ansi = C_RED;
+			else if (libertes != NULL && ensemble_position_appartient(libertes, POSITION(x, y)))
+				ansi = C_GREEN;
+			else if (territoire != NULL && territoire_appartient(territoire, POSITION(x, y)))
+				ansi = couleur_territoire;
 
-			printf(C_RED "%s%d "C_WHITE, ansi, couleur);
+			printf("%s%d "C_WHITE, ansi, couleur);
 		}
 		printf("\n");
 	}
@@ -118,7 +135,7 @@ int main(int argc, const char *argv[]) {
 		Plateau plateau = creer_plateau(taille);
 		for (int y = 0; y < taille; y++) {
 			for (int x = 0; x < taille; x++) {
-				plateau_set(plateau, x, y, rand() % 2 + 1);
+				plateau_set(plateau, x, y, rand() % 3);
 			}
 		}
 		printf("taille: %zd\n", plateau_get_taille(plateau));
@@ -130,6 +147,8 @@ int main(int argc, const char *argv[]) {
 		plateau_set(plateau, 0, 1, NOIR);
 		plateau_set(plateau, 0, 2, NOIR);
 
+		plateau_set(plateau, taille - 1, taille - 1, VIDE); // pour le territoire
+
 		afficher_plateau(plateau);
 
 		Chaine chaine = plateau_determiner_chaine(plateau, POSITION(0, 0));
@@ -137,7 +156,7 @@ int main(int argc, const char *argv[]) {
 			printf("chaine:\n");
 			Position pos;
 			gosh_foreach(Position, pos, ensemble_colore_positions(chaine)) {
-				printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
+				//	printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 			}
 			detruire_ensemble_colore(chaine);
 		} else {

@@ -28,6 +28,7 @@ Plateau creer_plateau(size_t taille);
 void detruire_plateau(Plateau plateau);
 
 Couleur plateau_get(Plateau plateau, int i, int j);
+Couleur plateau_get_at(Plateau plateau, Position pos);
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
 
 size_t plateau_get_taille(Plateau plateau);

@@ -41,3 +41,7 @@ Couleur ensemble_colore_couleur(EnsembleColore ensemble) {
 EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble) {
 	return ensemble->positions;
 }
+
+void ensemble_colore_set_couleur(EnsembleColore ensemble, Couleur couleur) {
+	ensemble->couleur = couleur;
+}
