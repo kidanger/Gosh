@@ -19,30 +19,21 @@
 #include <stddef.h>
 #include <stdbool.h>
 
+#include "concat.h"
+
 struct iterateur {
 };
-struct iterable {
-	struct type_iterateur* funcs;
-};
-struct type_iterateur {
-	struct iterateur*(*tete)(const char* type, struct iterable*);
-	void*(*courant)(struct iterateur*);
-	bool(*suivant)(struct iterateur*);
-};
 
-#define TYPE_ITERATEUR_OF(_iterable) (((struct iterable*) (_iterable))->funcs)
+#define TYPE_ITERATEUR_OF(TYPE, ITERABLE) (((struct C2(iterable_, TYPE)*) (ITERABLE))->funcs)
 
-/* vérification du type à l'exécution */
 #define gosh_foreach(TYPE, ELEMENT, CONTAINER) \
-	for (struct iterateur* it = TYPE_ITERATEUR_OF(CONTAINER)->tete(#TYPE, (struct iterable*) CONTAINER); \
-	        ((ELEMENT) = (TYPE) (ptrdiff_t) TYPE_ITERATEUR_OF(CONTAINER)->courant(it)), TYPE_ITERATEUR_OF(CONTAINER)->suivant(it); \
+	for (struct iterateur* it = TYPE_ITERATEUR_OF(TYPE, CONTAINER)->begin(CONTAINER); \
+	        TYPE_ITERATEUR_OF(TYPE, CONTAINER)->next(it, &(ELEMENT)); \
 	    )
 
 #define gosh_foreach_old(TYPE, ELEMENT_NAME, CONTAINER) \
 	for (Gosh_Iterator it = (CONTAINER).begin( &(CONTAINER) ); \
 	        ((ELEMENT_NAME) = it.next( &it )) ; \
 	    )
-
-void gosh_check_types(const char* t1, const char* t2);
 
 #endif // GOSH_FOREACH_H

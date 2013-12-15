@@ -13,13 +13,28 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_ENSEMBLE_POSITIONS
-#define GOSH_GO_ENSEMBLE_POSITIONS
-
-#include "position.h"
-
-#define TYPE Position
-#define TYPE_LOWER position
-#include "gosh_ensemble.h"
-
+#ifndef TYPE
+#error "TYPE non défini"
 #endif
+#ifndef TYPE_LOWER
+#error "TYPE_LOWER non défini"
+#endif
+
+#include <stdbool.h>
+#include "concat.h"
+
+#define ENSTYPE C2(Ensemble, TYPE)
+typedef struct gosh_ensemble* ENSTYPE;
+
+ENSTYPE C2(creer_ensemble_, TYPE_LOWER)();
+void C2(detruire_ensemble_, TYPE_LOWER)(ENSTYPE ensemble);
+
+#define FUNC_NAME(name) C3(ensemble_, TYPE_LOWER, _##name)
+
+bool FUNC_NAME(vide)(ENSTYPE ensemble);
+void FUNC_NAME(ajouter)(ENSTYPE ensemble, TYPE element);
+TYPE FUNC_NAME(supprimer_tete)(ENSTYPE ensemble);
+bool FUNC_NAME(appartient)(ENSTYPE ensemble, TYPE element);
+
+#include "gosh_iterateur.h"
+DEFINE_ITERATEUR(TYPE);

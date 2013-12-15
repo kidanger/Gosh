@@ -100,17 +100,17 @@ int main(int argc, const char *argv[]) {
 	}
 	{
 		printf("test de l'ensemble des positions:\n");
-		EnsemblePositions ensPos = creer_ensemble_positions();
-		ensemble_positions_ajouter(ensPos, POSITION(0, 1));
-		ensemble_positions_ajouter(ensPos, POSITION(1, 1));
-		ensemble_positions_ajouter(ensPos, POSITION(1, 2));
-		ensemble_positions_ajouter(ensPos, POSITION(4, 2));
+		EnsemblePosition ensPos = creer_ensemble_position();
+		ensemble_position_ajouter(ensPos, POSITION(0, 1));
+		ensemble_position_ajouter(ensPos, POSITION(1, 1));
+		ensemble_position_ajouter(ensPos, POSITION(1, 2));
+		ensemble_position_ajouter(ensPos, POSITION(4, 2));
 
 		Position pos;
 		gosh_foreach(Position, pos, ensPos)
 		printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 
-		detruire_ensemble_positions(ensPos);
+		detruire_ensemble_position(ensPos);
 	}
 	{
 		printf("test du plateau:\n");

@@ -18,6 +18,7 @@
 
 #include "alloc.h"
 #include "go/plateau.h"
+#include "go/ensemble_positions.h"
 
 struct plateau {
 	Couleur* cases;
@@ -59,16 +60,16 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 		return NULL;
 
 	Chaine chaine = creer_ensemble_colore(couleur);
-	EnsemblePositions positions_chaine = ensemble_colore_positions(chaine);
+	EnsemblePosition positions_chaine = ensemble_colore_positions(chaine);
 
 	// utilisation de EnsemblePositions comme d'une pile
-	EnsemblePositions possibles = creer_ensemble_positions();
-	ensemble_positions_ajouter(possibles, pos);
-	while (!ensemble_positions_vide(possibles)) {
-		Position courante = ensemble_positions_supprimer_tete(possibles);
+	EnsemblePosition possibles = creer_ensemble_position();
+	ensemble_position_ajouter(possibles, pos);
+	while (!ensemble_position_vide(possibles)) {
+		Position courante = ensemble_position_supprimer_tete(possibles);
 		if (CASE_AT_P(plateau, courante) == couleur) {
-			if (!ensemble_positions_appartient(positions_chaine, courante)) {
-				ensemble_positions_ajouter(positions_chaine, courante);
+			if (!ensemble_position_appartient(positions_chaine, courante)) {
+				ensemble_position_ajouter(positions_chaine, courante);
 
 				const Position a_tester[] = {
 					POSITION_GAUCHE(courante, plateau->taille),
@@ -78,7 +79,7 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 				};
 				for (int p = 0; p < 4; p++) {
 					if (POSITION_EST_VALIDE(a_tester[p]))
-						ensemble_positions_ajouter(possibles, a_tester[p]);
+						ensemble_position_ajouter(possibles, a_tester[p]);
 				}
 			}
 		}

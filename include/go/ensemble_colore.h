@@ -25,7 +25,7 @@ EnsembleColore creer_ensemble_colore();
 void detruire_ensemble_colore(EnsembleColore ensemble);
 
 Couleur ensemble_colore_couleur(EnsembleColore ensemble);
-EnsemblePositions ensemble_colore_positions(EnsembleColore ensemble);
+EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble);
 
 #endif
 

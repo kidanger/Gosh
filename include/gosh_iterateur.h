@@ -13,13 +13,18 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_ENSEMBLE_POSITIONS
-#define GOSH_GO_ENSEMBLE_POSITIONS
+#ifndef GOSH_ITERATEUR
+#define GOSH_ITERATEUR
 
-#include "position.h"
+#define DEFINE_ITERATEUR(TYPE) \
+	struct C2(type_iterateur_, TYPE) { \
+		struct iterateur*(*begin)(void*); \
+		bool(*next)(struct iterateur*, TYPE*); \
+	}; \
+	\
+	struct C2(iterable_, TYPE) { \
+		struct C2(type_iterateur_, TYPE)* funcs; \
+	}
 
-#define TYPE Position
-#define TYPE_LOWER position
-#include "gosh_ensemble.h"
 
 #endif
