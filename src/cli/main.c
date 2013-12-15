@@ -108,7 +108,7 @@ int main(int argc, const char *argv[]) {
 
 		Position pos;
 		gosh_foreach(Position, pos, ensPos)
-			printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
+		printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 
 		detruire_ensemble_positions(ensPos);
 	}

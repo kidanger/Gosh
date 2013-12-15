@@ -120,8 +120,8 @@ bool ensemble_positions_suivant(struct iterateur* it) {
 void* ensemble_positions_courant(struct iterateur* it) {
 	struct iterateur_ensemble_positions* iterateur = (struct iterateur_ensemble_positions*) it;
 	if (iterateur->termine) {
-		return (void*) (ptrdiff_t) POSITION_INVALIDE; // ne doit pas être utilisé
+		return (void*)(ptrdiff_t) POSITION_INVALIDE;  // ne doit pas être utilisé
 	}
-	return (void*) (ptrdiff_t) iterateur->courant->position;
+	return (void*)(ptrdiff_t) iterateur->courant->position;
 }
 

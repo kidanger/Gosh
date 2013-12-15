@@ -41,7 +41,7 @@ struct type_iterateur {
 #define gosh_foreach_old(TYPE, ELEMENT_NAME, CONTAINER) \
 	for (Gosh_Iterator it = (CONTAINER).begin( &(CONTAINER) ); \
 	        ((ELEMENT_NAME) = it.next( &it )) ; \
-	   )
+	    )
 
 void gosh_check_types(const char* t1, const char* t2);
 
