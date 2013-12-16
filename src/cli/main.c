@@ -23,7 +23,7 @@
 #include "go/ensemble_positions.h"
 #include "go/libertes.h"
 #include "go/territoire.h"
-#include "go/genericTab.h"
+//#include "go/genericTab.h"
 
 #define C_WHITE "\033[00m"
 #define C_GREEN "\033[32m"
@@ -73,16 +73,6 @@ void afficher_plateau(Plateau plateau) {
 	}
 }
 
-DEF_DYNAMIC_TAB(int)
-
-void test_gosh_foreach(void) {
-	DynamicTab_int container = gosh_create_dynamicTab_int();
-	int * elem = NULL;
-	gosh_foreach_old(int, elem, container) {
-		printf("%d\n", *elem);
-	}
-}
-
 int main(int argc, const char *argv[]) {
 	long long seed = time(NULL);
 	printf("(seed=%llu)\n", seed);
@@ -124,7 +114,7 @@ int main(int argc, const char *argv[]) {
 		ensemble_position_ajouter(ensPos, POSITION(4, 2));
 
 		Position pos;
-		gosh_foreach(Position, pos, ensPos)
+        gosh_foreach(pos, ensPos)
 		printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 
 		detruire_ensemble_position(ensPos);
@@ -155,7 +145,7 @@ int main(int argc, const char *argv[]) {
 		if (chaine) {
 			printf("chaine:\n");
 			Position pos;
-			gosh_foreach(Position, pos, ensemble_colore_positions(chaine)) {
+            gosh_foreach(pos, ensemble_colore_positions(chaine)) {
 				//	printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 			}
 			detruire_ensemble_colore(chaine);

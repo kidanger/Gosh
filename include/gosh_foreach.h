@@ -18,18 +18,18 @@
 
 typedef struct {
     void * m_pos;
-} GoshIterator;
+} GoshIterateur;
 
 #define CREATE_ITERATOR(CONTAINER) (CONTAINER)->create_iterator()
 
 #define gosh_foreach(ELEMENT, CONTAINER) \
-    for ( GoshIterateur it = (CONTAINER)->create_iterator(); \
-          (CONTAINER)->next(it, &(ELEMENT) ) \
+    for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
+          (CONTAINER)->next(&it, (CONTAINER), &(ELEMENT) ) ; \
         )
 
 #define gosh_foreach_ptr(ELEMENT, CONTAINER) \
-    for ( GoshIterateur it = (CONTAINER)->create_iterator(); \
-          (ELEMENT) = (CONTAINER)->next(it, NULL ) \
+    for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
+          (ELEMENT) = (CONTAINER)->next(&it, (CONTAINER), NULL ) ; \
         )
 
 #endif // GOSH_FOREACH_H

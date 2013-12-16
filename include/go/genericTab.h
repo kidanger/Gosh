@@ -16,15 +16,23 @@
 #ifndef GENERICTAB_H
 #define GENERICTAB_H
 
-#include <stdio.h>
-#include <stdbool.h>
+#ifndef TYPE
+#error "TYPE non défini"
+#endif
+#ifndef TYPE_LOWER
+#error "TYPE_LOWER non défini"
+#endif
 
-typedef struct s_Gosh_Iterator {
-	void * m_container;
-	void * m_pos;
-	void * (*current)(struct s_Gosh_Iterator * it);
-	void * (*next)(struct s_Gosh_Iterator * it);
-} Gosh_Iterator;
+#include <stdbool.h>
+#include "concat.h"
+#include "gosh_foreach.h"
+
+#define CONTAINER_NAME CONCAT_2(DynamicTab, TYPE)
+
+#define FUNC_NAME(name) CONCAT_3(dynamicTab_, TYPE_LOWER, _##name)
+
+#define IPLM_CONTAINER_NAME CONCAT_2(Impl, CONTAINER_NAME)
+
 
 /** @def DEF_DYNAMIC_TAB
   * @author Denis Migdal
@@ -39,54 +47,31 @@ typedef struct s_Gosh_Iterator {
   * @todo add some stuffs like resize/getElement()/destroy()/setElement/end()/previous()/compareIterator()
   * @note we use void pointer to simplify prototypes.
   */
-#define DEF_DYNAMIC_TAB(TYPE) \
-	struct s_Gosh_Iterator ; \
-	\
-	typedef struct \
-	{ \
-		struct s_Gosh_Iterator (*begin)(void * container); \
-		size_t (*size)(void * container); \
-		TYPE (* m_data);\
-		size_t m_size; \
-	} DynamicTab_ ## TYPE; \
-	\
-	void * gosh_next_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
-	{ \
-		DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)it->m_container; \
-		if( ! it->m_pos )\
-			return it->m_pos = ptr->m_data; \
-		TYPE * pos = it->m_pos; \
-		if( ++pos - ptr->m_data >= ptr->m_size ) \
-			pos = NULL; \
-		it->m_pos = pos; \
-		return (void *)pos; \
-	} \
-	\
-	void * gosh_current_dynamicTab_ ## TYPE ( Gosh_Iterator * it ) \
-	{ \
-		return it->m_pos;\
-	} \
-	\
-	Gosh_Iterator gosh_begin_dynamicTab_ ## TYPE (void * container) \
-	{ \
-		DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
-		Gosh_Iterator tmp = \
-		                    { (void*)ptr, NULL, gosh_next_dynamicTab_ ## TYPE, gosh_current_dynamicTab_ ## TYPE}; \
-		return tmp;\
-	} \
-	\
-	size_t gosh_size_dynamicTab_ ## TYPE (void * container)\
-	{ \
-		DynamicTab_ ## TYPE * ptr = (DynamicTab_ ## TYPE *)container;\
-		return ptr->m_size; \
-	} \
-	\
-	DynamicTab_ ## TYPE gosh_create_dynamicTab_ ## TYPE (void) \
-	{ \
-		DynamicTab_ ## TYPE tmp= \
-		                         { gosh_begin_dynamicTab_ ## TYPE, gosh_size_dynamicTab_ ## TYPE, NULL, 0 }; \
-		return tmp; \
-	}
+
+typedef struct IMPL_CONTAINER_NAME
+{
+    TYPE * m_data;
+    size_t m_size;
+
+    TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
+    GoshIterateur (*createIterateur) (void);
+    bool (*vide)(struct IMPL_CONTAINER_NAME *);
+    //void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
+    //bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
+    //TYPE (*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
+} CONTAINER_NAME;
+
+// déclaration des fonctions
+CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
+void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ensemble);
+
+TYPE * FUNC_NAME(next) (GoshIterateur *, CONTAINER_NAME, TYPE *);
+GoshIterateur FUNC_NAME(createIterateur) (void);
+
+bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
+void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
+TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
+bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);
 
 
 
