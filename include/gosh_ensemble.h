@@ -38,9 +38,7 @@ struct NODE_NAME {
 };
 
 typedef struct IMPL_CONTAINER_NAME {
-
 	struct NODE_NAME * tete;
-
 
 	TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
 	GoshIterateur(*createIterateur)(void);
@@ -48,9 +46,6 @@ typedef struct IMPL_CONTAINER_NAME {
 	void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
 	bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
 	TYPE(*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
-
-
-
 } * CONTAINER_NAME;
 
 // déclaration des fonctions

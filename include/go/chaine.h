@@ -24,4 +24,3 @@ typedef EnsembleColore Chaine;
 bool chaine_appartient(Chaine chaine, Position position);
 
 #endif
-

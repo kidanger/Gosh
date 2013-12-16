@@ -23,7 +23,6 @@
 #include "go/ensemble_positions.h"
 #include "go/libertes.h"
 #include "go/territoire.h"
-//#include "go/genericTab.h"
 
 #define C_WHITE "\033[00m"
 #define C_GREEN "\033[32m"
@@ -62,7 +61,7 @@ void afficher_plateau(Plateau plateau) {
 			const char* ansi = C_WHITE;
 			if (chaine != NULL && chaine_appartient(chaine, POSITION(x, y)))
 				ansi = C_RED;
-			else if (libertes != NULL && ensemble_position_appartient(libertes, POSITION(x, y)))
+			else if (libertes != NULL && gosh_appartient(libertes, POSITION(x, y)))
 				ansi = C_GREEN;
 			else if (territoire != NULL && territoire_appartient(territoire, POSITION(x, y)))
 				ansi = couleur_territoire;
@@ -113,9 +112,10 @@ int main(int argc, const char *argv[]) {
 		ensemble_position_ajouter(ensPos, POSITION(1, 2));
 		ensemble_position_ajouter(ensPos, POSITION(4, 2));
 
-		Position pos;
-		gosh_foreach(pos, ensPos)
-		printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
+        Position pos;
+        gosh_foreach(pos, ensPos) {
+			printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
+		}
 
 		detruire_ensemble_position(ensPos);
 	}
@@ -146,8 +146,9 @@ int main(int argc, const char *argv[]) {
 			printf("chaine:\n");
 			Position pos;
 			gosh_foreach(pos, ensemble_colore_positions(chaine)) {
-				//	printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
+                printf("%d %d, ", POSITION_X(pos), POSITION_Y(pos));
 			}
+            printf("\n");
 			detruire_ensemble_colore(chaine);
 		} else {
 			printf("pas de chaine\n");

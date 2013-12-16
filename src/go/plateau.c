@@ -68,12 +68,12 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 
 	// utilisation de EnsemblePositions comme d'une pile
 	EnsemblePosition possibles = creer_ensemble_position();
-	ensemble_position_ajouter(possibles, pos);
-	while (!ensemble_position_vide(possibles)) {
+	gosh_ajouter(possibles, pos);
+	while (!gosh_vide(possibles)) {
 		Position courante = ensemble_position_supprimer_tete(possibles);
 		if (CASE_AT_P(plateau, courante) == couleur) {
-			if (!ensemble_position_appartient(positions_chaine, courante)) {
-				ensemble_position_ajouter(positions_chaine, courante);
+			if (!gosh_appartient(positions_chaine, courante)) {
+				gosh_ajouter(positions_chaine, courante);
 
 				const Position a_tester[] = {
 					POSITION_GAUCHE(courante, plateau->taille),
@@ -83,7 +83,7 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 				};
 				for (int p = 0; p < 4; p++) {
 					if (POSITION_EST_VALIDE(a_tester[p]))
-						ensemble_position_ajouter(possibles, a_tester[p]);
+						gosh_ajouter(possibles, a_tester[p]);
 				}
 			}
 		}

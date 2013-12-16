@@ -30,4 +30,3 @@ EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble);
 void ensemble_colore_set_couleur(EnsembleColore ensemble, Couleur couleur);
 
 #endif
-

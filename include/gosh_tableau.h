@@ -13,8 +13,8 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GENERICTAB_H
-#define GENERICTAB_H
+#ifndef GOSH_TABLEAU
+#define GOSH_TABLEAU
 
 #ifndef TYPE
 #error "TYPE non défini"
@@ -60,7 +60,7 @@ typedef struct IMPL_CONTAINER_NAME {
 	void (*reserve)(struct IMPL_CONTAINER_NAME *, size_t size);
 	//bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
 	TYPE(*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
-} CONTAINER_NAME;
+} * CONTAINER_NAME;
 
 // déclaration des fonctions
 CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
@@ -77,4 +77,4 @@ void FUNC_NAME(reserve)(CONTAINER_NAME ensemble, size_t size);
 
 
 
-#endif // GENERICTAB_H
+#endif

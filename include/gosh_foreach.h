@@ -35,6 +35,9 @@ typedef struct {
 #define gosh_appartient(CONTAINER, ELEMENT) \
 	(CONTAINER)->appartient( (CONTAINER), (ELEMENT) )
 
+#define gosh_vide(CONTAINER) \
+	(CONTAINER)->vide( (CONTAINER) )
+
 #define gosh_ajouter(CONTAINER, ELEMENT) \
 	(CONTAINER)->ajouter( (CONTAINER), (ELEMENT) )
 
