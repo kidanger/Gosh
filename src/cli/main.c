@@ -59,11 +59,11 @@ void afficher_plateau(Plateau plateau) {
 
 			// highlight de la chaine
 			const char* ansi = C_WHITE;
-			if (chaine != NULL && chaine_appartient(chaine, POSITION(x, y)))
+			if (chaine != NULL && gosh_appartient(chaine, POSITION(x, y)))
 				ansi = C_RED;
 			else if (libertes != NULL && gosh_appartient(libertes, POSITION(x, y)))
 				ansi = C_GREEN;
-			else if (territoire != NULL && territoire_appartient(territoire, POSITION(x, y)))
+			else if (territoire != NULL && gosh_appartient(territoire, POSITION(x, y)))
 				ansi = couleur_territoire;
 
 			printf("%s%d "C_WHITE, ansi, couleur);
@@ -112,8 +112,8 @@ int main(int argc, const char *argv[]) {
 		ensemble_position_ajouter(ensPos, POSITION(1, 2));
 		ensemble_position_ajouter(ensPos, POSITION(4, 2));
 
-        Position pos;
-        gosh_foreach(pos, ensPos) {
+		Position pos;
+		gosh_foreach(pos, ensPos) {
 			printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 		}
 
@@ -146,9 +146,9 @@ int main(int argc, const char *argv[]) {
 			printf("chaine:\n");
 			Position pos;
 			gosh_foreach(pos, ensemble_colore_positions(chaine)) {
-                printf("%d %d, ", POSITION_X(pos), POSITION_Y(pos));
+				printf("%d %d, ", POSITION_X(pos), POSITION_Y(pos));
 			}
-            printf("\n");
+			printf("\n");
 			detruire_ensemble_colore(chaine);
 		} else {
 			printf("pas de chaine\n");

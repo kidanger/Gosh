@@ -16,17 +16,22 @@
 #include <stdlib.h>
 
 #include "alloc.h"
+
+#define SHOW_IMPLEMENTATION_ENSEMBLE_COLORE
 #include "go/ensemble_colore.h"
 
-struct ensemble_colore {
-	EnsemblePosition positions;
-	Couleur couleur;
-};
 
 EnsembleColore creer_ensemble_colore(Couleur couleur) {
 	EnsembleColore ensemble = gosh_alloc(*ensemble);
 	ensemble->couleur = couleur;
 	ensemble->positions = creer_ensemble_position();
+
+	ensemble->next = ensemble_colore_next;
+	ensemble->createIterateur = ensemble_colore_createIterateur;
+	ensemble->vide = ensemble_colore_vide;
+	ensemble->ajouter = ensemble_colore_ajouter;
+	ensemble->appartient = ensemble_colore_appartient;
+
 	return ensemble;
 }
 
@@ -44,4 +49,24 @@ EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble) {
 
 void ensemble_colore_set_couleur(EnsembleColore ensemble, Couleur couleur) {
 	ensemble->couleur = couleur;
+}
+
+GoshIterateur ensemble_colore_createIterateur(void) {
+	return ensemble_position_createIterateur();
+}
+
+Position * ensemble_colore_next(GoshIterateur * it, EnsembleColore ensemble, Position* position) {
+	return ensemble->positions->next(it, ensemble->positions, position);
+}
+
+bool ensemble_colore_vide(EnsembleColore ensemble) {
+	return gosh_vide(ensemble->positions);
+}
+
+void ensemble_colore_ajouter(EnsembleColore ensemble, Position position) {
+	gosh_ajouter(ensemble->positions, position);
+}
+
+bool ensemble_colore_appartient(EnsembleColore ensemble, Position position) {
+	return gosh_appartient(ensemble->positions, position);
 }

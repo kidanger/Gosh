@@ -19,7 +19,18 @@
 #include "ensemble_positions.h"
 #include "couleur.h"
 
-typedef struct ensemble_colore* EnsembleColore;
+typedef struct ImplEnsembleColore {
+	TYPE * (* next)(GoshIterateur *, struct ImplEnsembleColore *, TYPE *);
+	GoshIterateur(*createIterateur)(void);
+	bool (*vide)(struct ImplEnsembleColore *);
+	void (*ajouter)(struct ImplEnsembleColore *, TYPE);
+	bool (*appartient)(struct ImplEnsembleColore *, TYPE);
+
+#ifdef SHOW_IMPLEMENTATION_ENSEMBLE_COLORE
+	EnsemblePosition positions;
+	Couleur couleur;
+#endif
+} * EnsembleColore;
 
 EnsembleColore creer_ensemble_colore();
 void detruire_ensemble_colore(EnsembleColore ensemble);
@@ -28,5 +39,11 @@ Couleur ensemble_colore_couleur(EnsembleColore ensemble);
 EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble);
 
 void ensemble_colore_set_couleur(EnsembleColore ensemble, Couleur couleur);
+
+GoshIterateur ensemble_colore_createIterateur(void);
+Position * ensemble_colore_next(GoshIterateur * it, EnsembleColore ensemble, Position* position);
+bool ensemble_colore_vide(EnsembleColore ensemble);
+void ensemble_colore_ajouter(EnsembleColore ensemble, Position position);
+bool ensemble_colore_appartient(EnsembleColore ensemble, Position position);
 
 #endif
