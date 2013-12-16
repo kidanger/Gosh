@@ -46,5 +46,6 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 }
 
 bool territoire_appartient(Territoire territoire, Position position) {
-	return ensemble_position_appartient(ensemble_colore_positions(territoire), position);
+    return gosh_appartient( ensemble_colore_positions(territoire),
+                            position);
 }

@@ -35,8 +35,8 @@
 
 void afficher_plateau(Plateau plateau) {
 	size_t taille = plateau_get_taille(plateau);
-	// pour tester les chaines
-	Position position_chaine = POSITION(taille / 2, taille / 2);
+    // pour tester les chaines
+Position position_chaine = POSITION(taille / 2, taille / 2);
 	Chaine chaine = plateau_determiner_chaine(plateau, position_chaine);
 	Libertes libertes = determiner_libertes(plateau, chaine);
 	Territoire territoire = determiner_territoire(plateau, POSITION(taille - 1, taille - 1));

@@ -32,4 +32,7 @@ typedef struct {
           (ELEMENT) = (CONTAINER)->next(&it, (CONTAINER), NULL ) ; \
         )
 
+#define gosh_appartient(CONTAINER, ELEMENT) \
+        (CONTAINER)->appartient( (CONTAINER), (ELEMENT) )
+
 #endif // GOSH_FOREACH_H
