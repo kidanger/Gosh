@@ -28,8 +28,7 @@ void gosh_free(void* ptr) {
 	free(ptr);
 }
 
-void * gosh_realloc_size(void * ptr, size_t size)
-{
-    return realloc(ptr, size);
+void * gosh_realloc_size(void * ptr, size_t size) {
+	return realloc(ptr, size);
 }
 

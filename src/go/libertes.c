@@ -3,7 +3,7 @@
 #include "go/libertes.h"
 
 Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
-    if (  ! chaine )
+	if (! chaine)
 		return NULL;
 
 	int taille = plateau_get_taille(plateau);
@@ -11,7 +11,7 @@ Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
 	Libertes libertes = creer_ensemble_position();
 
 	Position pos;
-    gosh_foreach(pos, ensemble_colore_positions(chaine)) {
+	gosh_foreach(pos, ensemble_colore_positions(chaine)) {
 		const Position a_tester[] = {
 			POSITION_GAUCHE(pos, taille),
 			POSITION_DROITE(pos, taille),

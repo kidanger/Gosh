@@ -48,27 +48,26 @@
   * @note we use void pointer to simplify prototypes.
   */
 
-typedef struct IMPL_CONTAINER_NAME
-{
-    TYPE * m_data;
-    size_t m_size;
-    size_t m_reservedSize;
+typedef struct IMPL_CONTAINER_NAME {
+	TYPE * m_data;
+	size_t m_size;
+	size_t m_reservedSize;
 
-    TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
-    GoshIterateur (*createIterateur) (void);
-    bool (*vide)(struct IMPL_CONTAINER_NAME *);
-    void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
-    void (*reserve)(struct IMPL_CONTAINER_NAME *, size_t size);
-    //bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
-    TYPE (*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
+	TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
+	GoshIterateur(*createIterateur)(void);
+	bool (*vide)(struct IMPL_CONTAINER_NAME *);
+	void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
+	void (*reserve)(struct IMPL_CONTAINER_NAME *, size_t size);
+	//bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
+	TYPE(*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
 } CONTAINER_NAME;
 
 // déclaration des fonctions
 CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
 void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ensemble);
 
-TYPE * FUNC_NAME(next) (GoshIterateur *, CONTAINER_NAME, TYPE *);
-GoshIterateur FUNC_NAME(createIterateur) (void);
+TYPE * FUNC_NAME(next)(GoshIterateur *, CONTAINER_NAME, TYPE *);
+GoshIterateur FUNC_NAME(createIterateur)(void);
 
 bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
 void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);

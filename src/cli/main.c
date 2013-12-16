@@ -35,8 +35,8 @@
 
 void afficher_plateau(Plateau plateau) {
 	size_t taille = plateau_get_taille(plateau);
-    // pour tester les chaines
-Position position_chaine = POSITION(taille / 2, taille / 2);
+	// pour tester les chaines
+	Position position_chaine = POSITION(taille / 2, taille / 2);
 	Chaine chaine = plateau_determiner_chaine(plateau, position_chaine);
 	Libertes libertes = determiner_libertes(plateau, chaine);
 	Territoire territoire = determiner_territoire(plateau, POSITION(taille - 1, taille - 1));
@@ -114,7 +114,7 @@ int main(int argc, const char *argv[]) {
 		ensemble_position_ajouter(ensPos, POSITION(4, 2));
 
 		Position pos;
-        gosh_foreach(pos, ensPos)
+		gosh_foreach(pos, ensPos)
 		printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 
 		detruire_ensemble_position(ensPos);
@@ -145,7 +145,7 @@ int main(int argc, const char *argv[]) {
 		if (chaine) {
 			printf("chaine:\n");
 			Position pos;
-            gosh_foreach(pos, ensemble_colore_positions(chaine)) {
+			gosh_foreach(pos, ensemble_colore_positions(chaine)) {
 				//	printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
 			}
 			detruire_ensemble_colore(chaine);
