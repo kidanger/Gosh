@@ -52,13 +52,15 @@ typedef struct IMPL_CONTAINER_NAME
 {
     TYPE * m_data;
     size_t m_size;
+    size_t m_reservedSize;
 
     TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
     GoshIterateur (*createIterateur) (void);
     bool (*vide)(struct IMPL_CONTAINER_NAME *);
-    //void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
+    void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
+    void (*reserve)(struct IMPL_CONTAINER_NAME *, size_t size);
     //bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
-    //TYPE (*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
+    TYPE (*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
 } CONTAINER_NAME;
 
 // déclaration des fonctions
@@ -72,6 +74,7 @@ bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
 void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
 bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);
+void FUNC_NAME(reserve)(CONTAINER_NAME ensemble, size_t size);
 
 
 

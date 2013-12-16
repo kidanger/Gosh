@@ -26,14 +26,17 @@ TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME container, TYPE* eleme
 CONTAINER_NAME CONCAT_2(creer_dynamicTab_, TYPE_LOWER)(void)
 {
     CONTAINER_NAME ensemble = gosh_alloc(*ensemble);
+    ensemble->m_size = 0;
+    ensemble->m_allocatedSize = 0;
     ensemble->m_data = NULL;
 
     ensemble->next = FUNC_NAME(next);
     ensemble->createIterateur = FUNC_NAME(createIterateur);
     ensemble->vide = FUNC_NAME(vide);
-    //ensemble->ajouter = FUNC_NAME(ajouter);
+    ensemble->ajouter = FUNC_NAME(ajouter);
+    ensemble->reserve = FUNC_NAME(reserve);
     //ensemble->appartient = FUNC_NAME(appartient);
-    //ensemble->supprimer_tete = FUNC_NAME(supprimer_tete);
+    ensemble->supprimer_tete = FUNC_NAME(supprimer_tete);
 
     return ensemble;
 }
@@ -47,22 +50,33 @@ void CONCAT_2(detruire_dynamicTab_, TYPE_LOWER) (CONTAINER_NAME ensemble)
 bool FUNC_NAME(vide)(CONTAINER_NAME ensemble) {
     return  ! ensemble->m_data || ! ensemble->size_t;
 }
-/*
+
+void FUNC_NAME(reserve)(CONTAINER_NAME ensemble, size_t size)
+{
+    if( ensemble->m_size < size)
+        ensemble->m_allocatedSize = ensemble->m_size;
+    else
+        ensemble->m_allocatedSize = size;
+
+    if( ! ensemble->m_data )
+        ensemble->m_data = gosh_allocn(TYPE, ensemble->m_allocatedSize);
+    else
+        ensemble->m_data = gosh_reallocn(ensemble->m_data, TYPE, ensemble->m_allocatedSize);
+}
+
 void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element)
 {
-    struct NODE_NAME * nouveau = gosh_alloc(*nouveau);
-    nouveau->element = element;
-    nouveau->suivant = ensemble->tete;
-    ensemble->tete = nouveau;
+    if( ensemble->m_size >= ensemble->reservedSize )
+        ensemble->reserve(ensemble, m_size + 1);
+    ensemble->m_data[ensemble->m_size++] = element;
 }
 
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble) {
-    TYPE pos = ensemble->tete->element;
-    struct NODE_NAME * vieux = ensemble->tete;
-    ensemble->tete = ensemble->tete->suivant;
-    gosh_free(vieux);
+    assert(ensemble->m_size );
+    TYPE element = ensemble->m_data[--ensemble->m_size];
     return pos;
 }
+/*
 
 bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element) {
     struct NODE_NAME * noeud = ensemble->tete;

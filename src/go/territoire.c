@@ -10,6 +10,8 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 
 	int taille = plateau_get_taille(plateau);
 	ensemble_position_ajouter(possibles, position);
+
+    /// @todo remplacer par une pile.
 	while (!ensemble_position_vide(possibles)) {
 		Position courante = ensemble_position_supprimer_tete(possibles);
 

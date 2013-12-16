@@ -35,4 +35,13 @@ typedef struct {
 #define gosh_appartient(CONTAINER, ELEMENT) \
         (CONTAINER)->appartient( (CONTAINER), (ELEMENT) )
 
+#define gosh_ajouter(CONTAINER, ELEMENT) \
+        (CONTAINER)->ajouter( (CONTAINER), (ELEMENT) )
+
+#define gosh_supprimer_tete(CONTAINER) \
+        (CONTAINER)->supprimer_tete( (CONTAINER) )
+
+#define gosh_reserve(CONTAINER, SIZE) \
+        (CONTAINER)->reserve( (SIZE) )
+
 #endif // GOSH_FOREACH_H

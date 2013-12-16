@@ -3,7 +3,7 @@
 #include "go/libertes.h"
 
 Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
-	if (chaine == NULL)
+    if (  ! chaine )
 		return NULL;
 
 	int taille = plateau_get_taille(plateau);
