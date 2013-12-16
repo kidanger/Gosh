@@ -16,24 +16,32 @@
 #ifndef GOSH_FOREACH_H
 #define GOSH_FOREACH_H
 
-#include <stddef.h>
-#include <stdbool.h>
+typedef struct {
+    void * m_pos;
+} GoshIterateur;
 
-#include "concat.h"
+#define CREATE_ITERATOR(CONTAINER) (CONTAINER)->create_iterator()
 
-struct iterateur {
-};
+#define gosh_foreach(ELEMENT, CONTAINER) \
+    for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
+          (CONTAINER)->next(&it, (CONTAINER), &(ELEMENT) ) ; \
+        )
 
-#define TYPE_ITERATEUR_OF(TYPE, ITERABLE) (((struct C2(iterable_, TYPE)*) (ITERABLE))->funcs)
+#define gosh_foreach_ptr(ELEMENT, CONTAINER) \
+    for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
+          (ELEMENT) = (CONTAINER)->next(&it, (CONTAINER), NULL ) ; \
+        )
 
-#define gosh_foreach(TYPE, ELEMENT, CONTAINER) \
-	for (struct iterateur* it = TYPE_ITERATEUR_OF(TYPE, CONTAINER)->begin(CONTAINER); \
-	        TYPE_ITERATEUR_OF(TYPE, CONTAINER)->next(it, &(ELEMENT)); \
-	    )
+#define gosh_appartient(CONTAINER, ELEMENT) \
+        (CONTAINER)->appartient( (CONTAINER), (ELEMENT) )
 
-#define gosh_foreach_old(TYPE, ELEMENT_NAME, CONTAINER) \
-	for (Gosh_Iterator it = (CONTAINER).begin( &(CONTAINER) ); \
-	        ((ELEMENT_NAME) = it.next( &it )) ; \
-	    )
+#define gosh_ajouter(CONTAINER, ELEMENT) \
+        (CONTAINER)->ajouter( (CONTAINER), (ELEMENT) )
+
+#define gosh_supprimer_tete(CONTAINER) \
+        (CONTAINER)->supprimer_tete( (CONTAINER) )
+
+#define gosh_reserve(CONTAINER, SIZE) \
+        (CONTAINER)->reserve( (SIZE) )
 
 #endif // GOSH_FOREACH_H

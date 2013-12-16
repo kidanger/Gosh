@@ -22,19 +22,45 @@
 
 #include <stdbool.h>
 #include "concat.h"
+#include "gosh_foreach.h"
 
-#define ENSTYPE C2(Ensemble, TYPE)
-typedef struct gosh_ensemble* ENSTYPE;
+#define CONTAINER_NAME CONCAT_2(Ensemble, TYPE)
 
-ENSTYPE C2(creer_ensemble_, TYPE_LOWER)();
-void C2(detruire_ensemble_, TYPE_LOWER)(ENSTYPE ensemble);
+#define NODE_NAME CONCAT_2 (Noeud, TYPE)
 
-#define FUNC_NAME(name) C3(ensemble_, TYPE_LOWER, _##name)
+#define FUNC_NAME(name) CONCAT_3(ensemble_, TYPE_LOWER, _##name)
 
-bool FUNC_NAME(vide)(ENSTYPE ensemble);
-void FUNC_NAME(ajouter)(ENSTYPE ensemble, TYPE element);
-TYPE FUNC_NAME(supprimer_tete)(ENSTYPE ensemble);
-bool FUNC_NAME(appartient)(ENSTYPE ensemble, TYPE element);
+#define IPLM_CONTAINER_NAME CONCAT_2(Impl, CONTAINER_NAME)
 
-#include "gosh_iterateur.h"
-DEFINE_ITERATEUR(TYPE);
+struct NODE_NAME {
+    TYPE element;
+    struct NODE_NAME * suivant;
+};
+
+typedef struct IMPL_CONTAINER_NAME {
+
+    struct NODE_NAME * tete;
+
+
+    TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
+    GoshIterateur (*createIterateur) (void);
+    bool (*vide)(struct IMPL_CONTAINER_NAME *);
+    void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
+    bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
+    TYPE (*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
+
+
+
+} * CONTAINER_NAME;
+
+// déclaration des fonctions
+CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
+void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ensemble);
+
+TYPE * FUNC_NAME(next) (GoshIterateur *, CONTAINER_NAME, TYPE *);
+GoshIterateur FUNC_NAME(createIterateur) (void);
+
+bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
+void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
+TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
+bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);

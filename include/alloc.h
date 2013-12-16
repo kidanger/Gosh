@@ -19,10 +19,16 @@
 #include <stdlib.h> // size_t
 
 #define gosh_alloc(type) gosh_alloc_size(sizeof(type))
-#define gosh_allocn(type, n) gosh_alloc_size(n * sizeof(type))
+#define gosh_allocn(type, n) gosh_alloc_size( (n) * sizeof(type))
+
+#define gosh_realloc(OLD_PTR, TYPE) gosh_realloc_size( (OLD_PTR), sizeof(TYPE) )
+#define gosh_reallocn(OLD_PTR, TYPE, N) gosh_realloc_size( (OLD_PTR), sizeof(TYPE)*(N) )
+
 
 void* gosh_alloc_size(size_t size);
 void gosh_free(void* ptr);
+
+void * gosh_realloc_size(void * ptr, size_t size);
 
 
 #endif
