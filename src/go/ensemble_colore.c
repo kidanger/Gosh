@@ -36,7 +36,7 @@ EnsembleColore creer_ensemble_colore(Couleur couleur) {
 }
 
 void detruire_ensemble_colore(EnsembleColore ensemble) {
-	detruire_ensemble_position(ensemble->positions);
+    detruire_ensemble_position( ensemble->positions);
 	gosh_free(ensemble);
 }
 
@@ -56,7 +56,7 @@ GoshIterateur ensemble_colore_createIterateur(void) {
 }
 
 Position * ensemble_colore_next(GoshIterateur * it, EnsembleColore ensemble, Position* position) {
-	return ensemble->positions->next(it, ensemble->positions, position);
+    return ensemble->positions->next(it, ensemble->positions, position);
 }
 
 bool ensemble_colore_vide(EnsembleColore ensemble) {
