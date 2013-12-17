@@ -33,6 +33,8 @@
 
 #define IPLM_CONTAINER_NAME CONCAT_2(Impl, CONTAINER_NAME)
 
+#define SCN CONCAT_2(s_, CONTAINER_NAME)
+
 
 /** @def DEF_DYNAMIC_TAB
   * @author Denis Migdal
@@ -47,19 +49,18 @@
   * @todo add some stuffs like resize/getElement()/destroy()/setElement/end()/previous()/compareIterator()
   * @note we use void pointer to simplify prototypes.
   */
+struct IMPL_CONTAINER_NAME;
 
-typedef struct IMPL_CONTAINER_NAME {
-	TYPE * m_data;
-	size_t m_size;
-	size_t m_reservedSize;
-
-	TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
+typedef struct SCN {
+    TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
 	GoshIterateur(*createIterateur)(void);
-	bool (*vide)(struct IMPL_CONTAINER_NAME *);
-	void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
-	void (*reserve)(struct IMPL_CONTAINER_NAME *, size_t size);
-	//bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
-	TYPE(*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
+    bool (*vide)(struct SCN *);
+    void (*ajouter)(struct SCN *, TYPE);
+    void (*reserve)(struct SCN *, size_t size);
+    //bool (*appartient)(struct SCN *, TYPE);
+    TYPE(*supprimer_tete)(struct SCN *);
+
+    struct IMPL_CONTAINER_NAME * data;
 } * CONTAINER_NAME;
 
 // déclaration des fonctions
