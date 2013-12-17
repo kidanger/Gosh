@@ -17,9 +17,11 @@
 #define GOSH_GO_PLATEAU
 
 #include <stdlib.h> // size_t
+#include <stdbool.h>
 
 #include "couleur.h"
 #include "position.h"
+#include "chaines.h"
 #include "chaine.h"
 
 typedef struct plateau* Plateau;
@@ -33,8 +35,24 @@ void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
 
 size_t plateau_get_taille(Plateau plateau);
 
-/** * @brief Produit la chaîne à laquelle appartient le pion à la position pos sur le plateau. S’il n’y a pas de pion sur cette case, alors le résultat retourné est NULL */
+/** @brief Produit la chaîne à laquelle appartient le pion à la position pos sur le plateau. S’il n’y a pas de pion sur cette case, alors le résultat retourné est NULL */
 Chaine plateau_determiner_chaine(Plateau plateau, Position pos);
 
-#endif
+// TODO: à tester
+/** @brief Réalise la capture des pions correspondant à la chaine en les enlevant du plateau. */
+void plateau_realiser_capture(Plateau plateau, Chaine chaine);
 
+// TODO: à tester
+/** @brief indique si l’organisation du plateau est identique à une précédente organisation de plateau. */
+bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau);
+
+// TODO: à tester
+/** @brief Copie un plateau. Les deux tableaux sont supposé ́être déjà alloués */
+void plateau_copie(Plateau from, Plateau to);
+
+typedef EnsembleColore Territoire; // TODO: removeme
+// TODO: à tester
+/** @brief Détermine la ou les chaines entourant un territoire */
+Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire);
+
+#endif
