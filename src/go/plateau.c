@@ -95,48 +95,48 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 }
 
 void plateau_realiser_capture(Plateau plateau, Chaine chaine) {
-    Position position;
-    gosh_foreach(position, chaine) {
-        CASE_AT_P(plateau, position) = VIDE;
-    }
+	Position position;
+	gosh_foreach(position, chaine) {
+		CASE_AT_P(plateau, position) = VIDE;
+	}
 }
 
 bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau) {
-    if (plateau->taille != ancienPlateau->taille) {
-        return false;
-    }
-    size_t taille = plateau->taille;
-    for (int x = 0; x < taille; x++) {
-        for (int y = 0; y < taille; y++) {
-            if (CASE_AT(plateau, x, y) != CASE_AT(ancienPlateau, x, y)) {
-                return false;
-            }
-        }
-    }
-    return true;
+	if (plateau->taille != ancienPlateau->taille) {
+		return false;
+	}
+	size_t taille = plateau->taille;
+	for (int x = 0; x < taille; x++) {
+		for (int y = 0; y < taille; y++) {
+			if (CASE_AT(plateau, x, y) != CASE_AT(ancienPlateau, x, y)) {
+				return false;
+			}
+		}
+	}
+	return true;
 }
 
 void plateau_copie(Plateau from, Plateau to) {
-    size_t taille = from->taille;
-    for (int x = 0; x < taille; x++) {
-        for (int y = 0; y < taille; y++) {
-            CASE_AT(to, x, y) = CASE_AT(from, x, y);
-        }
-    }
+	size_t taille = from->taille;
+	for (int x = 0; x < taille; x++) {
+		for (int y = 0; y < taille; y++) {
+			CASE_AT(to, x, y) = CASE_AT(from, x, y);
+		}
+	}
 }
 
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
-    Chaines chaines = creer_ensemble_chaine();
-    Position position;
-    gosh_foreach (position, territoire) {
-        Chaine chaine = plateau_determiner_chaine(plateau, position);
-        if (chaine) {
-            if (gosh_appartient(chaines, chaine)) {
-                detruire_ensemble_chaine(chaines);
-            } else {
-                gosh_ajouter(chaines, chaine);
-            }
-        }
-    }
-    return chaines;
+	Chaines chaines = creer_ensemble_chaine();
+	Position position;
+	gosh_foreach(position, territoire) {
+		Chaine chaine = plateau_determiner_chaine(plateau, position);
+		if (chaine) {
+			if (gosh_appartient(chaines, chaine)) {
+				detruire_ensemble_chaine(chaines);
+			} else {
+				gosh_ajouter(chaines, chaine);
+			}
+		}
+	}
+	return chaines;
 }

@@ -22,13 +22,13 @@
 struct ImplEnsembleColore;
 
 typedef struct s_EnsembleColore {
-    TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
-    GoshIterateur(*createIterateur)(void);
-    bool (*vide)(struct s_EnsembleColore *);
-    void (*ajouter)(struct s_EnsembleColore *, TYPE);
-    bool (*appartient)(struct s_EnsembleColore *, TYPE);
+	TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
+	GoshIterateur(*createIterateur)(void);
+	bool (*vide)(struct s_EnsembleColore *);
+	void (*ajouter)(struct s_EnsembleColore *, TYPE);
+	bool (*appartient)(struct s_EnsembleColore *, TYPE);
 
-    struct ImplEnsembleColore * data;
+	struct ImplEnsembleColore * data;
 
 } * EnsembleColore;
 

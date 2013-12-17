@@ -4,7 +4,7 @@
 
 Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
 	if (! chaine)
-        return NULL;
+		return NULL;
 
 	int taille = plateau_get_taille(plateau);
 	Couleur couleur = ensemble_colore_couleur(chaine);

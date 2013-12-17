@@ -25,12 +25,12 @@
 #include "concat.h"
 
 struct NODE_NAME {
-    TYPE element;
-    struct NODE_NAME * suivant;
+	TYPE element;
+	struct NODE_NAME * suivant;
 };
 
 struct IMPL_CONTAINER_NAME {
-    struct NODE_NAME * tete;
+	struct NODE_NAME * tete;
 };
 
 GoshIterateur FUNC_NAME(createIterateur)(void) {
@@ -39,10 +39,10 @@ GoshIterateur FUNC_NAME(createIterateur)(void) {
 }
 
 TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME ptrContainer, TYPE* element) {
-    struct NODE_NAME * ptrNode;
+	struct NODE_NAME * ptrNode;
 
 	if (! it->m_pos)
-        ptrNode = ptrContainer->data->tete;
+		ptrNode = ptrContainer->data->tete;
 	else
 		ptrNode = ((struct NODE_NAME *)it->m_pos)->suivant;
 
@@ -58,22 +58,22 @@ TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME ptrContainer, TYPE* el
 }
 
 CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void) {
-    CONTAINER_NAME ptrContainer = gosh_alloc(*ptrContainer);
-    ptrContainer->data = gosh_alloc(*ptrContainer->data);
-    ptrContainer->data->tete = NULL;
+	CONTAINER_NAME ptrContainer = gosh_alloc(*ptrContainer);
+	ptrContainer->data = gosh_alloc(*ptrContainer->data);
+	ptrContainer->data->tete = NULL;
 
-    ptrContainer->next = FUNC_NAME(next);
-    ptrContainer->createIterateur = FUNC_NAME(createIterateur);
-    ptrContainer->vide = FUNC_NAME(vide);
-    ptrContainer->ajouter = FUNC_NAME(ajouter);
-    ptrContainer->appartient = FUNC_NAME(appartient);
-    ptrContainer->supprimer_tete = FUNC_NAME(supprimer_tete);
+	ptrContainer->next = FUNC_NAME(next);
+	ptrContainer->createIterateur = FUNC_NAME(createIterateur);
+	ptrContainer->vide = FUNC_NAME(vide);
+	ptrContainer->ajouter = FUNC_NAME(ajouter);
+	ptrContainer->appartient = FUNC_NAME(appartient);
+	ptrContainer->supprimer_tete = FUNC_NAME(supprimer_tete);
 
-    return ptrContainer;
+	return ptrContainer;
 }
 
 void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer) {
-    struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
+	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	struct NODE_NAME * noeud = ensemble->tete;
 	while (noeud) {
 		struct NODE_NAME * suivant = noeud->suivant;
@@ -81,23 +81,23 @@ void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer) {
 		noeud = suivant;
 	}
 	gosh_free(ensemble);
-    gosh_free(ptrContainer);
+	gosh_free(ptrContainer);
 }
 
 bool FUNC_NAME(vide)(CONTAINER_NAME ptrContainer) {
-    return ptrContainer->data->tete == NULL;
+	return ptrContainer->data->tete == NULL;
 }
 
 void FUNC_NAME(ajouter)(CONTAINER_NAME ptrContainer, TYPE element) {
-    struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
+	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	struct NODE_NAME * nouveau = gosh_alloc(*nouveau);
 	nouveau->element = element;
-    nouveau->suivant = ensemble->tete;
+	nouveau->suivant = ensemble->tete;
 	ensemble->tete = nouveau;
 }
 
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrContainer) {
-    struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
+	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	TYPE pos = ensemble->tete->element;
 	struct NODE_NAME * vieux = ensemble->tete;
 	ensemble->tete = ensemble->tete->suivant;
@@ -106,7 +106,7 @@ TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrContainer) {
 }
 
 bool FUNC_NAME(appartient)(CONTAINER_NAME ptrContainer, TYPE element) {
-    struct NODE_NAME * noeud = ptrContainer->data->tete;
+	struct NODE_NAME * noeud = ptrContainer->data->tete;
 	while (noeud) {
 		if (noeud->element == element) {
 			return true;

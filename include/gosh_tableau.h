@@ -52,15 +52,15 @@
 struct IMPL_CONTAINER_NAME;
 
 typedef struct SCN {
-    TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
+	TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
 	GoshIterateur(*createIterateur)(void);
-    bool (*vide)(struct SCN *);
-    void (*ajouter)(struct SCN *, TYPE);
-    void (*reserve)(struct SCN *, size_t size);
-    //bool (*appartient)(struct SCN *, TYPE);
-    TYPE(*supprimer_tete)(struct SCN *);
+	bool (*vide)(struct SCN *);
+	void (*ajouter)(struct SCN *, TYPE);
+	void (*reserve)(struct SCN *, size_t size);
+	//bool (*appartient)(struct SCN *, TYPE);
+	TYPE(*supprimer_tete)(struct SCN *);
 
-    struct IMPL_CONTAINER_NAME * data;
+	struct IMPL_CONTAINER_NAME * data;
 } * CONTAINER_NAME;
 
 // déclaration des fonctions

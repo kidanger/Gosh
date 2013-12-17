@@ -23,28 +23,28 @@ typedef struct {
 #define CREATE_ITERATOR(CONTAINER) (CONTAINER)->create_iterator()
 
 #define gosh_foreach(ELEMENT, CONTAINER) \
-    for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
-            (CONTAINER)->next(&it, (CONTAINER), &(ELEMENT) ) ; \
+	for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
+	        (CONTAINER)->next(&it, (CONTAINER), &(ELEMENT) ) ; \
 	    )
 
 #define gosh_foreach_ptr(ELEMENT, CONTAINER) \
-    for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
-            (ELEMENT) = (CONTAINER)->next(&it, (CONTAINER), NULL ) ; \
+	for ( GoshIterateur it = (CONTAINER)->createIterateur(); \
+	        (ELEMENT) = (CONTAINER)->next(&it, (CONTAINER), NULL ) ; \
 	    )
 
 #define gosh_appartient(CONTAINER, ELEMENT) \
-(CONTAINER)->appartient( (CONTAINER), (ELEMENT) )
+	(CONTAINER)->appartient( (CONTAINER), (ELEMENT) )
 
 #define gosh_vide(CONTAINER) \
-    (CONTAINER)->vide( (CONTAINER) )
+	(CONTAINER)->vide( (CONTAINER) )
 
 #define gosh_ajouter(CONTAINER, ELEMENT) \
-    (CONTAINER)->ajouter( (CONTAINER), (ELEMENT) )
+	(CONTAINER)->ajouter( (CONTAINER), (ELEMENT) )
 
 #define gosh_supprimer_tete(CONTAINER) \
-    (CONTAINER)->supprimer_tete( (CONTAINER) )
+	(CONTAINER)->supprimer_tete( (CONTAINER) )
 
 #define gosh_reserve(CONTAINER, SIZE) \
-    (CONTAINER)->reserve( (SIZE) )
+	(CONTAINER)->reserve( (SIZE) )
 
 #endif // GOSH_FOREACH_H

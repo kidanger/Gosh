@@ -36,14 +36,14 @@
 struct IMPL_CONTAINER_NAME;
 
 typedef struct SCN {
-    TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
-    GoshIterateur(*createIterateur)(void);
-    bool (*vide)(struct SCN *);
-    void (*ajouter)(struct SCN *, TYPE);
-    bool (*appartient)(struct SCN *, TYPE);
-    TYPE(*supprimer_tete)(struct SCN * );
+	TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
+	GoshIterateur(*createIterateur)(void);
+	bool (*vide)(struct SCN *);
+	void (*ajouter)(struct SCN *, TYPE);
+	bool (*appartient)(struct SCN *, TYPE);
+	TYPE(*supprimer_tete)(struct SCN *);
 
-    struct IMPL_CONTAINER_NAME * data;
+	struct IMPL_CONTAINER_NAME * data;
 
 } * CONTAINER_NAME;
 

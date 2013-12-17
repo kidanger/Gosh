@@ -16,9 +16,9 @@
 #ifdef TYPE
 
 struct IMPL_CONTAINER_NAME {
-    TYPE * m_data;
-    size_t m_size;
-    size_t m_reservedSize;
+	TYPE * m_data;
+	size_t m_size;
+	size_t m_reservedSize;
 };
 
 GoshIterateur FUNC_NAME(createIterateur)(void) {
@@ -28,10 +28,10 @@ GoshIterateur FUNC_NAME(createIterateur)(void) {
 
 TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME container, TYPE* element) {
 
-    TYPE * ptrElement = NULL;
+	TYPE * ptrElement = NULL;
 	if (! it->m_pos)
-        it->m_pos = ptrElement = container->data->data;
-    else if (++(TYPE *)it->m_pos - container->data->data >= container->data->m_size)
+		it->m_pos = ptrElement = container->data->data;
+	else if (++(TYPE *)it->m_pos - container->data->data >= container->data->m_size)
 		it->m_pos = NULL;
 	else
 		ptrElement = (TYPE *)it->m_pos;
@@ -44,36 +44,36 @@ TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME container, TYPE* eleme
 }
 
 CONTAINER_NAME CONCAT_2(creer_dynamicTab_, TYPE_LOWER)(void) {
-    CONTAINER_NAME ptrEnsemble = gosh_alloc(*ptrEnsemble);
-    ptrEnsemble->data = gosh_alloc(*ptrEnsemble->data);
-    struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
+	CONTAINER_NAME ptrEnsemble = gosh_alloc(*ptrEnsemble);
+	ptrEnsemble->data = gosh_alloc(*ptrEnsemble->data);
+	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
 	ensemble->m_size = 0;
 	ensemble->m_allocatedSize = 0;
 	ensemble->m_data = NULL;
 
-    ptrEnsemble->next = FUNC_NAME(next);
-    ptrEnsemble->createIterateur = FUNC_NAME(createIterateur);
-    ptrEnsemble->vide = FUNC_NAME(vide);
-    ptrEnsemble->ajouter = FUNC_NAME(ajouter);
-    ptrEnsemble->reserve = FUNC_NAME(reserve);
+	ptrEnsemble->next = FUNC_NAME(next);
+	ptrEnsemble->createIterateur = FUNC_NAME(createIterateur);
+	ptrEnsemble->vide = FUNC_NAME(vide);
+	ptrEnsemble->ajouter = FUNC_NAME(ajouter);
+	ptrEnsemble->reserve = FUNC_NAME(reserve);
 	//ensemble->appartient = FUNC_NAME(appartient);
-    ptrEnsemble->supprimer_tete = FUNC_NAME(supprimer_tete);
+	ptrEnsemble->supprimer_tete = FUNC_NAME(supprimer_tete);
 
-    return ptrEnsemble;
+	return ptrEnsemble;
 }
 
 void CONCAT_2(detruire_dynamicTab_, TYPE_LOWER)(CONTAINER_NAME ensemble) {
-    gosh_free(ensemble->data->m_data);
-    gosh_free(ensemble->data);
+	gosh_free(ensemble->data->m_data);
+	gosh_free(ensemble->data);
 	gosh_free(ensemble);
 }
 
 bool FUNC_NAME(vide)(CONTAINER_NAME ensemble) {
-    return  ! ensemble->data->m_data || ! ensemble->data->size_t;
+	return  ! ensemble->data->m_data || ! ensemble->data->size_t;
 }
 
 void FUNC_NAME(reserve)(CONTAINER_NAME ptrEnsemble, size_t size) {
-    struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
+	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
 
 	if (ensemble->m_size < size)
 		ensemble->m_allocatedSize = ensemble->m_size;
@@ -87,14 +87,14 @@ void FUNC_NAME(reserve)(CONTAINER_NAME ptrEnsemble, size_t size) {
 }
 
 void FUNC_NAME(ajouter)(CONTAINER_NAME ptrEnsemble, TYPE element) {
-    struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
+	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
 	if (ensemble->m_size >= ensemble->reservedSize)
 		ensemble->reserve(ensemble, m_size + 1);
 	ensemble->m_data[ensemble->m_size++] = element;
 }
 
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrEnsemble) {
-    struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble;
+	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble;
 	assert(ensemble->m_size);
 	TYPE element = ensemble->m_data[--ensemble->m_size];
 	return pos;
