@@ -19,17 +19,17 @@
 #include "ensemble_positions.h"
 #include "couleur.h"
 
-typedef struct ImplEnsembleColore {
-	TYPE * (* next)(GoshIterateur *, struct ImplEnsembleColore *, TYPE *);
-	GoshIterateur(*createIterateur)(void);
-	bool (*vide)(struct ImplEnsembleColore *);
-	void (*ajouter)(struct ImplEnsembleColore *, TYPE);
-	bool (*appartient)(struct ImplEnsembleColore *, TYPE);
+struct ImplEnsembleColore;
 
-#ifdef SHOW_IMPLEMENTATION_ENSEMBLE_COLORE
-	EnsemblePosition positions;
-	Couleur couleur;
-#endif
+typedef struct s_EnsembleColore {
+    TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
+    GoshIterateur(*createIterateur)(void);
+    bool (*vide)(struct s_EnsembleColore *);
+    void (*ajouter)(struct s_EnsembleColore *, TYPE);
+    bool (*appartient)(struct s_EnsembleColore *, TYPE);
+
+    struct ImplEnsembleColore * data;
+
 } * EnsembleColore;
 
 EnsembleColore creer_ensemble_colore();

@@ -31,21 +31,20 @@
 #define FUNC_NAME(name) CONCAT_3(ensemble_, TYPE_LOWER, _##name)
 
 #define IPLM_CONTAINER_NAME CONCAT_2(Impl, CONTAINER_NAME)
+#define SCN CONCAT_2(s_, CONTAINER_NAME)
 
-struct NODE_NAME {
-	TYPE element;
-	struct NODE_NAME * suivant;
-};
+struct IMPL_CONTAINER_NAME;
 
-typedef struct IMPL_CONTAINER_NAME {
-	struct NODE_NAME * tete;
+typedef struct SCN {
+    TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
+    GoshIterateur(*createIterateur)(void);
+    bool (*vide)(struct SCN *);
+    void (*ajouter)(struct SCN *, TYPE);
+    bool (*appartient)(struct SCN *, TYPE);
+    TYPE(*supprimer_tete)(struct SCN * );
 
-	TYPE * (* next)(GoshIterateur *, struct IMPL_CONTAINER_NAME *, TYPE *);
-	GoshIterateur(*createIterateur)(void);
-	bool (*vide)(struct IMPL_CONTAINER_NAME *);
-	void (*ajouter)(struct IMPL_CONTAINER_NAME *, TYPE);
-	bool (*appartient)(struct IMPL_CONTAINER_NAME *, TYPE);
-	TYPE(*supprimer_tete)(struct IMPL_CONTAINER_NAME *);
+    struct IMPL_CONTAINER_NAME * data;
+
 } * CONTAINER_NAME;
 
 // déclaration des fonctions

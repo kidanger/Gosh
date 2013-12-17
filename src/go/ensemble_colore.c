@@ -17,56 +17,64 @@
 
 #include "alloc.h"
 
-#define SHOW_IMPLEMENTATION_ENSEMBLE_COLORE
 #include "go/ensemble_colore.h"
+
+struct ImplEnsembleColore {
+    EnsemblePosition positions;
+    Couleur couleur;
+};
 
 
 EnsembleColore creer_ensemble_colore(Couleur couleur) {
-	EnsembleColore ensemble = gosh_alloc(*ensemble);
+    EnsembleColore ptrEnsemble = gosh_alloc(*ptrEnsemble);
+    ptrEnsemble->data = gosh_alloc(*ptrEnsemble->data);
+    struct ImplEnsembleColore * ensemble = ptrEnsemble->data;
+
 	ensemble->couleur = couleur;
 	ensemble->positions = creer_ensemble_position();
 
-	ensemble->next = ensemble_colore_next;
-	ensemble->createIterateur = ensemble_colore_createIterateur;
-	ensemble->vide = ensemble_colore_vide;
-	ensemble->ajouter = ensemble_colore_ajouter;
-	ensemble->appartient = ensemble_colore_appartient;
+    ptrEnsemble->next = ensemble_colore_next;
+    ptrEnsemble->createIterateur = ensemble_colore_createIterateur;
+    ptrEnsemble->vide = ensemble_colore_vide;
+    ptrEnsemble->ajouter = ensemble_colore_ajouter;
+    ptrEnsemble->appartient = ensemble_colore_appartient;
 
-	return ensemble;
+    return ptrEnsemble;
 }
 
-void detruire_ensemble_colore(EnsembleColore ensemble) {
-	detruire_ensemble_position(ensemble->positions);
-	gosh_free(ensemble);
+void detruire_ensemble_colore(EnsembleColore ptrEnsemble) {
+    detruire_ensemble_position( ptrEnsemble->data->positions);
+    gosh_free(ptrEnsemble->data);
+    gosh_free(ptrEnsemble);
 }
 
-Couleur ensemble_colore_couleur(EnsembleColore ensemble) {
-	return ensemble->couleur;
+Couleur ensemble_colore_couleur(EnsembleColore ptrEnsemble) {
+    return ptrEnsemble->data->couleur;
 }
-EnsemblePosition ensemble_colore_positions(EnsembleColore ensemble) {
-	return ensemble->positions;
+EnsemblePosition ensemble_colore_positions(EnsembleColore ptrEnsemble) {
+    return ptrEnsemble->data->positions;
 }
 
-void ensemble_colore_set_couleur(EnsembleColore ensemble, Couleur couleur) {
-	ensemble->couleur = couleur;
+void ensemble_colore_set_couleur(EnsembleColore ptrEnsemble, Couleur couleur) {
+    ptrEnsemble->data->couleur = couleur;
 }
 
 GoshIterateur ensemble_colore_createIterateur(void) {
 	return ensemble_position_createIterateur();
 }
 
-Position * ensemble_colore_next(GoshIterateur * it, EnsembleColore ensemble, Position* position) {
-	return ensemble->positions->next(it, ensemble->positions, position);
+Position * ensemble_colore_next(GoshIterateur * it, EnsembleColore ptrEnsemble, Position* position) {
+    return ptrEnsemble->data->positions->next(it, ptrEnsemble->data->positions, position);
 }
 
-bool ensemble_colore_vide(EnsembleColore ensemble) {
-	return gosh_vide(ensemble->positions);
+bool ensemble_colore_vide(EnsembleColore ptrEnsemble) {
+    return gosh_vide(ptrEnsemble->data->positions);
 }
 
-void ensemble_colore_ajouter(EnsembleColore ensemble, Position position) {
-	gosh_ajouter(ensemble->positions, position);
+void ensemble_colore_ajouter(EnsembleColore ptrEnsemble, Position position) {
+    gosh_ajouter(ptrEnsemble->data->positions, position);
 }
 
-bool ensemble_colore_appartient(EnsembleColore ensemble, Position position) {
-	return gosh_appartient(ensemble->positions, position);
+bool ensemble_colore_appartient(EnsembleColore ptrEnsemble, Position position) {
+    return gosh_appartient(ptrEnsemble->data->positions, position);
 }
