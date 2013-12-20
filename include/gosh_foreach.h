@@ -47,4 +47,7 @@ typedef struct {
 #define gosh_reserve(CONTAINER, SIZE) \
 	(CONTAINER)->reserve( (SIZE) )
 
+#define gosh_nombre_elements(CONTAINER) \
+	(CONTAINER)->nombre_elements( (CONTAINER) )
+
 #endif // GOSH_FOREACH_H

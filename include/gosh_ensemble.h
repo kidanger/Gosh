@@ -42,6 +42,7 @@ typedef struct SCN {
 	void (*ajouter)(struct SCN *, TYPE);
 	bool (*appartient)(struct SCN *, TYPE);
 	TYPE(*supprimer_tete)(struct SCN *);
+	int(*nombre_elements)(struct SCN *);
 
 	struct IMPL_CONTAINER_NAME * data;
 
@@ -58,3 +59,4 @@ bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
 void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
 bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);
+int FUNC_NAME(nombre_elements)(CONTAINER_NAME ensemble);

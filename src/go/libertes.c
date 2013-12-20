@@ -7,7 +7,6 @@ Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
 		return NULL;
 
 	int taille = plateau_get_taille(plateau);
-	Couleur couleur = ensemble_colore_couleur(chaine);
 	Libertes libertes = creer_ensemble_position();
 
 	Position pos;

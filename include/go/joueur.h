@@ -13,17 +13,23 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_CHAINES
-#define GOSH_GO_CHAINES
+#ifndef GOSH_GO_JOUEUR
+#define GOSH_GO_JOUEUR
 
-#include "go/chaine.h"
+#include "go/plateau_type.h"
 
-#undef TYPE
-#undef TYPE_LOWER
-#define TYPE Chaine
-#define TYPE_LOWER chaine
-#include "gosh_ensemble.h"
+#define TAILLE_NOM_JOUEUR 32
 
-typedef EnsembleChaine Chaines;
+enum TypeJoueur {
+    HUMAIN,
+    ORDINATEUR
+};
+
+struct s_Joueur {
+	enum TypeJoueur type;
+	char nom[TAILLE_NOM_JOUEUR];
+};
+
+typedef struct s_Joueur* Joueur;
 
 #endif

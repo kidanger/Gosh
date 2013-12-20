@@ -15,8 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 
-#include "alloc.h"
-
+#include "gosh_alloc.h"
 #include "go/ensemble_colore.h"
 
 struct ImplEnsembleColore {

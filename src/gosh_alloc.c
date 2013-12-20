@@ -13,17 +13,24 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_CHAINES
-#define GOSH_GO_CHAINES
+#include <stdlib.h>
+#include <string.h>
 
-#include "go/chaine.h"
+#include "gosh_alloc.h"
 
-#undef TYPE
-#undef TYPE_LOWER
-#define TYPE Chaine
-#define TYPE_LOWER chaine
-#include "gosh_ensemble.h"
+// TODO: check malloc return
 
-typedef EnsembleChaine Chaines;
+void* gosh_alloc_size(size_t size) {
+	void* ptr = malloc(size);
+	memset(ptr, 0, size);
+	return ptr;
+}
 
-#endif
+void gosh_free(void* ptr) {
+	free(ptr);
+}
+
+void * gosh_realloc_size(void * ptr, size_t size) {
+	return realloc(ptr, size);
+}
+

@@ -13,22 +13,13 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#include <stdlib.h>
+#ifndef GOSH_CLI_SAISIE
+#define GOSH_CLI_SAISIE
 
-#include "alloc.h"
+#include <stdarg.h>
 
-// TODO: check malloc return
-// TODO: implement memory leak report
+char cli_demander_char(const char* prompt, char defaut, ...);
+void cli_demander_string(const char* prompt, char* buffer, unsigned int taille);
 
-void* gosh_alloc_size(size_t size) {
-	return malloc(size);
-}
 
-void gosh_free(void* ptr) {
-	free(ptr);
-}
-
-void * gosh_realloc_size(void * ptr, size_t size) {
-	return realloc(ptr, size);
-}
-
+#endif

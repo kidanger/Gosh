@@ -20,71 +20,11 @@
 
 #include "gosh_foreach.h"
 #include "go/plateau.h"
-#include "go/ensemble_positions.h"
 #include "go/libertes.h"
 #include "go/territoire.h"
+#include "cli/affichage.h"
+#include "cli/configurer_partie.h"
 
-#define C_NORMAL "\033[m"
-#define C_WHITE "\033[37m"
-#define C_BLACK "\033[30m"
-#define C_GREEN "\033[32m"
-#define C_RED "\033[31m"
-#define C_YELLOW "\033[33m"
-#define C_GREY "\033[37m"
-#define C_BLUE "\033[34m"
-#define C_BOLD "\033[1m"
-#define C_NOBOLD "\033[22m"
-
-#define C_YELLOW_BG "\033[43m"
-
-
-void afficher_plateau_fancy(Plateau plateau) {
-	size_t taille = plateau_get_taille(plateau);
-
-#define SHOW_LETTERS() do { \
-		printf("   "); \
-		for (int x = 0; x < taille; x++) { \
-			printf(C_GREEN "%s%c ", (x % 2 ? C_NOBOLD : C_BOLD), ('A' + x)); \
-		} \
-		printf("\n"); \
-	} while (0)
-
-#define SHOW_NUMBER(y) do { \
-		printf(C_BLUE "%s%2d ", (y % 2 ? C_NOBOLD : C_BOLD), y + 1); \
-	} while (0)
-
-	SHOW_LETTERS();
-
-	for (int y = 0; y < taille; y++) {
-		SHOW_NUMBER(y);
-
-		printf(C_BOLD);
-		for (int x = 0; x < taille; x++) {
-			const char* car = ".";
-
-			Couleur couleur = plateau_get(plateau, x, y);
-			if (couleur == BLANC) {
-				printf(C_WHITE);
-				car = "●";
-			} else if (couleur == NOIR) {
-				printf(C_BLACK);
-				car = "●";
-			} else {
-				printf(C_YELLOW);
-			}
-
-			printf("%s ", car);
-		}
-
-		SHOW_NUMBER(y);
-		printf("\n");
-	}
-
-	SHOW_LETTERS();
-#undef SHOW_LETTERS
-#undef SHOW_NUMBER
-	printf(C_NORMAL);
-}
 
 void afficher_plateau(Plateau plateau) {
 	size_t taille = plateau_get_taille(plateau);
@@ -127,6 +67,8 @@ void afficher_plateau(Plateau plateau) {
 }
 
 int main(int argc, const char *argv[]) {
+	Partie p = cli_creer_nouvelle_partie();
+	cli_afficher_plateau(p->plateau);
 	long long seed = time(NULL);
 	printf("(seed=%llu)\n", seed);
 	srand(seed);
@@ -194,7 +136,7 @@ int main(int argc, const char *argv[]) {
 		plateau_set(plateau, taille - 1, taille - 1, VIDE); // pour le territoire
 
 		afficher_plateau(plateau);
-		afficher_plateau_fancy(plateau);
+		cli_afficher_plateau(plateau);
 
 		Chaine chaine = plateau_determiner_chaine(plateau, POSITION(0, 0));
 		if (chaine) {

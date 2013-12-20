@@ -13,17 +13,12 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_CHAINES
-#define GOSH_GO_CHAINES
+#ifndef GOSH_CLI_CONFIGURER_PARTIE
+#define GOSH_CLI_CONFIGURER_PARTIE
 
-#include "go/chaine.h"
+#include "go/partie.h"
 
-#undef TYPE
-#undef TYPE_LOWER
-#define TYPE Chaine
-#define TYPE_LOWER chaine
-#include "gosh_ensemble.h"
+Partie cli_creer_nouvelle_partie(void);
 
-typedef EnsembleChaine Chaines;
 
 #endif

@@ -19,7 +19,7 @@
 #include <stdbool.h>
 #include <assert.h>
 
-#include "alloc.h"
+#include "gosh_alloc.h"
 #include "gosh_foreach.h"
 #include "gosh_ensemble.h"
 #include "concat.h"
@@ -68,6 +68,7 @@ CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void) {
 	ptrContainer->ajouter = FUNC_NAME(ajouter);
 	ptrContainer->appartient = FUNC_NAME(appartient);
 	ptrContainer->supprimer_tete = FUNC_NAME(supprimer_tete);
+	ptrContainer->nombre_elements = FUNC_NAME(nombre_elements);
 
 	return ptrContainer;
 }
@@ -114,6 +115,16 @@ bool FUNC_NAME(appartient)(CONTAINER_NAME ptrContainer, TYPE element) {
 		noeud = noeud->suivant;
 	}
 	return false;
+}
+
+int FUNC_NAME(nombre_elements)(CONTAINER_NAME ptrContainer) {
+	struct NODE_NAME * noeud = ptrContainer->data->tete;
+	int nb = 0;
+	while (noeud) {
+		nb += 1;
+		noeud = noeud->suivant;
+	}
+	return nb;
 }
 
 #endif

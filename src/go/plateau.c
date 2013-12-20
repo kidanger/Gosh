@@ -16,12 +16,12 @@
 #include <stdlib.h>
 #include <string.h> // memset
 
-#include "alloc.h"
+#include "gosh_alloc.h"
 #include "go/territoire.h"
 #include "go/plateau.h"
-#include "go/ensemble_positions.h"
+#include "go/libertes.h"
 
-struct plateau {
+struct s_Plateau {
 	Couleur* cases;
 	size_t taille;
 };
@@ -129,25 +129,64 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
 	Chaines chaines = creer_ensemble_chaine();
 	Position position;
 	gosh_foreach(position, territoire) {
-        const Position a_tester[] = {
-            POSITION_GAUCHE(position, plateau->taille),
-            POSITION_DROITE(position, plateau->taille),
-            POSITION_HAUT(position, plateau->taille),
-            POSITION_BAS(position, plateau->taille),
-        };
-        for (int i = 0; i < 4; i++) {
-            Position p = a_tester[i];
-            if (POSITION_EST_VALIDE(p)) {
-                Chaine chaine = plateau_determiner_chaine(plateau, p);
-                if (chaine) {
-                    if (gosh_appartient(chaines, chaine)) {
-                        detruire_ensemble_colore(chaine);
-                    } else {
-                        gosh_ajouter(chaines, chaine);
-                    }
-                }
-            }
-        }
+		const Position a_tester[] = {
+			POSITION_GAUCHE(position, plateau->taille),
+			POSITION_DROITE(position, plateau->taille),
+			POSITION_HAUT(position, plateau->taille),
+			POSITION_BAS(position, plateau->taille),
+		};
+		for (int i = 0; i < 4; i++) {
+			Position p = a_tester[i];
+			if (POSITION_EST_VALIDE(p)) {
+				Chaine chaine = plateau_determiner_chaine(plateau, p);
+				if (chaine) {
+					if (gosh_appartient(chaines, chaine)) {
+						detruire_ensemble_colore(chaine);
+					} else {
+						gosh_ajouter(chaines, chaine);
+					}
+				}
+			}
+		}
 	}
 	return chaines;
+}
+Chaines plateau_entoure_une_chaine(Plateau plateau, Chaine chaine) {
+	return plateau_entoure_un_territoire(plateau, chaine);
+}
+
+
+Chaines capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
+	// TODO: free
+	*valide = false;
+
+	Chaine chaine_centrale = plateau_determiner_chaine(plateau, pion.position);
+	if (chaine_centrale == NULL)
+		return NULL;
+
+	Libertes libertes_centrale = determiner_libertes(plateau, chaine_centrale);
+	if (gosh_vide(libertes_centrale))
+		return NULL;
+
+	Chaines chaines_capturees = creer_ensemble_chaine();
+	Chaines alentoure = plateau_entoure_une_chaine(plateau, chaine_centrale);
+	Chaine chaine_menacee;
+	gosh_foreach(chaine_menacee, alentoure) {
+		Libertes lib = determiner_libertes(plateau, chaine_menacee);
+		if (gosh_nombre_elements(lib) == 1) {
+			plateau_realiser_capture(plateau, chaine_menacee);
+			gosh_ajouter(chaines_capturees, chaine_menacee);
+		}
+		detruire_ensemble_position(lib);
+	}
+	detruire_ensemble_chaine(alentoure);
+
+	if (gosh_vide(chaines_capturees) && gosh_nombre_elements(libertes_centrale) == 1)
+		return NULL;
+
+	*valide = true;
+
+	if (gosh_vide(chaines_capturees))
+		return NULL;
+	return chaines_capturees;
 }

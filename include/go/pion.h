@@ -13,17 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_CHAINES
-#define GOSH_GO_CHAINES
+#ifndef GOSH_GO_PION
+#define GOSH_GO_PION
 
-#include "go/chaine.h"
+#include "go/couleur.h"
+#include "go/position.h"
 
-#undef TYPE
-#undef TYPE_LOWER
-#define TYPE Chaine
-#define TYPE_LOWER chaine
-#include "gosh_ensemble.h"
-
-typedef EnsembleChaine Chaines;
+typedef struct {
+	Couleur couleur;
+	Position position;
+} s_Pion;
 
 #endif

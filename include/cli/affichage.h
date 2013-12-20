@@ -13,17 +13,24 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_CHAINES
-#define GOSH_GO_CHAINES
+#ifndef GOSH_CLI_AFFICHAGE
+#define GOSH_CLI_AFFICHAGE
 
-#include "go/chaine.h"
+#include "go/plateau_type.h"
 
-#undef TYPE
-#undef TYPE_LOWER
-#define TYPE Chaine
-#define TYPE_LOWER chaine
-#include "gosh_ensemble.h"
+#define C_NORMAL "\033[m"
+#define C_WHITE "\033[37m"
+#define C_BLACK "\033[30m"
+#define C_GREEN "\033[32m"
+#define C_RED "\033[31m"
+#define C_YELLOW "\033[33m"
+#define C_GREY "\033[37m"
+#define C_BLUE "\033[34m"
+#define C_BOLD "\033[1m"
+#define C_NOBOLD "\033[22m"
 
-typedef EnsembleChaine Chaines;
+#define C_YELLOW_BG "\033[43m"
+
+void cli_afficher_plateau(Plateau plateau);
 
 #endif

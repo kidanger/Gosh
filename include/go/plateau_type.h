@@ -16,6 +16,6 @@
 #ifndef GOSH_GO_PLATEAU_TYPE
 #define GOSH_GO_PLATEAU_TYPE
 
-typedef struct plateau* Plateau;
+typedef struct s_Plateau* Plateau;
 
 #endif
