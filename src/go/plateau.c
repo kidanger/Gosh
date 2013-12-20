@@ -129,14 +129,25 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
 	Chaines chaines = creer_ensemble_chaine();
 	Position position;
 	gosh_foreach(position, territoire) {
-		Chaine chaine = plateau_determiner_chaine(plateau, position);
-		if (chaine) {
-			if (gosh_appartient(chaines, chaine)) {
-				detruire_ensemble_chaine(chaines);
-			} else {
-				gosh_ajouter(chaines, chaine);
-			}
-		}
+        const Position a_tester[] = {
+            POSITION_GAUCHE(position, plateau->taille),
+            POSITION_DROITE(position, plateau->taille),
+            POSITION_HAUT(position, plateau->taille),
+            POSITION_BAS(position, plateau->taille),
+        };
+        for (int i = 0; i < 4; i++) {
+            Position p = a_tester[i];
+            if (POSITION_EST_VALIDE(p)) {
+                Chaine chaine = plateau_determiner_chaine(plateau, p);
+                if (chaine) {
+                    if (gosh_appartient(chaines, chaine)) {
+                        detruire_ensemble_colore(chaine);
+                    } else {
+                        gosh_ajouter(chaines, chaine);
+                    }
+                }
+            }
+        }
 	}
 	return chaines;
 }

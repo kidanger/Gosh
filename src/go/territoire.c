@@ -1,4 +1,5 @@
 #include "go/territoire.h"
+#include "go/plateau.h"
 
 
 Territoire determiner_territoire(Plateau plateau, Position position) {

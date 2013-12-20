@@ -19,12 +19,13 @@
 #include <stdlib.h> // size_t
 #include <stdbool.h>
 
-#include "couleur.h"
-#include "position.h"
-#include "chaines.h"
-#include "chaine.h"
+#include "go/plateau_type.h"
 
-typedef struct plateau* Plateau;
+#include "go/couleur.h"
+#include "go/position.h"
+#include "go/chaines.h"
+#include "go/chaine.h"
+#include "go/territoire.h"
 
 Plateau creer_plateau(size_t taille);
 void detruire_plateau(Plateau plateau);
@@ -50,7 +51,6 @@ bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau);
 /** @brief Copie un plateau. Les deux tableaux sont supposé ́être déjà alloués */
 void plateau_copie(Plateau from, Plateau to);
 
-typedef EnsembleColore Territoire; // TODO: removeme
 // TODO: à tester
 /** @brief Détermine la ou les chaines entourant un territoire */
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire);

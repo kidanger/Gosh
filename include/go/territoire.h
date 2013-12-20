@@ -16,7 +16,7 @@
 #ifndef GOSH_GO_TERRITOIRE
 #define GOSH_GO_TERRITOIRE
 
-#include "go/plateau.h"
+#include "go/plateau_type.h"
 #include "go/ensemble_colore.h"
 
 typedef EnsembleColore Territoire;
