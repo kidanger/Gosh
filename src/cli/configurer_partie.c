@@ -4,9 +4,15 @@
 #include "cli/configurer_partie.h"
 #include "cli/saisie.h"
 #include "go/plateau.h"
+#include "go/joueur.h"
 
-bool saisir_type_joueur(Partie partie, int num_joueur) {
-	const char* str = num_joueur == 0 ? "Type du joueur 1" : "Type du joueur 2";
+
+bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur) {
+#ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
+	partie->joueurs[couleur].type = HUMAIN;
+	return true;
+#endif
+	const char* str = couleur == JOUEUR_NOIR ? "Type du joueur noir" : "Type du joueur blanc";
 	char res = cli_demander_char(str, 0, 'h', "humain", 'o', "ordinateur", 'r', "retour", 0);
 
 	enum TypeJoueur type;
@@ -15,27 +21,38 @@ bool saisir_type_joueur(Partie partie, int num_joueur) {
 	else if (res == 'h')
 		type = HUMAIN;
 
-	partie->joueurs[num_joueur].type = type;
+	partie->joueurs[couleur].type = type;
 
 	return res != 'r';
 }
 
-bool saisir_nom_joueur(Partie partie, int num_joueur) {
-	const char* str = num_joueur == 0 ? "Nom du joueur 1" : "Nom du joueur 2";
+bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
+#ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
+	if (couleur == JOUEUR_BLANC)
+		strcpy(partie->joueurs[couleur].nom, "Henry");
+	else
+		strcpy(partie->joueurs[couleur].nom, "Jack");
+	return true;
+#endif
+	const char* str = couleur == JOUEUR_NOIR ? "Nom du joueur noir" : "Nom du joueur blanc";
 	char buf[TAILLE_NOM_JOUEUR] = {0};
 	cli_demander_string(str, buf, sizeof(buf));
 
 	if (buf[0]) {
-		strncpy(partie->joueurs[num_joueur].nom, buf, TAILLE_NOM_JOUEUR);
+		strncpy(partie->joueurs[couleur].nom, buf, TAILLE_NOM_JOUEUR);
 	}
 
 	return buf[0] != 0;
 }
 
 bool saisir_taille_plateau(Partie partie) {
+#ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
+	partie->plateau = creer_plateau(13);
+	return true;
+#endif
 	const char* str = "Taille du plateau";
 	char rep = cli_demander_char(str, 0, 'p', "petit (9x9)",
-	                             'm', "moyen (13x13)", 'g', "grand (19x19)", 'r', "retour");
+	                             'm', "moyen (13x13)", 'g', "grand (19x19)", 'r', "retour", 0);
 	if (rep == 'p')
 		partie->plateau = creer_plateau(9);
 	else if (rep == 'm')
@@ -47,14 +64,14 @@ bool saisir_taille_plateau(Partie partie) {
 
 bool questions_callback(enum Question question, Partie partie) {
 	switch (question) {
-		case TYPE_JOUEUR_1:
-				return saisir_type_joueur(partie, 0);
-		case NOM_JOUEUR_1:
-			return saisir_nom_joueur(partie, 0);
-		case TYPE_JOUEUR_2:
-			return saisir_type_joueur(partie, 1);
-		case NOM_JOUEUR_2:
-			return saisir_nom_joueur(partie, 1);
+		case TYPE_JOUEUR_BLANC:
+				return saisir_type_joueur(partie, JOUEUR_BLANC);
+		case NOM_JOUEUR_BLANC:
+			return saisir_nom_joueur(partie, JOUEUR_BLANC);
+		case TYPE_JOUEUR_NOIR:
+			return saisir_type_joueur(partie, JOUEUR_NOIR);
+		case NOM_JOUEUR_NOIR:
+			return saisir_nom_joueur(partie, JOUEUR_NOIR);
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
 	}

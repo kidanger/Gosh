@@ -37,6 +37,7 @@ EnsembleColore creer_ensemble_colore(Couleur couleur) {
 	ptrEnsemble->vide = ensemble_colore_vide;
 	ptrEnsemble->ajouter = ensemble_colore_ajouter;
 	ptrEnsemble->appartient = ensemble_colore_appartient;
+	ptrEnsemble->nombre_elements = ensemble_colore_nombre_elements;
 
 	return ptrEnsemble;
 }
@@ -76,4 +77,8 @@ void ensemble_colore_ajouter(EnsembleColore ptrEnsemble, Position position) {
 
 bool ensemble_colore_appartient(EnsembleColore ptrEnsemble, Position position) {
 	return gosh_appartient(ptrEnsemble->data->positions, position);
+}
+
+int ensemble_colore_nombre_elements(EnsembleColore ptrEnsemble) {
+	return gosh_nombre_elements(ptrEnsemble->data->positions);
 }

@@ -18,12 +18,13 @@
 #include <assert.h>
 #include <time.h>
 
-#include "gosh_foreach.h"
+#include "gosh_macros.h"
 #include "go/plateau.h"
 #include "go/libertes.h"
 #include "go/territoire.h"
 #include "cli/affichage.h"
 #include "cli/configurer_partie.h"
+#include "cli/deroulement_partie.h"
 
 
 void afficher_plateau(Plateau plateau) {
@@ -66,9 +67,15 @@ void afficher_plateau(Plateau plateau) {
 	}
 }
 
+#define TESTS_UNIQUEMENT 0
+
 int main(int argc, const char *argv[]) {
-	Partie p = cli_creer_nouvelle_partie();
-	cli_afficher_plateau(p->plateau);
+	if (!TESTS_UNIQUEMENT) {
+		Partie p = cli_creer_nouvelle_partie();
+		cli_afficher_plateau(p->plateau);
+		cli_jouer_partie(p);
+		return EXIT_SUCCESS;
+	}
 	long long seed = time(NULL);
 	printf("(seed=%llu)\n", seed);
 	srand(seed);

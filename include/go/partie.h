@@ -20,20 +20,22 @@
 
 #include "go/plateau_type.h"
 #include "go/joueur.h"
+#include "go/coup.h"
 
 struct s_Partie {
 	Plateau plateau;
 	struct s_Joueur joueurs[2];
 	bool initialisee;
+	enum CouleurJoueur joueur_courant;
 };
 
 typedef struct s_Partie* Partie;
 
 enum Question {
-    TYPE_JOUEUR_1,
-    NOM_JOUEUR_1,
-    TYPE_JOUEUR_2,
-    NOM_JOUEUR_2,
+    TYPE_JOUEUR_BLANC,
+    NOM_JOUEUR_BLANC,
+    TYPE_JOUEUR_NOIR,
+    NOM_JOUEUR_NOIR,
     TAILLE_PLATEAU,
     NOMBRE_QUESTIONS,
 };
@@ -48,6 +50,8 @@ void detruire_partie(Partie partie);
   * - noms et natures des joueurs
   * - taille du plateau parmi 9x9, 13x13 et 19x19 */
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions);
+
+bool partie_jouer_coup(Partie partie, s_Coup coup);
 
 
 #endif

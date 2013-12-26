@@ -22,7 +22,7 @@
 
 #include <stdbool.h>
 #include "concat.h"
-#include "gosh_foreach.h"
+#include "gosh_macros.h"
 
 #define CONTAINER_NAME CONCAT_2(Ensemble, TYPE)
 

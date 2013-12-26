@@ -13,14 +13,11 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_CLI_CONFIGURER_PARTIE
-#define GOSH_CLI_CONFIGURER_PARTIE
+#ifndef GOSH_CLI_DEROULEMENT_PARTIE
+#define GOSH_CLI_DEROULEMENT_PARTIE
 
 #include "go/partie.h"
 
-#define CONFIGURER_PARTIE_AUTOMATIQUEMENT // pour passer l'étape de configuration
-
-Partie cli_creer_nouvelle_partie(void);
-
+void cli_jouer_partie(Partie partie);
 
 #endif

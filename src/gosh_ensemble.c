@@ -20,7 +20,7 @@
 #include <assert.h>
 
 #include "gosh_alloc.h"
-#include "gosh_foreach.h"
+#include "gosh_macros.h"
 #include "gosh_ensemble.h"
 #include "concat.h"
 

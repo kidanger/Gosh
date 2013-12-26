@@ -27,6 +27,7 @@ typedef struct s_EnsembleColore {
 	bool (*vide)(struct s_EnsembleColore *);
 	void (*ajouter)(struct s_EnsembleColore *, TYPE);
 	bool (*appartient)(struct s_EnsembleColore *, TYPE);
+	int (*nombre_elements)(struct s_EnsembleColore *);
 
 	struct ImplEnsembleColore * data;
 
@@ -45,5 +46,6 @@ Position * ensemble_colore_next(GoshIterateur * it, EnsembleColore ensemble, Pos
 bool ensemble_colore_vide(EnsembleColore ensemble);
 void ensemble_colore_ajouter(EnsembleColore ensemble, Position position);
 bool ensemble_colore_appartient(EnsembleColore ensemble, Position position);
+int ensemble_colore_nombre_elements(EnsembleColore ensemble);
 
 #endif

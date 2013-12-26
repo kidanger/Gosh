@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdbool.h>
 #include <stdarg.h>
 
@@ -62,10 +64,18 @@ char cli_demander_char(const char* prompt, char defaut, ...) {
 }
 
 void cli_demander_string(const char* prompt, char* buffer, unsigned int taille) {
-	debut_prompt();
-	printf("%s : ", prompt);
+	bool eof;
+	do {
+		debut_prompt();
+		printf("%s : ", prompt);
 
-	debut_saisie();
-	scanf("%s", buffer);
+		debut_saisie();
+		eof = fgets(buffer, taille, stdin) == NULL;
+		buffer[strlen(buffer) - 1] = 0; // suppression du \n
+	} while (buffer[0] == 0 && !eof);
 	fin();
+	if (eof) {
+		printf("EOF reçu, arrêt du programme.\n");
+		exit(EXIT_FAILURE);
+	}
 }

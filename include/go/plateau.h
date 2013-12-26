@@ -55,14 +55,12 @@ void plateau_copie(Plateau from, Plateau to);
 // TODO: à tester
 /** @brief Détermine la ou les chaines entourant un territoire */
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire);
-Chaines plateau_entoure_une_chaine(Plateau plateau, Chaine chaine);
 
-// TODO: à tester
 /** @brief en fonction de la position du pion et de sa couleur retourne les chaines capturées.
  * Si aucune chaîne n’est capturée par la pose du pion, alors la valeur NULL est retournée.
  * Le booléan (référencé par) valide est égal à false si le fait de placer le point en cette position
  * conduit à contruire une chaîne sans libertée de la couleur du pion (sauf si ce coup produit la capture d’au moins une chaîne adverse).
  * Dans le cas contraire valide est égal à true. */
-Chaines capture_chaines(Plateau plateau, s_Pion pion, bool* valide);
+Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide);
 
 #endif

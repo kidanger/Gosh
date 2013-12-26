@@ -151,42 +151,91 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
 	}
 	return chaines;
 }
-Chaines plateau_entoure_une_chaine(Plateau plateau, Chaine chaine) {
-	return plateau_entoure_un_territoire(plateau, chaine);
-}
 
 
-Chaines capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
+Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
+	size_t taille = plateau->taille;
 	// TODO: free
 	*valide = false;
 
-	Chaine chaine_centrale = plateau_determiner_chaine(plateau, pion.position);
-	if (chaine_centrale == NULL)
+	// il y a déjà une case
+	if (CASE_AT_P(plateau, pion.position) != VIDE) {
+		gosh_debug("déjà une case");
 		return NULL;
+	}
 
-	Libertes libertes_centrale = determiner_libertes(plateau, chaine_centrale);
-	if (gosh_vide(libertes_centrale))
-		return NULL;
+	Territoire milieu = determiner_territoire(plateau, pion.position);
+
+	// on collecte les chaines menacées et les chaines amies
+	Chaines chaines_menacees = creer_ensemble_chaine();
+	Chaines chaines_amies = creer_ensemble_chaine();
+	Chaines autour = plateau_entoure_un_territoire(plateau, milieu);
+	Couleur autre_couleur = pion.couleur == BLANC ? NOIR : BLANC;
+	Chaine chaine_tmp;
+	gosh_foreach(chaine_tmp, autour) {
+		if (ensemble_colore_couleur(chaine_tmp) == autre_couleur) {
+			gosh_ajouter(chaines_menacees, chaine_tmp);
+		} else if (ensemble_colore_couleur(chaine_tmp) == pion.couleur) {
+			gosh_ajouter(chaines_amies, chaine_tmp);
+		}
+	}
 
 	Chaines chaines_capturees = creer_ensemble_chaine();
-	Chaines alentoure = plateau_entoure_une_chaine(plateau, chaine_centrale);
 	Chaine chaine_menacee;
-	gosh_foreach(chaine_menacee, alentoure) {
+
+	// on vérifie lesquelles sont capturables
+	gosh_foreach(chaine_menacee, chaines_menacees) {
 		Libertes lib = determiner_libertes(plateau, chaine_menacee);
 		if (gosh_nombre_elements(lib) == 1) {
 			plateau_realiser_capture(plateau, chaine_menacee);
 			gosh_ajouter(chaines_capturees, chaine_menacee);
+			gosh_debug("ajout d'une chaine capturée");
 		}
 		detruire_ensemble_position(lib);
 	}
-	detruire_ensemble_chaine(alentoure);
+	detruire_ensemble_chaine(chaines_menacees);
 
-	if (gosh_vide(chaines_capturees) && gosh_nombre_elements(libertes_centrale) == 1)
-		return NULL;
+	// si on a pas d'amies à côté, il faut vérifier que le territoire possède plus d'une seule case
+	if (gosh_vide(chaines_amies)) {
+		// on recalcule le territoire, puisqu'on a capturé des chaines
+		Territoire territoire = determiner_territoire(plateau, pion.position);
+		if (gosh_nombre_elements(territoire) == 1) {
+			gosh_debug("pas d'ami et territoire trop petit");
+			return NULL;
+		}
+		detruire_ensemble_colore(territoire);
+	} else {
+		// on vérifie qu'on pouvait bien faire ce mouvement : on ne doit pas bloquer de libertés
+		bool bloquant = false;
+		gosh_foreach(chaine_menacee, chaines_amies) {
+			Libertes lib = determiner_libertes(plateau, chaine_menacee);
+			if (gosh_nombre_elements(lib) == 1) {
+				plateau_realiser_capture(plateau, chaine_menacee);
+				gosh_ajouter(chaines_capturees, chaine_menacee);
+				gosh_debug("bloquant!");
+				bloquant = true;
+			}
+			detruire_ensemble_position(lib);
+		}
+
+		// on annule les captures si le coup bloque d'autres chaines
+		if (bloquant) {
+			Chaine chaine;
+			gosh_foreach(chaine, chaines_capturees) {
+				Position pos;
+				gosh_foreach(pos, chaine) {
+					CASE_AT_P(plateau, pos) = autre_couleur;
+				}
+			}
+			detruire_ensemble_chaine(chaines_capturees);
+			return NULL;
+		}
+	}
 
 	*valide = true;
-
+	CASE_AT_P(plateau, pion.position) = pion.couleur;
 	if (gosh_vide(chaines_capturees))
 		return NULL;
 	return chaines_capturees;
 }
+

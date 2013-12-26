@@ -13,14 +13,14 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_CLI_CONFIGURER_PARTIE
-#define GOSH_CLI_CONFIGURER_PARTIE
+#ifndef GOSH_GO_COUP
+#define GOSH_GO_COUP
 
-#include "go/partie.h"
+#include <stdbool.h>
+#include "go/position.h"
 
-#define CONFIGURER_PARTIE_AUTOMATIQUEMENT // pour passer l'étape de configuration
-
-Partie cli_creer_nouvelle_partie(void);
-
+typedef struct {
+	Position position; // = invalide position si passe son tour
+} s_Coup;
 
 #endif
