@@ -44,3 +44,4 @@ bool partie_jouer_coup(Partie partie, s_Coup coup) {
 		return valide;
 	}
 }
+

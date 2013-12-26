@@ -74,6 +74,8 @@ bool questions_callback(enum Question question, Partie partie) {
 			return saisir_nom_joueur(partie, JOUEUR_NOIR);
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
+		default:
+			return true;
 	}
 }
 

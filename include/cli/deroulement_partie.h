@@ -18,6 +18,8 @@
 
 #include "go/partie.h"
 
+s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide);
+
 void cli_jouer_partie(Partie partie);
 
 #endif

@@ -1,0 +1,13 @@
+B1
+passer
+B3
+passer
+C2
+passer
+A2
+! avant:
+afficher
+! B2 ne devrait pas passer
+B2
+! après:
+afficher
