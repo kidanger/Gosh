@@ -2,6 +2,7 @@
 #include "go/partie.h"
 #include "go/plateau.h"
 #include "go/position.h"
+#include "go/ordinateur.h"
 
 #define JOUEUR_SUIVANT(couleur) ((couleur) == JOUEUR_BLANC ? JOUEUR_NOIR : JOUEUR_BLANC)
 
@@ -18,12 +19,20 @@ void detruire_partie(Partie partie) {
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions) {
 	bool continuer = true;
 	for (int i = 0; i < NOMBRE_QUESTIONS && continuer; i++) {
+		if (i == PROGRAMME_JOUEUR_BLANC && partie->joueurs[JOUEUR_BLANC].type != ORDINATEUR)
+			continue;
+		if (i == PROGRAMME_JOUEUR_NOIR && partie->joueurs[JOUEUR_NOIR].type != ORDINATEUR)
+			continue;
 		continuer = continuer && fonctionQuestions(i, partie);
 	}
 	if (continuer) {
 		partie->initialisee = true;
 	}
 	partie->joueur_courant = JOUEUR_NOIR;
+}
+
+enum CouleurJoueur partie_get_joueur(Partie partie) {
+	return partie->joueur_courant;
 }
 
 bool partie_jouer_coup(Partie partie, s_Coup coup) {
@@ -43,5 +52,10 @@ bool partie_jouer_coup(Partie partie, s_Coup coup) {
 		partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
 		return valide;
 	}
+}
+
+void partie_jouer_ordinateur(Partie partie) {
+	Ordinateur ordi = partie->joueurs[partie->joueur_courant].ordinateur;
+	ordinateur_jouer_coup(ordi, partie, partie->joueur_courant);
 }
 

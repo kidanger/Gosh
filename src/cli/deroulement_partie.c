@@ -35,15 +35,21 @@ void cli_jouer_partie(Partie partie) {
 	char label[32];
 	char rep[32];
 	while (true) {
-		snprintf(label, sizeof(label), "Au joueur %s de jouer",
-		         partie->joueur_courant == JOUEUR_BLANC ? "blanc" : "noir");
-		cli_demander_string(label, rep, sizeof(rep));
+		enum CouleurJoueur couleur = partie_get_joueur(partie);
+		if (partie->joueurs[couleur].type == HUMAIN) {
+			snprintf(label, sizeof(label), "Au joueur %s de jouer",
+					couleur == JOUEUR_BLANC ? "blanc" : "noir");
+			cli_demander_string(label, rep, sizeof(rep));
 
-		bool valide;
-		s_Coup coup = cli_convertir_coup(partie, rep, &valide);
-		if (valide) {
-			bool reussi = partie_jouer_coup(partie, coup);
-			gosh_debug("coup reussi: %s", reussi ? "oui" : "non");
+			bool valide;
+			s_Coup coup = cli_convertir_coup(partie, rep, &valide);
+			if (valide) {
+				bool reussi = partie_jouer_coup(partie, coup);
+				gosh_debug("coup reussi: %s", reussi ? "oui" : "non");
+				cli_afficher_plateau(partie->plateau);
+			}
+		} else {
+			partie_jouer_ordinateur(partie);
 			cli_afficher_plateau(partie->plateau);
 		}
 	}

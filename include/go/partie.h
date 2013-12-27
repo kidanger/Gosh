@@ -34,8 +34,12 @@ typedef struct s_Partie* Partie;
 enum Question {
     TYPE_JOUEUR_BLANC,
     NOM_JOUEUR_BLANC,
+    PROGRAMME_JOUEUR_BLANC, // si type = ORDINATEUR
+
     TYPE_JOUEUR_NOIR,
     NOM_JOUEUR_NOIR,
+    PROGRAMME_JOUEUR_NOIR, // si type = ORDINATEUR
+
     TAILLE_PLATEAU,
     NOMBRE_QUESTIONS,
 };
@@ -51,7 +55,9 @@ void detruire_partie(Partie partie);
   * - taille du plateau parmi 9x9, 13x13 et 19x19 */
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions);
 
+enum CouleurJoueur partie_get_joueur(Partie partie);
 bool partie_jouer_coup(Partie partie, s_Coup coup);
+void partie_jouer_ordinateur(Partie partie);
 
 
 #endif

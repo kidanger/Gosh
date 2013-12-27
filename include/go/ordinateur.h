@@ -13,29 +13,30 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_JOUEUR
-#define GOSH_GO_JOUEUR
+#ifndef GOSH_GO_ORDINATEUR
+#define GOSH_GO_ORDINATEUR
 
-#include "go/plateau_type.h"
+#include "go/partie.h"
 
-#define TAILLE_NOM_JOUEUR 32
+#define JOUER_COUP_STR "jouer_coup_ordi"
+#define JOUER_COUP jouer_coup_ordi
+#define INITIALISER_STR "initialiser_ordi"
+#define INITIALISER initialiser_ordi
 
-enum CouleurJoueur {
-    JOUEUR_BLANC,
-    JOUEUR_NOIR
+typedef void(*JouerFunc)(void*, Partie, enum CouleurJoueur);
+
+struct s_Ordinateur {
+	void* dlptr;
+	JouerFunc jouer;
+	void* ordidata;
 };
 
-enum TypeJoueur {
-    HUMAIN,
-    ORDINATEUR
-};
+typedef struct s_Ordinateur* Ordinateur;
 
-struct s_Joueur {
-	enum TypeJoueur type;
-	char nom[TAILLE_NOM_JOUEUR];
-	struct s_Ordinateur* ordinateur; // uniquement si type = ORDINATEUR
-};
+Ordinateur charger_ordinateur(const char* filename);
+void decharger_ordinateur(Ordinateur ordi);
 
-typedef struct s_Joueur* Joueur;
+void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur);
 
 #endif
+

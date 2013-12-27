@@ -1,15 +1,17 @@
 #include <stdio.h>
+#include <assert.h>
 #include <string.h>
 
 #include "cli/configurer_partie.h"
 #include "cli/saisie.h"
 #include "go/plateau.h"
 #include "go/joueur.h"
+#include "go/ordinateur.h"
 
 
 bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur) {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
-	partie->joueurs[couleur].type = HUMAIN;
+	partie->joueurs[couleur].type = ORDINATEUR;
 	return true;
 #endif
 	const char* str = couleur == JOUEUR_NOIR ? "Type du joueur noir" : "Type du joueur blanc";
@@ -45,6 +47,13 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
 	return buf[0] != 0;
 }
 
+bool saisir_programme(Partie partie, enum CouleurJoueur couleur) {
+	// TODO: saisi
+	Ordinateur ordi = charger_ordinateur("src/ordinateurs/librandom.so");
+	partie->joueurs[couleur].ordinateur = ordi;
+	return true;
+}
+
 bool saisir_taille_plateau(Partie partie) {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	partie->plateau = creer_plateau(13);
@@ -68,13 +77,18 @@ bool questions_callback(enum Question question, Partie partie) {
 				return saisir_type_joueur(partie, JOUEUR_BLANC);
 		case NOM_JOUEUR_BLANC:
 			return saisir_nom_joueur(partie, JOUEUR_BLANC);
+		case PROGRAMME_JOUEUR_BLANC:
+			return saisir_programme(partie, JOUEUR_BLANC);
 		case TYPE_JOUEUR_NOIR:
 			return saisir_type_joueur(partie, JOUEUR_NOIR);
 		case NOM_JOUEUR_NOIR:
 			return saisir_nom_joueur(partie, JOUEUR_NOIR);
+		case PROGRAMME_JOUEUR_NOIR:
+			return saisir_programme(partie, JOUEUR_NOIR);
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
 		default:
+			assert(("question non gérée", false));
 			return true;
 	}
 }

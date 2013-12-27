@@ -5,3 +5,4 @@ add_library(go STATIC
 )
 
 target_link_libraries(go gosh_common)
+target_link_libraries(go dl)

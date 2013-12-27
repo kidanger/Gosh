@@ -16,5 +16,6 @@ add_library(gosh_common STATIC
 )
 
 add_subdirectory(go)
+add_subdirectory(ordinateurs)
 add_subdirectory(cli)
 add_subdirectory(test)
