@@ -19,11 +19,27 @@ bool handle_afficher(Partie partie, FILE* file, const char* arguments) {
 	return true;
 }
 bool handle_message(Partie partie, FILE* file, const char* arguments) {
-	printf(C_RED "%s\n" C_NORMAL, arguments);
+	printf(C_YELLOW "%s\n" C_NORMAL, arguments);
 	return true;
 }
 bool handle_commentaire(Partie partie, FILE* file, const char* arguments) {
 	return true;
+}
+bool handle_fail(Partie partie, FILE* file, const char* arguments) {
+	bool valide;
+	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
+	if (valide)
+		valide &= partie_jouer_coup(partie, coup) == false;
+	return valide;
+}
+bool handle_vide(Partie partie, FILE* file, const char* arguments) {
+	bool valide;
+	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
+	if (valide)
+		valide &= plateau_get_at(partie->plateau, coup.position) == VIDE;
+	else
+		printf("La case %s n'est pas vide.\n", arguments);
+	return valide;
 }
 bool handle_coup(Partie partie, FILE* file, const char* arguments) {
 	bool valide;
@@ -64,6 +80,8 @@ bool tester(const char* filename) {
 		{.name="afficher", .fonct=handle_afficher},
 		{.name="#", .fonct=handle_commentaire},
 		{.name="!", .fonct=handle_message},
+		{.name="fail", .fonct=handle_fail},
+		{.name="vide", .fonct=handle_vide},
 	};
 	Partie partie = creer_partie();
 	initialisation_partie(partie, test_reponses_aux_questions);
@@ -76,11 +94,11 @@ bool tester(const char* filename) {
 		goto out;
 	}
 
-	printf("tester(\"%s\")\n", filename);
-
-	char buf[64];
+	char buf[256];
 	while (fgets(buf, sizeof(buf), file)) {
 		buf[strlen(buf) - 1] = 0;
+		if (buf[0] == 0) // ligne vide
+			continue;
 
 		const char* commande = buf;
 		const char* arguments = NULL;
@@ -98,6 +116,7 @@ bool tester(const char* filename) {
 				trouve = true;
 				bool ok = handlers[i].fonct(partie, file, arguments);
 				if (!ok) {
+					reussi = false;
 					printf("(!) La commande %s (%s) s'est mal passée.\n", commande, arguments);
 					goto out;
 				}
@@ -106,19 +125,36 @@ bool tester(const char* filename) {
 		}
 		if (!trouve) {
 			if (!handle_coup(partie, file, commande)) {
+				reussi = false;
 				printf("(!) Le coup %s s'est mal passé.\n", commande);
+				goto out;
 			}
 		}
 	}
 
+	reussi = true;
+
 out:
+	if (!reussi && partie->plateau) {
+		cli_afficher_plateau(partie->plateau);
+	}
 	detruire_partie(partie);
 	return reussi;
 }
 
 int main(int argc, const char *argv[]) {
 	for (int i = 1; i < argc; i++) {
-		tester(argv[i]);
+		const char* filename = argv[i];
+
+		if (i != 1)
+			printf("\n\n");
+		printf("============= "C_GREY "%s" C_NORMAL " =================\n", filename);
+
+		if (!tester(filename)) {
+			printf(C_BOLD C_RED "Le test %s a échoué.\n" C_NORMAL, filename);
+		} else {
+			printf(C_BOLD C_GREEN "Le test %s a réussi.\n" C_NORMAL, filename);
+		}
 	}
 	return EXIT_SUCCESS;
 }

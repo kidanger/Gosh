@@ -5,9 +5,5 @@ passer
 C2
 passer
 A2
-! avant:
-afficher
-! B2 ne devrait pas passer
-B2
-! après:
-afficher
+# B2 ne peut pas passer car c'est un case entourée par les pierres noires
+fail B2
