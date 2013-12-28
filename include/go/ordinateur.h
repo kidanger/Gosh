@@ -22,12 +22,20 @@
 #define JOUER_COUP jouer_coup_ordi
 #define INITIALISER_STR "initialiser_ordi"
 #define INITIALISER initialiser_ordi
+#define DEBUT_PARTIE_STR "debut_partie_ordi"
+#define DEBUT_PARTIE debut_partie_ordi
+#define NOTIFICATION_COUP_STR "notification_coup_ordi"
+#define NOTIFICATION_COUP notification_coup_ordi
 
 typedef void(*JouerFunc)(void*, Partie, enum CouleurJoueur);
+typedef void(*DebutPartieFunc)(void*, Partie);
+typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 
 struct s_Ordinateur {
 	void* dlptr;
 	JouerFunc jouer;
+	DebutPartieFunc debut_partie;
+	NotificationCoupFunc notification_coup;
 	void* ordidata;
 };
 
@@ -37,6 +45,8 @@ Ordinateur charger_ordinateur(const char* filename);
 void decharger_ordinateur(Ordinateur ordi);
 
 void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur);
+void ordinateur_debut_partie(Ordinateur ordi, Partie partie);
+void ordinateur_notifier_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur, s_Coup coup);
 
 #endif
 

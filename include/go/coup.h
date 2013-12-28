@@ -23,4 +23,6 @@ typedef struct {
 	Position position; // = invalide position si passe son tour
 } s_Coup;
 
+s_Coup str2coup(const char* str, bool* valide);
+
 #endif

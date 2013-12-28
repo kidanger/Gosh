@@ -195,42 +195,44 @@ Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
 	}
 	detruire_ensemble_chaine(chaines_menacees);
 
-	// si on a pas d'amies à côté, il faut vérifier que le territoire possède plus d'une seule case
-	if (gosh_vide(chaines_amies)) {
-		// on recalcule le territoire, puisqu'on a capturé des chaines
-		Territoire territoire = determiner_territoire(plateau, pion.position);
-		if (gosh_nombre_elements(territoire) == 1) {
-			gosh_debug("pas d'ami et territoire trop petit");
-			return NULL;
-		}
-		detruire_ensemble_colore(territoire);
-	} else {
-		// on vérifie qu'on pouvait bien faire ce mouvement : on ne doit pas bloquer de libertés
-		bool bloquant = false;
-		gosh_foreach(chaine_menacee, chaines_amies) {
-			Libertes lib = determiner_libertes(plateau, chaine_menacee);
-			if (gosh_nombre_elements(lib) == 1) {
-				plateau_realiser_capture(plateau, chaine_menacee);
-				gosh_ajouter(chaines_capturees, chaine_menacee);
-				gosh_debug("bloquant!");
-				bloquant = true;
-			}
-			detruire_ensemble_position(lib);
-		}
-
-		// on annule les captures si le coup bloque d'autres chaines
-		if (bloquant) {
-			Chaine chaine;
-			gosh_foreach(chaine, chaines_capturees) {
-				Position pos;
-				gosh_foreach(pos, chaine) {
-					CASE_AT_P(plateau, pos) = autre_couleur;
+	// on recalcule le territoire, puisqu'on a capturé des chaines
+	Territoire territoire = determiner_territoire(plateau, pion.position);
+	// si on a plus d'une case libre autour (donc territoire >= 2), on peut jouer
+	// sinon, on vérifie les chaines amies
+	if (gosh_nombre_elements(territoire) == 1) {
+		// on a pas d'amies à côté, on ne peut pas jouer ici
+		if (gosh_vide(chaines_amies)) {
+			goto annuler_captures;
+		} else {
+			// on vérifie qu'on pouvait bien faire ce mouvement : on ne doit pas bloquer de libertés
+			bool bloquant = true;
+			gosh_foreach(chaine_menacee, chaines_amies) {
+				Libertes lib = determiner_libertes(plateau, chaine_menacee);
+				if (gosh_nombre_elements(lib) != 1) {
+					bloquant = false;
 				}
+				detruire_ensemble_position(lib);
 			}
-			detruire_ensemble_chaine(chaines_capturees);
-			return NULL;
+
+			// on annule les captures si le coup bloque d'autres chaines
+			if (bloquant) {
+				goto annuler_captures;
+			}
+			if (false) {
+				Chaine chaine;
+annuler_captures:
+				gosh_foreach(chaine, chaines_capturees) {
+					Position pos;
+					gosh_foreach(pos, chaine) {
+						CASE_AT_P(plateau, pos) = autre_couleur;
+					}
+				}
+				detruire_ensemble_chaine(chaines_capturees);
+				return NULL;
+			}
 		}
 	}
+	detruire_ensemble_colore(territoire);
 
 	*valide = true;
 	CASE_AT_P(plateau, pion.position) = pion.couleur;

@@ -28,6 +28,14 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions) {
 	if (continuer) {
 		partie->initialisee = true;
 	}
+	// envoi des informations aux ordinateurs
+	for (int j = 0; j < 2; j++) {
+		struct s_Joueur joueur = partie->joueurs[j];
+		if (joueur.type == ORDINATEUR) {
+			ordinateur_debut_partie(joueur.ordinateur, partie);
+		}
+	}
+
 	partie->joueur_courant = JOUEUR_NOIR;
 }
 
@@ -36,22 +44,32 @@ enum CouleurJoueur partie_get_joueur(Partie partie) {
 }
 
 bool partie_jouer_coup(Partie partie, s_Coup coup) {
+	bool valide = false;
 	if (!POSITION_EST_VALIDE(coup.position)) {
 		// le joueur passe son tour
-		partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
-		return true;
+		valide = true;
 	} else {
 		// placement d'un pion
-		bool valide;
 		s_Pion pion;
 		pion.position = coup.position;
 		pion.couleur = partie->joueur_courant == JOUEUR_BLANC ? BLANC : NOIR;
 		Chaines capturees = plateau_capture_chaines(partie->plateau, pion, &valide);
 		if (capturees)
 			detruire_ensemble_chaine(capturees);
-		partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
-		return valide;
 	}
+	if (valide) {
+		// notification aux ordinateurs
+		enum CouleurJoueur couleur = partie->joueur_courant;
+		for (int j = 0; j < 2; j++) {
+			struct s_Joueur joueur = partie->joueurs[j];
+			if (joueur.type == ORDINATEUR) {
+				ordinateur_notifier_coup(joueur.ordinateur, partie, couleur, coup);
+			}
+		}
+		// et on passe au joueur suivant
+		partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
+	}
+	return valide;
 }
 
 void partie_jouer_ordinateur(Partie partie) {

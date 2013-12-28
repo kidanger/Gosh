@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 #include "cli/deroulement_partie.h"
 #include "cli/saisie.h"
@@ -10,22 +9,12 @@
 
 
 s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide) {
-	s_Coup coup;
-	if (strcmp(str, "p") == 0) {
-		// passe son tour
-		coup.position = POSITION_INVALIDE;
-		*valide = true;
-	} else {
+	s_Coup coup = str2coup(str, valide);
+	if (*valide) {
 		size_t taille = plateau_get_taille(partie->plateau);
-		int lettre = tolower(str[0]) - 'a';
-		int numero = atoi(str + 1) - 1;
-
-		if (lettre < 0 || lettre >= taille || numero < 0 || numero >= taille) {
+		if (POSITION_X(coup.position) >= taille
+		        || POSITION_Y(coup.position) >= taille) {
 			*valide = false;
-			gosh_debug("coup invalide %d %d", lettre, numero);
-		} else {
-			coup.position = POSITION(lettre, numero);
-			*valide = true;
 		}
 	}
 	return coup;
@@ -38,7 +27,7 @@ void cli_jouer_partie(Partie partie) {
 		enum CouleurJoueur couleur = partie_get_joueur(partie);
 		if (partie->joueurs[couleur].type == HUMAIN) {
 			snprintf(label, sizeof(label), "Au joueur %s de jouer",
-					couleur == JOUEUR_BLANC ? "blanc" : "noir");
+			         couleur == JOUEUR_BLANC ? "blanc" : "noir");
 			cli_demander_string(label, rep, sizeof(rep));
 
 			bool valide;

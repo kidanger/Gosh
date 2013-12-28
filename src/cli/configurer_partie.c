@@ -49,14 +49,18 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
 
 bool saisir_programme(Partie partie, enum CouleurJoueur couleur) {
 	// TODO: saisi
-	Ordinateur ordi = charger_ordinateur("src/ordinateurs/librandom.so");
+	Ordinateur ordi;
+	if (couleur == JOUEUR_BLANC)
+		ordi = charger_ordinateur("src/ordinateurs/librandom.so");
+	else
+		ordi = charger_ordinateur("src/ordinateurs/libgnugo.so");
 	partie->joueurs[couleur].ordinateur = ordi;
 	return true;
 }
 
 bool saisir_taille_plateau(Partie partie) {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
-	partie->plateau = creer_plateau(13);
+	partie->plateau = creer_plateau(9);
 	return true;
 #endif
 	const char* str = "Taille du plateau";

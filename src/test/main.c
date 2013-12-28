@@ -52,7 +52,7 @@ bool handle_coup(Partie partie, FILE* file, const char* arguments) {
 bool test_reponses_aux_questions(enum Question question, Partie partie) {
 	switch (question) {
 		case TYPE_JOUEUR_BLANC:
-			partie->joueurs[JOUEUR_BLANC].type = HUMAIN;
+				partie->joueurs[JOUEUR_BLANC].type = HUMAIN;
 			return true;
 		case NOM_JOUEUR_BLANC:
 			strcpy(partie->joueurs[JOUEUR_BLANC].nom, "Blanc");
@@ -76,12 +76,12 @@ bool tester(const char* filename) {
 		const char* name;
 		bool(*fonct)(Partie, FILE*, const char*);
 	} handlers[] = {
-		{.name="passer", .fonct=handle_passer},
-		{.name="afficher", .fonct=handle_afficher},
-		{.name="#", .fonct=handle_commentaire},
-		{.name="!", .fonct=handle_message},
-		{.name="fail", .fonct=handle_fail},
-		{.name="vide", .fonct=handle_vide},
+		{.name = "passer", .fonct = handle_passer},
+		{.name = "afficher", .fonct = handle_afficher},
+		{.name = "#", .fonct = handle_commentaire},
+		{.name = "!", .fonct = handle_message},
+		{.name = "fail", .fonct = handle_fail},
+		{.name = "vide", .fonct = handle_vide},
 	};
 	Partie partie = creer_partie();
 	initialisation_partie(partie, test_reponses_aux_questions);
@@ -111,7 +111,7 @@ bool tester(const char* filename) {
 		}
 
 		bool trouve = false;
-		for (int i = 0; i < sizeof(handlers)/sizeof(handlers[0]); i++) {
+		for (int i = 0; i < sizeof(handlers) / sizeof(handlers[0]); i++) {
 			if (strcmp(commande, handlers[i].name) == 0) {
 				trouve = true;
 				bool ok = handlers[i].fonct(partie, file, arguments);
