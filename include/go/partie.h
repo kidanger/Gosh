@@ -32,7 +32,8 @@ struct s_Partie {
 typedef struct s_Partie* Partie;
 
 enum Question {
-    TYPE_JOUEUR_BLANC,
+    PREMIERE_QUESTION,
+    TYPE_JOUEUR_BLANC = PREMIERE_QUESTION,
     NOM_JOUEUR_BLANC,
     PROGRAMME_JOUEUR_BLANC, // si type = ORDINATEUR
 
