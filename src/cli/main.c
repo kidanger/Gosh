@@ -30,10 +30,10 @@
 void afficher_plateau(Plateau plateau) {
 	size_t taille = plateau_get_taille(plateau);
 	// pour tester les chaines
-	Position position_chaine = POSITION(taille / 2, taille / 2);
+    Position position_chaine = POSITION(plateau, taille / 2, taille / 2);
 	Chaine chaine = plateau_determiner_chaine(plateau, position_chaine);
 	Libertes libertes = determiner_libertes(plateau, chaine);
-	Territoire territoire = determiner_territoire(plateau, POSITION(taille - 1, taille - 1));
+    Territoire territoire = determiner_territoire(plateau, POSITION(plateau, taille - 1, taille - 1));
 
 	const char* couleur_territoire;
 	switch (ensemble_colore_couleur(territoire)) {
@@ -54,11 +54,11 @@ void afficher_plateau(Plateau plateau) {
 
 			// highlight de la chaine
 			const char* ansi = C_NORMAL;
-			if (chaine != NULL && gosh_appartient(chaine, POSITION(x, y)))
+            if (chaine != NULL && gosh_appartient(chaine, POSITION(plateau, x, y)))
 				ansi = C_RED;
-			else if (libertes != NULL && gosh_appartient(libertes, POSITION(x, y)))
+            else if (libertes != NULL && gosh_appartient(libertes, POSITION(plateau, x, y)))
 				ansi = C_GREEN;
-			else if (territoire != NULL && gosh_appartient(territoire, POSITION(x, y)))
+            else if (territoire != NULL && gosh_appartient(territoire, POSITION(plateau, x, y)))
 				ansi = couleur_territoire;
 
 			printf("%s%d "C_NORMAL, ansi, couleur);
@@ -80,44 +80,47 @@ int main(int argc, const char *argv[]) {
 	printf("(seed=%llu)\n", seed);
 	srand(seed);
 	{
-		assert(POSITION_EST_VALIDE(POSITION(0, 0)));
-		assert(!POSITION_EST_VALIDE(POSITION_INVALIDE));
+        Plateau plateau = creer_plateau(19);
+        assert(POSITION_EST_VALIDE(plateau, POSITION(plateau, 0, 0)));
+        assert(!POSITION_EST_VALIDE(plateau, POSITION_INVALIDE));
 
 		size_t taille = 19;
 		size_t max = taille - 1;
-#define TEST(dir, x, y) POSITION_EST_VALIDE(POSITION_##dir(POSITION(x, y), taille))
-		assert(!TEST(GAUCHE, 0, 0));
-		assert(TEST(DROITE, 0, 0));
-		assert(!TEST(HAUT, 0, 0));
-		assert(TEST(BAS, 0, 0));
+#define TEST(dir, x, y) POSITION_EST_VALIDE(plateau, POSITION_##dir(plateau, POSITION(plateau, x, y)))
 
-		assert(TEST(GAUCHE, max, 0));
-		assert(!TEST(DROITE, max, 0));
-		assert(!TEST(HAUT, max, 0));
-		assert(TEST(BAS, max, 0));
+        assert(!TEST(GAUCHE, 0,0));
+        assert(TEST(DROITE, 0,0));
+        assert(!TEST(HAUT, 0,0));
+        assert(TEST(BAS, 0,0));
 
-		assert(TEST(GAUCHE, max, max));
-		assert(!TEST(DROITE, max, max));
-		assert(TEST(HAUT, max, max));
-		assert(!TEST(BAS, max, max));
+        assert(TEST(GAUCHE, max,0));
+        assert(!TEST(DROITE, max,0));
+        assert(!TEST(HAUT, max,0));
+        assert(TEST(BAS, max,0));
 
-		assert(!TEST(GAUCHE, 0, max));
-		assert(TEST(DROITE, 0, max));
-		assert(TEST(HAUT, 0, max));
-		assert(!TEST(BAS, 0, max));
+        assert(TEST(GAUCHE, max,max));
+        assert(!TEST(DROITE, max, max));
+        assert(TEST(HAUT, max, max));
+        assert(!TEST(BAS, max, max));
+
+        assert(!TEST(GAUCHE, 0,max));
+        assert(TEST(DROITE, 0, max));
+        assert(TEST(HAUT, 0, max));
+        assert(!TEST(BAS, 0, max));
 #undef TEST
 	}
 	{
 		printf("test de l'ensemble des positions:\n");
+        Plateau plateau = creer_plateau(19);
 		EnsemblePosition ensPos = creer_ensemble_position();
-		ensemble_position_ajouter(ensPos, POSITION(0, 1));
-		ensemble_position_ajouter(ensPos, POSITION(1, 1));
-		ensemble_position_ajouter(ensPos, POSITION(1, 2));
-		ensemble_position_ajouter(ensPos, POSITION(4, 2));
+        ensemble_position_ajouter(ensPos, POSITION(plateau, 0, 1));
+        ensemble_position_ajouter(ensPos, POSITION(plateau, 1, 1));
+        ensemble_position_ajouter(ensPos, POSITION(plateau, 1, 2));
+        ensemble_position_ajouter(ensPos, POSITION(plateau, 4, 2));
 
 		Position pos;
 		gosh_foreach(pos, ensPos) {
-			printf("%d %d\n", POSITION_X(pos), POSITION_Y(pos));
+            printf("%d %d\n", POSITION_X(plateau, pos), POSITION_Y(plateau, pos));
 		}
 
 		detruire_ensemble_position(ensPos);
@@ -145,12 +148,12 @@ int main(int argc, const char *argv[]) {
 		afficher_plateau(plateau);
 		cli_afficher_plateau(plateau);
 
-		Chaine chaine = plateau_determiner_chaine(plateau, POSITION(0, 0));
+        Chaine chaine = plateau_determiner_chaine(plateau, POSITION(plateau, 0, 0));
 		if (chaine) {
 			printf("chaine:\n");
 			Position pos;
 			gosh_foreach(pos, ensemble_colore_positions(chaine)) {
-				printf("%d %d, ", POSITION_X(pos), POSITION_Y(pos));
+                printf("%d %d, ", POSITION_X(plateau, pos), POSITION_Y(plateau, pos));
 			}
 			printf("\n");
 			detruire_ensemble_colore(chaine);

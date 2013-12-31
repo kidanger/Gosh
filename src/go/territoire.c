@@ -22,13 +22,13 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 				ensemble_position_ajouter(territoire_positions, courante);
 
 				const Position a_tester[] = {
-					POSITION_GAUCHE(courante, taille),
-					POSITION_DROITE(courante, taille),
-					POSITION_HAUT(courante, taille),
-					POSITION_BAS(courante, taille),
+                    POSITION_GAUCHE(plateau, courante),
+                    POSITION_DROITE(plateau, courante),
+                    POSITION_HAUT(plateau, courante),
+                    POSITION_BAS(plateau, courante),
 				};
 				for (int p = 0; p < 4; p++) {
-					if (POSITION_EST_VALIDE(a_tester[p]))
+                    if (POSITION_EST_VALIDE(plateau, a_tester[p]))
 						ensemble_position_ajouter(possibles, a_tester[p]);
 				}
 			}

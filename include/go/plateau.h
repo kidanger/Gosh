@@ -64,4 +64,18 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire);
  * Dans le cas contraire valide est égal à true. */
 Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide);
 
+
+Position POSITION(Plateau, size_t x, size_t y);
+
+size_t POSITION_X(Plateau, Position);
+size_t POSITION_Y(Plateau, Position);
+bool POSITION_EST_VALIDE(Plateau, Position);
+
+
+
+Position POSITION_GAUCHE(Plateau, Position);
+Position POSITION_DROITE(Plateau, Position);
+Position POSITION_HAUT(Plateau, Position);
+Position POSITION_BAS(Plateau, Position);
+
 #endif

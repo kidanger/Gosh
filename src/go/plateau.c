@@ -14,6 +14,7 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h> // memset
 
 #include "gosh_alloc.h"
@@ -22,18 +23,85 @@
 #include "go/libertes.h"
 
 struct s_Plateau {
-	Couleur* cases;
+    uint32_t * cases;
 	size_t taille;
 };
 
-#define CASE_AT(p, i, j) ((p)->cases[(j) * (p)->taille + (i)])
-#define CASE_AT_P(p, pos) CASE_AT((p), POSITION_X((pos)), POSITION_Y((pos)))
+Position POSITION(Plateau p, size_t x, size_t y)
+{
+    if( x >= p->taille || y >= p->taille)
+        return POSITION_INVALIDE;
+    return x * p->taille + y;
+}
+
+bool POSITION_EST_VALIDE(Plateau p, Position pos)
+{
+    return ! pos >= p->taille * p->taille;
+}
+
+size_t POSITION_X(Plateau p, Position pos)
+{
+    if( ! POSITION_EST_VALIDE(p, pos) )
+        return -1;
+    return pos/p->taille;
+}
+
+size_t POSITION_Y(Plateau p, Position pos)
+{
+    if( ! POSITION_EST_VALIDE(p, pos) )
+        return -1;
+    return pos % p->taille;
+}
+
+Position POSITION_GAUCHE(Plateau p, Position pos)
+{
+    size_t x = POSITION_X(p, pos);
+    if( x == -1)
+        return POSITION_INVALIDE;
+    if( ! x)
+        return POSITION_INVALIDE;
+
+    return pos - p->taille;
+}
+
+Position POSITION_DROITE(Plateau p, Position pos)
+{
+    size_t x = POSITION_X(p, pos);
+    if( x == -1)
+        return POSITION_INVALIDE;
+    if( x == p->taille - 1)
+        return POSITION_INVALIDE;
+
+    return pos + p->taille;
+}
+
+Position POSITION_HAUT(Plateau p, Position pos)
+{
+    size_t y = POSITION_X(p, pos);
+    if( y == -1)
+        return POSITION_INVALIDE;
+    if( ! y)
+        return POSITION_INVALIDE;
+
+    return pos - 1;
+}
+
+Position POSITION_BAS(Plateau p, Position pos)
+{
+    size_t y = POSITION_Y(p, pos);
+    if( y == -1)
+        return POSITION_INVALIDE;
+    if( y == p->taille - 1)
+        return POSITION_INVALIDE;
+    return pos + 1;
+}
 
 Plateau creer_plateau(size_t taille) {
 	Plateau plateau = gosh_alloc(*plateau);
 	plateau->taille = taille;
-	plateau->cases = gosh_allocn(Couleur, taille * taille);
-	memset(plateau->cases, 0, taille * taille);
+    size_t nbOctets = (taille * taille * 2 + 7) / 8; //arrondit à l'entier supérieur.
+    plateau->cases = gosh_alloc_size(nbOctets);
+    memset(plateau->cases, 0, nbOctets);
 	return plateau;
 }
 
@@ -42,21 +110,29 @@ void detruire_plateau(Plateau plateau) {
 	gosh_free(plateau);
 }
 
+
+
 Couleur plateau_get(Plateau plateau, int i, int j) {
-	return CASE_AT(plateau, i, j);
+    return plateau_get_at(plateau, POSITION(plateau, i, j));
 }
 
 Couleur plateau_get_at(Plateau plateau, Position pos) {
-	return CASE_AT_P(plateau, pos);
+    size_t offset = pos/(sizeof(uint32_t)/2);
+    uint32_t partie = plateau->cases[offset];
+    pos -= offset*sizeof(uint32_t)/2;
+    return (partie & (0x11 << pos*2) >> pos);
 }
 
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
-	CASE_AT(plateau, i, j) = couleur;
+    plateau_set_at(plateau, POSITION(plateau, i, j), couleur);
 }
 
 void plateau_set_at(Plateau plateau, Position pos, Couleur couleur)
 {
-    CASE_AT_P(plateau, pos) = couleur;
+    size_t offset = pos/(sizeof(uint32_t)/2);
+    uint32_t * partie = plateau->cases + offset;
+    pos -= offset*sizeof(uint32_t)/2;
+    *partie = (*partie | (0x11 << pos*2)  ) & ( (uint32_t)-1 & couleur << pos*2 );
 }
 
 size_t plateau_get_taille(Plateau plateau) {
@@ -64,7 +140,7 @@ size_t plateau_get_taille(Plateau plateau) {
 }
 
 Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
-	Couleur couleur = CASE_AT_P(plateau, pos);
+    Couleur couleur = plateau_get_at(plateau, pos);
 
 	if (couleur == VIDE)
 		return NULL;
@@ -77,18 +153,18 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 	gosh_ajouter(possibles, pos);
 	while (!gosh_vide(possibles)) {
 		Position courante = ensemble_position_supprimer_tete(possibles);
-		if (CASE_AT_P(plateau, courante) == couleur) {
+        if ( plateau_get_at(plateau, courante) == couleur) {
 			if (!gosh_appartient(positions_chaine, courante)) {
 				gosh_ajouter(positions_chaine, courante);
 
 				const Position a_tester[] = {
-					POSITION_GAUCHE(courante, plateau->taille),
-					POSITION_DROITE(courante, plateau->taille),
-					POSITION_HAUT(courante, plateau->taille),
-					POSITION_BAS(courante, plateau->taille),
+                    POSITION_GAUCHE(plateau, courante),
+                    POSITION_DROITE(plateau, courante),
+                    POSITION_HAUT(plateau, courante),
+                    POSITION_BAS(plateau, courante),
 				};
 				for (int p = 0; p < 4; p++) {
-					if (POSITION_EST_VALIDE(a_tester[p]))
+                    if (POSITION_EST_VALIDE(plateau, a_tester[p]))
 						gosh_ajouter(possibles, a_tester[p]);
 				}
 			}
@@ -102,7 +178,7 @@ Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
 void plateau_realiser_capture(Plateau plateau, Chaine chaine) {
 	Position position;
 	gosh_foreach(position, chaine) {
-		CASE_AT_P(plateau, position) = VIDE;
+        plateau_set_at(plateau, position, VIDE);
 	}
 }
 
@@ -110,24 +186,16 @@ bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau) {
 	if (plateau->taille != ancienPlateau->taille) {
 		return false;
 	}
-	size_t taille = plateau->taille;
-	for (int x = 0; x < taille; x++) {
-		for (int y = 0; y < taille; y++) {
-			if (CASE_AT(plateau, x, y) != CASE_AT(ancienPlateau, x, y)) {
-				return false;
-			}
-		}
-	}
-	return true;
+    return ! memcmp(plateau->cases,
+                    ancienPlateau->cases,
+                    (plateau->taille * plateau->taille * 2 + 7) / 8);
 }
 
 void plateau_copie(Plateau from, Plateau to) {
-	size_t taille = from->taille;
-	for (int x = 0; x < taille; x++) {
-		for (int y = 0; y < taille; y++) {
-			CASE_AT(to, x, y) = CASE_AT(from, x, y);
-		}
-	}
+    to->taille = from->taille;
+    size_t taille = (from->taille * from->taille * 2 + 7) / 8;
+    gosh_realloc_size(to->cases, taille);
+    memcpy(to->cases, from->cases, taille);
 }
 
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
@@ -135,14 +203,14 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
 	Position position;
 	gosh_foreach(position, territoire) {
 		const Position a_tester[] = {
-			POSITION_GAUCHE(position, plateau->taille),
-			POSITION_DROITE(position, plateau->taille),
-			POSITION_HAUT(position, plateau->taille),
-			POSITION_BAS(position, plateau->taille),
+            POSITION_GAUCHE(plateau, position),
+            POSITION_DROITE(plateau, position),
+            POSITION_HAUT(plateau, position),
+            POSITION_BAS(plateau, position),
 		};
 		for (int i = 0; i < 4; i++) {
 			Position p = a_tester[i];
-			if (POSITION_EST_VALIDE(p)) {
+            if (POSITION_EST_VALIDE(plateau, p)) {
 				Chaine chaine = plateau_determiner_chaine(plateau, p);
 				if (chaine) {
 					if (gosh_appartient(chaines, chaine)) {
@@ -164,7 +232,7 @@ Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
 	*valide = false;
 
 	// il y a déjà une case
-	if (CASE_AT_P(plateau, pion.position) != VIDE) {
+    if ( plateau_get_at(plateau, pion.position) != VIDE) {
 		gosh_debug("déjà une case");
 		return NULL;
 	}
@@ -229,7 +297,7 @@ annuler_captures:
 				gosh_foreach(chaine, chaines_capturees) {
 					Position pos;
 					gosh_foreach(pos, chaine) {
-						CASE_AT_P(plateau, pos) = autre_couleur;
+                        plateau_set_at(plateau, pos, autre_couleur);
 					}
 				}
 				detruire_ensemble_chaine(chaines_capturees);
@@ -240,7 +308,7 @@ annuler_captures:
 	detruire_ensemble_colore(territoire);
 
 	*valide = true;
-	CASE_AT_P(plateau, pion.position) = pion.couleur;
+    plateau_set_at(plateau, pion.position, pion.couleur);
 	if (gosh_vide(chaines_capturees))
 		return NULL;
 	return chaines_capturees;

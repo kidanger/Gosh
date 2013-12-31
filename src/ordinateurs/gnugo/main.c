@@ -107,10 +107,10 @@ int JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
 
 void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_Coup coup) {
 	// les "passe" sont ignorés, non nécessaire avec gnugo
-	if (POSITION_EST_VALIDE(coup.position)) {
+    if (POSITION_EST_VALIDE(partie->plateau, coup.position)) {
 		char cmd[64];
 		sprintf(cmd, "play %s %c%d", couleur == JOUEUR_BLANC ? "white" : "black",
-		        GOSH_TO_GNUGNO[POSITION_X(coup.position)], POSITION_Y(coup.position) + 1);
+                GOSH_TO_GNUGNO[POSITION_X(partie->plateau, coup.position)], POSITION_Y(partie->plateau, coup.position) + 1);
 		envoyer_commande(data, cmd);
 		ignorer_sortie(data);
 	}

@@ -12,14 +12,14 @@ Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
 	Position pos;
 	gosh_foreach(pos, ensemble_colore_positions(chaine)) {
 		const Position a_tester[] = {
-			POSITION_GAUCHE(pos, taille),
-			POSITION_DROITE(pos, taille),
-			POSITION_HAUT(pos, taille),
-			POSITION_BAS(pos, taille),
+            POSITION_GAUCHE(plateau, pos),
+            POSITION_DROITE(plateau,pos),
+            POSITION_HAUT(plateau,pos),
+            POSITION_BAS(plateau,pos),
 		};
 		for (int i = 0; i < 4; i++) {
 			Position p = a_tester[i];
-			if (POSITION_EST_VALIDE(p) && plateau_get_at(plateau, p) == VIDE) {
+            if (POSITION_EST_VALIDE(plateau, p) && plateau_get_at(plateau, p) == VIDE) {
 				if (!ensemble_position_appartient(libertes, p)) {
 					ensemble_position_ajouter(libertes, p);
 				}
