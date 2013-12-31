@@ -16,16 +16,38 @@ void detruire_partie(Partie partie) {
 	gosh_free(partie);
 }
 
+bool question_coherante(enum Question idQuestion, Partie partie)
+{
+    switch(idQuestion)
+    {
+        PROGRAMME_JOUEUR_BLANC :
+            if( partie->joueurs[JOUEUR_BLANC].type != ORDINATEUR )
+                return false;
+        break;
+
+        PROGRAMME_JOUEUR_NOIR :
+            if( partie->joueurs[JOUEUR_NOIR].type != ORDINATEUR )
+                return false;
+        break;
+
+        default :
+            return true;
+    }
+}
+
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions) {
-	bool continuer = true;
-	for (int i = 0; i < NOMBRE_QUESTIONS && continuer; i++) {
-		if (i == PROGRAMME_JOUEUR_BLANC && partie->joueurs[JOUEUR_BLANC].type != ORDINATEUR)
-			continue;
-		if (i == PROGRAMME_JOUEUR_NOIR && partie->joueurs[JOUEUR_NOIR].type != ORDINATEUR)
-			continue;
-		continuer = continuer && fonctionQuestions(i, partie);
-	}
-	if (continuer) {
+
+    enum Question idQuestion = PREMIERE_QUESTION;
+
+    while( idQuestion < NOMBRE_QUESTIONS)
+    {
+        if( question_coherante(idQuestion, partie) && ! fonctionQuestions(idQuestion, partie) )
+            break;
+
+        idQuestion++;
+    }
+
+    if (idQuestion == NOMBRE_QUESTIONS) {
 		partie->initialisee = true;
 	}
 	// envoi des informations aux ordinateurs

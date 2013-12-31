@@ -16,6 +16,8 @@ static void* recuperer_fonction(void* dlptr, const char* nom, bool importante) {
 }
 
 Ordinateur charger_ordinateur(const char* filename) {
+    printf("%s\n", filename);
+    fflush(stdout);
 	void* dlptr = dlopen(filename, RTLD_LAZY);
 	if (dlptr == NULL) {
 		printf("Impossible de charger le fichier %s.\n", filename);
