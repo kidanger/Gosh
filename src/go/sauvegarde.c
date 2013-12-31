@@ -2,7 +2,11 @@
 #include "go/plateau.h"
 #include "errno.h"
 #include <stdint.h>
-#include <arpa/inet.h>
+#ifdef WINDOWS
+    #include <Winsock2.h>
+#else
+    #include <arpa/inet.h>
+#endif
 #include <assert.h>
 
 #define SERIALIZE_VERSION 0
