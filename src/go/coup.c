@@ -22,7 +22,7 @@ s_Coup str2coup(const char* str, bool* valide) {
 			if (valide)
 				*valide = false;
 		} else {
-            coup.position = lettre*19 + numero; /** @todo : à corriger si nécessaire */
+            coup.position = position(lettre, numero, 19);
 			if (valide)
 				*valide = true;
 		}

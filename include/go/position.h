@@ -16,10 +16,40 @@
 #ifndef GOSH_GO_POSITION
 #define GOSH_GO_POSITION
 
-typedef unsigned short Position;
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h> //size_t
 
-#define POSITION_INVALIDE ((Position)-1)
-#define POSITION_EQ(p1, p2) ((p1) == (p2) )
+typedef struct
+{
+    union {
+        struct {
+            uint8_t x;
+            uint8_t y;
+            uint8_t coord_max;
+            uint8_t zero;
+        };
+        uint32_t id;
+    };
+} Position;
+
+#define POSITION_INVALIDE ((Position){-1,-1,0})
+
+#define POSITION_VOISINS(position) { \
+position_gauche(position), \
+position_droite(position), \
+position_haut(position), \
+position_bas(position), \
+}
+
+Position position(size_t taille, size_t x, size_t y);
+
+bool position_est_valide(Position);
+
+Position position_gauche(Position);
+Position position_droite(Position);
+Position position_haut(Position);
+Position position_bas(Position);
 
 #endif
 

@@ -11,9 +11,7 @@
 s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide) {
 	s_Coup coup = str2coup(str, valide);
 	if (*valide) {
-		size_t taille = plateau_get_taille(partie->plateau);
-        if (POSITION_X(partie->plateau, coup.position) >= taille
-                || POSITION_Y(partie->plateau, coup.position) >= taille) {
+        if ( ! position_est_valide(coup.position) ) {
 			*valide = false;
 		}
 	}
