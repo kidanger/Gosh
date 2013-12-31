@@ -1,6 +1,7 @@
 #include "go/sauvegarde.h"
 #include "go/plateau.h"
 #include "errno.h"
+#include "gosh_alloc.h"
 #include <stdint.h>
 #ifdef WINDOWS
     #include <Winsock2.h>
@@ -8,6 +9,7 @@
     #include <arpa/inet.h>
 #endif
 #include <assert.h>
+#include <stdint.h>
 
 #define SERIALIZE_VERSION 0
 #define BINAIRE 'B'
@@ -39,28 +41,17 @@ bool sauvegarder_plateau(Plateau plateau, FILE * file)
         return false;
     }
 
-    longueur *= longueur;
-    for(Position step = 0; step < longueur; step += 16) // 32 bits / 2 bits
+    size_t nbElement = taille*taille/(sizeof(uint32_t)/2);
+    const uint32_t * data = plateau_data(plateau);
+
+    for(int i =0; i < nbElement; ++i)
     {
-        uint32_t data = 0;
-
-        Position p = step;
-        int i = 0;
-        int max = (step + 16 < longueur) ? 16 : longueur - step;
-        while(i < max)
-        {
-            data <<= 2;
-            Couleur couleur = plateau_get_at(plateau, p);
-            data |= couleur;
-            ++i;
-            ++p;
-        }
-
-        data = htonl(data);
-        if( ! fwrite(&data, sizeof(data), 1, file) )
+        uint32_t toWrite = htonl(data[i]);
+        if( ! fwrite(&toWrite, sizeof(toWrite), 1, file) )
             return false; // error
-
     }
+
+
     return true;
 }
 
@@ -102,29 +93,20 @@ Plateau charger_plateau_binaire(FILE * file)
 
     Plateau plateau = creer_plateau(taille);
 
-    size_t longueur = taille * taille;
-
-    uint32_t data;
-    for(Position step = 0; step < longueur; step += sizeof(data)/2) // taille couleur = 2 bits
+    size_t nbElement = taille*taille/(sizeof(uint32_t)/2);
+    uint32_t * data = gosh_allocn(uint32_t, nbElement);
+    if( ! fread(data, nbElement, 1, file) )
     {
-        if( ! fread(&data, sizeof(data), 1, file) )
-            return false; // error
-        data = ntohl(data);
-
-        Position p = step;
-        uint32_t mask = 0x11 << (sizeof(data)*8 - 2);
-        int max = (step + sizeof(data)/2 < longueur) ? sizeof(data)/2 : longueur - step;
-        int i = 0;
-
-        while(i < max)
-        {
-            Couleur couleur = (data & mask) >> (sizeof(data)*8 - 2);
-            data <<= 2;
-            plateau_set_at(plateau, p, couleur);
-            ++p;
-            ++i;
-        }
+        free(data);
+        return false;
     }
+
+    for(size_t i = 0; i < nbElement; i++)
+        data[i] = ntohl(data[i]);
+
+    plateau_load_data(plateau, data);
+
+    free(data);
     return plateau;
 }
 

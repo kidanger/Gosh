@@ -18,6 +18,7 @@
 
 #include <stdlib.h> // size_t
 #include <stdbool.h>
+#include <stdint.h>
 
 #include "go/plateau_type.h"
 
@@ -77,5 +78,8 @@ Position POSITION_GAUCHE(Plateau, Position);
 Position POSITION_DROITE(Plateau, Position);
 Position POSITION_HAUT(Plateau, Position);
 Position POSITION_BAS(Plateau, Position);
+
+const uint32_t * plateau_data(Plateau p);
+void plateau_load_data(Plateau plateau, const uint32_t * data);
 
 #endif

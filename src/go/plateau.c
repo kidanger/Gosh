@@ -14,7 +14,6 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
-#include <stdint.h>
 #include <string.h> // memset
 
 #include "gosh_alloc.h"
@@ -188,12 +187,12 @@ bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau) {
 	}
     return ! memcmp(plateau->cases,
                     ancienPlateau->cases,
-                    (plateau->taille * plateau->taille * 2 + 7) / 8);
+                    (plateau->taille * plateau->taille * 2 + 7) / 8 * sizeof(uint32_t) );
 }
 
 void plateau_copie(Plateau from, Plateau to) {
     to->taille = from->taille;
-    size_t taille = (from->taille * from->taille * 2 + 7) / 8;
+    size_t taille = (from->taille * from->taille * 2 + 7) / 8 * sizeof(uint32_t);
     gosh_realloc_size(to->cases, taille);
     memcpy(to->cases, from->cases, taille);
 }
@@ -314,3 +313,14 @@ annuler_captures:
 	return chaines_capturees;
 }
 
+const uint32_t * plateau_data(Plateau p)
+{
+    return p->cases;
+}
+
+
+void plateau_load_data(Plateau plateau, const uint32_t * data)
+{
+    memcpy(plateau->cases, data, sizeof(uint32_t) * (plateau->taille * plateau->taille * 2 + 7) / 8);
+
+}
