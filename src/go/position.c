@@ -5,7 +5,7 @@ Position position(size_t taille, size_t x, size_t y)
 {
     if( x >= taille || y >= taille)
         return POSITION_INVALIDE;
-    Position p = {x, y, taille};
+    Position p = {x, y, taille,0};
     return p;
 }
 
