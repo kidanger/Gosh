@@ -10,15 +10,10 @@ Libertes determiner_libertes(Plateau plateau, Chaine chaine) {
 
 	Position pos;
 	gosh_foreach(pos, ensemble_colore_positions(chaine)) {
-		const Position a_tester[] = {
-            position_gauche(pos),
-            position_droite(pos),
-            position_haut(pos),
-            position_bas(pos),
-		};
+        const Position a_tester[] = POSITION_VOISINS(pos);
 		for (int i = 0; i < 4; i++) {
 			Position p = a_tester[i];
-            if ( plateau_get_at(plateau, p) == VIDE) {
+            if ( position_est_valide(p) && plateau_get_at(plateau, p) == VIDE) {
 				if (!ensemble_position_appartient(libertes, p)) {
 					ensemble_position_ajouter(libertes, p);
 				}
