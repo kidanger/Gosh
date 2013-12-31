@@ -54,6 +54,11 @@ void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
 	CASE_AT(plateau, i, j) = couleur;
 }
 
+void plateau_set_at(Plateau plateau, Position pos, Couleur couleur)
+{
+    CASE_AT_P(plateau, pos) = couleur;
+}
+
 size_t plateau_get_taille(Plateau plateau) {
 	return plateau->taille;
 }

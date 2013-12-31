@@ -51,9 +51,9 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur) {
 	// TODO: saisi
 	Ordinateur ordi;
 	if (couleur == JOUEUR_BLANC)
-		ordi = charger_ordinateur("src/ordinateurs/librandom.so");
+        ordi = charger_ordinateur("../ordinateurs/librandom.so");
 	else
-		ordi = charger_ordinateur("src/ordinateurs/libgnugo.so");
+        ordi = charger_ordinateur("../ordinateurs/libgnugo.so");
 	partie->joueurs[couleur].ordinateur = ordi;
 	return true;
 }

@@ -34,6 +34,7 @@ void detruire_plateau(Plateau plateau);
 Couleur plateau_get(Plateau plateau, int i, int j);
 Couleur plateau_get_at(Plateau plateau, Position pos);
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
+void plateau_set_at(Plateau plateau, Position pos, Couleur couleur);
 
 size_t plateau_get_taille(Plateau plateau);
 
