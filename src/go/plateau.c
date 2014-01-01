@@ -51,7 +51,7 @@ Couleur plateau_get(Plateau plateau, int i, int j) {
     size_t offset = pos/nbPosParCase;
     uint32_t partie = plateau->cases[offset];
     pos -= offset*nbPosParCase;
-    return ( (partie & (0x11 << pos*2) ) >> pos*2);
+    return ( (partie & (0x3 << pos*2) ) >> pos*2);
 }
 
 Couleur plateau_get_at(Plateau plateau, Position pos) {
@@ -65,7 +65,7 @@ void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
     uint32_t * partie = plateau->cases + offset;
     pos -= offset*nbPosParCase;
 
-    *partie = ~(~*partie | (0x11 << pos*2) );
+    *partie = ~(~*partie | (0x3 << pos*2) );
     *partie ^= (uint32_t)(couleur << pos*2);
 }
 
