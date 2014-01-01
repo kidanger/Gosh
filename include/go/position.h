@@ -33,7 +33,7 @@ typedef struct
     };
 } Position;
 
-#define POSITION_INVALIDE ((Position){-1,-1,0, 0})
+#define POSITION_INVALIDE ((Position){{{-1,-1,0, 0}}})
 
 #define POSITION_VOISINS(position) { \
 position_gauche(position), \
