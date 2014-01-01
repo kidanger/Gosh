@@ -34,7 +34,7 @@ Plateau creer_plateau(size_t taille) {
     plateau->taille = taille;
     size_t nbCases = impl_get_nbCases(taille);
     plateau->cases = gosh_allocn(uint32_t, nbCases);
-    memset(plateau->cases, sizeof(uint32_t), nbCases);
+    memset(plateau->cases, VIDE, sizeof(uint32_t) * nbCases);
     return plateau;
 }
 

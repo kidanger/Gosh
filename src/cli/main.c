@@ -67,9 +67,33 @@ void afficher_plateau(Plateau plateau) {
 	}
 }
 
-#define TESTS_UNIQUEMENT 0
+void test_get_set(void)
+{
+    Plateau p = creer_plateau(9);
+
+    const uint32_t *  data = plateau_data(p);
+
+    puts("debut");
+    for(int i = 0; i < plateau_data_size(9)/sizeof(uint32_t); ++i)
+        printf("%x\n", data[i]);
+    puts("fin");
+
+    plateau_set(p, 0,0, BLANC);
+    printf("%d %d\n", plateau_get(p,0,0), BLANC);
+
+    puts("debut");
+    data = plateau_data(p);
+    for(int i = 0; i < plateau_data_size(9)/sizeof(uint32_t); ++i)
+        printf("%x\n", data[i]);
+    puts("fin");
+
+    exit(0);
+}
+
+#define TESTS_UNIQUEMENT 1
 
 int main(int argc, const char *argv[]) {
+    test_get_set();
 	if (!TESTS_UNIQUEMENT) {
 		Partie p = cli_creer_nouvelle_partie();
 		cli_afficher_plateau(p->plateau);
@@ -85,27 +109,27 @@ int main(int argc, const char *argv[]) {
 
 		size_t taille = 19;
 		size_t max = taille - 1;
-#define TEST(dir, x, y, taille) position_est_valide(position_##dir( position(x, y, taille)))
+#define TEST(dir, x, y) position_est_valide(position_##dir( position(x, y, taille)))
 
-        assert(!TEST(gauche, 0,0, 0));
-        assert(TEST(droite, 0,0, 0));
-        assert(!TEST(haut, 0,0, 0));
-        assert(TEST(bas, 0,0, 0));
+        assert(!TEST(gauche, 0,0));
+        assert(TEST(droite, 0,0));
+        assert(!TEST(haut, 0,0));
+        assert(TEST(bas, 0,0));
 
-        assert(TEST(gauche, max,0, 0));
-        assert(!TEST(droite, max,0, 0));
-        assert(!TEST(haut, max,0, 0));
-        assert(TEST(bas, max,0, 0));
+        assert(TEST(gauche, max,0));
+        assert(!TEST(droite, max,0));
+        assert(!TEST(haut, max,0));
+        assert(TEST(bas, max,0));
 
-        assert(TEST(gauche, max,max, max));
-        assert(!TEST(droite, max, max, max));
-        assert(TEST(haut, max, max, max));
-        assert(!TEST(bas, max, max, max));
+        assert(TEST(gauche, max,max));
+        assert(!TEST(droite, max, max));
+        assert(TEST(haut, max, max));
+        assert(!TEST(bas, max, max));
 
-        assert(!TEST(gauche, 0,max, max));
-        assert(TEST(droite, 0, max, max));
-        assert(TEST(haut, 0, max, max));
-        assert(!TEST(bas, 0, max, max));
+        assert(!TEST(gauche, 0,max));
+        assert(TEST(droite, 0, max));
+        assert(TEST(haut, 0, max));
+        assert(!TEST(bas, 0, max));
 #undef TEST
 	}
 	{
