@@ -20,7 +20,8 @@
 #include "go/coup.h"
 #include "gosh_macros.h"
 
-s_Coup str2coup(const char* str, bool* valide) {
+s_Coup str2coup(const char* str, bool* valide)
+{
 	s_Coup coup;
 	if (strcmp(str, "p") == 0) {
 		// passe son tour

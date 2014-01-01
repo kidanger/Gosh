@@ -7,22 +7,26 @@
 #include "cli/saisie.h"
 #include "cli/affichage.h"
 
-static void debut_prompt(void) {
+static void debut_prompt(void)
+{
 	printf(C_GREY);
 	fflush(stdout);
 }
-static void debut_saisie(void) {
+static void debut_saisie(void)
+{
 	printf(C_GREEN);
 	fflush(stdout);
 }
-static void fin(void) {
+static void fin(void)
+{
 	printf(C_NORMAL);
 	fflush(stdout);
 }
 
 #define NUM_OPTIONS 16
 
-char cli_demander_char(const char* prompt, char defaut, ...) {
+char cli_demander_char(const char* prompt, char defaut, ...)
+{
 	// TODO: gérer defaut
 	struct {
 		char code;
@@ -63,7 +67,8 @@ char cli_demander_char(const char* prompt, char defaut, ...) {
 	return rep;
 }
 
-void cli_demander_string(const char* prompt, char* buffer, unsigned int taille) {
+void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
+{
 	bool eof;
 	do {
 		debut_prompt();

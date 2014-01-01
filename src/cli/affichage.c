@@ -3,7 +3,8 @@
 #include "cli/affichage.h"
 #include "go/plateau.h"
 
-void cli_afficher_plateau(Plateau plateau) {
+void cli_afficher_plateau(Plateau plateau)
+{
 	int taille = plateau_get_taille(plateau);
 
 #define SHOW_LETTERS() do { \

@@ -8,19 +8,21 @@
 #include "go/plateau.h"
 
 
-s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide) {
+s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide)
+{
 	(void) partie;
 
 	s_Coup coup = str2coup(str, valide);
 	if (*valide) {
-        if ( ! position_est_valide(coup.position) ) {
+		if (! position_est_valide(coup.position)) {
 			*valide = false;
 		}
 	}
 	return coup;
 }
 
-void cli_jouer_partie(Partie partie) {
+void cli_jouer_partie(Partie partie)
+{
 	char label[32];
 	char rep[32];
 	while (true) {

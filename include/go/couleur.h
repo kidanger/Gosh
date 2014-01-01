@@ -17,9 +17,9 @@
 #define GOSH_GO_COULEUR
 
 typedef enum {
-    VIDE,
-    BLANC,
-    NOIR
+	VIDE,
+	BLANC,
+	NOIR
 } Couleur;
 
 #endif

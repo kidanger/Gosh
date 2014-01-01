@@ -6,7 +6,8 @@
 
 // TODO: handle Windows API
 
-static void* recuperer_fonction(void* dlptr, const char* nom, bool importante) {
+static void* recuperer_fonction(void* dlptr, const char* nom, bool importante)
+{
 	void* func = dlsym(dlptr, nom);
 	if (func == NULL && importante) {
 		printf("La récupération de la fonction %s a échouée.\n", nom);
@@ -15,7 +16,8 @@ static void* recuperer_fonction(void* dlptr, const char* nom, bool importante) {
 	return func;
 }
 
-Ordinateur charger_ordinateur(const char* filename) {
+Ordinateur charger_ordinateur(const char* filename)
+{
 	void* dlptr = dlopen(filename, RTLD_LAZY);
 	if (dlptr == NULL) {
 		printf("Impossible de charger le fichier %s.\n", filename);
@@ -48,23 +50,27 @@ Ordinateur charger_ordinateur(const char* filename) {
 	return ordi;
 }
 
-void ordinateur_debut_partie(Ordinateur ordi, Partie partie) {
+void ordinateur_debut_partie(Ordinateur ordi, Partie partie)
+{
 	if (ordi->debut_partie) {
 		ordi->debut_partie(ordi->ordidata, partie);
 	}
 }
 
-void ordinateur_notifier_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur, s_Coup coup) {
+void ordinateur_notifier_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur, s_Coup coup)
+{
 	if (ordi->notification_coup) {
 		ordi->notification_coup(ordi->ordidata, partie, couleur, coup);
 	}
 }
 
-void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur) {
+void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur)
+{
 	ordi->jouer(ordi->ordidata, partie, couleur);
 }
 
-void decharger_ordinateur(Ordinateur ordi) {
+void decharger_ordinateur(Ordinateur ordi)
+{
 	dlclose(ordi->dlptr);
 	gosh_free(ordi);
 }

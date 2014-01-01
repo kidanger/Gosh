@@ -20,17 +20,20 @@
 
 // TODO: check malloc return
 
-void* gosh_alloc_size(size_t size) {
+void* gosh_alloc_size(size_t size)
+{
 	void* ptr = malloc(size);
 	memset(ptr, 0, size);
 	return ptr;
 }
 
-void gosh_free(void* ptr) {
+void gosh_free(void* ptr)
+{
 	free(ptr);
 }
 
-void * gosh_realloc_size(void * ptr, size_t size) {
+void * gosh_realloc_size(void * ptr, size_t size)
+{
 	return realloc(ptr, size);
 }
 

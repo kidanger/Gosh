@@ -24,7 +24,8 @@
 typedef struct {
 } *Data;
 
-void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
+void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
+{
 	(void) data;
 	(void) couleur;
 
@@ -33,11 +34,12 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
 	do {
 		int x = rand() % taille;
 		int y = rand() % taille;
-        coup.position = position(x,y, taille);
+		coup.position = position(x, y, taille);
 	} while (plateau_get_at(partie->plateau, coup.position) != VIDE || !partie_jouer_coup(partie, coup));
 }
 
-void* INITIALISER() {
+void* INITIALISER()
+{
 	Data data = gosh_alloc(*data);
 	gosh_debug("Initialisation du botrandom");
 	return data;

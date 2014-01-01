@@ -21,13 +21,13 @@
 #define TAILLE_NOM_JOUEUR 32
 
 enum CouleurJoueur {
-    JOUEUR_BLANC,
-    JOUEUR_NOIR
+	JOUEUR_BLANC,
+	JOUEUR_NOIR
 };
 
 enum TypeJoueur {
-    HUMAIN,
-    ORDINATEUR
+	HUMAIN,
+	ORDINATEUR
 };
 
 struct s_Joueur {

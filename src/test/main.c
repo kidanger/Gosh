@@ -8,7 +8,8 @@
 #include "cli/deroulement_partie.h"
 #include "cli/affichage.h"
 
-bool handle_passer(Partie partie, FILE* file, const char* arguments) {
+bool handle_passer(Partie partie, FILE* file, const char* arguments)
+{
 	(void) file;
 	(void) arguments;
 	s_Coup coup;
@@ -16,25 +17,29 @@ bool handle_passer(Partie partie, FILE* file, const char* arguments) {
 	partie_jouer_coup(partie, coup);
 	return true;
 }
-bool handle_afficher(Partie partie, FILE* file, const char* arguments) {
+bool handle_afficher(Partie partie, FILE* file, const char* arguments)
+{
 	(void) file;
 	(void) arguments;
 	cli_afficher_plateau(partie->plateau);
 	return true;
 }
-bool handle_message(Partie partie, FILE* file, const char* arguments) {
+bool handle_message(Partie partie, FILE* file, const char* arguments)
+{
 	(void) partie;
 	(void) file;
 	printf(C_YELLOW "%s\n" C_NORMAL, arguments);
 	return true;
 }
-bool handle_commentaire(Partie partie, FILE* file, const char* arguments) {
+bool handle_commentaire(Partie partie, FILE* file, const char* arguments)
+{
 	(void) partie;
 	(void) file;
 	(void) arguments;
 	return true;
 }
-bool handle_fail(Partie partie, FILE* file, const char* arguments) {
+bool handle_fail(Partie partie, FILE* file, const char* arguments)
+{
 	(void) file;
 	bool valide;
 	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
@@ -42,7 +47,8 @@ bool handle_fail(Partie partie, FILE* file, const char* arguments) {
 		valide &= partie_jouer_coup(partie, coup) == false;
 	return valide;
 }
-bool handle_vide(Partie partie, FILE* file, const char* arguments) {
+bool handle_vide(Partie partie, FILE* file, const char* arguments)
+{
 	(void) file;
 	bool valide;
 	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
@@ -52,7 +58,8 @@ bool handle_vide(Partie partie, FILE* file, const char* arguments) {
 		printf("La case %s n'est pas vide.\n", arguments);
 	return valide;
 }
-bool handle_coup(Partie partie, FILE* file, const char* arguments) {
+bool handle_coup(Partie partie, FILE* file, const char* arguments)
+{
 	(void) file;
 	bool valide;
 	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
@@ -61,10 +68,11 @@ bool handle_coup(Partie partie, FILE* file, const char* arguments) {
 	return valide;
 }
 
-bool test_reponses_aux_questions(enum Question question, Partie partie) {
+bool test_reponses_aux_questions(enum Question question, Partie partie)
+{
 	switch (question) {
 		case TYPE_JOUEUR_BLANC:
-				partie->joueurs[JOUEUR_BLANC].type = HUMAIN;
+			partie->joueurs[JOUEUR_BLANC].type = HUMAIN;
 			return true;
 		case NOM_JOUEUR_BLANC:
 			strcpy(partie->joueurs[JOUEUR_BLANC].nom, "Blanc");
@@ -83,7 +91,8 @@ bool test_reponses_aux_questions(enum Question question, Partie partie) {
 	}
 }
 
-bool tester(const char* filename) {
+bool tester(const char* filename)
+{
 	struct {
 		const char* name;
 		bool(*fonct)(Partie, FILE*, const char*);
@@ -154,7 +163,8 @@ out:
 	return reussi;
 }
 
-int main(int argc, const char *argv[]) {
+int main(int argc, const char *argv[])
+{
 	for (int i = 1; i < argc; i++) {
 		const char* filename = argv[i];
 

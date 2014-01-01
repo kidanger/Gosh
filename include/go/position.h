@@ -20,8 +20,7 @@
 #include <stdbool.h>
 #include <stdio.h> //size_t
 
-typedef struct
-{
+typedef struct {
 	uint8_t x;
 	uint8_t y;
 	uint8_t coord_max;
@@ -31,11 +30,11 @@ typedef struct
 extern Position POSITION_INVALIDE;
 
 #define POSITION_VOISINS(position) { \
-position_gauche(position), \
-position_droite(position), \
-position_haut(position), \
-position_bas(position), \
-}
+		position_gauche(position), \
+		position_droite(position), \
+		position_haut(position), \
+		position_bas(position), \
+	}
 
 Position position(size_t x, size_t y, size_t taille);
 

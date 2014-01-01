@@ -34,12 +34,14 @@ struct IMPL_CONTAINER_NAME {
 	struct NODE_NAME * tete;
 };
 
-GoshIterateur FUNC_NAME(createIterateur)(void) {
+GoshIterateur FUNC_NAME(createIterateur)(void)
+{
 	GoshIterateur it = {NULL};
 	return it;
 }
 
-TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME ptrContainer, TYPE* element) {
+TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME ptrContainer, TYPE* element)
+{
 	struct NODE_NAME * ptrNode;
 
 	if (! it->m_pos)
@@ -58,7 +60,8 @@ TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME ptrContainer, TYPE* el
 	return ptrElement;
 }
 
-CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void) {
+CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void)
+{
 	CONTAINER_NAME ptrContainer = gosh_alloc(*ptrContainer);
 	ptrContainer->data = gosh_alloc(*ptrContainer->data);
 	ptrContainer->data->tete = NULL;
@@ -74,7 +77,8 @@ CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void) {
 	return ptrContainer;
 }
 
-void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer) {
+void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer)
+{
 	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	struct NODE_NAME * noeud = ensemble->tete;
 	while (noeud) {
@@ -86,11 +90,13 @@ void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer) {
 	gosh_free(ptrContainer);
 }
 
-bool FUNC_NAME(vide)(CONTAINER_NAME ptrContainer) {
+bool FUNC_NAME(vide)(CONTAINER_NAME ptrContainer)
+{
 	return ptrContainer->data->tete == NULL;
 }
 
-void FUNC_NAME(ajouter)(CONTAINER_NAME ptrContainer, TYPE element) {
+void FUNC_NAME(ajouter)(CONTAINER_NAME ptrContainer, TYPE element)
+{
 	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	struct NODE_NAME * nouveau = gosh_alloc(*nouveau);
 	nouveau->element = element;
@@ -98,7 +104,8 @@ void FUNC_NAME(ajouter)(CONTAINER_NAME ptrContainer, TYPE element) {
 	ensemble->tete = nouveau;
 }
 
-TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrContainer) {
+TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrContainer)
+{
 	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	TYPE pos = ensemble->tete->element;
 	struct NODE_NAME * vieux = ensemble->tete;
@@ -107,10 +114,11 @@ TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrContainer) {
 	return pos;
 }
 
-bool FUNC_NAME(appartient)(CONTAINER_NAME ptrContainer, TYPE element) {
+bool FUNC_NAME(appartient)(CONTAINER_NAME ptrContainer, TYPE element)
+{
 	struct NODE_NAME * noeud = ptrContainer->data->tete;
 	while (noeud) {
-        if ( ! memcmp(&noeud->element, &element, sizeof(element) ) ) {
+		if (! memcmp(&noeud->element, &element, sizeof(element))) {
 			return true;
 		}
 		noeud = noeud->suivant;
@@ -118,7 +126,8 @@ bool FUNC_NAME(appartient)(CONTAINER_NAME ptrContainer, TYPE element) {
 	return false;
 }
 
-int FUNC_NAME(nombre_elements)(CONTAINER_NAME ptrContainer) {
+int FUNC_NAME(nombre_elements)(CONTAINER_NAME ptrContainer)
+{
 	struct NODE_NAME * noeud = ptrContainer->data->tete;
 	int nb = 0;
 	while (noeud) {

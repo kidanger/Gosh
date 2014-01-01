@@ -22,249 +22,261 @@
 #include "go/libertes.h"
 
 struct s_Plateau {
-    uint32_t * cases;
-    int taille;
+	uint32_t * cases;
+	int taille;
 };
 
 size_t impl_get_nbCases(size_t taille)
 {
-    size_t tailleCasesEnBits = (taille * taille * 2);
-    size_t tailleUneCaseEnBits = ( sizeof(uint32_t)*8 );
-    size_t nbCases =  (tailleCasesEnBits + tailleUneCaseEnBits - 1)/tailleUneCaseEnBits; //arrondit à l'entier supérieur.
-    return nbCases;
+	size_t tailleCasesEnBits = (taille * taille * 2);
+	size_t tailleUneCaseEnBits = (sizeof(uint32_t) * 8);
+	size_t nbCases = (tailleCasesEnBits + tailleUneCaseEnBits - 1) / tailleUneCaseEnBits; //arrondit à l'entier supérieur.
+	return nbCases;
 }
 
 size_t impl_get_nb_pos_par_cases(void)
 {
-    return sizeof(uint32_t)*8/2;
+	return sizeof(uint32_t) * 8 / 2;
 }
 
 size_t plateau_data_size(size_t taille)
 {
-    return impl_get_nbCases(taille)*sizeof(uint32_t);
+	return impl_get_nbCases(taille) * sizeof(uint32_t);
 }
 
-Plateau creer_plateau(int taille) {
-    Plateau plateau = gosh_alloc(*plateau);
-    plateau->taille = taille;
-    int nbCases = impl_get_nbCases(taille);
-    plateau->cases = gosh_allocn(uint32_t, nbCases);
-    memset(plateau->cases, VIDE, sizeof(uint32_t) * nbCases);
-    return plateau;
+Plateau creer_plateau(int taille)
+{
+	Plateau plateau = gosh_alloc(*plateau);
+	plateau->taille = taille;
+	int nbCases = impl_get_nbCases(taille);
+	plateau->cases = gosh_allocn(uint32_t, nbCases);
+	memset(plateau->cases, VIDE, sizeof(uint32_t) * nbCases);
+	return plateau;
 }
 
-void detruire_plateau(Plateau plateau) {
-    gosh_free(plateau->cases);
-    gosh_free(plateau);
+void detruire_plateau(Plateau plateau)
+{
+	gosh_free(plateau->cases);
+	gosh_free(plateau);
 }
 
 
 
-Couleur plateau_get(Plateau plateau, int i, int j) {
-    unsigned short pos = i * plateau->taille + j;
-    size_t nbPosParCase = impl_get_nb_pos_par_cases();
-    size_t offset = pos/nbPosParCase;
-    uint32_t partie = plateau->cases[offset];
-    pos -= offset*nbPosParCase;
-    return ( (partie & (0x3 << pos*2) ) >> pos*2);
+Couleur plateau_get(Plateau plateau, int i, int j)
+{
+	unsigned short pos = i * plateau->taille + j;
+	size_t nbPosParCase = impl_get_nb_pos_par_cases();
+	size_t offset = pos / nbPosParCase;
+	uint32_t partie = plateau->cases[offset];
+	pos -= offset * nbPosParCase;
+	return ((partie & (0x3 << pos * 2)) >> pos * 2);
 }
 
-Couleur plateau_get_at(Plateau plateau, Position pos) {
-    return plateau_get(plateau, pos.x, pos.y);
+Couleur plateau_get_at(Plateau plateau, Position pos)
+{
+	return plateau_get(plateau, pos.x, pos.y);
 }
 
-void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
-    unsigned short pos = i * plateau->taille + j;
-    size_t nbPosParCase = impl_get_nb_pos_par_cases();
-    size_t offset = pos/nbPosParCase;
-    uint32_t * partie = plateau->cases + offset;
-    pos -= offset*nbPosParCase;
+void plateau_set(Plateau plateau, int i, int j, Couleur couleur)
+{
+	unsigned short pos = i * plateau->taille + j;
+	size_t nbPosParCase = impl_get_nb_pos_par_cases();
+	size_t offset = pos / nbPosParCase;
+	uint32_t * partie = plateau->cases + offset;
+	pos -= offset * nbPosParCase;
 
-    *partie = ~(~*partie | (0x3 << pos*2) );
-    *partie ^= (uint32_t)(couleur << pos*2);
+	*partie = ~(~*partie | (0x3 << pos * 2));
+	*partie ^= (uint32_t)(couleur << pos * 2);
 }
 
 void plateau_set_at(Plateau plateau, Position pos, Couleur couleur)
 {
-    plateau_set(plateau, pos.x, pos.y, couleur);
+	plateau_set(plateau, pos.x, pos.y, couleur);
 }
 
-int plateau_get_taille(Plateau plateau) {
-    return plateau->taille;
+int plateau_get_taille(Plateau plateau)
+{
+	return plateau->taille;
 }
 
-Chaine plateau_determiner_chaine(Plateau plateau, Position pos) {
-    Couleur couleur = plateau_get_at(plateau, pos);
+Chaine plateau_determiner_chaine(Plateau plateau, Position pos)
+{
+	Couleur couleur = plateau_get_at(plateau, pos);
 
-    if (couleur == VIDE)
-        return NULL;
+	if (couleur == VIDE)
+		return NULL;
 
-    Chaine chaine = creer_ensemble_colore(couleur);
-    EnsemblePosition positions_chaine = ensemble_colore_positions(chaine);
+	Chaine chaine = creer_ensemble_colore(couleur);
+	EnsemblePosition positions_chaine = ensemble_colore_positions(chaine);
 
-    // utilisation de EnsemblePositions comme d'une pile
-    EnsemblePosition possibles = creer_ensemble_position();
-    gosh_ajouter(possibles, pos);
-    while (!gosh_vide(possibles)) {
-        Position courante = ensemble_position_supprimer_tete(possibles);
-        if ( plateau_get_at(plateau, courante) == couleur) {
-            if (!gosh_appartient(positions_chaine, courante)) {
-                gosh_ajouter(positions_chaine, courante);
+	// utilisation de EnsemblePositions comme d'une pile
+	EnsemblePosition possibles = creer_ensemble_position();
+	gosh_ajouter(possibles, pos);
+	while (!gosh_vide(possibles)) {
+		Position courante = ensemble_position_supprimer_tete(possibles);
+		if (plateau_get_at(plateau, courante) == couleur) {
+			if (!gosh_appartient(positions_chaine, courante)) {
+				gosh_ajouter(positions_chaine, courante);
 
-                const Position a_tester[] = POSITION_VOISINS(courante);
-                for (int p = 0; p < 4; p++) {
-                    if ( position_est_valide(a_tester[p]))
-                        gosh_ajouter(possibles, a_tester[p]);
-                }
-            }
-        }
-    }
-    detruire_ensemble_position(possibles);
+				const Position a_tester[] = POSITION_VOISINS(courante);
+				for (int p = 0; p < 4; p++) {
+					if (position_est_valide(a_tester[p]))
+						gosh_ajouter(possibles, a_tester[p]);
+				}
+			}
+		}
+	}
+	detruire_ensemble_position(possibles);
 
-    return chaine;
+	return chaine;
 }
 
-void plateau_realiser_capture(Plateau plateau, Chaine chaine) {
-    Position position;
-    gosh_foreach(position, chaine) {
-        plateau_set_at(plateau, position, VIDE);
-    }
+void plateau_realiser_capture(Plateau plateau, Chaine chaine)
+{
+	Position position;
+	gosh_foreach(position, chaine) {
+		plateau_set_at(plateau, position, VIDE);
+	}
 }
 
-bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau) {
-    if (plateau->taille != ancienPlateau->taille) {
-        return false;
-    }
-    return ! memcmp(plateau->cases,
-                    ancienPlateau->cases,
-                    impl_get_nbCases(plateau->taille)*sizeof(uint32_t) );
+bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau)
+{
+	if (plateau->taille != ancienPlateau->taille) {
+		return false;
+	}
+	return ! memcmp(plateau->cases,
+	                ancienPlateau->cases,
+	                impl_get_nbCases(plateau->taille) * sizeof(uint32_t));
 }
 
-void plateau_copie(Plateau from, Plateau to) {
-    to->taille = from->taille;
-    size_t nbCases = impl_get_nbCases(from->taille);
-    gosh_reallocn(to->cases, uint32_t, nbCases);
-    memcpy(to->cases, from->cases, nbCases*sizeof(uint32_t));
+void plateau_copie(Plateau from, Plateau to)
+{
+	to->taille = from->taille;
+	size_t nbCases = impl_get_nbCases(from->taille);
+	gosh_reallocn(to->cases, uint32_t, nbCases);
+	memcpy(to->cases, from->cases, nbCases * sizeof(uint32_t));
 }
 
-Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
-    Chaines chaines = creer_ensemble_chaine();
-    Position position;
-    gosh_foreach(position, territoire) {
-        const Position a_tester[] = POSITION_VOISINS(position);
-        for (int i = 0; i < 4; i++) {
-            Position p = a_tester[i];
-            if ( position_est_valide(p)) {
-                Chaine chaine = plateau_determiner_chaine(plateau, p);
-                if (chaine) {
-                    if (gosh_appartient(chaines, chaine)) {
-                        detruire_ensemble_colore(chaine);
-                    } else {
-                        gosh_ajouter(chaines, chaine);
-                    }
-                }
-            }
-        }
-    }
-    return chaines;
+Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire)
+{
+	Chaines chaines = creer_ensemble_chaine();
+	Position position;
+	gosh_foreach(position, territoire) {
+		const Position a_tester[] = POSITION_VOISINS(position);
+		for (int i = 0; i < 4; i++) {
+			Position p = a_tester[i];
+			if (position_est_valide(p)) {
+				Chaine chaine = plateau_determiner_chaine(plateau, p);
+				if (chaine) {
+					if (gosh_appartient(chaines, chaine)) {
+						detruire_ensemble_colore(chaine);
+					} else {
+						gosh_ajouter(chaines, chaine);
+					}
+				}
+			}
+		}
+	}
+	return chaines;
 }
 
 
-Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
-    // TODO: free
-    *valide = false;
+Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide)
+{
+	// TODO: free
+	*valide = false;
 
-    // il y a déjà une case
-    if ( plateau_get_at(plateau, pion.position) != VIDE) {
-        gosh_debug("déjà une case");
-        return NULL;
-    }
+	// il y a déjà une case
+	if (plateau_get_at(plateau, pion.position) != VIDE) {
+		gosh_debug("déjà une case");
+		return NULL;
+	}
 
-    Territoire milieu = determiner_territoire(plateau, pion.position);
+	Territoire milieu = determiner_territoire(plateau, pion.position);
 
-    // on collecte les chaines menacées et les chaines amies
-    Chaines chaines_menacees = creer_ensemble_chaine();
-    Chaines chaines_amies = creer_ensemble_chaine();
-    Chaines autour = plateau_entoure_un_territoire(plateau, milieu);
-    Couleur autre_couleur = pion.couleur == BLANC ? NOIR : BLANC;
-    Chaine chaine_tmp;
-    gosh_foreach(chaine_tmp, autour) {
-        if (ensemble_colore_couleur(chaine_tmp) == autre_couleur) {
-            gosh_ajouter(chaines_menacees, chaine_tmp);
-        } else if (ensemble_colore_couleur(chaine_tmp) == pion.couleur) {
-            gosh_ajouter(chaines_amies, chaine_tmp);
-        }
-    }
+	// on collecte les chaines menacées et les chaines amies
+	Chaines chaines_menacees = creer_ensemble_chaine();
+	Chaines chaines_amies = creer_ensemble_chaine();
+	Chaines autour = plateau_entoure_un_territoire(plateau, milieu);
+	Couleur autre_couleur = pion.couleur == BLANC ? NOIR : BLANC;
+	Chaine chaine_tmp;
+	gosh_foreach(chaine_tmp, autour) {
+		if (ensemble_colore_couleur(chaine_tmp) == autre_couleur) {
+			gosh_ajouter(chaines_menacees, chaine_tmp);
+		} else if (ensemble_colore_couleur(chaine_tmp) == pion.couleur) {
+			gosh_ajouter(chaines_amies, chaine_tmp);
+		}
+	}
 
-    Chaines chaines_capturees = creer_ensemble_chaine();
-    Chaine chaine_menacee;
+	Chaines chaines_capturees = creer_ensemble_chaine();
+	Chaine chaine_menacee;
 
-    // on vérifie lesquelles sont capturables
-    gosh_foreach(chaine_menacee, chaines_menacees) {
-        Libertes lib = determiner_libertes(plateau, chaine_menacee);
-        if (gosh_nombre_elements(lib) == 1) {
-            plateau_realiser_capture(plateau, chaine_menacee);
-            gosh_ajouter(chaines_capturees, chaine_menacee);
-            gosh_debug("ajout d'une chaine capturée");
-        }
-        detruire_ensemble_position(lib);
-    }
-    detruire_ensemble_chaine(chaines_menacees);
+	// on vérifie lesquelles sont capturables
+	gosh_foreach(chaine_menacee, chaines_menacees) {
+		Libertes lib = determiner_libertes(plateau, chaine_menacee);
+		if (gosh_nombre_elements(lib) == 1) {
+			plateau_realiser_capture(plateau, chaine_menacee);
+			gosh_ajouter(chaines_capturees, chaine_menacee);
+			gosh_debug("ajout d'une chaine capturée");
+		}
+		detruire_ensemble_position(lib);
+	}
+	detruire_ensemble_chaine(chaines_menacees);
 
-    // on recalcule le territoire, puisqu'on a capturé des chaines
-    Territoire territoire = determiner_territoire(plateau, pion.position);
-    // si on a plus d'une case libre autour (donc territoire >= 2), on peut jouer
-    // sinon, on vérifie les chaines amies
-    if (gosh_nombre_elements(territoire) == 1) {
-        // on a pas d'amies à côté, on ne peut pas jouer ici
-        if (gosh_vide(chaines_amies)) {
-            goto annuler_captures;
-        } else {
-            // on vérifie qu'on pouvait bien faire ce mouvement : on ne doit pas bloquer de libertés
-            bool bloquant = true;
-            gosh_foreach(chaine_menacee, chaines_amies) {
-                Libertes lib = determiner_libertes(plateau, chaine_menacee);
-                if (gosh_nombre_elements(lib) != 1) {
-                    bloquant = false;
-                }
-                detruire_ensemble_position(lib);
-            }
+	// on recalcule le territoire, puisqu'on a capturé des chaines
+	Territoire territoire = determiner_territoire(plateau, pion.position);
+	// si on a plus d'une case libre autour (donc territoire >= 2), on peut jouer
+	// sinon, on vérifie les chaines amies
+	if (gosh_nombre_elements(territoire) == 1) {
+		// on a pas d'amies à côté, on ne peut pas jouer ici
+		if (gosh_vide(chaines_amies)) {
+			goto annuler_captures;
+		} else {
+			// on vérifie qu'on pouvait bien faire ce mouvement : on ne doit pas bloquer de libertés
+			bool bloquant = true;
+			gosh_foreach(chaine_menacee, chaines_amies) {
+				Libertes lib = determiner_libertes(plateau, chaine_menacee);
+				if (gosh_nombre_elements(lib) != 1) {
+					bloquant = false;
+				}
+				detruire_ensemble_position(lib);
+			}
 
-            // on annule les captures si le coup bloque d'autres chaines
-            if (bloquant) {
-                goto annuler_captures;
-            }
-            if (false) {
-                Chaine chaine;
+			// on annule les captures si le coup bloque d'autres chaines
+			if (bloquant) {
+				goto annuler_captures;
+			}
+			if (false) {
+				Chaine chaine;
 annuler_captures:
-                gosh_foreach(chaine, chaines_capturees) {
-                    Position pos;
-                    gosh_foreach(pos, chaine) {
-                        plateau_set_at(plateau, pos, autre_couleur);
-                    }
-                }
-                detruire_ensemble_chaine(chaines_capturees);
-                return NULL;
-            }
-        }
-    }
-    detruire_ensemble_colore(territoire);
+				gosh_foreach(chaine, chaines_capturees) {
+					Position pos;
+					gosh_foreach(pos, chaine) {
+						plateau_set_at(plateau, pos, autre_couleur);
+					}
+				}
+				detruire_ensemble_chaine(chaines_capturees);
+				return NULL;
+			}
+		}
+	}
+	detruire_ensemble_colore(territoire);
 
-    *valide = true;
-    plateau_set_at(plateau, pion.position, pion.couleur);
-    if (gosh_vide(chaines_capturees))
-        return NULL;
-    return chaines_capturees;
+	*valide = true;
+	plateau_set_at(plateau, pion.position, pion.couleur);
+	if (gosh_vide(chaines_capturees))
+		return NULL;
+	return chaines_capturees;
 }
 
 const uint32_t * plateau_data(Plateau p)
 {
-    return p->cases;
+	return p->cases;
 }
 
 
 void plateau_load_data(Plateau plateau, const uint32_t * data)
 {
-    memcpy(plateau->cases, data, sizeof(uint32_t) * impl_get_nbCases(plateau->taille));
+	memcpy(plateau->cases, data, sizeof(uint32_t) * impl_get_nbCases(plateau->taille));
 
 }

@@ -17,7 +17,8 @@
 #include "go/plateau.h"
 
 
-Territoire determiner_territoire(Plateau plateau, Position position) {
+Territoire determiner_territoire(Plateau plateau, Position position)
+{
 	Territoire territoire = creer_ensemble_colore(VIDE);
 	EnsemblePosition territoire_positions = ensemble_colore_positions(territoire);
 
@@ -37,13 +38,13 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 				ensemble_position_ajouter(territoire_positions, courante);
 
 				const Position a_tester[] = {
-                    position_gauche(courante),
-                    position_droite(courante),
-                    position_haut(courante),
-                    position_bas(courante),
+					position_gauche(courante),
+					position_droite(courante),
+					position_haut(courante),
+					position_bas(courante),
 				};
 				for (int p = 0; p < 4; p++) {
-                    if ( position_est_valide(a_tester[p]))
+					if (position_est_valide(a_tester[p]))
 						ensemble_position_ajouter(possibles, a_tester[p]);
 				}
 			}
@@ -64,7 +65,8 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 	return territoire;
 }
 
-bool territoire_appartient(Territoire territoire, Position position) {
+bool territoire_appartient(Territoire territoire, Position position)
+{
 	return gosh_appartient(ensemble_colore_positions(territoire),
 	                       position);
 }

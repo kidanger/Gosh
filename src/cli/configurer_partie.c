@@ -9,7 +9,8 @@
 #include "go/ordinateur.h"
 
 
-bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur) {
+bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
+{
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	partie->joueurs[couleur].type = ORDINATEUR;
 	return true;
@@ -28,7 +29,8 @@ bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur) {
 	return res != 'r';
 }
 
-bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
+bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
+{
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	if (couleur == JOUEUR_BLANC)
 		strcpy(partie->joueurs[couleur].nom, "Henry");
@@ -47,18 +49,20 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
 	return buf[0] != 0;
 }
 
-bool saisir_programme(Partie partie, enum CouleurJoueur couleur) {
+bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
+{
 	// TODO: saisi
 	Ordinateur ordi;
 	if (couleur == JOUEUR_BLANC)
-        ordi = charger_ordinateur("../ordinateurs/librandom.so");
+		ordi = charger_ordinateur("../ordinateurs/librandom.so");
 	else
-        ordi = charger_ordinateur("../ordinateurs/libgnugo.so");
+		ordi = charger_ordinateur("../ordinateurs/libgnugo.so");
 	partie->joueurs[couleur].ordinateur = ordi;
 	return true;
 }
 
-bool saisir_taille_plateau(Partie partie) {
+bool saisir_taille_plateau(Partie partie)
+{
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	partie->plateau = creer_plateau(9);
 	return true;
@@ -75,10 +79,11 @@ bool saisir_taille_plateau(Partie partie) {
 	return rep != 'r';
 }
 
-bool questions_callback(enum Question question, Partie partie) {
+bool questions_callback(enum Question question, Partie partie)
+{
 	switch (question) {
 		case TYPE_JOUEUR_BLANC:
-				return saisir_type_joueur(partie, JOUEUR_BLANC);
+			return saisir_type_joueur(partie, JOUEUR_BLANC);
 		case NOM_JOUEUR_BLANC:
 			return saisir_nom_joueur(partie, JOUEUR_BLANC);
 		case PROGRAMME_JOUEUR_BLANC:
@@ -97,7 +102,8 @@ bool questions_callback(enum Question question, Partie partie) {
 	}
 }
 
-Partie cli_creer_nouvelle_partie(void) {
+Partie cli_creer_nouvelle_partie(void)
+{
 	Partie partie = creer_partie();
 	initialisation_partie(partie, questions_callback);
 	if (!partie->initialisee) {

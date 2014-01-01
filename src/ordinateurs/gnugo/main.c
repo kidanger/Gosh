@@ -41,7 +41,8 @@ typedef struct {
 } *Data;
 
 
-void ignorer_sortie(Data data) {
+void ignorer_sortie(Data data)
+{
 	// vide la sortie de gnugo
 	char buf[256];
 	int len = read(data->fdin, buf, sizeof(buf));
@@ -52,7 +53,8 @@ void ignorer_sortie(Data data) {
 		ignorer_sortie(data);
 }
 
-bool envoyer_commande(Data data, const char* commande) {
+bool envoyer_commande(Data data, const char* commande)
+{
 	gosh_debug("GNUGO => %s", commande);
 	write(data->fdout, commande, strlen(commande));
 	write(data->fdout, "\n", 1);
@@ -76,7 +78,8 @@ bool envoyer_commande(Data data, const char* commande) {
 	}
 }
 
-s_Coup recuperer_coup(Data data) {
+s_Coup recuperer_coup(Data data)
+{
 	char buf[256];
 	int len = read(data->fdin, buf, sizeof(buf));
 	buf[len] = 0;
@@ -90,7 +93,8 @@ s_Coup recuperer_coup(Data data) {
 	return coup;
 }
 
-void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
+void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
+{
 	const char* cmd = couleur == JOUEUR_BLANC ? "reg_genmove white" : "reg_genmove black";
 
 	s_Coup coup;
@@ -105,19 +109,21 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
 	// sleep(1); // pour le debug
 }
 
-void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_Coup coup) {
+void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_Coup coup)
+{
 	(void) partie;
 	// les "passe" sont ignorés, non nécessaire avec gnugo
-    if ( position_est_valide(coup.position)) {
+	if (position_est_valide(coup.position)) {
 		char cmd[64];
 		sprintf(cmd, "play %s %c%d", couleur == JOUEUR_BLANC ? "white" : "black",
-                GOSH_TO_GNUGNO[ coup.position.x], coup.position.y + 1);
+		        GOSH_TO_GNUGNO[ coup.position.x], coup.position.y + 1);
 		envoyer_commande(data, cmd);
 		ignorer_sortie(data);
 	}
 }
 
-void DEBUT_PARTIE(Data data, Partie partie) {
+void DEBUT_PARTIE(Data data, Partie partie)
+{
 	char buf[64];
 	sprintf(buf, "boardsize %d", plateau_get_taille(partie->plateau));
 	envoyer_commande(data, buf);
@@ -126,7 +132,8 @@ void DEBUT_PARTIE(Data data, Partie partie) {
 	ignorer_sortie(data);
 }
 
-void* INITIALISER() {
+void* INITIALISER()
+{
 	srand(time(0));
 	gosh_debug("Initialisation du botgnugo");
 

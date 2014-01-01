@@ -6,49 +6,50 @@
 
 #define JOUEUR_SUIVANT(couleur) ((couleur) == JOUEUR_BLANC ? JOUEUR_NOIR : JOUEUR_BLANC)
 
-Partie creer_partie(void) {
+Partie creer_partie(void)
+{
 	Partie partie = gosh_alloc(*partie);
 	partie->initialisee = false;
 	return partie;
 }
 
-void detruire_partie(Partie partie) {
+void detruire_partie(Partie partie)
+{
 	gosh_free(partie);
 }
 
 bool question_coherante(enum Question idQuestion, Partie partie)
 {
-    switch(idQuestion)
-    {
-        case PROGRAMME_JOUEUR_BLANC:
-            if( partie->joueurs[JOUEUR_BLANC].type != ORDINATEUR )
-                return false;
-        break;
+	switch (idQuestion) {
+		case PROGRAMME_JOUEUR_BLANC:
+			if (partie->joueurs[JOUEUR_BLANC].type != ORDINATEUR)
+				return false;
+			break;
 
-        case PROGRAMME_JOUEUR_NOIR:
-            if( partie->joueurs[JOUEUR_NOIR].type != ORDINATEUR )
-                return false;
-        break;
+		case PROGRAMME_JOUEUR_NOIR:
+			if (partie->joueurs[JOUEUR_NOIR].type != ORDINATEUR)
+				return false;
+			break;
 
-        default :
-            return true;
-    }
+		default :
+			return true;
+	}
 	return true;
 }
 
-void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions) {
+void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions)
+{
 
-    enum Question idQuestion = PREMIERE_QUESTION;
+	enum Question idQuestion = PREMIERE_QUESTION;
 
-    while( idQuestion < NOMBRE_QUESTIONS)
-    {
-        if( question_coherante(idQuestion, partie) && ! fonctionQuestions(idQuestion, partie) )
-            break;
+	while (idQuestion < NOMBRE_QUESTIONS) {
+		if (question_coherante(idQuestion, partie) && ! fonctionQuestions(idQuestion, partie))
+			break;
 
-        idQuestion++;
-    }
+		idQuestion++;
+	}
 
-    if (idQuestion == NOMBRE_QUESTIONS) {
+	if (idQuestion == NOMBRE_QUESTIONS) {
 		partie->initialisee = true;
 	}
 	// envoi des informations aux ordinateurs
@@ -62,13 +63,15 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions) {
 	partie->joueur_courant = JOUEUR_NOIR;
 }
 
-enum CouleurJoueur partie_get_joueur(Partie partie) {
+enum CouleurJoueur partie_get_joueur(Partie partie)
+{
 	return partie->joueur_courant;
 }
 
-bool partie_jouer_coup(Partie partie, s_Coup coup) {
+bool partie_jouer_coup(Partie partie, s_Coup coup)
+{
 	bool valide = false;
-    if (! position_est_valide(coup.position) ) {
+	if (! position_est_valide(coup.position)) {
 		// le joueur passe son tour
 		valide = true;
 	} else {
@@ -95,7 +98,8 @@ bool partie_jouer_coup(Partie partie, s_Coup coup) {
 	return valide;
 }
 
-void partie_jouer_ordinateur(Partie partie) {
+void partie_jouer_ordinateur(Partie partie)
+{
 	Ordinateur ordi = partie->joueurs[partie->joueur_courant].ordinateur;
 	ordinateur_jouer_coup(ordi, partie, partie->joueur_courant);
 }
