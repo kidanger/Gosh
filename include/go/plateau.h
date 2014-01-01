@@ -66,5 +66,6 @@ Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide);
 
 const uint32_t * plateau_data(Plateau p);
 void plateau_load_data(Plateau plateau, const uint32_t * data);
+size_t plateau_data_size(size_t taille);
 
 #endif

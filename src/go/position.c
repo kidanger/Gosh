@@ -1,7 +1,7 @@
 #include "go/position.h"
 
 
-Position position(size_t taille, size_t x, size_t y)
+Position position(size_t x, size_t y, size_t taille)
 {
     if( x >= taille || y >= taille)
         return POSITION_INVALIDE;

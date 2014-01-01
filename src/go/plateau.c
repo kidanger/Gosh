@@ -11,12 +11,30 @@ struct s_Plateau {
     size_t taille;
 };
 
+size_t impl_get_nbCases(size_t taille)
+{
+    size_t tailleCasesEnBits = (taille * taille * 2);
+    size_t tailleUneCaseEnBits = ( sizeof(uint32_t)*8 );
+    size_t nbCases =  (tailleCasesEnBits + tailleUneCaseEnBits - 1)/tailleUneCaseEnBits; //arrondit à l'entier supérieur.
+    return nbCases;
+}
+
+size_t impl_get_nb_pos_par_cases(void)
+{
+    return sizeof(uint32_t)*8/2;
+}
+
+size_t plateau_data_size(size_t taille)
+{
+    return impl_get_nbCases(taille)*sizeof(uint32_t);
+}
+
 Plateau creer_plateau(size_t taille) {
     Plateau plateau = gosh_alloc(*plateau);
     plateau->taille = taille;
-    size_t nbOctets = (taille * taille * 2 + 7) / 8; //arrondit à l'entier supérieur.
-    plateau->cases = gosh_alloc_size(nbOctets);
-    memset(plateau->cases, 0, nbOctets);
+    size_t nbCases = impl_get_nbCases(taille);
+    plateau->cases = gosh_allocn(uint32_t, nbCases);
+    memset(plateau->cases, sizeof(uint32_t), nbCases);
     return plateau;
 }
 
@@ -29,9 +47,10 @@ void detruire_plateau(Plateau plateau) {
 
 Couleur plateau_get(Plateau plateau, int i, int j) {
     unsigned short pos = i * plateau->taille + j;
-    size_t offset = pos/(sizeof(uint32_t)/2);
+    size_t nbPosParCase = impl_get_nb_pos_par_cases();
+    size_t offset = pos/nbPosParCase;
     uint32_t partie = plateau->cases[offset];
-    pos -= offset*sizeof(uint32_t)/2;
+    pos -= offset*nbPosParCase;
     return (partie & (0x11 << pos*2) >> pos);
 }
 
@@ -41,9 +60,10 @@ Couleur plateau_get_at(Plateau plateau, Position pos) {
 
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
     unsigned short pos = i * plateau->taille + j;
-    size_t offset = pos/(sizeof(uint32_t)/2);
+    size_t nbPosParCase = impl_get_nb_pos_par_cases();
+    size_t offset = pos/nbPosParCase;
     uint32_t * partie = plateau->cases + offset;
-    pos -= offset*sizeof(uint32_t)/2;
+    pos -= offset*nbPosParCase;
     *partie = (*partie | (0x11 << pos*2)  ) & ( (uint32_t)-1 & couleur << pos*2 );
 }
 
@@ -100,14 +120,14 @@ bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau) {
     }
     return ! memcmp(plateau->cases,
                     ancienPlateau->cases,
-                    (plateau->taille * plateau->taille * 2 + 7) / 8 * sizeof(uint32_t) );
+                    impl_get_nbCases(plateau->taille)*sizeof(uint32_t) );
 }
 
 void plateau_copie(Plateau from, Plateau to) {
     to->taille = from->taille;
-    size_t taille = (from->taille * from->taille * 2 + 7) / 8 * sizeof(uint32_t);
-    gosh_realloc_size(to->cases, taille);
-    memcpy(to->cases, from->cases, taille);
+    size_t nbCases = impl_get_nbCases(from->taille);
+    gosh_reallocn(to->cases, uint32_t, nbCases);
+    memcpy(to->cases, from->cases, nbCases*sizeof(uint32_t));
 }
 
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
@@ -229,6 +249,6 @@ const uint32_t * plateau_data(Plateau p)
 
 void plateau_load_data(Plateau plateau, const uint32_t * data)
 {
-    memcpy(plateau->cases, data, sizeof(uint32_t) * (plateau->taille * plateau->taille * 2 + 7) / 8);
+    memcpy(plateau->cases, data, sizeof(uint32_t) * impl_get_nbCases(plateau->taille));
 
 }

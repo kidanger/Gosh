@@ -42,7 +42,7 @@ position_haut(position), \
 position_bas(position), \
 }
 
-Position position(size_t taille, size_t x, size_t y);
+Position position(size_t x, size_t y, size_t taille);
 
 bool position_est_valide(Position);
 

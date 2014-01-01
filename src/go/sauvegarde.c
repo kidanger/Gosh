@@ -41,7 +41,7 @@ bool sauvegarder_plateau(Plateau plateau, FILE * file)
         return false;
     }
 
-    size_t nbElement = taille*taille/(sizeof(uint32_t)/2);
+    size_t nbElement = plateau_data_size(taille)/sizeof(uint32_t);
     const uint32_t * data = plateau_data(plateau);
 
     for(int i =0; i < nbElement; ++i)
@@ -93,7 +93,7 @@ Plateau charger_plateau_binaire(FILE * file)
 
     Plateau plateau = creer_plateau(taille);
 
-    size_t nbElement = taille*taille/(sizeof(uint32_t)/2);
+    size_t nbElement = plateau_data_size(taille)/sizeof(uint32_t);
     uint32_t * data = gosh_allocn(uint32_t, nbElement);
     if( ! fread(data, nbElement, 1, file) )
     {
