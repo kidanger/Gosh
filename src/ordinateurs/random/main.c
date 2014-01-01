@@ -30,7 +30,7 @@ int JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
 	do {
 		int x = rand() % taille;
 		int y = rand() % taille;
-		coup.position = POSITION(x, y);
+        coup.position = position(x,y, taille);
 	} while (plateau_get_at(partie->plateau, coup.position) != VIDE || !partie_jouer_coup(partie, coup));
 }
 

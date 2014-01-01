@@ -67,7 +67,7 @@ enum CouleurJoueur partie_get_joueur(Partie partie) {
 
 bool partie_jouer_coup(Partie partie, s_Coup coup) {
 	bool valide = false;
-	if (!POSITION_EST_VALIDE(coup.position)) {
+    if (! position_est_valide(coup.position) ) {
 		// le joueur passe son tour
 		valide = true;
 	} else {

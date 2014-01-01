@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 ADD_DEFINITIONS("-g")
+ADD_DEFINITIONS("-DTEST_UNIQUEMENT=1")
 
 project(Gosh)
 

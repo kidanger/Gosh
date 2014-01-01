@@ -18,11 +18,11 @@
 
 #include <stdlib.h> // size_t
 #include <stdbool.h>
+#include <stdint.h>
 
 #include "go/plateau_type.h"
 
 #include "go/couleur.h"
-#include "go/position.h"
 #include "go/pion.h"
 #include "go/chaines.h"
 #include "go/chaine.h"
@@ -63,5 +63,9 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire);
  * conduit à contruire une chaîne sans libertée de la couleur du pion (sauf si ce coup produit la capture d’au moins une chaîne adverse).
  * Dans le cas contraire valide est égal à true. */
 Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide);
+
+const uint32_t * plateau_data(Plateau p);
+void plateau_load_data(Plateau plateau, const uint32_t * data);
+size_t plateau_data_size(size_t taille);
 
 #endif

@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
+#include <string.h>
 
 #include "gosh_alloc.h"
 #include "gosh_macros.h"
@@ -109,7 +110,7 @@ TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrContainer) {
 bool FUNC_NAME(appartient)(CONTAINER_NAME ptrContainer, TYPE element) {
 	struct NODE_NAME * noeud = ptrContainer->data->tete;
 	while (noeud) {
-		if (noeud->element == element) {
+        if ( ! memcmp(&noeud->element, &element, sizeof(element) ) ) {
 			return true;
 		}
 		noeud = noeud->suivant;
