@@ -78,8 +78,8 @@ void test_get_set(void)
         printf("%x\n", data[i]);
     puts("fin");
 
-    plateau_set(p, 0,1, BLANC);
-    printf("%d %d\n", plateau_get(p,0,1), BLANC);
+    plateau_set(p, 0,1, NOIR);
+    printf("%d %d\n", plateau_get(p,0,1), NOIR);
 
     puts("debut");
     data = plateau_data(p);

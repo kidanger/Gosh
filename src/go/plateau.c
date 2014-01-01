@@ -64,7 +64,9 @@ void plateau_set(Plateau plateau, int i, int j, Couleur couleur) {
     size_t offset = pos/nbPosParCase;
     uint32_t * partie = plateau->cases + offset;
     pos -= offset*nbPosParCase;
-    *partie = (*partie | (0x11 << pos*2)  ) & ( (uint32_t)-1 & couleur << pos*2 );
+
+    *partie = ~(~*partie | (0x11 << pos*2) );
+    *partie ^= (uint32_t)(couleur << pos*2);
 }
 
 void plateau_set_at(Plateau plateau, Position pos, Couleur couleur)
