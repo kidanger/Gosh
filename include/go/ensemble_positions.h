@@ -1,4 +1,4 @@
-/* Copyright © 2013 Jérémy Anger, Denis Migdal
+/* Copyright © 2013-2014 Jérémy Anger, Denis Migdal
    This file is part of Gosh.
 
    Gosh is free software: you can redistribute it and/or modify
