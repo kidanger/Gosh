@@ -22,18 +22,13 @@
 
 typedef struct
 {
-    union {
-        struct {
-            uint8_t x;
-            uint8_t y;
-            uint8_t coord_max;
-            uint8_t zero;
-        };
-        uint32_t id;
-    };
+	uint8_t x;
+	uint8_t y;
+	uint8_t coord_max;
+	uint8_t zero;
 } Position;
 
-#define POSITION_INVALIDE ((Position){-1,-1,0, 0})
+extern Position POSITION_INVALIDE;
 
 #define POSITION_VOISINS(position) { \
 position_gauche(position), \

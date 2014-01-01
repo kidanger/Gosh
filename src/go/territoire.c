@@ -1,3 +1,18 @@
+/* Copyright © 2013 Jérémy Anger, Denis Migdal
+   This file is part of Gosh.
+
+   Gosh is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   Gosh is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "go/territoire.h"
 #include "go/plateau.h"
 
@@ -7,9 +22,9 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 	EnsemblePosition territoire_positions = ensemble_colore_positions(territoire);
 
 	EnsemblePosition possibles = creer_ensemble_position();
-	Couleur couleur = -1;
+	Couleur couleur;
+	bool couleur_connue = false;
 
-	int taille = plateau_get_taille(plateau);
 	ensemble_position_ajouter(possibles, position);
 
 	/// @todo remplacer par une pile.
@@ -35,9 +50,10 @@ Territoire determiner_territoire(Plateau plateau, Position position) {
 		} else {
 			// si la case n'est pas vide, elle est à coté du territoire
 			// on regarde sa couleur
-			if (couleur == -1) // le territoire n'a pas encore de couleur défini
+			if (!couleur_connue) { // le territoire n'a pas encore de couleur défini
 				couleur = c;
-			else if (couleur != c) // le territoire est entouré par deux couleurs différentes
+				couleur_connue = true;
+			} else if (couleur != c) // le territoire est entouré par deux couleurs différentes
 				couleur = VIDE;
 		}
 

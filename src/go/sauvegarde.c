@@ -44,7 +44,7 @@ bool sauvegarder_plateau(Plateau plateau, FILE * file)
     size_t nbElement = plateau_data_size(taille)/sizeof(uint32_t);
     const uint32_t * data = plateau_data(plateau);
 
-    for(int i =0; i < nbElement; ++i)
+    for(size_t i =0; i < nbElement; ++i)
     {
         uint32_t toWrite = htonl(data[i]);
         if( ! fwrite(&toWrite, sizeof(toWrite), 1, file) )
@@ -67,6 +67,7 @@ Plateau charger_plateau_fichier(const char * filename)
 
 Plateau charger_plateau_texte(FILE * file)
 {
+    (void) file;
     assert(0);
 }
 

@@ -20,12 +20,12 @@ bool question_coherante(enum Question idQuestion, Partie partie)
 {
     switch(idQuestion)
     {
-        PROGRAMME_JOUEUR_BLANC :
+        case PROGRAMME_JOUEUR_BLANC:
             if( partie->joueurs[JOUEUR_BLANC].type != ORDINATEUR )
                 return false;
         break;
 
-        PROGRAMME_JOUEUR_NOIR :
+        case PROGRAMME_JOUEUR_NOIR:
             if( partie->joueurs[JOUEUR_NOIR].type != ORDINATEUR )
                 return false;
         break;
@@ -33,6 +33,7 @@ bool question_coherante(enum Question idQuestion, Partie partie)
         default :
             return true;
     }
+	return true;
 }
 
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions) {

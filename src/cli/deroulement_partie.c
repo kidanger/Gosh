@@ -9,6 +9,8 @@
 
 
 s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide) {
+	(void) partie;
+
 	s_Coup coup = str2coup(str, valide);
 	if (*valide) {
         if ( ! position_est_valide(coup.position) ) {

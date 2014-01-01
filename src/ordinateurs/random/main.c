@@ -24,7 +24,10 @@
 typedef struct {
 } *Data;
 
-int JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
+void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
+	(void) data;
+	(void) couleur;
+
 	size_t taille = plateau_get_taille(partie->plateau);
 	s_Coup coup;
 	do {

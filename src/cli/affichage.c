@@ -4,12 +4,12 @@
 #include "go/plateau.h"
 
 void cli_afficher_plateau(Plateau plateau) {
-	size_t taille = plateau_get_taille(plateau);
+	int taille = plateau_get_taille(plateau);
 
 #define SHOW_LETTERS() do { \
 		printf("   "); \
 		for (int x = 0; x < taille; x++) { \
-			printf(C_GREEN "%s%c ", (x % 2 ? C_NOBOLD : C_BOLD), ('A' + x)); \
+			printf(C_GREEN "%s%c ", (x % 2 ? C_NOBOLD : C_BOLD), (char)('A' + x)); \
 		} \
 		printf("\n"); \
 	} while (0)

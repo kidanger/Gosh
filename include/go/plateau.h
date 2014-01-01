@@ -28,7 +28,7 @@
 #include "go/chaine.h"
 #include "go/territoire.h"
 
-Plateau creer_plateau(size_t taille);
+Plateau creer_plateau(int taille);
 void detruire_plateau(Plateau plateau);
 
 Couleur plateau_get(Plateau plateau, int i, int j);
@@ -36,7 +36,7 @@ Couleur plateau_get_at(Plateau plateau, Position pos);
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur);
 void plateau_set_at(Plateau plateau, Position pos, Couleur couleur);
 
-size_t plateau_get_taille(Plateau plateau);
+int plateau_get_taille(Plateau plateau);
 
 /** @brief Produit la chaîne à laquelle appartient le pion à la position pos sur le plateau. S’il n’y a pas de pion sur cette case, alors le résultat retourné est NULL */
 Chaine plateau_determiner_chaine(Plateau plateau, Position pos);

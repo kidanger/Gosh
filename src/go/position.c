@@ -1,9 +1,10 @@
 #include "go/position.h"
 
+Position POSITION_INVALIDE = {-1, -1, 0, 0};
 
 Position position(size_t x, size_t y, size_t taille)
 {
-    if( x >= taille || y >= taille)
+    if (x >= taille || y >= taille)
         return POSITION_INVALIDE;
     Position p = {x, y, taille,0};
     return p;
@@ -16,9 +17,9 @@ bool position_est_valide(Position pos)
 
 Position position_gauche(Position pos)
 {
-    if( ! position_est_valide(pos) )
+    if (! position_est_valide(pos) )
         return POSITION_INVALIDE;
-    if( ! pos.x)
+    if (! pos.x)
         return POSITION_INVALIDE;
     pos.x--;
     return pos;

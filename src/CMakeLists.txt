@@ -2,7 +2,7 @@ ADD_DEFINITIONS("-std=c99")
 
 # traite les warnings comme des erreurs
 IF(CMAKE_COMPILER_IS_GNUCC)
-    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
+    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
 ENDIF(CMAKE_COMPILER_IS_GNUCC)
 
 

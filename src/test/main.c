@@ -9,23 +9,33 @@
 #include "cli/affichage.h"
 
 bool handle_passer(Partie partie, FILE* file, const char* arguments) {
+	(void) file;
+	(void) arguments;
 	s_Coup coup;
 	coup.position = POSITION_INVALIDE;
 	partie_jouer_coup(partie, coup);
 	return true;
 }
 bool handle_afficher(Partie partie, FILE* file, const char* arguments) {
+	(void) file;
+	(void) arguments;
 	cli_afficher_plateau(partie->plateau);
 	return true;
 }
 bool handle_message(Partie partie, FILE* file, const char* arguments) {
+	(void) partie;
+	(void) file;
 	printf(C_YELLOW "%s\n" C_NORMAL, arguments);
 	return true;
 }
 bool handle_commentaire(Partie partie, FILE* file, const char* arguments) {
+	(void) partie;
+	(void) file;
+	(void) arguments;
 	return true;
 }
 bool handle_fail(Partie partie, FILE* file, const char* arguments) {
+	(void) file;
 	bool valide;
 	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
 	if (valide)
@@ -33,6 +43,7 @@ bool handle_fail(Partie partie, FILE* file, const char* arguments) {
 	return valide;
 }
 bool handle_vide(Partie partie, FILE* file, const char* arguments) {
+	(void) file;
 	bool valide;
 	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
 	if (valide)
@@ -42,6 +53,7 @@ bool handle_vide(Partie partie, FILE* file, const char* arguments) {
 	return valide;
 }
 bool handle_coup(Partie partie, FILE* file, const char* arguments) {
+	(void) file;
 	bool valide;
 	s_Coup coup = cli_convertir_coup(partie, arguments, &valide);
 	if (valide)
@@ -111,7 +123,7 @@ bool tester(const char* filename) {
 		}
 
 		bool trouve = false;
-		for (int i = 0; i < sizeof(handlers) / sizeof(handlers[0]); i++) {
+		for (unsigned i = 0; i < sizeof(handlers) / sizeof(handlers[0]); i++) {
 			if (strcmp(commande, handlers[i].name) == 0) {
 				trouve = true;
 				bool ok = handlers[i].fonct(partie, file, arguments);

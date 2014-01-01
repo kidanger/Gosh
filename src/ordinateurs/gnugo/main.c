@@ -90,7 +90,7 @@ s_Coup recuperer_coup(Data data) {
 	return coup;
 }
 
-int JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
+void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
 	const char* cmd = couleur == JOUEUR_BLANC ? "reg_genmove white" : "reg_genmove black";
 
 	s_Coup coup;
@@ -106,6 +106,7 @@ int JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur) {
 }
 
 void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_Coup coup) {
+	(void) partie;
 	// les "passe" sont ignorés, non nécessaire avec gnugo
     if ( position_est_valide(coup.position)) {
 		char cmd[64];

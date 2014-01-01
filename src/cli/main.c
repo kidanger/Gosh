@@ -48,8 +48,8 @@ void afficher_plateau(Plateau plateau) {
 			break;
 	}
 
-	for (int y = 0; y < taille; y++) {
-		for (int x = 0; x < taille; x++) {
+	for (size_t y = 0; y < taille; y++) {
+		for (size_t x = 0; x < taille; x++) {
 			Couleur couleur = plateau_get(plateau, x, y);
 
 			// highlight de la chaine
@@ -74,7 +74,7 @@ void test_get_set(void)
     const uint32_t *  data = plateau_data(p);
 
     puts("debut");
-    for(int i = 0; i < plateau_data_size(9)/sizeof(uint32_t); ++i)
+    for(size_t i = 0; i < plateau_data_size(9)/sizeof(uint32_t); ++i)
         printf("%x\n", data[i]);
     puts("fin");
 
@@ -83,16 +83,17 @@ void test_get_set(void)
 
     puts("debut");
     data = plateau_data(p);
-    for(int i = 0; i < plateau_data_size(9)/sizeof(uint32_t); ++i)
+    for(size_t i = 0; i < plateau_data_size(9)/sizeof(uint32_t); ++i)
         printf("%x\n", data[i]);
     puts("fin");
-
-    exit(0);
 }
 
 #define TESTS_UNIQUEMENT 1
 
 int main(int argc, const char *argv[]) {
+	(void) argc;
+	(void) argv;
+
     test_get_set();
 	if (!TESTS_UNIQUEMENT) {
 		Partie p = cli_creer_nouvelle_partie();
@@ -151,12 +152,12 @@ int main(int argc, const char *argv[]) {
 		printf("test du plateau:\n");
 		size_t taille = 19;
 		Plateau plateau = creer_plateau(taille);
-		for (int y = 0; y < taille; y++) {
-			for (int x = 0; x < taille; x++) {
+		for (size_t y = 0; y < taille; y++) {
+			for (size_t x = 0; x < taille; x++) {
 				plateau_set(plateau, x, y, rand() % 3);
 			}
 		}
-		printf("taille: %zd\n", plateau_get_taille(plateau));
+		printf("taille: %d\n", plateau_get_taille(plateau));
 
 		plateau_set(plateau, 0, 0, BLANC);
 		plateau_set(plateau, 1, 0, BLANC);

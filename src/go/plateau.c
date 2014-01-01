@@ -1,3 +1,18 @@
+/* Copyright © 2013 Jérémy Anger, Denis Migdal
+   This file is part of Gosh.
+
+   Gosh is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   Gosh is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <string.h> // memset
 
@@ -8,7 +23,7 @@
 
 struct s_Plateau {
     uint32_t * cases;
-    size_t taille;
+    int taille;
 };
 
 size_t impl_get_nbCases(size_t taille)
@@ -29,10 +44,10 @@ size_t plateau_data_size(size_t taille)
     return impl_get_nbCases(taille)*sizeof(uint32_t);
 }
 
-Plateau creer_plateau(size_t taille) {
+Plateau creer_plateau(int taille) {
     Plateau plateau = gosh_alloc(*plateau);
     plateau->taille = taille;
-    size_t nbCases = impl_get_nbCases(taille);
+    int nbCases = impl_get_nbCases(taille);
     plateau->cases = gosh_allocn(uint32_t, nbCases);
     memset(plateau->cases, VIDE, sizeof(uint32_t) * nbCases);
     return plateau;
@@ -74,7 +89,7 @@ void plateau_set_at(Plateau plateau, Position pos, Couleur couleur)
     plateau_set(plateau, pos.x, pos.y, couleur);
 }
 
-size_t plateau_get_taille(Plateau plateau) {
+int plateau_get_taille(Plateau plateau) {
     return plateau->taille;
 }
 
@@ -156,7 +171,6 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire) {
 
 
 Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide) {
-    size_t taille = plateau->taille;
     // TODO: free
     *valide = false;
 

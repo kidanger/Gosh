@@ -92,7 +92,7 @@ bool questions_callback(enum Question question, Partie partie) {
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
 		default:
-			assert(("question non gérée", false));
+			// impossible
 			return true;
 	}
 }
