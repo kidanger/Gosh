@@ -21,10 +21,10 @@
 #include <stdio.h> //size_t
 
 typedef struct {
-	uint8_t x;
-	uint8_t y;
-	uint8_t coord_max;
-	uint8_t zero;
+	int8_t x;
+	int8_t y;
+	int8_t taille;
+	char valide;
 } Position;
 
 extern Position POSITION_INVALIDE;
@@ -36,7 +36,7 @@ extern Position POSITION_INVALIDE;
 		position_bas(position), \
 	}
 
-Position position(size_t x, size_t y, size_t taille);
+Position position(int x, int y, int taille);
 
 bool position_est_valide(Position);
 

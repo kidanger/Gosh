@@ -15,55 +15,57 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "go/position.h"
 
-Position POSITION_INVALIDE = { -1, -1, 0, 0};
+Position POSITION_INVALIDE = { .x = -1, .y = -1, .taille = 0, .valide = 0 };
 
-Position position(size_t x, size_t y, size_t taille)
+Position position(int x, int y, int taille)
 {
 	if (x >= taille || y >= taille)
 		return POSITION_INVALIDE;
-	Position p = {x, y, taille, 0};
+	Position p = {.x=x, .y=y, .taille=taille, .valide=1};
 	return p;
 }
 
 bool position_est_valide(Position pos)
 {
-	return pos.x < pos.coord_max && pos.y < pos.coord_max && ! pos.zero;
+	return pos.valide;
 }
 
 Position position_gauche(Position pos)
 {
-	if (! position_est_valide(pos))
+	if (!position_est_valide(pos))
 		return POSITION_INVALIDE;
-	if (! pos.x)
+	if (pos.x == 0)
 		return POSITION_INVALIDE;
-	pos.x--;
+	pos.x -= 1;
 	return pos;
 }
 
 Position position_droite(Position pos)
 {
-	if (! position_est_valide(pos))
+	if (!position_est_valide(pos))
 		return POSITION_INVALIDE;
-	if (++pos.x >= pos.coord_max)
+	if (pos.x == pos.taille - 1)
 		return POSITION_INVALIDE;
+	pos.x += 1;
 	return pos;
 }
 
 Position position_haut(Position pos)
 {
-	if (! position_est_valide(pos))
+	if (!position_est_valide(pos))
 		return POSITION_INVALIDE;
-	if (! pos.y)
+	if (pos.y == 0)
 		return POSITION_INVALIDE;
-	pos.y--;
+	pos.y -= 1;
 	return pos;
 }
 
 Position position_bas(Position pos)
 {
-	if (! position_est_valide(pos))
+	if (!position_est_valide(pos))
 		return POSITION_INVALIDE;
-	if (++pos.y >= pos.coord_max)
+	if (pos.y == pos.taille - 1)
 		return POSITION_INVALIDE;
+	pos.y += 1;
 	return pos;
 }

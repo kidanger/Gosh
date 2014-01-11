@@ -80,8 +80,11 @@ Plateau charger_plateau_fichier(const char * filename)
 
 Plateau charger_plateau_texte(FILE * file)
 {
-	(void) file;
-	assert(0);
+	int taille;
+	fscanf(file, "%d", &taille);
+	Plateau plateau = creer_plateau(taille);
+
+	return plateau;
 }
 
 

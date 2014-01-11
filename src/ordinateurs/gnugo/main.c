@@ -78,8 +78,9 @@ bool envoyer_commande(Data data, const char* commande)
 	}
 }
 
-s_Coup recuperer_coup(Data data)
+s_Coup recuperer_coup(Data data, Partie partie)
 {
+	int taille = plateau_get_taille(partie->plateau);
 	char buf[256];
 	int len = read(data->fdin, buf, sizeof(buf));
 	buf[len] = 0;
@@ -88,7 +89,7 @@ s_Coup recuperer_coup(Data data)
 		coup.position = POSITION_INVALIDE;
 	} else {
 		buf[0] = GNUGO_TO_GOSH[buf[0] - 'A'];
-		coup = str2coup(buf, NULL);
+		coup = str2coup(buf, taille, NULL);
 	}
 	return coup;
 }
@@ -100,7 +101,7 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 	s_Coup coup;
 	//do {
 	envoyer_commande(data, cmd);
-	coup = recuperer_coup(data);
+	coup = recuperer_coup(data, partie);
 	//} while (!partie_jouer_coup(partie, coup));
 	bool valide = partie_jouer_coup(partie, coup);
 	if (!valide) {
@@ -116,7 +117,7 @@ void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_C
 	if (position_est_valide(coup.position)) {
 		char cmd[64];
 		sprintf(cmd, "play %s %c%d", couleur == JOUEUR_BLANC ? "white" : "black",
-		        GOSH_TO_GNUGNO[ coup.position.x], coup.position.y + 1);
+		        GOSH_TO_GNUGNO[coup.position.x], coup.position.y + 1);
 		envoyer_commande(data, cmd);
 		ignorer_sortie(data);
 	}

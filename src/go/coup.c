@@ -20,7 +20,7 @@
 #include "go/coup.h"
 #include "gosh_macros.h"
 
-s_Coup str2coup(const char* str, bool* valide)
+s_Coup str2coup(const char* str, int taille, bool* valide)
 {
 	s_Coup coup;
 	if (strcmp(str, "p") == 0) {
@@ -33,12 +33,12 @@ s_Coup str2coup(const char* str, bool* valide)
 		int numero = atoi(str + 1) - 1;
 
 		// 19, car on ne sait pas la taille du plateau
-		if (lettre < 0 || lettre >= 19 || numero < 0 || numero >= 19) {
+		if (lettre < 0 || lettre >= taille || numero < 0 || numero >= taille) {
 			gosh_debug("coup invalide %d %d", lettre, numero);
 			if (valide)
 				*valide = false;
 		} else {
-			coup.position = position(lettre, numero, 19);
+			coup.position = position(lettre, numero, taille);
 			if (valide)
 				*valide = true;
 		}

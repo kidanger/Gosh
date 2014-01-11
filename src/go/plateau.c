@@ -15,6 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <string.h> // memset
+#include <assert.h>
 
 #include "gosh_alloc.h"
 #include "go/territoire.h"
@@ -64,6 +65,8 @@ void detruire_plateau(Plateau plateau)
 
 Couleur plateau_get(Plateau plateau, int i, int j)
 {
+	assert(i < plateau->taille);
+	assert(j < plateau->taille);
 	unsigned short pos = i * plateau->taille + j;
 	size_t nbPosParCase = impl_get_nb_pos_par_cases();
 	size_t offset = pos / nbPosParCase;
