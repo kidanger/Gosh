@@ -1,9 +1,14 @@
-B1
-passer
-B3
-passer
-C2
-passer
-A2
-# B2 ne peut pas passer car c'est un case entourée par les pierres noires
+charger
+T
+9
+. B . . . . . . .
+B . B . . . . . .
+. B . . . . . . .
+. . . . . . . . .
+. . . . . . . . .
+. . . . . . . . .
+. . . . . . . . .
+. . . . . . . . .
+. . . . . . . . .
+# B2 ne peut pas passer car c'est un case entourée par les pierres blanches
 fail B2

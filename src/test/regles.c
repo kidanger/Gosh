@@ -20,6 +20,7 @@
 
 #include "go/partie.h"
 #include "go/plateau.h"
+#include "go/sauvegarde.h"
 #include "cli/deroulement_partie.h"
 #include "cli/affichage.h"
 
@@ -82,6 +83,13 @@ bool handle_coup(Partie partie, FILE* file, const char* arguments)
 		valide &= partie_jouer_coup(partie, coup);
 	return valide;
 }
+bool handle_charger(Partie partie, FILE* file, const char* arguments)
+{
+	(void) arguments;
+	detruire_plateau(partie->plateau);
+	partie->plateau = charger_plateau(file);
+	return true;
+}
 
 bool test_reponses_aux_questions(enum Question question, Partie partie)
 {
@@ -114,6 +122,7 @@ bool tester(const char* filename)
 	} handlers[] = {
 		{.name = "passer", .fonct = handle_passer},
 		{.name = "afficher", .fonct = handle_afficher},
+		{.name = "charger", .fonct = handle_charger},
 		{.name = "#", .fonct = handle_commentaire},
 		{.name = "!", .fonct = handle_message},
 		{.name = "fail", .fonct = handle_fail},
@@ -133,6 +142,7 @@ bool tester(const char* filename)
 	char buf[256];
 	while (fgets(buf, sizeof(buf), file)) {
 		buf[strlen(buf) - 1] = 0;
+
 		if (buf[0] == 0) // ligne vide
 			continue;
 

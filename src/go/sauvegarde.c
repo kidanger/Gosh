@@ -81,8 +81,33 @@ Plateau charger_plateau_fichier(const char * filename)
 Plateau charger_plateau_texte(FILE * file)
 {
 	int taille;
-	fscanf(file, "%d", &taille);
+	fscanf(file, "%d\n", &taille);
 	Plateau plateau = creer_plateau(taille);
+
+	char c;
+	for (int y = 0; y < taille; y++) {
+		for (int x = 0; x < taille; x++) {
+			do {
+				fscanf(file, "%c", &c);
+			} while (c == ' ');
+			Couleur couleur = VIDE;
+			if (c == 'N') {
+				couleur = NOIR;
+			} else if (c == 'B') {
+				couleur = BLANC;
+			} else if (c == '.') {
+				couleur = VIDE;
+			} else {
+				fprintf(stderr, "Couleur invalide '%c' en %d,%d\n", c, x, y);
+				errno = ENOTSUP;
+				return NULL;
+			}
+			plateau_set(plateau, x, y, couleur);
+		}
+		do {
+			fscanf(file, "%c", &c);
+		} while (c != '\n');
+	}
 
 	return plateau;
 }

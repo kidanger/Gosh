@@ -34,7 +34,7 @@ s_Coup str2coup(const char* str, int taille, bool* valide)
 
 		// 19, car on ne sait pas la taille du plateau
 		if (lettre < 0 || lettre >= taille || numero < 0 || numero >= taille) {
-			gosh_debug("coup invalide %d %d", lettre, numero);
+			gosh_debug("coup invalide '%s' %d %d", str, lettre, numero);
 			if (valide)
 				*valide = false;
 		} else {
