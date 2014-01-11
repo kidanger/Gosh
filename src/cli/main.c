@@ -15,9 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 
-#include "cli/affichage.h"
-#include "cli/configurer_partie.h"
-#include "cli/deroulement_partie.h"
+#include "cli/menu_principal.h"
 
 
 int main(int argc, const char *argv[])
@@ -25,9 +23,7 @@ int main(int argc, const char *argv[])
 	(void) argc;
 	(void) argv;
 
-	Partie p = cli_creer_nouvelle_partie();
-	cli_afficher_plateau(p->plateau);
-	cli_jouer_partie(p);
+    afficher_menu_principal();
 
 	return EXIT_SUCCESS;
 }
