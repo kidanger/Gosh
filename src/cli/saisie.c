@@ -63,6 +63,8 @@ char cli_choisir_option2(const char *prompt, char defaut, const Option * options
         debut_saisie();
 
         reponse = getchar();
+        int car;
+        while( (car = fgetc(stdin) ) != '\n' && car != EOF);
 
         // verify
         if( reponse == '\n' )
@@ -115,7 +117,12 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 
 		debut_saisie();
 		eof = fgets(buffer, taille, stdin) == NULL;
-		buffer[strlen(buffer) - 1] = 0; // suppression du \n
+
+        if( buffer[strlen(buffer) - 1] == '\n' )
+            buffer[strlen(buffer) - 1] = 0; // suppression du \n
+        int car;
+        while( (car = fgetc(stdin) ) != '\n' && car != EOF);
+
 	} while (buffer[0] == 0 && !eof);
 	fin();
 	if (eof) {
@@ -127,6 +134,7 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 
 void flush_stdin(void)
 {
+
     char buffer[4096];
     fd_set rfds;
     FD_ZERO(&rfds);
@@ -134,7 +142,8 @@ void flush_stdin(void)
 
     struct timeval tv = { .tv_sec = 0, .tv_usec = 0 };
 
-    while(   select(1, &rfds, NULL, NULL, &tv) > 0
+    int ret;
+    while(  ( ret = select(1, &rfds, NULL, NULL, &tv) ) > 0
           && fgets(buffer, sizeof(buffer) - 1, stdin) )
     {
         FD_SET(STDIN_FILENO, &rfds);
