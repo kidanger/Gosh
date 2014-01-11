@@ -52,6 +52,7 @@ bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau);
 // TODO: à tester
 /** @brief Copie un plateau. Les deux tableaux sont supposé ́être déjà alloués */
 void plateau_copie(Plateau from, Plateau to);
+Plateau plateau_clone(Plateau from);
 
 // TODO: à tester
 /** @brief Détermine la ou les chaines entourant un territoire */

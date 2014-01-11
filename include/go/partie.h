@@ -21,12 +21,15 @@
 #include "go/plateau_type.h"
 #include "go/joueur.h"
 #include "go/coup.h"
+#include "go/ensemble_plateaux.h"
 
 struct s_Partie {
 	Plateau plateau;
 	struct s_Joueur joueurs[2];
 	bool initialisee;
 	enum CouleurJoueur joueur_courant;
+	EnsemblePlateau plateaux_joues;
+	EnsemblePlateau plateaux_annules;
 };
 
 typedef struct s_Partie* Partie;
@@ -59,6 +62,16 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions);
 enum CouleurJoueur partie_get_joueur(Partie partie);
 bool partie_jouer_coup(Partie partie, s_Coup coup);
 void partie_jouer_ordinateur(Partie partie);
+
+/**
+ * Annule le dernier coup joué
+ */
+bool partie_annuler_coup(Partie partie);
+
+/**
+ * Rejoue le dernier coup annulé
+ */
+bool partie_rejouer_coup(Partie partie);
 
 
 #endif

@@ -14,10 +14,10 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "gosh_alloc.h"
-#include "go/partie.h"
 #include "go/plateau.h"
 #include "go/position.h"
 #include "go/ordinateur.h"
+#include "go/partie.h"
 
 #define JOUEUR_SUIVANT(couleur) ((couleur) == JOUEUR_BLANC ? JOUEUR_NOIR : JOUEUR_BLANC)
 
@@ -54,7 +54,6 @@ bool question_coherante(enum Question idQuestion, Partie partie)
 
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions)
 {
-
 	enum Question idQuestion = PREMIERE_QUESTION;
 
 	while (idQuestion < NOMBRE_QUESTIONS) {
@@ -75,6 +74,8 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions)
 		}
 	}
 
+	partie->plateaux_joues = creer_ensemble_plateau();
+	partie->plateaux_annules = creer_ensemble_plateau();
 	partie->joueur_courant = JOUEUR_NOIR;
 }
 
@@ -86,6 +87,7 @@ enum CouleurJoueur partie_get_joueur(Partie partie)
 bool partie_jouer_coup(Partie partie, s_Coup coup)
 {
 	bool valide = false;
+	Plateau copie = plateau_clone(partie->plateau);
 	if (! position_est_valide(coup.position)) {
 		// le joueur passe son tour
 		valide = true;
@@ -107,8 +109,18 @@ bool partie_jouer_coup(Partie partie, s_Coup coup)
 				ordinateur_notifier_coup(joueur.ordinateur, partie, couleur, coup);
 			}
 		}
-		// et on passe au joueur suivant
+		// on passe au joueur suivant
 		partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
+
+		// on sauvegarde le plateau
+		gosh_ajouter(partie->plateaux_joues, copie);
+		// on vide la liste des coups annulés
+		while (!gosh_vide(partie->plateaux_annules)) {
+			Plateau p = gosh_supprimer_tete(partie->plateaux_annules);
+			detruire_plateau(p);
+		}
+	} else {
+		detruire_plateau(copie);
 	}
 	return valide;
 }
@@ -117,5 +129,31 @@ void partie_jouer_ordinateur(Partie partie)
 {
 	Ordinateur ordi = partie->joueurs[partie->joueur_courant].ordinateur;
 	ordinateur_jouer_coup(ordi, partie, partie->joueur_courant);
+}
+
+bool partie_annuler_coup(Partie partie)
+{
+	if (gosh_vide(partie->plateaux_joues)) {
+		return false;
+	}
+
+	Plateau nouveau = gosh_supprimer_tete(partie->plateaux_joues);
+	gosh_ajouter(partie->plateaux_annules, partie->plateau);
+	partie->plateau = nouveau;
+	partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
+	return true;
+}
+
+bool partie_rejouer_coup(Partie partie)
+{
+	if (gosh_vide(partie->plateaux_annules)) {
+		return false;
+	}
+
+	Plateau nouveau = gosh_supprimer_tete(partie->plateaux_annules);
+	gosh_ajouter(partie->plateaux_joues, partie->plateau);
+	partie->plateau = nouveau;
+	partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
+	return true;
 }
 

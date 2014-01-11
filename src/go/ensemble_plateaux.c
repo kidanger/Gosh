@@ -13,15 +13,9 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_GO_ENSEMBLE_POSITIONS
-#define GOSH_GO_ENSEMBLE_POSITIONS
+#include "go/plateau_type.h"
 
-#include "position.h"
+#define TYPE Plateau
+#define TYPE_LOWER plateau
+#include "gosh_ensemble.c"
 
-#undef TYPE
-#undef TYPE_LOWER
-#define TYPE Position
-#define TYPE_LOWER position
-#include "gosh_ensemble.h"
-
-#endif

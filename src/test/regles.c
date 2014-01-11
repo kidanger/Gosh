@@ -37,6 +37,7 @@ bool handle_afficher(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
 	(void) arguments;
+	printf("%p\n", partie->plateau);
 	cli_afficher_plateau(partie->plateau);
 	return true;
 }
@@ -90,6 +91,20 @@ bool handle_charger(Partie partie, FILE* file, const char* arguments)
 	partie->plateau = charger_plateau(file);
 	return true;
 }
+bool handle_annuler(Partie partie, FILE* file, const char* arguments)
+{
+	(void) file;
+	(void) arguments;
+	bool valide = partie_annuler_coup(partie);
+	return valide;
+}
+bool handle_rejouer(Partie partie, FILE* file, const char* arguments)
+{
+	(void) file;
+	(void) arguments;
+	bool valide = partie_rejouer_coup(partie);
+	return valide;
+}
 
 bool test_reponses_aux_questions(enum Question question, Partie partie)
 {
@@ -127,6 +142,8 @@ bool tester(const char* filename)
 		{.name = "!", .fonct = handle_message},
 		{.name = "fail", .fonct = handle_fail},
 		{.name = "vide", .fonct = handle_vide},
+		{.name = "annuler", .fonct = handle_annuler},
+		{.name = "rejouer", .fonct = handle_rejouer},
 	};
 	Partie partie = creer_partie();
 	initialisation_partie(partie, test_reponses_aux_questions);

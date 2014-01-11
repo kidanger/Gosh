@@ -159,6 +159,12 @@ void plateau_copie(Plateau from, Plateau to)
 	gosh_reallocn(to->cases, uint32_t, nbCases);
 	memcpy(to->cases, from->cases, nbCases * sizeof(uint32_t));
 }
+Plateau plateau_clone(Plateau from)
+{
+	Plateau clone = creer_plateau(from->taille);
+	plateau_copie(from, clone);
+	return clone;
+}
 
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire)
 {
