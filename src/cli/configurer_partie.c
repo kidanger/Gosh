@@ -31,7 +31,7 @@ bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
 	return true;
 #endif
 	const char* str = couleur == JOUEUR_NOIR ? "Type du joueur noir" : "Type du joueur blanc";
-	char res = cli_demander_char(str, 0, 'h', "humain", 'o', "ordinateur", 'r', "retour", 0);
+    char res = cli_choisir_option(str, 0, 'h', "humain", 'o', "ordinateur", 'r', "retour", 0);
 
 	enum TypeJoueur type;
 	if (res == 'o')
@@ -83,7 +83,7 @@ bool saisir_taille_plateau(Partie partie)
 	return true;
 #endif
 	const char* str = "Taille du plateau";
-	char rep = cli_demander_char(str, 0, 'p', "petit (9x9)",
+    char rep = cli_choisir_option(str, 0, 'p', "petit (9x9)",
 	                             'm', "moyen (13x13)", 'g', "grand (19x19)", 'r', "retour", 0);
 	if (rep == 'p')
 		partie->plateau = creer_plateau(9);
