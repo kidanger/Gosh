@@ -48,7 +48,4 @@ void ensemble_colore_ajouter(EnsembleColore ensemble, Position position);
 bool ensemble_colore_appartient(EnsembleColore ensemble, Position position);
 int ensemble_colore_nombre_elements(EnsembleColore ensemble);
 
-#undef TYPE
-#undef TYPE_LOWER
-
 #endif

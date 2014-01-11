@@ -27,6 +27,7 @@ struct s_Partie {
 	Plateau plateau;
 	struct s_Joueur joueurs[2];
 	bool initialisee;
+	bool finie;
 	enum CouleurJoueur joueur_courant;
 	EnsemblePlateau plateaux_joues;
 	EnsemblePlateau plateaux_annules;

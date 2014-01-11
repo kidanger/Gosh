@@ -45,5 +45,7 @@ Position position_droite(Position);
 Position position_haut(Position);
 Position position_bas(Position);
 
+#define POSITION_EQ(p1, p2) ((p1).x == (p2).x && (p1).y == (p2).y)
+
 #endif
 

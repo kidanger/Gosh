@@ -124,7 +124,7 @@ void test_ensemble_position(void)
 	int taille = 19;
 	Position positions[NUM];
 	for (int i = 0; i < NUM; i++) {
-		positions[i] = position(rand() % 19, rand() % 19, taille);
+		positions[i] = position(rand() % taille, rand() % taille, taille);
 	}
 
 	EnsemblePosition ensemble = creer_ensemble_position();
@@ -136,6 +136,7 @@ void test_ensemble_position(void)
 	assert(gosh_nombre_elements(ensemble) == NUM);
 	for (int i = 0; i < NUM; i++) {
 		assert(gosh_appartient(ensemble, positions[i]));
+		assert(POSITION_EQ(positions[NUM - i - 1], gosh_get(ensemble, i)));
 	}
 
 	detruire_ensemble_position(ensemble);

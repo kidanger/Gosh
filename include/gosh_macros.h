@@ -50,6 +50,9 @@ typedef struct {
 #define gosh_nombre_elements(CONTAINER) \
 	(CONTAINER)->nombre_elements( (CONTAINER) )
 
+#define gosh_get(CONTAINER, N) \
+	(CONTAINER)->get( (CONTAINER), (N) )
+
 #ifndef NDEBUG
 #include <stdio.h>
 #define gosh_debug(str, ...) printf("[%s:%d]\t" str "\n", __FILE__, __LINE__, ##__VA_ARGS__)

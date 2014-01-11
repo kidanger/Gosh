@@ -65,6 +65,8 @@ void detruire_plateau(Plateau plateau)
 
 Couleur plateau_get(Plateau plateau, int i, int j)
 {
+	assert(i >= 0);
+	assert(j >= 0);
 	assert(i < plateau->taille);
 	assert(j < plateau->taille);
 	unsigned short pos = i * plateau->taille + j;
@@ -82,6 +84,10 @@ Couleur plateau_get_at(Plateau plateau, Position pos)
 
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur)
 {
+	assert(i >= 0);
+	assert(j >= 0);
+	assert(i < plateau->taille);
+	assert(j < plateau->taille);
 	unsigned short pos = i * plateau->taille + j;
 	size_t nbPosParCase = impl_get_nb_pos_par_cases();
 	size_t offset = pos / nbPosParCase;
@@ -149,15 +155,17 @@ bool plateau_est_identique(Plateau plateau, Plateau ancienPlateau)
 	}
 	return ! memcmp(plateau->cases,
 	                ancienPlateau->cases,
-	                impl_get_nbCases(plateau->taille) * sizeof(uint32_t));
+	                plateau_data_size(plateau->taille));
 }
 
 void plateau_copie(Plateau from, Plateau to)
 {
-	to->taille = from->taille;
-	size_t nbCases = impl_get_nbCases(from->taille);
-	gosh_reallocn(to->cases, uint32_t, nbCases);
-	memcpy(to->cases, from->cases, nbCases * sizeof(uint32_t));
+	if (to->taille != from->taille) {
+		size_t nbCases = impl_get_nbCases(from->taille);
+		to->taille = from->taille;
+		gosh_reallocn(to->cases, uint32_t, nbCases);
+	}
+	memcpy(to->cases, from->cases, plateau_data_size(from->taille));
 }
 Plateau plateau_clone(Plateau from)
 {

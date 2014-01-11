@@ -30,8 +30,7 @@ bool handle_passer(Partie partie, FILE* file, const char* arguments)
 	(void) arguments;
 	s_Coup coup;
 	coup.position = POSITION_INVALIDE;
-	partie_jouer_coup(partie, coup);
-	return true;
+	return partie_jouer_coup(partie, coup);
 }
 bool handle_afficher(Partie partie, FILE* file, const char* arguments)
 {
@@ -105,6 +104,17 @@ bool handle_rejouer(Partie partie, FILE* file, const char* arguments)
 	bool valide = partie_rejouer_coup(partie);
 	return valide;
 }
+bool handle_assert_partie_finie(Partie partie, FILE* file, const char* arguments)
+{
+	(void) file;
+	if (!strcmp(arguments, "true")) {
+		return partie->finie == true;
+	} else if (!strcmp(arguments, "false")) {
+		return partie->finie == false;
+	}
+	printf("Arguments de assert_partie_finie inconnu : '%s'", arguments);
+	return false;
+}
 
 bool test_reponses_aux_questions(enum Question question, Partie partie)
 {
@@ -144,6 +154,7 @@ bool tester(const char* filename)
 		{.name = "vide", .fonct = handle_vide},
 		{.name = "annuler", .fonct = handle_annuler},
 		{.name = "rejouer", .fonct = handle_rejouer},
+		{.name = "assert_partie_finie", .fonct = handle_assert_partie_finie},
 	};
 	Partie partie = creer_partie();
 	initialisation_partie(partie, test_reponses_aux_questions);

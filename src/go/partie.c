@@ -77,6 +77,7 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions)
 	partie->plateaux_joues = creer_ensemble_plateau();
 	partie->plateaux_annules = creer_ensemble_plateau();
 	partie->joueur_courant = JOUEUR_NOIR;
+	partie->finie = false;
 }
 
 enum CouleurJoueur partie_get_joueur(Partie partie)
@@ -86,9 +87,12 @@ enum CouleurJoueur partie_get_joueur(Partie partie)
 
 bool partie_jouer_coup(Partie partie, s_Coup coup)
 {
+	if (partie->finie)
+		return false;
 	bool valide = false;
+	bool passer_son_tour = position_est_valide(coup.position) == false;
 	Plateau copie = plateau_clone(partie->plateau);
-	if (! position_est_valide(coup.position)) {
+	if (passer_son_tour) {
 		// le joueur passe son tour
 		valide = true;
 	} else {
@@ -100,6 +104,25 @@ bool partie_jouer_coup(Partie partie, s_Coup coup)
 		if (capturees)
 			detruire_ensemble_chaine(capturees);
 	}
+
+	// si le coup est valide, on vérifie que le résultat ne correspond pas à un plateau déjà joué
+	if (valide && !passer_son_tour) {
+		Plateau p;
+		gosh_foreach(p, partie->plateaux_joues) {
+			if (plateau_est_identique(partie->plateau, p)) {
+				gosh_debug("Plateau identique");
+				valide = false;
+				break;
+			}
+		}
+		// si non valide, on rétablit le plateau d'avant
+		if (!valide) {
+			Plateau old = partie->plateau;
+			partie->plateau = copie;
+			copie = old; // pour qu'il soit détruit
+		}
+	}
+
 	if (valide) {
 		// notification aux ordinateurs
 		enum CouleurJoueur couleur = partie->joueur_courant;
@@ -121,6 +144,16 @@ bool partie_jouer_coup(Partie partie, s_Coup coup)
 		}
 	} else {
 		detruire_plateau(copie);
+	}
+
+	// si on passe son tour, on vérifie la fin de partie
+	if (passer_son_tour && gosh_nombre_elements(partie->plateaux_joues) >= 2) {
+		Plateau n2 = gosh_get(partie->plateaux_joues, 1);
+		Plateau n1 = gosh_get(partie->plateaux_joues, 0);
+		if (plateau_est_identique(n1, n2) && plateau_est_identique(partie->plateau, n1)) {
+			gosh_debug("Partie terminée");
+			partie->finie = true;
+		}
 	}
 	return valide;
 }
