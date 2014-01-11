@@ -148,6 +148,4 @@ void flush_stdin(void)
     {
         FD_SET(STDIN_FILENO, &rfds);
     }
-
-    perror("");
 }
