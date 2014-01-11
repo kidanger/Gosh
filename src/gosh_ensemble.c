@@ -73,6 +73,7 @@ CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void)
 	ptrContainer->appartient = FUNC_NAME(appartient);
 	ptrContainer->supprimer_tete = FUNC_NAME(supprimer_tete);
 	ptrContainer->nombre_elements = FUNC_NAME(nombre_elements);
+	ptrContainer->get = FUNC_NAME(get);
 
 	return ptrContainer;
 }
@@ -135,6 +136,18 @@ int FUNC_NAME(nombre_elements)(CONTAINER_NAME ptrContainer)
 		noeud = noeud->suivant;
 	}
 	return nb;
+}
+
+TYPE FUNC_NAME(get)(CONTAINER_NAME ptrContainer, int n)
+{
+	struct NODE_NAME * noeud = ptrContainer->data->tete;
+	int nb = 0;
+	while (noeud && nb < n) {
+		nb += 1;
+		noeud = noeud->suivant;
+	}
+	assert(noeud);
+	return noeud->element;
 }
 
 #endif
