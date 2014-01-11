@@ -1,3 +1,18 @@
+/* Copyright © 2013-2014 Jérémy Anger, Denis Migdal
+   This file is part of Gosh.
+
+   Gosh is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   Gosh is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
@@ -9,13 +24,14 @@
 #include "go/ordinateur.h"
 
 
-bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur) {
+bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
+{
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	partie->joueurs[couleur].type = ORDINATEUR;
 	return true;
 #endif
 	const char* str = couleur == JOUEUR_NOIR ? "Type du joueur noir" : "Type du joueur blanc";
-	char res = cli_demander_char(str, 0, 'h', "humain", 'o', "ordinateur", 'r', "retour", 0);
+    char res = cli_choisir_option(str, 0, 'h', "humain", 'o', "ordinateur", 'r', "retour", 0);
 
 	enum TypeJoueur type;
 	if (res == 'o')
@@ -28,7 +44,8 @@ bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur) {
 	return res != 'r';
 }
 
-bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
+bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
+{
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	if (couleur == JOUEUR_BLANC)
 		strcpy(partie->joueurs[couleur].nom, "Henry");
@@ -47,24 +64,26 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur) {
 	return buf[0] != 0;
 }
 
-bool saisir_programme(Partie partie, enum CouleurJoueur couleur) {
+bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
+{
 	// TODO: saisi
 	Ordinateur ordi;
 	if (couleur == JOUEUR_BLANC)
-        ordi = charger_ordinateur("../ordinateurs/librandom.so");
+		ordi = charger_ordinateur("../ordinateurs/librandom.so");
 	else
-        ordi = charger_ordinateur("../ordinateurs/libgnugo.so");
+		ordi = charger_ordinateur("../ordinateurs/libgnugo.so");
 	partie->joueurs[couleur].ordinateur = ordi;
 	return true;
 }
 
-bool saisir_taille_plateau(Partie partie) {
+bool saisir_taille_plateau(Partie partie)
+{
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	partie->plateau = creer_plateau(9);
 	return true;
 #endif
 	const char* str = "Taille du plateau";
-	char rep = cli_demander_char(str, 0, 'p', "petit (9x9)",
+    char rep = cli_choisir_option(str, 0, 'p', "petit (9x9)",
 	                             'm', "moyen (13x13)", 'g', "grand (19x19)", 'r', "retour", 0);
 	if (rep == 'p')
 		partie->plateau = creer_plateau(9);
@@ -75,10 +94,11 @@ bool saisir_taille_plateau(Partie partie) {
 	return rep != 'r';
 }
 
-bool questions_callback(enum Question question, Partie partie) {
+bool questions_callback(enum Question question, Partie partie)
+{
 	switch (question) {
 		case TYPE_JOUEUR_BLANC:
-				return saisir_type_joueur(partie, JOUEUR_BLANC);
+			return saisir_type_joueur(partie, JOUEUR_BLANC);
 		case NOM_JOUEUR_BLANC:
 			return saisir_nom_joueur(partie, JOUEUR_BLANC);
 		case PROGRAMME_JOUEUR_BLANC:
@@ -92,12 +112,13 @@ bool questions_callback(enum Question question, Partie partie) {
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
 		default:
-			assert(("question non gérée", false));
+			// impossible
 			return true;
 	}
 }
 
-Partie cli_creer_nouvelle_partie(void) {
+Partie cli_creer_nouvelle_partie(void)
+{
 	Partie partie = creer_partie();
 	initialisation_partie(partie, questions_callback);
 	if (!partie->initialisee) {
