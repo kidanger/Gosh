@@ -18,8 +18,16 @@
 
 #include <stdarg.h>
 
-char cli_demander_char(const char* prompt, char defaut, ...);
+typedef struct {
+    char code;
+    const char* phrase;
+} Option;
+
+char cli_choisir_option(const char* prompt, char defaut, ...);
+
+char cli_choisir_option2(const char *prompt, char defaut, const Option * option);
 void cli_demander_string(const char* prompt, char* buffer, unsigned int taille);
 
+void flush_stdin(void);
 
 #endif
