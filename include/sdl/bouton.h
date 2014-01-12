@@ -13,24 +13,26 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_SDL_STATE
-#define GOSH_SDL_STATE
+#ifndef GOSH_SDL_BOUTON
+#define GOSH_SDL_BOUTON
 
 #include <stdbool.h>
 #include <SDL/SDL.h>
 
-struct state {
-	bool quitter;
-
-	void(*afficher)(struct state*, SDL_Surface*);
-	void(*keydown)(struct state*, SDL_Event);
-	void(*mousemotion)(struct state*, SDL_Event);
-	void(*mousebuttondown)(struct state*, SDL_Event);
-	void(*mousebuttonup)(struct state*, SDL_Event);
-	void(*mise_a_jour)(struct state*);
-	void* data;
+struct bouton {
+	SDL_Surface* surface;
+	int x, y;
+	int w, h;
+	SDL_Color couleur;
+	void(*callback)(void*);
+	void* userdata;
+	bool hover;
+	bool en_deplacement;
 };
-
+struct bouton* creer_bouton(const char* text, int x, int y, int w, int h);
+void afficher_bouton(SDL_Surface* on, struct bouton*);
+bool utiliser_event_bouton(struct bouton*, SDL_Event);
+void detruire_bouton(struct bouton*);
 
 #endif
 

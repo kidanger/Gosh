@@ -24,10 +24,12 @@
 #define W 800
 #define H 680
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define COLOR(r, g, b) ((SDL_Color){(r), (g), (b), 0})
 
 void draw_rect(SDL_Surface*, int x, int y, int w, int h);
 void set_color(int r, int g, int b);
+SDL_Color get_color();
 
 enum FontSize {
 	SMALL = 0,
@@ -40,25 +42,11 @@ SDL_Surface* text_surface(const char*, enum FontSize taille);
 // alignement
 enum Align {
 	LEFT = 0,
-	CENTER,
+	CENTER_X,
+	CENTER_XY,
 	RIGHT
 };
 void draw_surface(SDL_Surface* on, SDL_Surface* from, int x, int y, enum Align align);
-
-struct bouton {
-	SDL_Surface* surface;
-	int x, y;
-	int w, h;
-	SDL_Color couleur;
-	bool hover;
-	void(*callback)(void*);
-	void* userdata;
-};
-struct bouton* creer_bouton(const char* text, int x, int y, int w, int h);
-void afficher_bouton(SDL_Surface* on, struct bouton*);
-bool utiliser_event_bouton(struct bouton*, SDL_Event);
-void detruire_bouton(struct bouton*);
-
 
 #define SDL_CHECK(cond) \
 	do { \

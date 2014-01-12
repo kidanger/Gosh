@@ -23,6 +23,10 @@
 #include "sdl/state.h"
 #include "sdl/menu.h"
 #include "sdl/tools.h"
+#include "sdl/main.h"
+
+SDL_Surface* window;
+struct state* state;
 
 void sdl_handle_events(struct state* state)
 {
@@ -46,12 +50,18 @@ void sdl_handle_events(struct state* state)
 				if (state->mousebuttondown)
 					state->mousebuttondown(state, event);
 				break;
+			case SDL_MOUSEBUTTONUP:
+				if (state->mousebuttonup)
+					state->mousebuttonup(state, event);
+				break;
 		}
 	}
 }
 
-SDL_Surface* window;
-struct state* state;
+void set_state(struct state* newstate)
+{
+	state = newstate;
+}
 
 #ifdef EMSCRIPTEN
 #include "emscripten.h"

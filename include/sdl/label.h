@@ -13,24 +13,26 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_SDL_STATE
-#define GOSH_SDL_STATE
+#ifndef GOSH_SDL_LABEL
+#define GOSH_SDL_LABEL
 
 #include <stdbool.h>
 #include <SDL/SDL.h>
 
-struct state {
-	bool quitter;
+#include "sdl/tools.h"
 
-	void(*afficher)(struct state*, SDL_Surface*);
-	void(*keydown)(struct state*, SDL_Event);
-	void(*mousemotion)(struct state*, SDL_Event);
-	void(*mousebuttondown)(struct state*, SDL_Event);
-	void(*mousebuttonup)(struct state*, SDL_Event);
-	void(*mise_a_jour)(struct state*);
-	void* data;
+struct label {
+	SDL_Surface* surface;
+	int x, y;
+	enum Align align;
+	SDL_Color couleur;
+	bool visible;
 };
 
+struct label* creer_label(const char* text, int x, int y, enum Align align, enum FontSize size);
+void afficher_label(SDL_Surface* on, struct label*);
+void detruire_label(struct label*);
 
 #endif
+
 

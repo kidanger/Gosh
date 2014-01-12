@@ -13,24 +13,11 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_SDL_STATE
-#define GOSH_SDL_STATE
+#ifndef GOSH_SDL_MAIN
+#define GOSH_SDL_MAIN
 
-#include <stdbool.h>
-#include <SDL/SDL.h>
+#include "sdl/state.h"
 
-struct state {
-	bool quitter;
-
-	void(*afficher)(struct state*, SDL_Surface*);
-	void(*keydown)(struct state*, SDL_Event);
-	void(*mousemotion)(struct state*, SDL_Event);
-	void(*mousebuttondown)(struct state*, SDL_Event);
-	void(*mousebuttonup)(struct state*, SDL_Event);
-	void(*mise_a_jour)(struct state*);
-	void* data;
-};
-
+void set_state(struct state*);
 
 #endif
-
