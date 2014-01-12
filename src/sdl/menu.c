@@ -23,7 +23,19 @@
 #include "sdl/tools.h"
 #include "sdl/menu.h"
 
-#define NUM_BOUTONS 1
+/*
+						Gosh
+
+
+
+
+
+								[Jouer]
+
+	[Quitter]						[Charger]
+*/
+
+#define NUM_BOUTONS 2
 struct menudata {
 	SDL_Surface* titre;
 	struct bouton* boutons[NUM_BOUTONS];
@@ -38,7 +50,7 @@ struct state* creer_menu()
 	struct state* state = gosh_alloc(*state);
 	struct menudata* menu = gosh_alloc(*menu);
 	state->data = menu;
-	state->want_quit = false;
+	state->quitter = false;
 	state->afficher = afficher_menu;
 	state->mousemotion = event_menu;
 	state->mousebuttondown = event_menu;
@@ -51,6 +63,12 @@ struct state* creer_menu()
 	bouton->callback = menu_bouton_quitter;
 	bouton->userdata = state;
 	menu->boutons[0] = bouton;
+
+	set_color(10, 200, 10);
+	bouton = creer_bouton("Valider", W*.7, H*.8, 100, 30);
+	bouton->callback = menu_bouton_quitter;
+	bouton->userdata = state;
+	menu->boutons[1] = bouton;
 	return state;
 }
 
@@ -58,7 +76,10 @@ void detruire_menu(struct state* state)
 {
 	struct menudata* menu = state->data;
 	SDL_FreeSurface(menu->titre);
-	detruire_bouton(menu->boutons[0]);
+	for (int i = 0; i < NUM_BOUTONS; i++) {
+		struct bouton* b = menu->boutons[i];
+		detruire_bouton(b);
+	}
 	gosh_free(state->data);
 	gosh_free(state);
 }
@@ -66,8 +87,11 @@ void detruire_menu(struct state* state)
 void afficher_menu(struct state* state, SDL_Surface* surface)
 {
 	struct menudata* menu = state->data;
-	draw_surface(surface, menu->titre, W/2, H*.15, CENTER);
-	afficher_bouton(surface, menu->boutons[0]);
+	draw_surface(surface, menu->titre, W/2, H*.1, CENTER);
+	for (int i = 0; i < NUM_BOUTONS; i++) {
+		struct bouton* b = menu->boutons[i];
+		afficher_bouton(surface, b);
+	}
 }
 
 static void event_menu(struct state* state, SDL_Event event)
@@ -84,5 +108,5 @@ static void event_menu(struct state* state, SDL_Event event)
 static void menu_bouton_quitter(void * data)
 {
 	struct state* state = (struct state*) data;
-	state->want_quit = true;
+	state->quitter = true;
 }

@@ -15,6 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
@@ -25,12 +26,11 @@
 
 void sdl_handle_events(struct state* state)
 {
-	(void) state;
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
 			case SDL_QUIT:
-				state->want_quit = true;
+				state->quitter = true;
 				break;
 			case SDL_KEYDOWN:
 				if (state->keydown)
@@ -50,10 +50,36 @@ void sdl_handle_events(struct state* state)
 	}
 }
 
+SDL_Surface* window;
+struct state* state;
+
+#ifdef EMSCRIPTEN
+#include "emscripten.h"
+#endif
+
+void update()
+{
+	sdl_handle_events(state);
+
+	if (state->mise_a_jour)
+		state->mise_a_jour(state);
+
+	set_color(40, 40, 40);
+	draw_rect(window, 0, 0, W, H);
+	state->afficher(state, window);
+
+	SDL_Flip(window);
+
+	if (state->quitter) {
+		printf("Quitte!\n");
+#ifdef EMSCRIPTEN
+		emscripten_cancel_main_loop();
+#endif
+	}
+}
+
 int main(void)
 {
-	SDL_Surface* window;
-
 	SDL_CHECK(SDL_Init(SDL_INIT_EVERYTHING) == 0);
 	atexit(SDL_Quit);
 
@@ -62,20 +88,15 @@ int main(void)
 	window = SDL_SetVideoMode(W, H, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_CHECK(window != NULL);
 
-	struct state* state = creer_menu();
-	while (!state->want_quit) {
-		sdl_handle_events(state);
+	state = creer_menu();
 
-		if (state->mise_a_jour)
-			state->mise_a_jour(state);
-
-		set_color(40, 40, 40);
-		draw_rect(window, 0, 0, W, H);
-		state->afficher(state, window);
-
-		SDL_Flip(window);
-		SDL_Delay(1000 / 60);
+#ifdef EMSCRIPTEN
+	emscripten_set_main_loop(update, 0, true);
+#else
+	while (!state->quitter) {
+		update();
 	}
+#endif
 
 	return EXIT_SUCCESS;
 }

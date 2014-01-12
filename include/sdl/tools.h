@@ -17,10 +17,12 @@
 #define GOSH_SDL_TOOLS
 
 #include <stdbool.h>
+#include <stdio.h>
+
 #include <SDL/SDL.h>
 
-#define W 600
-#define H 480
+#define W 800
+#define H 680
 
 #define COLOR(r, g, b) ((SDL_Color){(r), (g), (b), 0})
 

@@ -23,8 +23,8 @@
 
 #define FONT_FILENAME "data/arial.ttf"
 
-SDL_Color color = {255, 255, 255, 0};
-const int font_sizes[] = {12, 20, 64};
+static SDL_Color color = {255, 255, 255, 0};
+static const int font_sizes[] = {12, 20, 64};
 
 static TTF_Font* get_font(enum FontSize size);
 
@@ -45,7 +45,7 @@ void draw_rect(SDL_Surface* surface, int x, int y, int w, int h)
 SDL_Surface* text_surface(const char* text, enum FontSize size)
 {
 	TTF_Font* font = get_font(size);
-	SDL_Surface* surface = TTF_RenderUTF8_Blended(font, text, color);
+	SDL_Surface* surface = TTF_RenderText_Blended(font, text, color);
 	return surface;
 }
 

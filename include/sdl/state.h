@@ -20,7 +20,7 @@
 #include <SDL/SDL.h>
 
 struct state {
-	bool want_quit;
+	bool quitter;
 
 	void(*afficher)(struct state*, SDL_Surface*);
 	void(*keydown)(struct state*, SDL_Event);
