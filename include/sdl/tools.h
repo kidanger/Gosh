@@ -25,6 +25,7 @@
 #define H 680
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define COLOR(r, g, b) ((SDL_Color){(r), (g), (b), 0})
 
 void draw_rect(SDL_Surface*, int x, int y, int w, int h);

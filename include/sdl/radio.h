@@ -13,30 +13,38 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_SDL_BOUTON
-#define GOSH_SDL_BOUTON
+#ifndef GOSH_SDL_RADIO
+#define GOSH_SDL_RADIO
 
-#include <stdbool.h>
-#include <SDL/SDL.h>
-
-struct bouton {
-	SDL_Surface* surface;
-	float x, y;
-	float ox, oy;
-	int w, h;
-	SDL_Color couleur;
-	float deplacement_auto_timer;
-
-	void(*callback)(void*);
-	void* userdata;
-	bool hover;
-	bool en_deplacement;
+struct groupe_radio {
+	int nombre;
+	struct radio** radios;
+	struct radio* radio_courante;
 };
-struct bouton* creer_bouton(const char* text, int x, int y, int w, int h);
-void afficher_bouton(SDL_Surface* on, struct bouton*);
-void mise_a_jour_bouton(struct bouton*, double);
-bool utiliser_event_bouton(struct bouton*, SDL_Event);
-void detruire_bouton(struct bouton*);
+
+struct radio {
+	SDL_Surface* texte_surface;
+
+	float x;
+	float y;
+	int w;
+	int h;
+	SDL_Color couleur;
+	bool visible;
+
+	bool coche;
+};
+
+struct groupe_radio* creer_groupe_radio(int nombre);
+void afficher_groupe_radio(SDL_Surface*, struct groupe_radio*);
+bool utiliser_event_groupe_radio(struct groupe_radio*, SDL_Event);
+
+void detruire_groupe_radio(struct groupe_radio*);
+
+struct radio* creer_radio(const char* texte, int x, int y);
+void afficher_radio(SDL_Surface*, struct radio*);
+bool utiliser_event_radio(struct radio*, SDL_Event);
+void detruire_radio(struct radio*);
 
 #endif
 

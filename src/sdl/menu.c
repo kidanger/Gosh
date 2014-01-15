@@ -23,6 +23,7 @@
 #include "sdl/tools.h"
 #include "sdl/bouton.h"
 #include "sdl/label.h"
+#include "sdl/radio.h"
 #include "sdl/main.h"
 #include "sdl/charger.h"
 #include "sdl/menu.h"
@@ -47,15 +48,17 @@
 
 #define NUM_BOUTONS 3
 #define NUM_LABELS 7
+#define NUM_GROUPES 1
 struct menudata {
 	struct label* titre;
 	struct label* labels[NUM_LABELS];
 	struct bouton* boutons[NUM_BOUTONS];
+	struct groupe_radio* groupes[NUM_GROUPES];
 };
 
 static void afficher_menu(struct state*, SDL_Surface*);
 static void event_menu(struct state*, SDL_Event);
-static void mise_a_jour_menu(struct state *);
+static void mise_a_jour_menu(struct state *, double);
 static void menu_bouton_quitter(void *);
 static void menu_bouton_jouer(void *);
 static void menu_bouton_charger(void *);
@@ -110,6 +113,11 @@ struct state* creer_menu()
 	menu->labels[5]->visible = false;
 	y += 20;
 	menu->labels[6] = creer_label("Taille :", x, y, LEFT, NORMAL);
+
+	menu->groupes[0] = creer_groupe_radio(3);
+	menu->groupes[0]->radios[0] = creer_radio("9x9", 200, 300);
+	menu->groupes[0]->radios[1] = creer_radio("13x13", 300, 300);
+	menu->groupes[0]->radios[2] = creer_radio("19x19", 400, 300);
 	return state;
 }
 
@@ -124,6 +132,10 @@ void detruire_menu(struct state* state)
 	for (int i = 0; i < NUM_BOUTONS; i++) {
 		struct bouton* b = menu->boutons[i];
 		detruire_bouton(b);
+	}
+	for (int i = 0; i < NUM_GROUPES; i++) {
+		struct groupe_radio* g = menu->groupes[i];
+		detruire_groupe_radio(g);
 	}
 	gosh_free(state->data);
 	gosh_free(state);
@@ -143,6 +155,10 @@ void afficher_menu(struct state* state, SDL_Surface* surface)
 		struct bouton* b = menu->boutons[i];
 		afficher_bouton(surface, b);
 	}
+	for (int i = 0; i < NUM_GROUPES; i++) {
+		struct groupe_radio* g = menu->groupes[i];
+		afficher_groupe_radio(surface, g);
+	}
 }
 
 static void event_menu(struct state* state, SDL_Event event)
@@ -151,15 +167,24 @@ static void event_menu(struct state* state, SDL_Event event)
 	for (int i = 0; i < NUM_BOUTONS; i++) {
 		struct bouton* b = menu->boutons[i];
 		if (utiliser_event_bouton(b, event)) {
-			break;
+			return;
+		}
+	}
+	for (int i = 0; i < NUM_GROUPES; i++) {
+		struct groupe_radio* g = menu->groupes[i];
+		if (utiliser_event_groupe_radio(g, event)) {
+			return;
 		}
 	}
 }
 
-static void mise_a_jour_menu(struct state* state)
+static void mise_a_jour_menu(struct state* state, double dt)
 {
 	struct menudata* menu = state->data;
-	(void) menu;
+	for (int i = 0; i < NUM_BOUTONS; i++) {
+		struct bouton* b = menu->boutons[i];
+		mise_a_jour_bouton(b, dt);
+	}
 }
 
 static void menu_bouton_quitter(void * data)

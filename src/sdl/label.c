@@ -38,6 +38,7 @@ void afficher_label(SDL_Surface* on, struct label* label)
 
 void detruire_label(struct label* label)
 {
+	SDL_FreeSurface(label->surface);
 	gosh_free(label);
 }
 
