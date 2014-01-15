@@ -23,10 +23,14 @@ struct bouton* creer_bouton(const char* text, int x, int y, int w, int h)
 	bouton->surface = text_surface(text, NORMAL);
 	bouton->x = x;
 	bouton->y = y;
+	bouton->ox = x;
+	bouton->oy = y;
 	bouton->w = w;
 	bouton->h = h;
 	bouton->couleur = get_color();
 	bouton->hover = false;
+	bouton->en_deplacement = false;
+	bouton->deplacement_auto_timer = 0;
 	return bouton;
 }
 void afficher_bouton(SDL_Surface* on, struct bouton* bouton)
@@ -42,6 +46,20 @@ void afficher_bouton(SDL_Surface* on, struct bouton* bouton)
 	set_color(bouton->couleur.r / 3, bouton->couleur.g / 3, bouton->couleur.b / 3);
 	draw_rect(on, bouton->x + 2, bouton->y + 2, bouton->w - 4, bouton->h - 4);
 	draw_surface(on, bouton->surface, bouton->x + bouton->w / 2, bouton->y + bouton->h / 2, CENTER_XY);
+}
+
+void mise_a_jour_bouton(struct bouton* bouton, double dt)
+{
+	if (!bouton->en_deplacement && bouton->deplacement_auto_timer == 0) {
+		bouton->x += (bouton->ox - bouton->x) * .01;
+		bouton->y += (bouton->oy - bouton->y) * .01;
+	}
+	if (bouton->deplacement_auto_timer > 0) {
+		bouton->deplacement_auto_timer -= dt;
+		if (bouton->deplacement_auto_timer < 0) {
+			bouton->deplacement_auto_timer = 0;
+		}
+	}
 }
 
 bool utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
@@ -63,14 +81,18 @@ bool utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 		if (INSIDE(event.button.x, event.button.y)) {
 			if (event.button.button == 1) {
 				bouton->callback(bouton->userdata);
+				return true;
 			} else if (event.button.button == 3) {
 				bouton->en_deplacement = true;
+				return true;
 			}
 		}
 	} else if (event.type == SDL_MOUSEBUTTONUP) {
 		if (INSIDE(event.button.x, event.button.y)) {
 			if (event.button.button == 3) {
 				bouton->en_deplacement = false;
+				bouton->deplacement_auto_timer = 5;
+				return true;
 			}
 		}
 	}

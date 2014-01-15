@@ -71,8 +71,9 @@ void update()
 {
 	sdl_handle_events(state);
 
+	double dt = 1 / 60.;
 	if (state->mise_a_jour)
-		state->mise_a_jour(state);
+		state->mise_a_jour(state, dt);
 
 	set_color(40, 40, 40);
 	draw_rect(window, 0, 0, W, H);
@@ -105,6 +106,7 @@ int main(void)
 #else
 	while (!state->quitter) {
 		update();
+		SDL_Delay(1 / 60.);
 	}
 #endif
 

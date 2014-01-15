@@ -27,7 +27,7 @@ struct state {
 	void(*mousemotion)(struct state*, SDL_Event);
 	void(*mousebuttondown)(struct state*, SDL_Event);
 	void(*mousebuttonup)(struct state*, SDL_Event);
-	void(*mise_a_jour)(struct state*);
+	void(*mise_a_jour)(struct state*, double);
 	void* data;
 };
 
