@@ -13,27 +13,33 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_SDL_LABEL
-#define GOSH_SDL_LABEL
+#ifndef GOSH_SDL_TEXTINPUT
+#define GOSH_SDL_TEXTINPUT
 
 #include <stdbool.h>
 #include <SDL/SDL.h>
 
-#include "sdl/tools.h"
-
-struct label {
+struct textinput {
 	SDL_Surface* surface;
+
+	int taillemax;
+	int curseur;
+	char* buffer;
+
 	int x, y;
 	int w, h;
-	enum Align align;
 	SDL_Color couleur;
-	bool visible;
+
+	bool hover;
+	bool active;
+	double time;
 };
 
-struct label* creer_label(const char* text, int x, int y, enum Align align, enum FontSize size);
-void afficher_label(SDL_Surface* on, struct label*);
-void detruire_label(struct label*);
+struct textinput* creer_textinput(int x, int y, int w, int h, int taillemax);
+void afficher_textinput(SDL_Surface* on, struct textinput*);
+void mise_a_jour_textinput(struct textinput*, double);
+void utiliser_event_textinput(struct textinput*, SDL_Event);
+void detruire_textinput(struct textinput*);
 
 #endif
-
 

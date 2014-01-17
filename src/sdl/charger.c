@@ -36,7 +36,7 @@ struct chargerdata {
 
 static void afficher_charger(struct state*, SDL_Surface*);
 static void event_charger(struct state* state, SDL_Event event);
-static void charger_bouton_retour(void * data);
+static void charger_bouton_retour(struct bouton*, void * data);
 
 struct state* creer_charger(struct state* parent)
 {
@@ -95,14 +95,13 @@ static void event_charger(struct state* state, SDL_Event event)
 	struct chargerdata* charger = state->data;
 	for (int i = 0; i < NUM_BOUTONS; i++) {
 		struct bouton* b = charger->boutons[i];
-		if (utiliser_event_bouton(b, event)) {
-			break;
-		}
+		utiliser_event_bouton(b, event);
 	}
 }
 
-static void charger_bouton_retour(void * data)
+static void charger_bouton_retour(struct bouton* bouton, void * data)
 {
+	(void) bouton;
 	struct state* state = data;
 	struct chargerdata* charger = state->data;
 	set_state(charger->parent);

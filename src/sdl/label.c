@@ -23,6 +23,8 @@ struct label* creer_label(const char* text, int x, int y, enum Align align, enum
 	label->surface = text_surface(text, size);
 	label->x = x;
 	label->y = y;
+	label->w = label->surface->w;
+	label->h = label->surface->h;
 	label->align = align;
 	label->couleur = get_color();
 	label->visible = true;

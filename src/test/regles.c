@@ -116,8 +116,9 @@ bool handle_assert_partie_finie(Partie partie, FILE* file, const char* arguments
 	return false;
 }
 
-bool test_reponses_aux_questions(enum Question question, Partie partie)
+bool test_reponses_aux_questions(enum Question question, Partie partie, void* userdata)
 {
+	(void) userdata;
 	switch (question) {
 		case TYPE_JOUEUR_BLANC:
 			partie->joueurs[JOUEUR_BLANC].type = HUMAIN;
@@ -157,7 +158,7 @@ bool tester(const char* filename)
 		{.name = "assert_partie_finie", .fonct = handle_assert_partie_finie},
 	};
 	Partie partie = creer_partie();
-	initialisation_partie(partie, test_reponses_aux_questions);
+	initialisation_partie(partie, test_reponses_aux_questions, NULL);
 	bool reussi;
 	FILE* file = fopen(filename, "r");
 

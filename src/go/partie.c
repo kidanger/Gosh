@@ -52,12 +52,12 @@ bool question_coherante(enum Question idQuestion, Partie partie)
 	return true;
 }
 
-void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions)
+void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, void* userdata)
 {
 	enum Question idQuestion = PREMIERE_QUESTION;
 
 	while (idQuestion < NOMBRE_QUESTIONS) {
-		if (question_coherante(idQuestion, partie) && ! fonctionQuestions(idQuestion, partie))
+		if (question_coherante(idQuestion, partie) && ! fonctionQuestions(idQuestion, partie, userdata))
 			break;
 
 		idQuestion++;

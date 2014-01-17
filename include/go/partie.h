@@ -46,10 +46,10 @@ enum Question {
 	PROGRAMME_JOUEUR_NOIR, // si type = ORDINATEUR
 
 	TAILLE_PLATEAU,
-	NOMBRE_QUESTIONS,
 };
+#define NOMBRE_QUESTIONS (TAILLE_PLATEAU+1)
 
-typedef bool (*FonctionQuestions)(enum Question question, Partie partie);
+typedef bool (*FonctionQuestions)(enum Question question, Partie partie, void* userdata);
 
 
 Partie creer_partie(void);
@@ -58,7 +58,7 @@ void detruire_partie(Partie partie);
 /** Initialise la partie en fonction des réponses aux différentes questions :
   * - noms et natures des joueurs
   * - taille du plateau parmi 9x9, 13x13 et 19x19 */
-void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions);
+void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, void* userdata);
 
 enum CouleurJoueur partie_get_joueur(Partie partie);
 bool partie_jouer_coup(Partie partie, s_Coup coup);

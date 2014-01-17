@@ -13,27 +13,13 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_SDL_LABEL
-#define GOSH_SDL_LABEL
+#ifndef GOSH_SDL_JOUER
+#define GOSH_SDL_JOUER
 
-#include <stdbool.h>
-#include <SDL/SDL.h>
+#include "go/partie.h"
 
-#include "sdl/tools.h"
-
-struct label {
-	SDL_Surface* surface;
-	int x, y;
-	int w, h;
-	enum Align align;
-	SDL_Color couleur;
-	bool visible;
-};
-
-struct label* creer_label(const char* text, int x, int y, enum Align align, enum FontSize size);
-void afficher_label(SDL_Surface* on, struct label*);
-void detruire_label(struct label*);
+struct state* creer_jouer(struct state* parent, Partie partie);
+void detruire_jouer(struct state*);
 
 #endif
-
 

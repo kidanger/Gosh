@@ -15,17 +15,23 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #include <SDL/SDL.h>
 
 #include "gosh_alloc.h"
+#include "go/partie.h"
+#include "go/plateau.h"
+#include "go/ordinateur.h"
 #include "sdl/state.h"
 #include "sdl/tools.h"
 #include "sdl/bouton.h"
 #include "sdl/label.h"
 #include "sdl/radio.h"
+#include "sdl/textinput.h"
 #include "sdl/main.h"
 #include "sdl/charger.h"
+#include "sdl/jouer.h"
 #include "sdl/menu.h"
 
 /*
@@ -46,22 +52,31 @@
 	[Quitter]						[Charger]
 */
 
+#define GROUPE_TYPE_J1 0
+#define GROUPE_PROGRAMME_J1 1
+#define GROUPE_TYPE_J2 2
+#define GROUPE_PROGRAMME_J2 3
+#define GROUPE_TAILLE 4
+
 #define NUM_BOUTONS 3
 #define NUM_LABELS 7
-#define NUM_GROUPES 1
+#define NUM_GROUPES 5
+#define NUM_TEXTINPUTS 2
 struct menudata {
 	struct label* titre;
 	struct label* labels[NUM_LABELS];
 	struct bouton* boutons[NUM_BOUTONS];
 	struct groupe_radio* groupes[NUM_GROUPES];
+	struct textinput* textinputs[NUM_TEXTINPUTS];
 };
 
 static void afficher_menu(struct state*, SDL_Surface*);
 static void event_menu(struct state*, SDL_Event);
 static void mise_a_jour_menu(struct state *, double);
-static void menu_bouton_quitter(void *);
-static void menu_bouton_jouer(void *);
-static void menu_bouton_charger(void *);
+static void menu_bouton_quitter(struct bouton*, void *);
+static void menu_bouton_jouer(struct bouton*, void *);
+static void menu_bouton_charger(struct bouton*, void *);
+static void menu_radio_type_joueur(struct groupe_radio*, void*);
 
 struct state* creer_menu()
 {
@@ -73,51 +88,127 @@ struct state* creer_menu()
 	state->mousemotion = event_menu;
 	state->mousebuttondown = event_menu;
 	state->mousebuttonup = event_menu;
+	state->keydown = event_menu;
 	state->mise_a_jour = mise_a_jour_menu;
 
 	set_color(200, 50, 50);
 	menu->titre = creer_label("Gosh", W/2, H*.1, CENTER_XY, BIG);
 
+	int id_groupe = 0;
+	int id_label = 0;
+	int id_bouton = 0;
+	int id_textinput = 0;
+
 	set_color(255, 10, 10);
 	struct bouton* bouton = creer_bouton("Quitter", W*.1, H*.9, 100, 30);
 	bouton->callback = menu_bouton_quitter;
 	bouton->userdata = state;
-	menu->boutons[0] = bouton;
+	menu->boutons[id_bouton++] = bouton;
 
 	set_color(10, 200, 10);
 	bouton = creer_bouton("Jouer", W*.6, H*.7, 100, 30);
 	bouton->callback = menu_bouton_jouer;
 	bouton->userdata = state;
-	menu->boutons[1] = bouton;
+	menu->boutons[id_bouton++] = bouton;
 
 	set_color(50, 50, 200);
 	bouton = creer_bouton("Charger", W*.7, H*.9, 100, 30);
 	bouton->callback = menu_bouton_charger;
 	bouton->userdata = state;
-	menu->boutons[2] = bouton;
+	menu->boutons[id_bouton++] = bouton;
 
-	int x = (W-W*.7)/2 + 20;
-	int y = H * .2;
-	menu->labels[0] = creer_label("Joueur noir :", x, y, LEFT, NORMAL);
-	y += 20;
-	menu->labels[1] = creer_label("Nom :", x + 50, y, LEFT, NORMAL);
-	y += 20;
-	menu->labels[2] = creer_label("Programme :", x, y, LEFT, NORMAL);
-	menu->labels[2]->visible = false;
-	y += 20;
-	menu->labels[3] = creer_label("Joueur blanc :", x, y, LEFT, NORMAL);
-	y += 20;
-	menu->labels[4] = creer_label("Nom :", x + 50, y, LEFT, NORMAL);
-	y += 20;
-	menu->labels[5] = creer_label("Programme :", x, y, LEFT, NORMAL);
-	menu->labels[5]->visible = false;
-	y += 20;
-	menu->labels[6] = creer_label("Taille :", x, y, LEFT, NORMAL);
+	set_color(255, 255, 255);
 
-	menu->groupes[0] = creer_groupe_radio(3);
-	menu->groupes[0]->radios[0] = creer_radio("9x9", 200, 300);
-	menu->groupes[0]->radios[1] = creer_radio("13x13", 300, 300);
-	menu->groupes[0]->radios[2] = creer_radio("19x19", 400, 300);
+	int initx = (W-W*.7)/2 + 20;
+	int y = H * .2 + 20;
+
+	int x = initx;
+	//
+	// joueur 1
+	//
+	// choix du type de joueur
+	menu->labels[id_label] = creer_label("Joueur noir :", x, y, LEFT, NORMAL);
+	x += menu->labels[id_label]->w + 50;
+	id_label++;
+	struct groupe_radio* groupe_type_j1 = creer_groupe_radio(2);
+	groupe_radio_ajouter(groupe_type_j1, "Humain", x, y);
+	groupe_radio_ajouter(groupe_type_j1, "Ordinateur", x + 100, y);
+	groupe_type_j1->callback = menu_radio_type_joueur;
+	groupe_type_j1->userdata = state;
+	menu->groupes[id_groupe++] = groupe_type_j1;
+
+	x = initx;
+	y += 30;
+	menu->labels[id_label++] = creer_label("Nom :", x, y, LEFT, NORMAL);
+	set_color(150, 150, 150);
+	menu->textinputs[id_textinput++] = creer_textinput(x + 80, y, 300, 20, TAILLE_NOM_JOUEUR);
+	set_color(255, 255, 255);
+
+	// (si ordinateur) choix du programme
+	y += 30;
+	menu->labels[id_label] = creer_label("Programme :", x, y, LEFT, NORMAL);
+	menu->labels[id_label]->visible = false;
+	x += menu->labels[id_label]->w + 50;
+	id_label++;
+	struct groupe_radio* groupe_programme_j1 = creer_groupe_radio(2);
+	groupe_radio_ajouter(groupe_programme_j1, "GNU Go", x, y);
+	groupe_radio_ajouter(groupe_programme_j1, "Aléatoire", x + 100, y);
+	groupe_programme_j1->visible = false;
+	menu->groupes[id_groupe++] = groupe_programme_j1;
+
+	x = initx;
+	y += 30 * 2;
+
+	//
+	// joueur 2
+	//
+	// choix du type de joueur
+	menu->labels[id_label] = creer_label("Joueur blanc :", x, y, LEFT, NORMAL);
+	x += menu->labels[id_label]->w + 50;
+	id_label++;
+	struct groupe_radio* groupe_type_j2 = creer_groupe_radio(2);
+	groupe_radio_ajouter(groupe_type_j2, "Humain", x, y);
+	groupe_radio_ajouter(groupe_type_j2, "Ordinateur", x + 100, y);
+	groupe_type_j2->callback = menu_radio_type_joueur;
+	groupe_type_j2->userdata = state;
+	menu->groupes[id_groupe++] = groupe_type_j2;
+
+	x = initx;
+	y += 30;
+	menu->labels[id_label++] = creer_label("Nom :", x, y, LEFT, NORMAL);
+	set_color(150, 150, 150);
+	menu->textinputs[id_textinput++] = creer_textinput(x + 80, y, 300, 20, TAILLE_NOM_JOUEUR);
+	set_color(255, 255, 255);
+
+	// (si ordinateur) choix du programme
+	y += 30;
+	menu->labels[id_label] = creer_label("Programme :", x, y, LEFT, NORMAL);
+	menu->labels[id_label]->visible = false;
+	x += menu->labels[id_label]->w + 50;
+	id_label++;
+	struct groupe_radio* groupe_programme_j2 = creer_groupe_radio(2);
+	groupe_radio_ajouter(groupe_programme_j2, "GNU Go", x, y);
+	groupe_radio_ajouter(groupe_programme_j2, "Aléatoire", x + 100, y);
+	groupe_programme_j2->visible = false;
+	menu->groupes[id_groupe++] = groupe_programme_j2;
+
+	x = initx;
+	y += 30 * 3;
+
+	// taille du plateau
+	menu->labels[id_label] = creer_label("Taille :", x, y, LEFT, NORMAL);
+	x += menu->labels[id_label]->w + 50;
+	id_label++;
+	struct groupe_radio* groupe_taille = creer_groupe_radio(3);
+	groupe_radio_ajouter(groupe_taille, "9x9", x, y);
+	groupe_radio_ajouter(groupe_taille, "13x13", x + 100, y);
+	groupe_radio_ajouter(groupe_taille, "19x19", x + 200, y);
+	menu->groupes[id_groupe++] = groupe_taille;
+
+	assert(id_label == NUM_LABELS);
+	assert(id_bouton == NUM_BOUTONS);
+	assert(id_groupe == NUM_GROUPES);
+	assert(id_textinput == NUM_TEXTINPUTS);
 	return state;
 }
 
@@ -136,6 +227,10 @@ void detruire_menu(struct state* state)
 	for (int i = 0; i < NUM_GROUPES; i++) {
 		struct groupe_radio* g = menu->groupes[i];
 		detruire_groupe_radio(g);
+	}
+	for (int i = 0; i < NUM_TEXTINPUTS; i++) {
+		struct textinput* ti = menu->textinputs[i];
+		detruire_textinput(ti);
 	}
 	gosh_free(state->data);
 	gosh_free(state);
@@ -159,6 +254,10 @@ void afficher_menu(struct state* state, SDL_Surface* surface)
 		struct groupe_radio* g = menu->groupes[i];
 		afficher_groupe_radio(surface, g);
 	}
+	for (int i = 0; i < NUM_TEXTINPUTS; i++) {
+		struct textinput* ti = menu->textinputs[i];
+		afficher_textinput(surface, ti);
+	}
 }
 
 static void event_menu(struct state* state, SDL_Event event)
@@ -166,15 +265,15 @@ static void event_menu(struct state* state, SDL_Event event)
 	struct menudata* menu = state->data;
 	for (int i = 0; i < NUM_BOUTONS; i++) {
 		struct bouton* b = menu->boutons[i];
-		if (utiliser_event_bouton(b, event)) {
-			return;
-		}
+		utiliser_event_bouton(b, event);
 	}
 	for (int i = 0; i < NUM_GROUPES; i++) {
 		struct groupe_radio* g = menu->groupes[i];
-		if (utiliser_event_groupe_radio(g, event)) {
-			return;
-		}
+		utiliser_event_groupe_radio(g, event);
+	}
+	for (int i = 0; i < NUM_TEXTINPUTS; i++) {
+		struct textinput* ti = menu->textinputs[i];
+		utiliser_event_textinput(ti, event);
 	}
 }
 
@@ -185,24 +284,96 @@ static void mise_a_jour_menu(struct state* state, double dt)
 		struct bouton* b = menu->boutons[i];
 		mise_a_jour_bouton(b, dt);
 	}
+	for (int i = 0; i < NUM_TEXTINPUTS; i++) {
+		struct textinput* ti = menu->textinputs[i];
+		mise_a_jour_textinput(ti, dt);
+	}
 }
 
-static void menu_bouton_quitter(void * data)
+static void menu_bouton_quitter(struct bouton* bouton, void * data)
 {
+	(void) bouton;
 	struct state* state = data;
 	state->quitter = true;
 }
 
-static void menu_bouton_jouer(void * data)
+static bool construction_function(enum Question question, Partie partie, void* userdata)
 {
+	struct menudata* menu = userdata;
+	switch (question) {
+		case TYPE_JOUEUR_BLANC:
+			partie->joueurs[JOUEUR_BLANC].type = menu->groupes[GROUPE_TYPE_J2]->courante == 0 ? HUMAIN : ORDINATEUR;
+			break;
+		case NOM_JOUEUR_BLANC:
+			strcpy(partie->joueurs[JOUEUR_BLANC].nom, menu->textinputs[1]->buffer);
+			break;
+		case PROGRAMME_JOUEUR_BLANC:
+			partie->joueurs[JOUEUR_BLANC].ordinateur = menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ?
+				charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
+				charger_ordinateur("build/src/ordinateurs/librandom.so");
+			break;
+
+		case TYPE_JOUEUR_NOIR:
+			partie->joueurs[JOUEUR_NOIR].type = menu->groupes[GROUPE_TYPE_J1]->courante == 0 ? HUMAIN : ORDINATEUR;
+			break;
+		case NOM_JOUEUR_NOIR:
+			strcpy(partie->joueurs[JOUEUR_NOIR].nom, menu->textinputs[0]->buffer);
+			break;
+		case PROGRAMME_JOUEUR_NOIR:
+			partie->joueurs[JOUEUR_NOIR].ordinateur = menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ?
+				charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
+				charger_ordinateur("build/src/ordinateurs/librandom.so");
+			break;
+
+		case TAILLE_PLATEAU:
+			{
+				int id = menu->groupes[NUM_GROUPES-1]->courante;
+				int taille = id == 0 ? 9 : id == 1 ? 13 : 19;
+				partie->plateau = creer_plateau(taille);
+			}
+	}
+	return true;
+}
+static void menu_bouton_jouer(struct bouton* bouton, void * data)
+{
+	(void) bouton;
 	struct state* state = data;
-	(void) state; // TODO
+	struct menudata* menu = state->data;
+
+	Partie partie = creer_partie();
+	initialisation_partie(partie, construction_function, menu);
+
+	struct state* new_state = creer_jouer(state, partie);
+	set_state(new_state);
 }
 
-static void menu_bouton_charger(void * data)
+static void menu_bouton_charger(struct bouton* bouton, void * data)
 {
+	(void) bouton;
 	struct state* state = data;
 	struct state* new_state = creer_charger(state);
 	set_state(new_state);
+}
+
+static void menu_radio_type_joueur(struct groupe_radio* groupe, void* data)
+{
+	struct state* state = data;
+	struct menudata* menu = state->data;
+	int groupe_prog;
+	int label;
+	if (groupe == menu->groupes[0]) { // joueur noir
+		groupe_prog = GROUPE_PROGRAMME_J1;
+		label = 2;
+	} else { // joueur blanc
+		groupe_prog = GROUPE_PROGRAMME_J2;
+		label = 5;
+	}
+	if (groupe->courante == 0) { // humain
+		menu->groupes[groupe_prog]->visible = false; // choix type ordi
+		menu->labels[label]->visible = false;
+	} else {
+		menu->groupes[groupe_prog]->visible = true;
+		menu->labels[label]->visible = true;
+	}
 }
 
