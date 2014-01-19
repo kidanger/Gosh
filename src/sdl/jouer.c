@@ -21,6 +21,7 @@
 #include "gosh_alloc.h"
 #include "go/partie.h"
 #include "go/plateau.h"
+#include "go/libertes.h"
 #include "sdl/state.h"
 #include "sdl/label.h"
 #include "sdl/tools.h"
@@ -32,6 +33,7 @@ struct jouerdata {
 	int taille;
 
 	struct label* au_tour_de[2];
+	struct label* partie_finie;
 	struct bouton* passer_son_tour;
 	Position hovered;
 };
@@ -49,12 +51,17 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	jouer->taille = plateau_get_taille(partie->plateau);
 	state->data = jouer;
 	state->mousemotion = mousemotion_jouer;
+	state->mousebuttondown = mousemotion_jouer;
+	state->keydown = mousemotion_jouer;
 
-	char buf[TAILLE_NOM_JOUEUR + 12];
+	char buf[TAILLE_NOM_JOUEUR + 64];
+
 	snprintf(buf, sizeof(buf), "Au tour de %s", partie->joueurs[JOUEUR_NOIR].nom);
 	jouer->au_tour_de[JOUEUR_NOIR] = creer_label(buf, W / 2, H * .1, CENTER_XY, BIG);
 	snprintf(buf, sizeof(buf), "Au tour de %s", partie->joueurs[JOUEUR_BLANC].nom);
 	jouer->au_tour_de[JOUEUR_BLANC] = creer_label(buf, W / 2, H * .1, CENTER_XY, BIG);
+	jouer->partie_finie = creer_label("Partie terminée!", W / 2, H * .1, CENTER_XY, BIG);
+
 	jouer->hovered = POSITION_INVALIDE;
 
 	return state;
@@ -79,12 +86,12 @@ Position get_position_depuis_ecran(struct jouerdata* jouer, int x, int y)
 	w -= w % jouer->taille;
 	int pixel_par_case = w / jouer->taille;
 	int bordure = (w - pixel_par_case * (jouer->taille - 1)) / 2;
-	pos = position((x - x1 - bordure) / pixel_par_case,
-					(y - y1 - bordure) / pixel_par_case,
+	pos = position((x - x1 - bordure + pixel_par_case/2) / pixel_par_case,
+					(y - y1 - bordure + pixel_par_case/2) / pixel_par_case,
 					jouer->taille);
 	return pos;
 }
-void get_position_vers_ecran(struct jouerdata* jouer, Position pos, int* x, int* y)
+void get_position_vers_ecran(struct jouerdata* jouer, int x, int y, int* sx, int* sy)
 {
 	int x1 = W * .2;
 	int y1 = H * .2;
@@ -92,8 +99,8 @@ void get_position_vers_ecran(struct jouerdata* jouer, Position pos, int* x, int*
 	w -= w % jouer->taille;
 	int pixel_par_case = w / jouer->taille;
 	int bordure = (w - pixel_par_case * (jouer->taille - 1)) / 2;
-	*x = x1 + bordure + pos.x * pixel_par_case;
-	*y = y1 + bordure + pos.y * pixel_par_case;
+	*sx = x1 + bordure + x * pixel_par_case;
+	*sy = y1 + bordure + y * pixel_par_case;
 }
 
 static void afficher_jouer(struct state* state, SDL_Surface* surface)
@@ -102,7 +109,11 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	Partie partie = jouer->partie;
 	int taille = jouer->taille;
 
-	afficher_label(surface, jouer->au_tour_de[partie->joueur_courant]);
+	if (!partie->finie) {
+		afficher_label(surface, jouer->au_tour_de[partie->joueur_courant]);
+	} else {
+		afficher_label(surface, jouer->partie_finie);
+	}
 
 	int x1 = W * .2;
 	int y1 = H * .2;
@@ -131,17 +142,58 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 				pixel_par_case * (taille - 1), interbordure);
 	}
 
+	int taille_stone = taille == 9 ? 30 : taille == 13 ? 24 : 16;
+	int taille_stone2 = taille_stone / 4;
 	Position hov = jouer->hovered;
+	Chaine chaine = position_est_valide(hov) ?
+			plateau_determiner_chaine(partie->plateau, hov) : NULL;
+	Libertes libertes = chaine ? determiner_libertes(partie->plateau, chaine) : NULL;
 	for (int x = 0; x < taille; x++) {
 		for (int y = 0; y < taille; y++) {
-			if (position_est_valide(hov) && hov.x == x && hov.y == y) {
-				set_color(255, 30, 30);
-				int x, y;
-				get_position_vers_ecran(jouer, hov, &x, &y);
-				draw_rect(surface, x - 10, y - 10, 20, 20);
+			Position pos = position(x, y, taille);
+			Couleur c = plateau_get(partie->plateau, x, y);
+			bool draw = false;
+			if (c != VIDE) {
+				if (c == BLANC) {
+					set_color(210, 210, 210);
+				} else {
+					set_color(40, 40, 40);
+				}
+				draw = true;
+			} else if (position_est_valide(hov) && hov.x == x && hov.y == y) {
+				if (partie->joueur_courant == JOUEUR_BLANC) {
+					set_color(240, 240, 240);
+				} else {
+					set_color(20, 20, 20);
+				}
+				draw = true;
+			}
+			if (draw) {
+				int sx, sy;
+				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				sx -= taille_stone / 2;
+				sy -= taille_stone / 2;
+				draw_rect(surface, sx, sy, taille_stone, taille_stone);
+			}
+			draw = false;
+			if (chaine && gosh_appartient(chaine, pos)) {
+				set_color(120, 120, 120);
+				draw = true;
+			} else if (libertes && gosh_appartient(libertes, pos)) {
+				set_color(200, 40, 40);
+				draw = true;
+			}
+			if (draw) {
+				int sx, sy;
+				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				sx -= taille_stone2 / 2;
+				sy -= taille_stone2 / 2;
+				draw_rect(surface, sx, sy, taille_stone2, taille_stone2);
 			}
 		}
 	}
+	if (chaine)
+		detruire_ensemble_colore(chaine);
 }
 
 static void mousemotion_jouer(struct state* state, SDL_Event event)
@@ -149,6 +201,30 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 	struct jouerdata* jouer = state->data;
 	if (event.type == SDL_MOUSEMOTION) {
 		jouer->hovered = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
+	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
+		int b = event.button.button;
+		if (b == 1) {
+			Position pos = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
+			s_Coup coup = {pos};
+			partie_jouer_coup(jouer->partie, coup);
+		} else if (b == 2) {
+			s_Coup coup;
+			coup.position = POSITION_INVALIDE;
+			partie_jouer_coup(jouer->partie, coup);
+		} else if (b == 4) {
+			partie_annuler_coup(jouer->partie);
+		} else if (b == 5) {
+			partie_rejouer_coup(jouer->partie);
+		}
+	} else if (event.type == SDL_KEYDOWN) {
+		if (event.key.keysym.sym == SDLK_p) {
+			s_Coup coup = {POSITION_INVALIDE};
+			partie_jouer_coup(jouer->partie, coup);
+		} else if (event.key.keysym.sym == SDLK_a) {
+			partie_annuler_coup(jouer->partie);
+		} else if (event.key.keysym.sym == SDLK_r) {
+			partie_rejouer_coup(jouer->partie);
+		}
 	}
 }
 

@@ -14,6 +14,7 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 #include <assert.h>
 
@@ -141,7 +142,8 @@ struct state* creer_menu()
 	y += 30;
 	menu->labels[id_label++] = creer_label("Nom :", x, y, LEFT, NORMAL);
 	set_color(150, 150, 150);
-	menu->textinputs[id_textinput++] = creer_textinput(x + 80, y, 300, 20, TAILLE_NOM_JOUEUR);
+	menu->textinputs[id_textinput] = creer_textinput(x + 80, y, 300, 20, TAILLE_NOM_JOUEUR);
+	id_textinput++;
 	set_color(255, 255, 255);
 
 	// (si ordinateur) choix du programme
@@ -177,7 +179,8 @@ struct state* creer_menu()
 	y += 30;
 	menu->labels[id_label++] = creer_label("Nom :", x, y, LEFT, NORMAL);
 	set_color(150, 150, 150);
-	menu->textinputs[id_textinput++] = creer_textinput(x + 80, y, 300, 20, TAILLE_NOM_JOUEUR);
+	menu->textinputs[id_textinput] = creer_textinput(x + 80, y, 300, 20, TAILLE_NOM_JOUEUR);
+	id_textinput++;
 	set_color(255, 255, 255);
 
 	// (si ordinateur) choix du programme
