@@ -26,4 +26,7 @@
 
 typedef EnsembleChaine Chaines;
 
+#define creer_chaines creer_ensemble_chaine
+#define detruire_chaines detruire_ensemble_chaine
+
 #endif

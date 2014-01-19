@@ -25,11 +25,20 @@ Partie creer_partie(void)
 {
 	Partie partie = gosh_alloc(*partie);
 	partie->initialisee = false;
+	partie->plateaux_joues = creer_plateaux();
+	partie->plateaux_annules = creer_plateaux();
+	partie->finie = false;
 	return partie;
 }
 
 void detruire_partie(Partie partie)
 {
+	if (partie->plateaux_joues)
+		detruire_plateaux(partie->plateaux_joues);
+	if (partie->plateaux_annules)
+		detruire_plateaux(partie->plateaux_annules);
+	if (partie->plateau)
+		detruire_plateau(partie->plateau);
 	gosh_free(partie);
 }
 
@@ -74,10 +83,7 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, v
 		}
 	}
 
-	partie->plateaux_joues = creer_ensemble_plateau();
-	partie->plateaux_annules = creer_ensemble_plateau();
 	partie->joueur_courant = JOUEUR_NOIR;
-	partie->finie = false;
 }
 
 enum CouleurJoueur partie_get_joueur(Partie partie)

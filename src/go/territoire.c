@@ -57,7 +57,6 @@ Territoire determiner_territoire(Plateau plateau, Position position)
 			} else if (couleur != c) // le territoire est entouré par deux couleurs différentes
 				couleur = VIDE;
 		}
-
 	}
 
 	ensemble_colore_set_couleur(territoire, couleur);

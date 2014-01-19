@@ -193,7 +193,9 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 		}
 	}
 	if (chaine)
-		detruire_ensemble_colore(chaine);
+		detruire_chaine(chaine);
+	if (libertes)
+		detruire_libertes(libertes);
 }
 
 static void mousemotion_jouer(struct state* state, SDL_Event event)

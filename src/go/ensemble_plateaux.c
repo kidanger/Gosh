@@ -13,9 +13,12 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#include "go/plateau_type.h"
+#include "go/plateau.h"
 
+#undef TYPE
+#undef TYPE_LOWER
 #define TYPE Plateau
 #define TYPE_LOWER plateau
+#define TYPE_DESTRUCTEUR detruire_plateau
 #include "gosh_ensemble.c"
 

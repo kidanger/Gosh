@@ -62,7 +62,6 @@ void detruire_plateau(Plateau plateau)
 }
 
 
-
 Couleur plateau_get(Plateau plateau, int i, int j)
 {
 	assert(i >= 0);
@@ -176,7 +175,7 @@ Plateau plateau_clone(Plateau from)
 
 Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire)
 {
-	Chaines chaines = creer_ensemble_chaine();
+	Chaines chaines = creer_chaines();
 	Position position;
 	gosh_foreach(position, territoire) {
 		const Position a_tester[] = POSITION_VOISINS(position);
@@ -186,7 +185,7 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire)
 				Chaine chaine = plateau_determiner_chaine(plateau, p);
 				if (chaine) {
 					if (gosh_appartient(chaines, chaine)) {
-						detruire_ensemble_colore(chaine);
+						detruire_chaine(chaine);
 					} else {
 						gosh_ajouter(chaines, chaine);
 					}
@@ -209,36 +208,43 @@ Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide)
 		return NULL;
 	}
 
-	Territoire milieu = determiner_territoire(plateau, pion.position);
-
 	// on collecte les chaines menacées et les chaines amies
-	Chaines chaines_menacees = creer_ensemble_chaine();
-	Chaines chaines_amies = creer_ensemble_chaine();
+	Chaines chaines_menacees = creer_chaines();
+	Chaines chaines_amies = creer_chaines();
+
+	Territoire milieu = determiner_territoire(plateau, pion.position);
 	Chaines autour = plateau_entoure_un_territoire(plateau, milieu);
+	detruire_territoire(milieu);
+
 	Couleur autre_couleur = pion.couleur == BLANC ? NOIR : BLANC;
-	Chaine chaine_tmp;
-	gosh_foreach(chaine_tmp, autour) {
+	while (!gosh_vide(autour)) {
+		// pas de gosh_foreach car on fait passer les chaines d'une instance à l'autre
+		// donc il ne faut pas les garder dans 'autour' sinon elles vont être freed
+		Chaine chaine_tmp = gosh_supprimer_tete(autour);
 		if (ensemble_colore_couleur(chaine_tmp) == autre_couleur) {
 			gosh_ajouter(chaines_menacees, chaine_tmp);
 		} else if (ensemble_colore_couleur(chaine_tmp) == pion.couleur) {
 			gosh_ajouter(chaines_amies, chaine_tmp);
 		}
 	}
+	detruire_chaines(autour);
 
-	Chaines chaines_capturees = creer_ensemble_chaine();
-	Chaine chaine_menacee;
+	Chaines chaines_capturees = creer_chaines();
 
 	// on vérifie lesquelles sont capturables
-	gosh_foreach(chaine_menacee, chaines_menacees) {
+	while (!gosh_vide(chaines_menacees)) {
+		Chaine chaine_menacee = gosh_supprimer_tete(chaines_menacees);
 		Libertes lib = determiner_libertes(plateau, chaine_menacee);
 		if (gosh_nombre_elements(lib) == 1) {
 			plateau_realiser_capture(plateau, chaine_menacee);
 			gosh_ajouter(chaines_capturees, chaine_menacee);
 			gosh_debug("ajout d'une chaine capturée");
+		} else {
+			detruire_chaine(chaine_menacee);
 		}
 		detruire_ensemble_position(lib);
 	}
-	detruire_ensemble_chaine(chaines_menacees);
+	detruire_chaines(chaines_menacees);
 
 	// on recalcule le territoire, puisqu'on a capturé des chaines
 	Territoire territoire = determiner_territoire(plateau, pion.position);
@@ -251,12 +257,14 @@ Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide)
 		} else {
 			// on vérifie qu'on pouvait bien faire ce mouvement : on ne doit pas bloquer de libertés
 			bool bloquant = true;
-			gosh_foreach(chaine_menacee, chaines_amies) {
-				Libertes lib = determiner_libertes(plateau, chaine_menacee);
+			while (!gosh_vide(chaines_amies)) {
+				Chaine amie = gosh_supprimer_tete(chaines_amies);
+				Libertes lib = determiner_libertes(plateau, amie);
 				if (gosh_nombre_elements(lib) != 1) {
 					bloquant = false;
 				}
-				detruire_ensemble_position(lib);
+				detruire_libertes(lib);
+				detruire_chaine(amie);
 			}
 
 			// on annule les captures si le coup bloque d'autres chaines
@@ -272,17 +280,23 @@ annuler_captures:
 						plateau_set_at(plateau, pos, autre_couleur);
 					}
 				}
-				detruire_ensemble_chaine(chaines_capturees);
+				// TODO: free
+				detruire_chaines(chaines_amies);
+				detruire_chaines(chaines_capturees);
+				detruire_territoire(territoire);
 				return NULL;
 			}
 		}
 	}
-	detruire_ensemble_colore(territoire);
+	detruire_territoire(territoire);
+	detruire_chaines(chaines_amies);
 
 	*valide = true;
 	plateau_set_at(plateau, pion.position, pion.couleur);
-	if (gosh_vide(chaines_capturees))
+	if (gosh_vide(chaines_capturees)) {
+		detruire_chaines(chaines_capturees);
 		return NULL;
+	}
 	return chaines_capturees;
 }
 

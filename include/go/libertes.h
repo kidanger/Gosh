@@ -26,5 +26,7 @@ typedef EnsemblePosition Libertes;
  * de la position des pions sur le plateau. */
 Libertes determiner_libertes(Plateau plateau, Chaine chaine);
 
+#define creer_libertes creer_ensemble_position
+#define detruire_libertes detruire_ensemble_position
 
 #endif

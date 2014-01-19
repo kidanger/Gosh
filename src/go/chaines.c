@@ -17,6 +17,8 @@
 
 #undef TYPE
 #undef TYPE_LOWER
+#undef TYPE_DESTRUCTEUR
 #define TYPE Chaine
 #define TYPE_LOWER chaine
+#define TYPE_DESTRUCTEUR detruire_ensemble_colore
 #include "gosh_ensemble.c"

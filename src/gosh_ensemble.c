@@ -84,6 +84,9 @@ void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer)
 	struct NODE_NAME * noeud = ensemble->tete;
 	while (noeud) {
 		struct NODE_NAME * suivant = noeud->suivant;
+#ifdef TYPE_DESTRUCTEUR
+		TYPE_DESTRUCTEUR(noeud->element);
+#endif
 		gosh_free(noeud);
 		noeud = suivant;
 	}

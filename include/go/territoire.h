@@ -31,4 +31,7 @@ Territoire determiner_territoire(Plateau plateau, Position pos);
 
 bool territoire_appartient(Territoire territoire, Position position);
 
+#define creer_territoire creer_ensemble_colore
+#define detruire_territoire detruire_ensemble_colore
+
 #endif
