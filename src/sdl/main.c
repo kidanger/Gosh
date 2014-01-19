@@ -106,7 +106,7 @@ int main(void)
 #else
 	while (!state->quitter) {
 		update();
-		SDL_Delay(1 / 60.);
+		SDL_Delay(1000 / 60.);
 	}
 #endif
 
