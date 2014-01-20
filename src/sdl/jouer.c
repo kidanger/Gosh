@@ -39,6 +39,7 @@ struct jouerdata {
 };
 
 static void afficher_jouer(struct state*, SDL_Surface*);
+static void mise_a_jour_jouer(struct state*, double);
 static void mousemotion_jouer(struct state*, SDL_Event);
 
 struct state* creer_jouer(struct state* parent, Partie partie)
@@ -50,6 +51,7 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	jouer->partie = partie;
 	jouer->taille = plateau_get_taille(partie->plateau);
 	state->data = jouer;
+	state->mise_a_jour = mise_a_jour_jouer;
 	state->mousemotion = mousemotion_jouer;
 	state->mousebuttondown = mousemotion_jouer;
 	state->keydown = mousemotion_jouer;
@@ -77,11 +79,24 @@ void detruire_jouer(struct state* state)
 	gosh_free(state);
 }
 
+static void mise_a_jour_jouer(struct state* state, double dt)
+{
+	(void) dt;
+	struct jouerdata* jouer = state->data;
+	Partie partie = jouer->partie;
+	if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR) {
+		partie_jouer_ordinateur(partie);
+	}
+}
+
 Position get_position_depuis_ecran(struct jouerdata* jouer, int x, int y)
 {
 	Position pos;
 	int x1 = W * .2;
 	int y1 = H * .2;
+	if (x < x1 || y < y1) {
+		return POSITION_INVALIDE;
+	}
 	int w = MAX(W*.8 - x1, H*.8 - y1);
 	w -= w % jouer->taille;
 	int pixel_par_case = w / jouer->taille;
@@ -207,8 +222,10 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 		int b = event.button.button;
 		if (b == 1) {
 			Position pos = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
-			s_Coup coup = {pos};
-			partie_jouer_coup(jouer->partie, coup);
+			if (position_est_valide(pos)) {
+				s_Coup coup = {pos};
+				partie_jouer_coup(jouer->partie, coup);
+			}
 		} else if (b == 2) {
 			s_Coup coup;
 			coup.position = POSITION_INVALIDE;

@@ -15,6 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 #include "go/ordinateur.h"
 #include "go/plateau.h"
@@ -31,15 +32,23 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 
 	size_t taille = plateau_get_taille(partie->plateau);
 	s_Coup coup;
+	int essais_restants = 1000;
 	do {
 		int x = rand() % taille;
 		int y = rand() % taille;
 		coup.position = position(x, y, taille);
-	} while (plateau_get_at(partie->plateau, coup.position) != VIDE || !partie_jouer_coup(partie, coup));
+		essais_restants--;
+	} while ((plateau_get_at(partie->plateau, coup.position) != VIDE
+			|| !partie_jouer_coup(partie, coup)) && essais_restants > 0);
+	if (essais_restants == 0) {
+		coup.position = POSITION_INVALIDE;
+		partie_jouer_coup(partie, coup);
+	}
 }
 
 void* INITIALISER()
 {
+	srand(time(NULL));
 	Data data = gosh_alloc(*data);
 	gosh_debug("Initialisation du botrandom");
 	return data;

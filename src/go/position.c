@@ -19,7 +19,7 @@ Position POSITION_INVALIDE = { .x = -1, .y = -1, .taille = 0, .valide = 0 };
 
 Position position(int x, int y, int taille)
 {
-	if (x >= taille || y >= taille)
+	if (x < 0 || y < 0 || x >= taille || y >= taille)
 		return POSITION_INVALIDE;
 	Position p = {.x=x, .y=y, .taille=taille, .valide=1};
 	return p;
