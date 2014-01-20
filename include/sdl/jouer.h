@@ -13,12 +13,13 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#include "go/chaine.h"
+#ifndef GOSH_SDL_JOUER
+#define GOSH_SDL_JOUER
 
-#undef TYPE
-#undef TYPE_LOWER
-#undef TYPE_DESTRUCTEUR
-#define TYPE Chaine
-#define TYPE_LOWER chaine
-#define TYPE_DESTRUCTEUR detruire_ensemble_colore
-#include "gosh_ensemble.c"
+#include "go/partie.h"
+
+struct state* creer_jouer(struct state* parent, Partie partie);
+void detruire_jouer(struct state*);
+
+#endif
+

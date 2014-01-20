@@ -20,3 +20,4 @@ struct state* creer_menu();
 void detruire_menu(struct state*);
 
 #endif
+

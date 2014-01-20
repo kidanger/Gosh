@@ -50,7 +50,11 @@ void draw_rect(SDL_Surface* surface, int x, int y, int w, int h)
 SDL_Surface* text_surface(const char* text, enum FontSize size)
 {
 	TTF_Font* font = get_font(size);
+#ifdef EMSCRIPTEN
 	SDL_Surface* surface = TTF_RenderText_Blended(font, text, color);
+#else
+	SDL_Surface* surface = TTF_RenderUTF8_Blended(font, text, color);
+#endif
 	return surface;
 }
 

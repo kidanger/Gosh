@@ -94,8 +94,9 @@ bool saisir_taille_plateau(Partie partie)
 	return rep != 'r';
 }
 
-bool questions_callback(enum Question question, Partie partie)
+bool questions_callback(enum Question question, Partie partie, void* userdata)
 {
+	(void) userdata;
 	switch (question) {
 		case TYPE_JOUEUR_BLANC:
 			return saisir_type_joueur(partie, JOUEUR_BLANC);
@@ -111,16 +112,14 @@ bool questions_callback(enum Question question, Partie partie)
 			return saisir_programme(partie, JOUEUR_NOIR);
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
-		default:
-			// impossible
-			return true;
 	}
+	return true;
 }
 
 Partie cli_creer_nouvelle_partie(void)
 {
 	Partie partie = creer_partie();
-	initialisation_partie(partie, questions_callback);
+	initialisation_partie(partie, questions_callback, NULL);
 	if (!partie->initialisee) {
 		detruire_partie(partie);
 		return NULL;

@@ -20,6 +20,7 @@
 #include <time.h>
 
 #include "gosh_macros.h"
+#include "go/partie.h"
 #include "go/plateau.h"
 #include "go/libertes.h"
 #include "go/territoire.h"
@@ -64,6 +65,12 @@ void afficher_plateau(Plateau plateau)
 		}
 		printf("\n");
 	}
+	if (chaine)
+		detruire_chaine(chaine);
+	if (libertes)
+		detruire_libertes(libertes);
+	if (territoire)
+		detruire_territoire(territoire);
 }
 
 void test_get_set(void)
@@ -85,6 +92,8 @@ void test_get_set(void)
 	for (size_t i = 0; i < plateau_data_size(9) / sizeof(uint32_t); ++i)
 		printf("%x\n", data[i]);
 	puts("fin");
+
+	detruire_plateau(p);
 }
 
 void test_position(void)
@@ -160,6 +169,42 @@ void test_plateau(void)
 	detruire_plateau(plateau);
 }
 
+void test_chaines(void)
+{
+	Chaines ch = creer_chaines();
+	Chaine c = creer_chaine();
+	gosh_ajouter(c, position(10, 2, 19));
+	Chaine c2 = creer_chaine();
+	gosh_ajouter(ch, c);
+	gosh_ajouter(ch, c2);
+
+	detruire_chaines(ch); // à tester sur valgrind
+}
+
+void test_coup(void)
+{
+	Partie partie = creer_partie();
+	partie->plateau = creer_plateau(9);
+	partie->initialisee = true;
+	partie->finie = false;
+
+	// à tester sur valgrind
+	partie->joueur_courant = JOUEUR_NOIR;
+	s_Coup coup = {position(1, 0, 9)};
+	assert(partie_jouer_coup(partie, coup));
+
+	coup.position = POSITION_INVALIDE;
+	assert(partie_jouer_coup(partie, coup));
+
+	coup.position = position(0, 1, 9);
+	assert(partie_jouer_coup(partie, coup));
+
+	coup.position = position(0, 0, 9);
+	assert(partie_jouer_coup(partie, coup) == false);
+
+	detruire_partie(partie);
+}
+
 int main(void)
 {
 	long long seed = time(NULL);
@@ -170,6 +215,9 @@ int main(void)
 	test_position();
 	test_ensemble_position();
 	test_plateau();
+	test_chaines();
+	test_coup();
 
 	return EXIT_SUCCESS;
 }
+

@@ -27,7 +27,7 @@ struct bouton {
 	SDL_Color couleur;
 	float deplacement_auto_timer;
 
-	void(*callback)(void*);
+	void(*callback)(struct bouton*, void*);
 	void* userdata;
 	bool hover;
 	bool en_deplacement;
@@ -35,7 +35,7 @@ struct bouton {
 struct bouton* creer_bouton(const char* text, int x, int y, int w, int h);
 void afficher_bouton(SDL_Surface* on, struct bouton*);
 void mise_a_jour_bouton(struct bouton*, double);
-bool utiliser_event_bouton(struct bouton*, SDL_Event);
+void utiliser_event_bouton(struct bouton*, SDL_Event);
 void detruire_bouton(struct bouton*);
 
 #endif

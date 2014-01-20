@@ -16,35 +16,26 @@
 #ifndef GOSH_SDL_RADIO
 #define GOSH_SDL_RADIO
 
+#include <stdbool.h>
+
+#include <SDL/SDL.h>
+
 struct groupe_radio {
 	int nombre;
+	int index_prochain;
 	struct radio** radios;
-	struct radio* radio_courante;
-};
-
-struct radio {
-	SDL_Surface* texte_surface;
-
-	float x;
-	float y;
-	int w;
-	int h;
-	SDL_Color couleur;
+	int courante;
 	bool visible;
 
-	bool coche;
+	void(*callback)(struct groupe_radio*, void*);
+	void* userdata;
 };
 
 struct groupe_radio* creer_groupe_radio(int nombre);
+void groupe_radio_ajouter(struct groupe_radio* groupe, const char* texte, int x, int y);
 void afficher_groupe_radio(SDL_Surface*, struct groupe_radio*);
-bool utiliser_event_groupe_radio(struct groupe_radio*, SDL_Event);
-
+void utiliser_event_groupe_radio(struct groupe_radio*, SDL_Event);
 void detruire_groupe_radio(struct groupe_radio*);
-
-struct radio* creer_radio(const char* texte, int x, int y);
-void afficher_radio(SDL_Surface*, struct radio*);
-bool utiliser_event_radio(struct radio*, SDL_Event);
-void detruire_radio(struct radio*);
 
 #endif
 

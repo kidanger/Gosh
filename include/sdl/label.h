@@ -24,6 +24,7 @@
 struct label {
 	SDL_Surface* surface;
 	int x, y;
+	int w, h;
 	enum Align align;
 	SDL_Color couleur;
 	bool visible;

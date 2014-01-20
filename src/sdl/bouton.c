@@ -13,6 +13,7 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
 #include "gosh_alloc.h"
 #include "sdl/tools.h"
 #include "sdl/bouton.h"
@@ -62,7 +63,7 @@ void mise_a_jour_bouton(struct bouton* bouton, double dt)
 	}
 }
 
-bool utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
+void utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 {
 #define INSIDE(_x, _y) \
 		(bouton->x < (_x) && (_x) < bouton->x + bouton->w && \
@@ -80,11 +81,9 @@ bool utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
 		if (INSIDE(event.button.x, event.button.y)) {
 			if (event.button.button == 1) {
-				bouton->callback(bouton->userdata);
-				return true;
+				bouton->callback(bouton, bouton->userdata);
 			} else if (event.button.button == 3) {
 				bouton->en_deplacement = true;
-				return true;
 			}
 		}
 	} else if (event.type == SDL_MOUSEBUTTONUP) {
@@ -92,11 +91,9 @@ bool utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 			if (event.button.button == 3) {
 				bouton->en_deplacement = false;
 				bouton->deplacement_auto_timer = 5;
-				return true;
 			}
 		}
 	}
-	return false;
 #undef INSIDE
 }
 

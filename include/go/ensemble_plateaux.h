@@ -24,5 +24,8 @@
 #define TYPE_LOWER plateau
 #include "gosh_ensemble.h"
 
+#define creer_plateaux creer_ensemble_plateau
+#define detruire_plateaux detruire_ensemble_plateau
+
 #endif
 

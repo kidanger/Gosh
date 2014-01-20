@@ -23,4 +23,7 @@ typedef EnsembleColore Chaine;
 // pour moins de verbosité dans le code
 bool chaine_appartient(Chaine chaine, Position position);
 
+#define creer_chaine creer_ensemble_colore
+#define detruire_chaine detruire_ensemble_colore
+
 #endif

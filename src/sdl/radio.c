@@ -22,37 +22,71 @@
 #include "sdl/tools.h"
 #include "sdl/radio.h"
 
+struct radio {
+	SDL_Surface* texte_surface;
+
+	float x;
+	float y;
+	int w;
+	int h;
+	SDL_Color couleur;
+
+	bool coche;
+	bool hover;
+};
+
+struct radio* creer_radio(const char* texte, int x, int y);
+void afficher_radio(SDL_Surface*, struct radio*);
+void utiliser_event_radio(struct radio*, SDL_Event);
+void detruire_radio(struct radio*);
+
 struct groupe_radio* creer_groupe_radio(int nombre)
 {
 	struct groupe_radio* groupe = gosh_alloc(*groupe);
 	groupe->nombre = nombre;
+	groupe->index_prochain = 0;
 	groupe->radios = gosh_allocn(struct radio*, nombre);
-	groupe->radio_courante = NULL;
+	groupe->courante = -1;
+	groupe->callback = NULL;
+	groupe->userdata = NULL;
+	groupe->visible = true;
 	return groupe;
+}
+
+void groupe_radio_ajouter(struct groupe_radio* groupe, const char* texte, int x, int y)
+{
+	struct radio* radio = creer_radio(texte, x, y);
+	if (groupe->index_prochain == 0) {
+		groupe->courante = 0;
+		radio->coche = true;
+	}
+	groupe->radios[groupe->index_prochain++] = radio;
 }
 
 void afficher_groupe_radio(SDL_Surface* surface, struct groupe_radio* groupe)
 {
-	for (int i = 0; i < groupe->nombre; i++) {
-		afficher_radio(surface, groupe->radios[i]);
+	if (groupe->visible) {
+		for (int i = 0; i < groupe->nombre; i++) {
+			afficher_radio(surface, groupe->radios[i]);
+		}
 	}
 }
 
-bool utiliser_event_groupe_radio(struct groupe_radio* groupe, SDL_Event event)
+void utiliser_event_groupe_radio(struct groupe_radio* groupe, SDL_Event event)
 {
 	for (int i = 0; i < groupe->nombre; i++) {
 		struct radio* radio = groupe->radios[i];
 		bool etait_coche = radio->coche;
-		if (utiliser_event_radio(radio, event)) {
-			if (!etait_coche && radio->coche) {
-				if (groupe->radio_courante)
-					groupe->radio_courante->coche = false;
-				groupe->radio_courante = radio;
+		utiliser_event_radio(radio, event);
+		if (!etait_coche && radio->coche) {
+			if (groupe->courante != -1)
+				groupe->radios[groupe->courante]->coche = false;
+			groupe->courante = i;
+			if (groupe->callback) {
+				groupe->callback(groupe, groupe->userdata);
 			}
-			return true;
 		}
 	}
-	return false;
 }
 
 void detruire_groupe_radio(struct groupe_radio* groupe)
@@ -72,8 +106,8 @@ struct radio* creer_radio(const char* texte, int x, int y)
 	radio->w = radio->texte_surface->w;
 	radio->h = radio->texte_surface->h;
 	radio->couleur = get_color();
-	radio->visible = true;
 	radio->coche = false;
+	radio->hover = false;
 	return radio;
 }
 
@@ -84,27 +118,37 @@ void afficher_radio(SDL_Surface* on, struct radio* radio)
 	set_color(200, 200, 200);
 	draw_rect(on, radio->x, radio->y + w * .5, w, w);
 	if (radio->coche) {
-		set_color(50, 50, 50);
-		draw_rect(on, radio->x + border, (radio->y + w * .5) + border, w - border*2, w - border*2);
+		if (radio->hover) {
+			set_color(150, 100, 100);
+		} else {
+			set_color(50, 50, 50);
+		}
+	} else if(radio->hover) {
+		set_color(100, 100, 100);
 	}
+	draw_rect(on, radio->x + border, (radio->y + w * .5) + border, w - border*2, w - border*2);
 	draw_surface(on, radio->texte_surface,  radio->x + w + 2, radio->y, LEFT);
 }
 
-bool utiliser_event_radio(struct radio* radio, SDL_Event event)
+void utiliser_event_radio(struct radio* radio, SDL_Event event)
 {
 	int w = radio->texte_surface->h;
-	#define INSIDE(_x, _y) \
-		(radio->x < (_x) && (_x) < radio->x + w && \
-				radio->y < (_y) && (_y) < radio->y + w)
+#define INSIDE(_x, _y) \
+	(radio->x < (_x) && (_x) < radio->x + w && \
+	 radio->y < (_y) && (_y) < radio->y + w)
 	if (event.type == SDL_MOUSEBUTTONDOWN) {
 		if (INSIDE(event.button.x, event.button.y)) {
 			if (event.button.button == 1) {
 				radio->coche = true;
-				return true;
 			}
 		}
+	} else if (event.type == SDL_MOUSEMOTION) {
+		if (INSIDE(event.motion.x, event.motion.y)) {
+			radio->hover = true;
+		} else {
+			radio->hover = false;
+		}
 	}
-	return false;
 #undef INSIDE
 }
 
