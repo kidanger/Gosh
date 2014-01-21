@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-ADD_DEFINITIONS("-g")
+# use -DCMAKE_BUILD_TYPE=Debug instead
 
 project(Gosh)
 
