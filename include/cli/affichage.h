@@ -18,6 +18,7 @@
 
 #include "go/plateau_type.h"
 
+#ifndef _WIN32
 #define C_NORMAL "\033[m"
 #define C_WHITE "\033[37m"
 #define C_BLACK "\033[30m"
@@ -28,6 +29,18 @@
 #define C_BLUE "\033[34m"
 #define C_BOLD "\033[1m"
 #define C_NOBOLD "\033[22m"
+#else
+#define C_NORMAL ""
+#define C_WHITE ""
+#define C_BLACK ""
+#define C_GREEN ""
+#define C_RED ""
+#define C_YELLOW ""
+#define C_GREY ""
+#define C_BLUE ""
+#define C_BOLD ""
+#define C_NOBOLD ""
+#endif
 
 #define C_YELLOW_BG "\033[43m"
 

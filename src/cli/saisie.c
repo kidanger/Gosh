@@ -18,7 +18,11 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdarg.h>
+#ifndef _WIN32
 #include <sys/select.h>
+#else
+#include <Winsock2.h>
+#endif
 #include <unistd.h>
 
 #include "cli/saisie.h"

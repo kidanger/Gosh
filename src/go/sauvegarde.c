@@ -18,8 +18,9 @@
 #include "errno.h"
 #include "gosh_alloc.h"
 #include <stdint.h>
-#ifdef WINDOWS
-#include <Winsock2.h>
+#ifdef _WIN32
+#include <windows.h>
+#define ENOTSUP 4096
 #else
 #include <arpa/inet.h>
 #endif
