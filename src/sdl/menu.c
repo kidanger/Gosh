@@ -93,7 +93,7 @@ struct state* creer_menu()
 	state->mise_a_jour = mise_a_jour_menu;
 
 	set_color(200, 50, 50);
-	menu->titre = creer_label("Gosh", W/2, H*.1, CENTER_XY, BIG);
+	menu->titre = creer_label("Gosh", W / 2, H * .1, CENTER_XY, BIG);
 
 	int id_groupe = 0;
 	int id_label = 0;
@@ -101,26 +101,26 @@ struct state* creer_menu()
 	int id_textinput = 0;
 
 	set_color(255, 10, 10);
-	struct bouton* bouton = creer_bouton("Quitter", W*.1, H*.9, 100, 30);
+	struct bouton* bouton = creer_bouton("Quitter", W * .1, H * .9, 100, 30);
 	bouton->callback = menu_bouton_quitter;
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
 
 	set_color(10, 200, 10);
-	bouton = creer_bouton("Jouer", W*.6, H*.7, 100, 30);
+	bouton = creer_bouton("Jouer", W * .6, H * .7, 100, 30);
 	bouton->callback = menu_bouton_jouer;
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
 
 	set_color(50, 50, 200);
-	bouton = creer_bouton("Charger", W*.7, H*.9, 100, 30);
+	bouton = creer_bouton("Charger", W * .7, H * .9, 100, 30);
 	bouton->callback = menu_bouton_charger;
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
 
 	set_color(255, 255, 255);
 
-	int initx = (W-W*.7)/2 + 20;
+	int initx = (W - W * .7) / 2 + 20;
 	int y = H * .2 + 20;
 
 	int x = initx;
@@ -244,7 +244,7 @@ void afficher_menu(struct state* state, SDL_Surface* surface)
 	struct menudata* menu = state->data;
 	afficher_label(surface, menu->titre);
 	set_color(50, 50, 50);
-	draw_rect(surface, (W-W*.7)/2, H*.2, W*.7, H*.6);
+	draw_rect(surface, (W - W * .7) / 2, H * .2, W * .7, H * .6);
 	for (int i = 0; i < NUM_LABELS; i++) {
 		struct label* l = menu->labels[i];
 		afficher_label(surface, l);
@@ -312,8 +312,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			break;
 		case PROGRAMME_JOUEUR_BLANC:
 			partie->joueurs[JOUEUR_BLANC].ordinateur = menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ?
-				charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
-				charger_ordinateur("build/src/ordinateurs/librandom.so");
+			        charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
+			        charger_ordinateur("build/src/ordinateurs/librandom.so");
 			break;
 
 		case TYPE_JOUEUR_NOIR:
@@ -324,16 +324,15 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			break;
 		case PROGRAMME_JOUEUR_NOIR:
 			partie->joueurs[JOUEUR_NOIR].ordinateur = menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ?
-				charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
-				charger_ordinateur("build/src/ordinateurs/librandom.so");
+			        charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
+			        charger_ordinateur("build/src/ordinateurs/librandom.so");
 			break;
 
-		case TAILLE_PLATEAU:
-			{
-				int id = menu->groupes[NUM_GROUPES-1]->courante;
-				int taille = id == 0 ? 9 : id == 1 ? 13 : 19;
-				partie->plateau = creer_plateau(taille);
-			}
+		case TAILLE_PLATEAU: {
+			int id = menu->groupes[NUM_GROUPES - 1]->courante;
+			int taille = id == 0 ? 9 : id == 1 ? 13 : 19;
+			partie->plateau = creer_plateau(taille);
+		}
 	}
 	return true;
 }

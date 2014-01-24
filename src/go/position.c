@@ -21,7 +21,7 @@ Position position(int x, int y, int taille)
 {
 	if (x < 0 || y < 0 || x >= taille || y >= taille)
 		return POSITION_INVALIDE;
-	Position p = {.x=x, .y=y, .taille=taille, .valide=1};
+	Position p = {.x = x, .y = y, .taille = taille, .valide = 1};
 	return p;
 }
 

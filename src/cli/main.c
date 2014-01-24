@@ -23,7 +23,7 @@ int main(int argc, const char *argv[])
 	(void) argc;
 	(void) argv;
 
-    afficher_menu_principal();
+	afficher_menu_principal();
 
 	return EXIT_SUCCESS;
 }

@@ -48,68 +48,65 @@ static void fin(void)
 
 char cli_choisir_option2(const char *prompt, char defaut, const Option * options)
 {
-    char reponse = 0;
-    bool saisie_correcte = false;
+	char reponse = 0;
+	bool saisie_correcte = false;
 
-    while (!saisie_correcte) {
+	while (!saisie_correcte) {
 
-        // print menu
-        flush_stdin();
-        debut_prompt();
-        printf("%s\n", prompt);
-        size_t i = 0;
-        while( options[i].code )
-        {
-            printf(" - %c: %s\n", options[i].code, options[i].phrase);
-            ++i;
-        }
-        printf("> ");
-        debut_saisie();
+		// print menu
+		flush_stdin();
+		debut_prompt();
+		printf("%s\n", prompt);
+		size_t i = 0;
+		while (options[i].code) {
+			printf(" - %c: %s\n", options[i].code, options[i].phrase);
+			++i;
+		}
+		printf("> ");
+		debut_saisie();
 
-        reponse = getchar();
-        int car;
-        while( (car = fgetc(stdin) ) != '\n' && car != EOF);
+		reponse = getchar();
+		int car;
+		while ((car = fgetc(stdin)) != '\n' && car != EOF);
 
-        // verify
-        if( reponse == '\n' )
-            reponse = defaut;
+		// verify
+		if (reponse == '\n')
+			reponse = defaut;
 
-        i = 0;
-        while( options[i].code )
-        {
-            if (options[i++].code == reponse)
-                saisie_correcte = true;
-        }
-    }
-    return reponse;
+		i = 0;
+		while (options[i].code) {
+			if (options[i++].code == reponse)
+				saisie_correcte = true;
+		}
+	}
+	return reponse;
 }
 
 char cli_choisir_option(const char* prompt, char defaut, ...)
 {
-    Option options[NUM_OPTIONS + 1];
-    //extracts options
+	Option options[NUM_OPTIONS + 1];
+	//extracts options
 
-    va_list args;
-    va_start(args, defaut);
-    int num_options = 0;
-    while (num_options < NUM_OPTIONS) {
-        char option = va_arg(args, int);
-        if ( ! option)
-            break;
-        const char* phrase = va_arg(args, const char *);
-        options[num_options].code = option;
-        options[num_options].phrase = phrase;
-        num_options++;
-   }
-    va_end(args);
-    if( num_options >= NUM_OPTIONS )
-    {
-        perror("too many options use cli_choisir_option2 instead.\n");
-        return '\0';
-    }
-    options[num_options].code = 0;
+	va_list args;
+	va_start(args, defaut);
+	int num_options = 0;
+	while (num_options < NUM_OPTIONS) {
+		char option = va_arg(args, int);
+		if (! option)
+			break;
+		const char* phrase = va_arg(args, const char *);
+		options[num_options].code = option;
+		options[num_options].phrase = phrase;
+		num_options++;
+	}
+	va_end(args);
+	if (num_options >= NUM_OPTIONS) {
+		perror("too many options use cli_choisir_option2 instead.\n");
+		return '\0';
+	}
+	options[num_options].code = 0;
 
-    return cli_choisir_option2(prompt, defaut, options);
+	return cli_choisir_option2(prompt, defaut, options);
 }
 
 void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
@@ -122,10 +119,10 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 		debut_saisie();
 		eof = fgets(buffer, taille, stdin) == NULL;
 
-        if( buffer[strlen(buffer) - 1] == '\n' )
-            buffer[strlen(buffer) - 1] = 0; // suppression du \n
-        int car;
-        while( (car = fgetc(stdin) ) != '\n' && car != EOF);
+		if (buffer[strlen(buffer) - 1] == '\n')
+			buffer[strlen(buffer) - 1] = 0; // suppression du \n
+		int car;
+		while ((car = fgetc(stdin)) != '\n' && car != EOF);
 
 	} while (buffer[0] == 0 && !eof);
 	fin();
@@ -139,17 +136,16 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 void flush_stdin(void)
 {
 
-    char buffer[4096];
-    fd_set rfds;
-    FD_ZERO(&rfds);
-    FD_SET(STDIN_FILENO, &rfds);
+	char buffer[4096];
+	fd_set rfds;
+	FD_ZERO(&rfds);
+	FD_SET(STDIN_FILENO, &rfds);
 
-    struct timeval tv = { .tv_sec = 0, .tv_usec = 0 };
+	struct timeval tv = { .tv_sec = 0, .tv_usec = 0 };
 
-    int ret;
-    while(  ( ret = select(1, &rfds, NULL, NULL, &tv) ) > 0
-          && fgets(buffer, sizeof(buffer) - 1, stdin) )
-    {
-        FD_SET(STDIN_FILENO, &rfds);
-    }
+	int ret;
+	while ((ret = select(1, &rfds, NULL, NULL, &tv)) > 0
+	        && fgets(buffer, sizeof(buffer) - 1, stdin)) {
+		FD_SET(STDIN_FILENO, &rfds);
+	}
 }

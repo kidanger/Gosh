@@ -51,12 +51,12 @@ struct state* creer_charger(struct state* parent)
 	charger->parent = parent;
 
 	set_color(50, 50, 150);
-	charger->titre = creer_label("Charger", W/2, H*.1, CENTER_XY, BIG);
+	charger->titre = creer_label("Charger", W / 2, H * .1, CENTER_XY, BIG);
 	set_color(200, 200, 200);
-	charger->choix = creer_label("Choix de la partie :", (W-W*.7)/2+10, H*.22, LEFT, NORMAL);
+	charger->choix = creer_label("Choix de la partie :", (W - W * .7) / 2 + 10, H * .22, LEFT, NORMAL);
 
 	set_color(155, 50, 50);
-	struct bouton* bouton = creer_bouton("Retour", W*.1, H*.9, 100, 30);
+	struct bouton* bouton = creer_bouton("Retour", W * .1, H * .9, 100, 30);
 	bouton->callback = charger_bouton_retour;
 	bouton->userdata = state;
 	charger->boutons[0] = bouton;
@@ -81,7 +81,7 @@ static void afficher_charger(struct state* state, SDL_Surface* surface)
 {
 	struct chargerdata* charger = state->data;
 	set_color(50, 50, 50);
-	draw_rect(surface, (W-W*.7)/2, H*.2, W*.7, H*.6);
+	draw_rect(surface, (W - W * .7) / 2, H * .2, W * .7, H * .6);
 	afficher_label(surface, charger->titre);
 	afficher_label(surface, charger->choix);
 	for (int i = 0; i < NUM_BOUTONS; i++) {

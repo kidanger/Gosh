@@ -39,7 +39,7 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 		coup.position = position(x, y, taille);
 		essais_restants--;
 	} while ((plateau_get_at(partie->plateau, coup.position) != VIDE
-			|| !partie_jouer_coup(partie, coup)) && essais_restants > 0);
+	          || !partie_jouer_coup(partie, coup)) && essais_restants > 0);
 	if (essais_restants == 0) {
 		coup.position = POSITION_INVALIDE;
 		partie_jouer_coup(partie, coup);

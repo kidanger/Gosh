@@ -40,8 +40,8 @@ void afficher_bouton(SDL_Surface* on, struct bouton* bouton)
 		set_color(bouton->couleur.r / 2, bouton->couleur.g / 2, bouton->couleur.b / 2);
 	} else {
 		set_color(MIN(255, bouton->couleur.r * 2),
-				MIN(255, bouton->couleur.g * 2),
-				MIN(255, bouton->couleur.b * 2));
+		          MIN(255, bouton->couleur.g * 2),
+		          MIN(255, bouton->couleur.b * 2));
 	}
 	draw_rect(on, bouton->x, bouton->y, bouton->w, bouton->h);
 	set_color(bouton->couleur.r / 3, bouton->couleur.g / 3, bouton->couleur.b / 3);
@@ -66,8 +66,8 @@ void mise_a_jour_bouton(struct bouton* bouton, double dt)
 void utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 {
 #define INSIDE(_x, _y) \
-		(bouton->x < (_x) && (_x) < bouton->x + bouton->w && \
-				bouton->y < (_y) && (_y) < bouton->y + bouton->h)
+	(bouton->x < (_x) && (_x) < bouton->x + bouton->w && \
+	 bouton->y < (_y) && (_y) < bouton->y + bouton->h)
 	if (event.type == SDL_MOUSEMOTION) {
 		if (INSIDE(event.motion.x, event.motion.y)) {
 			bouton->hover = true;

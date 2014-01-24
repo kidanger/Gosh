@@ -97,20 +97,20 @@ Position get_position_depuis_ecran(struct jouerdata* jouer, int x, int y)
 	if (x < x1 || y < y1) {
 		return POSITION_INVALIDE;
 	}
-	int w = MAX(W*.8 - x1, H*.8 - y1);
+	int w = MAX(W * .8 - x1, H * .8 - y1);
 	w -= w % jouer->taille;
 	int pixel_par_case = w / jouer->taille;
 	int bordure = (w - pixel_par_case * (jouer->taille - 1)) / 2;
-	pos = position((x - x1 - bordure + pixel_par_case/2) / pixel_par_case,
-					(y - y1 - bordure + pixel_par_case/2) / pixel_par_case,
-					jouer->taille);
+	pos = position((x - x1 - bordure + pixel_par_case / 2) / pixel_par_case,
+	               (y - y1 - bordure + pixel_par_case / 2) / pixel_par_case,
+	               jouer->taille);
 	return pos;
 }
 void get_position_vers_ecran(struct jouerdata* jouer, int x, int y, int* sx, int* sy)
 {
 	int x1 = W * .2;
 	int y1 = H * .2;
-	int w = MAX(W*.8 - x1, H*.8 - y1);
+	int w = MAX(W * .8 - x1, H * .8 - y1);
 	w -= w % jouer->taille;
 	int pixel_par_case = w / jouer->taille;
 	int bordure = (w - pixel_par_case * (jouer->taille - 1)) / 2;
@@ -132,8 +132,8 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 
 	int x1 = W * .2;
 	int y1 = H * .2;
-	int w = MAX(W*.8 - x1, H*.8 - y1);
-	w -= w % (taille );
+	int w = MAX(W * .8 - x1, H * .8 - y1);
+	w -= w % (taille);
 	int pixel_par_case = w / (taille);
 	int interbordure = 2;
 	int bordure = (w - pixel_par_case * (taille - 1)) / 2;
@@ -146,22 +146,22 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	set_color(30, 30, 30);
 	for (int x = 0; x < taille; x++) {
 		draw_rect(surface,
-				x1 + bordure + x * pixel_par_case - interbordure / 2,
-				y1 + bordure,
-				interbordure, pixel_par_case * (taille - 1));
+		          x1 + bordure + x * pixel_par_case - interbordure / 2,
+		          y1 + bordure,
+		          interbordure, pixel_par_case * (taille - 1));
 	}
 	for (int y = 0; y < taille; y++) {
 		draw_rect(surface,
-				x1 + bordure,
-				y1 + bordure + y * pixel_par_case - interbordure / 2,
-				pixel_par_case * (taille - 1), interbordure);
+		          x1 + bordure,
+		          y1 + bordure + y * pixel_par_case - interbordure / 2,
+		          pixel_par_case * (taille - 1), interbordure);
 	}
 
 	int taille_stone = taille == 9 ? 30 : taille == 13 ? 24 : 16;
 	int taille_stone2 = taille_stone / 4;
 	Position hov = jouer->hovered;
 	Chaine chaine = position_est_valide(hov) ?
-			plateau_determiner_chaine(partie->plateau, hov) : NULL;
+	                plateau_determiner_chaine(partie->plateau, hov) : NULL;
 	Libertes libertes = chaine ? determiner_libertes(partie->plateau, chaine) : NULL;
 	for (int x = 0; x < taille; x++) {
 		for (int y = 0; y < taille; y++) {

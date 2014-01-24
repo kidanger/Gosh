@@ -44,14 +44,14 @@ void afficher_textinput(SDL_Surface* on, struct textinput* ti)
 		set_color(ti->couleur.r / 2, ti->couleur.g / 2, ti->couleur.b / 2);
 	} else {
 		set_color(MIN(255, ti->couleur.r * 2),
-				MIN(255, ti->couleur.g * 2),
-				MIN(255, ti->couleur.b * 2));
+		          MIN(255, ti->couleur.g * 2),
+		          MIN(255, ti->couleur.b * 2));
 	}
 	draw_rect(on, ti->x, ti->y, ti->w, ti->h);
 
 	set_color(ti->couleur.r, ti->couleur.g, ti->couleur.b);
 	int border = 2;
-	draw_rect(on, ti->x + border, ti->y + border, ti->w - border*2, ti->h - border*2);
+	draw_rect(on, ti->x + border, ti->y + border, ti->w - border * 2, ti->h - border * 2);
 
 	if (ti->active) {
 		float freq = .4; // clignotements par seconde
@@ -60,7 +60,7 @@ void afficher_textinput(SDL_Surface* on, struct textinput* ti)
 			set_color(20, 20, 20);
 			int border = 2;
 			int pitch = ti->curseur > 0 ? ti->surface->w / strlen(ti->buffer) + 1 : 0;
-			draw_rect(on, ti->x + border + ti->curseur*pitch, ti->y + border, 20/4, ti->h - border*2);
+			draw_rect(on, ti->x + border + ti->curseur * pitch, ti->y + border, 20 / 4, ti->h - border * 2);
 		}
 	}
 	if (ti->surface)
@@ -72,7 +72,8 @@ void mise_a_jour_textinput(struct textinput* ti, double dt)
 	ti->time += dt;
 }
 
-static void refresh(struct textinput* ti) {
+static void refresh(struct textinput* ti)
+{
 	if (ti->surface) {
 		SDL_FreeSurface(ti->surface);
 		ti->surface = NULL;
@@ -86,8 +87,8 @@ static void refresh(struct textinput* ti) {
 void utiliser_event_textinput(struct textinput* ti, SDL_Event event)
 {
 #define INSIDE(_x, _y) \
-		(ti->x < (_x) && (_x) < ti->x + ti->w && \
-				ti->y < (_y) && (_y) < ti->y + ti->h)
+	(ti->x < (_x) && (_x) < ti->x + ti->w && \
+	 ti->y < (_y) && (_y) < ti->y + ti->h)
 	if (event.type == SDL_MOUSEMOTION) {
 		if (INSIDE(event.motion.x, event.motion.y)) {
 			ti->hover = true;

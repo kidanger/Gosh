@@ -42,7 +42,7 @@ SDL_Color get_color()
 
 void draw_rect(SDL_Surface* surface, int x, int y, int w, int h)
 {
-	SDL_Rect rect = {x,y,w,h};
+	SDL_Rect rect = {x, y, w, h};
 	uint32_t c = SDL_MapRGB(surface->format, color.r, color.g, color.b);
 	SDL_FillRect(surface, &rect, c);
 }

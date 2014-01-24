@@ -19,8 +19,8 @@
 #include <stdarg.h>
 
 typedef struct {
-    char code;
-    const char* phrase;
+	char code;
+	const char* phrase;
 } Option;
 
 char cli_choisir_option(const char* prompt, char defaut, ...);

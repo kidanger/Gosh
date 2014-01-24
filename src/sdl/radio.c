@@ -123,10 +123,10 @@ void afficher_radio(SDL_Surface* on, struct radio* radio)
 		} else {
 			set_color(50, 50, 50);
 		}
-	} else if(radio->hover) {
+	} else if (radio->hover) {
 		set_color(100, 100, 100);
 	}
-	draw_rect(on, radio->x + border, (radio->y + w * .5) + border, w - border*2, w - border*2);
+	draw_rect(on, radio->x + border, (radio->y + w * .5) + border, w - border * 2, w - border * 2);
 	draw_surface(on, radio->texte_surface,  radio->x + w + 2, radio->y, LEFT);
 }
 
