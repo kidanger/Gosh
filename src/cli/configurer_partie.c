@@ -66,15 +66,31 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
 
 bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 {
-	// TODO: saisi
 	Ordinateur ordi;
+#ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	if (couleur == JOUEUR_BLANC)
 		ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
 	else
-		/*ordi = charger_ordinateur("../ordinateurs/librandom.so");*/
 		ordi = charger_ordinateur("build/src/ordinateurs/libgnugo.so");
 	partie->joueurs[couleur].ordinateur = ordi;
-	return true;
+	return ordi != NULL;
+#endif
+	do {
+		const char* str = "Type d'ordinateur";
+		char rep = cli_choisir_option(str, 'g', 'a', "Aléatoire",
+				'g', "GNU Go", 'r', "retour", 0);
+		if (rep == 'a') {
+			ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
+		} else if (rep == 'g') {
+			ordi = charger_ordinateur("build/src/ordinateurs/libgnugo.so");
+			if (!ordi)
+				printf("Nécessite l'installation de GNU Go.\n");
+		} else if (rep == 'r') {
+			break;
+		}
+	} while (ordi == NULL);
+	partie->joueurs[couleur].ordinateur = ordi;
+	return ordi != NULL;
 }
 
 bool saisir_taille_plateau(Partie partie)

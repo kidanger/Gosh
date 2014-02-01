@@ -21,8 +21,10 @@ void afficher_menu_principal(void)
 
 		if (choix == 'p') {
 			Partie p = cli_creer_nouvelle_partie();
-			cli_afficher_plateau(p->plateau);
-			cli_jouer_partie(p);
+			if (p) {
+				cli_afficher_plateau(p->plateau);
+				cli_jouer_partie(p);
+			}
 		}
 		if (choix == 'l')
 			perror("Not implemented");

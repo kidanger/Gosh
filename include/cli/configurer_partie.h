@@ -18,7 +18,7 @@
 
 #include "go/partie.h"
 
-#define CONFIGURER_PARTIE_AUTOMATIQUEMENT // pour passer l'étape de configuration
+// #define CONFIGURER_PARTIE_AUTOMATIQUEMENT // pour passer l'étape de configuration
 
 Partie cli_creer_nouvelle_partie(void);
 

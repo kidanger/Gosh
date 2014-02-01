@@ -51,23 +51,27 @@ char cli_choisir_option2(const char *prompt, char defaut, const Option * options
 	char reponse = 0;
 	bool saisie_correcte = false;
 
-	while (!saisie_correcte) {
-
+	while (!saisie_correcte && reponse != EOF) {
 		// print menu
-		flush_stdin();
 		debut_prompt();
 		printf("%s\n", prompt);
 		size_t i = 0;
 		while (options[i].code) {
-			printf(" - %c: %s\n", options[i].code, options[i].phrase);
+			printf(" - %s%c%s : %s\n",
+					options[i].code == defaut ? C_YELLOW : C_NORMAL,
+					options[i].code,
+					C_GREY,
+					options[i].phrase);
 			++i;
 		}
 		printf("> ");
 		debut_saisie();
 
 		reponse = getchar();
-		int car;
-		while ((car = fgetc(stdin)) != '\n' && car != EOF);
+		if (reponse != '\n') {
+			int car;
+			while ((car = fgetc(stdin)) != '\n' && car != EOF);
+		}
 
 		// verify
 		if (reponse == '\n')
@@ -78,6 +82,11 @@ char cli_choisir_option2(const char *prompt, char defaut, const Option * options
 			if (options[i++].code == reponse)
 				saisie_correcte = true;
 		}
+		fin();
+	}
+	if (reponse == EOF) {
+		printf("EOF reçu, arrêt du programme.\n");
+		exit(EXIT_FAILURE);
 	}
 	return reponse;
 }
@@ -101,7 +110,7 @@ char cli_choisir_option(const char* prompt, char defaut, ...)
 	}
 	va_end(args);
 	if (num_options >= NUM_OPTIONS) {
-		perror("too many options use cli_choisir_option2 instead.\n");
+		fprintf(stderr, "too many options use cli_choisir_option2 instead.\n");
 		return '\0';
 	}
 	options[num_options].code = 0;
@@ -121,8 +130,6 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 
 		if (buffer[strlen(buffer) - 1] == '\n')
 			buffer[strlen(buffer) - 1] = 0; // suppression du \n
-		int car;
-		while ((car = fgetc(stdin)) != '\n' && car != EOF);
 
 	} while (buffer[0] == 0 && !eof);
 	fin();
@@ -132,20 +139,3 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 	}
 }
 
-
-void flush_stdin(void)
-{
-
-	char buffer[4096];
-	fd_set rfds;
-	FD_ZERO(&rfds);
-	FD_SET(STDIN_FILENO, &rfds);
-
-	struct timeval tv = { .tv_sec = 0, .tv_usec = 0 };
-
-	int ret;
-	while ((ret = select(1, &rfds, NULL, NULL, &tv)) > 0
-	        && fgets(buffer, sizeof(buffer) - 1, stdin)) {
-		FD_SET(STDIN_FILENO, &rfds);
-	}
-}
