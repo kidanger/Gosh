@@ -1,3 +1,4 @@
+set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
 ADD_DEFINITIONS("-std=c99")
 
 # traite les warnings comme des erreurs

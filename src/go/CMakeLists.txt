@@ -4,10 +4,6 @@ add_library(go STATIC
 	${LIBGO_SOURCES}
 )
 
-add_library(go_shared SHARED
-        ${LIBGO_SOURCES}
-)
-
 target_link_libraries(go gosh_common)
 
 if(NOT DEFINED EMSCRIPTEN)
