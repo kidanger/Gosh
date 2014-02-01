@@ -180,6 +180,11 @@ bool partie_annuler_coup(Partie partie)
 	gosh_ajouter(partie->plateaux_annules, partie->plateau);
 	partie->plateau = nouveau;
 	partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
+	// si le nouveau joueur est un ordinateur, on annule son coup
+	if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
+			partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
+		partie_annuler_coup(partie);
+	}
 	return true;
 }
 
