@@ -15,6 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "go/territoire.h"
 #include "go/plateau.h"
+#include "go/libertes.h"
 
 
 Territoire determiner_territoire(Plateau plateau, Position position)
@@ -62,6 +63,32 @@ Territoire determiner_territoire(Plateau plateau, Position position)
 	ensemble_colore_set_couleur(territoire, couleur);
 	detruire_ensemble_position(possibles);
 	return territoire;
+}
+
+bool estUnSeki(Territoire territoire, Chaines chaines, Plateau plateau)
+{
+	// le territoire ne doit avoir que deux cases, entouré de chaines de couleurs différentes
+	if (gosh_nombre_elements(territoire) == 2 && ensemble_colore_couleur(territoire) == VIDE) {
+		// les chaines doivent avoir seulement ces deux libertés
+		Chaine chaine;
+		gosh_foreach(chaine, chaines) {
+			Libertes libertes = determiner_libertes(plateau, chaine);
+			Position position;
+			if (gosh_nombre_elements(libertes) != 2) {
+				detruire_libertes(libertes);
+				return false;
+			}
+			gosh_foreach(position, libertes) {
+				if (!gosh_appartient(territoire, position)) {
+					detruire_libertes(libertes);
+					return false;
+				}
+			}
+			detruire_libertes(libertes);
+		}
+		return true;
+	}
+	return false;
 }
 
 bool territoire_appartient(Territoire territoire, Position position)

@@ -210,6 +210,8 @@ bool tester(const char* filename)
 	reussi = true;
 
 out:
+	if (file)
+		fclose(file);
 	if (!reussi && partie->plateau) {
 		cli_afficher_plateau(partie->plateau);
 	}

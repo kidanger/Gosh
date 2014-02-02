@@ -18,16 +18,21 @@
 
 #include "go/plateau_type.h"
 #include "go/ensemble_colore.h"
+#include "go/chaines.h"
 
 typedef EnsembleColore Territoire;
 
 /** @brief retourne un ensemble d’intersections inoccupées voisines de proche
-en proche délimitees par des pierres de même couleur en commencant par l’intersection
-vide à la position pos. Important : Si la case ne fait pas partie d’un
-territoire de même couleur, retourne quand même l’ensemble des intersections
-voisines mais en specifiant que ce ”Territoire” n’a aucune couleur. Ce cas est
-exploit e par la fonction estUnSeki */
+ * en proche délimitees par des pierres de même couleur en commencant par l’intersection
+ * vide à la position pos.
+ * Important : Si la case ne fait pas partie d’un territoire de même couleur,
+ * retourne quand même l’ensemble des intersections voisines mais en specifiant que
+ * ce ”Territoire” n’a aucune couleur. Ce cas est exploité par la fonction estUnSeki */
 Territoire determiner_territoire(Plateau plateau, Position pos);
+
+/** @brief détermine si un territoire forme un seki pour les chaines de
+ * différentes couleurs concernées. */
+bool estUnSeki(Territoire leTerritoire, Chaines lesChaines, Plateau plateau);
 
 bool territoire_appartient(Territoire territoire, Position position);
 
