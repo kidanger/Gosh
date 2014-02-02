@@ -16,9 +16,15 @@
 #ifndef GOSH_GO_CHAINE
 #define GOSH_GO_CHAINE
 
-#include "ensemble_colore.h"
+#include "go/ensemble_colore.h"
+#include "go/ensemble_positions.h"
+#include "go/plateau_type.h"
 
 typedef EnsembleColore Chaine;
+
+/** @brief Détermine la position des yeux relatifs à une chaine.
+ * Si la chaine n’a aucun oeil alors la valeur retournée est NULL. */
+EnsemblePosition lesYeuxDeLaChaine(Chaine chaine, Plateau plateau);
 
 // pour moins de verbosité dans le code
 bool chaine_appartient(Chaine chaine, Position position);

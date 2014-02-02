@@ -15,7 +15,43 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 
+#include "go/territoire.h"
 #include "go/chaine.h"
+
+EnsemblePosition lesYeuxDeLaChaine(Chaine chaine, Plateau plateau)
+{
+	EnsemblePosition yeux = creer_ensemble_position();
+	Couleur couleur_chaine = ensemble_colore_couleur(chaine);
+	Position position_chaine;
+
+	// pour chacune des positions adjacentes à la chaine
+	gosh_foreach(position_chaine, chaine) {
+		Position voisins[] = POSITION_VOISINS(position_chaine);
+		for (int i = 0; i < 4; i++) {
+			Position position = voisins[i];
+
+			if (position_est_valide(position)) {
+				// on regarde si le territoire ne comporte qu'une case
+				// et qu'il est de la même couleur que la chaine
+				Territoire territoire = determiner_territoire(plateau, position);
+				if (gosh_nombre_elements(territoire) == 1) {
+					Couleur couleur = ensemble_colore_couleur(territoire);
+					if (couleur == couleur_chaine) {
+						gosh_ajouter(yeux, position);
+					}
+				}
+
+				detruire_territoire(territoire);
+			}
+		}
+	}
+
+	if (gosh_vide(yeux)) {
+		detruire_ensemble_position(yeux);
+		yeux = NULL;
+	}
+	return yeux;
+}
 
 bool chaine_appartient(Chaine chaine, Position position)
 {

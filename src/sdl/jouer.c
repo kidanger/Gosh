@@ -163,6 +163,7 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	Chaine chaine = position_est_valide(hov) ?
 	                plateau_determiner_chaine(partie->plateau, hov) : NULL;
 	Libertes libertes = chaine ? determiner_libertes(partie->plateau, chaine) : NULL;
+	EnsemblePosition yeux = chaine ? lesYeuxDeLaChaine(chaine, partie->plateau) : NULL;
 	for (int x = 0; x < taille; x++) {
 		for (int y = 0; y < taille; y++) {
 			Position pos = position(x, y, taille);
@@ -194,6 +195,9 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 			if (chaine && gosh_appartient(chaine, pos)) {
 				set_color(120, 120, 120);
 				draw = true;
+			} else if (yeux && gosh_appartient(yeux, pos)) {
+				set_color(255, 130, 130);
+				draw = true;
 			} else if (libertes && gosh_appartient(libertes, pos)) {
 				set_color(200, 40, 40);
 				draw = true;
@@ -211,6 +215,8 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 		detruire_chaine(chaine);
 	if (libertes)
 		detruire_libertes(libertes);
+	if (yeux)
+		detruire_ensemble_position(yeux);
 }
 
 static void mousemotion_jouer(struct state* state, SDL_Event event)
