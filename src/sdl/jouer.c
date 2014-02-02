@@ -84,8 +84,10 @@ static void mise_a_jour_jouer(struct state* state, double dt)
 	(void) dt;
 	struct jouerdata* jouer = state->data;
 	Partie partie = jouer->partie;
-	if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR) {
-		partie_jouer_ordinateur(partie);
+	if (!partie->finie) {
+		if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR) {
+			partie_jouer_ordinateur(partie);
+		}
 	}
 }
 
