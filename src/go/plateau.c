@@ -35,11 +35,6 @@ size_t impl_get_nbCases(size_t taille)
 	return nbCases;
 }
 
-size_t impl_get_nb_pos_par_cases(void)
-{
-	return sizeof(uint32_t) * 8 / 2;
-}
-
 size_t plateau_data_size(size_t taille)
 {
 	return impl_get_nbCases(taille) * sizeof(uint32_t);
@@ -64,12 +59,12 @@ void detruire_plateau(Plateau plateau)
 
 Couleur plateau_get(Plateau plateau, int i, int j)
 {
+	static size_t nbPosParCase = sizeof(uint32_t) * 8 / 2;
 	assert(i >= 0);
 	assert(j >= 0);
 	assert(i < plateau->taille);
 	assert(j < plateau->taille);
 	unsigned short pos = i * plateau->taille + j;
-	size_t nbPosParCase = impl_get_nb_pos_par_cases();
 	size_t offset = pos / nbPosParCase;
 	uint32_t partie = plateau->cases[offset];
 	pos -= offset * nbPosParCase;
@@ -83,12 +78,12 @@ Couleur plateau_get_at(Plateau plateau, Position pos)
 
 void plateau_set(Plateau plateau, int i, int j, Couleur couleur)
 {
+	static size_t nbPosParCase = sizeof(uint32_t) * 8 / 2;
 	assert(i >= 0);
 	assert(j >= 0);
 	assert(i < plateau->taille);
 	assert(j < plateau->taille);
 	unsigned short pos = i * plateau->taille + j;
-	size_t nbPosParCase = impl_get_nb_pos_par_cases();
 	size_t offset = pos / nbPosParCase;
 	uint32_t * partie = plateau->cases + offset;
 	pos -= offset * nbPosParCase;
