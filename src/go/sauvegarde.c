@@ -14,10 +14,12 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "go/sauvegarde.h"
+#include "go/ordinateur.h"
 #include "go/plateau.h"
 #include "errno.h"
 #include "gosh_alloc.h"
 #include <stdint.h>
+#include <string.h>
 #ifdef _WIN32
 #include <windows.h>
 #define ENOTSUP 4096
@@ -31,9 +33,116 @@
 #define BINAIRE 'B'
 #define TEXTE 'T'
 
+bool sauvegarder_partie_fichier(const char * filename, Partie partie)
+{
+    FILE * file = fopen(filename, "w");
+    if (! file)
+        return false;
+    bool retour = sauvegarder_partie(partie, file);
+    fclose(file);
+    return retour;
+}
+
+bool sauvegarder_partie(Partie partie, FILE * file)
+{
+    sauvegarder_plateau(partie->plateau, file);
+    putc( (partie->initialisee) ? '1' : '0' , file);
+    putc( (partie->finie) ? '1' : '0' , file);
+    putc( partie->joueur_courant + '0', file);
+    putc('\n', file);
+
+
+    for(int i = 0; i < 2; ++i)
+    {
+        fprintf(file, "%d\n%s\n%s\n", partie->joueurs[i].type,
+                                      partie->joueurs[i].nom,
+                                      partie->joueurs[i].ordinateur ?
+                                      partie->joueurs[i].ordinateur->file
+                                          : "");
+    }
+
+    Plateau p;
+    fprintf(file, "%d\n",
+            partie->plateaux_joues->nombre_elements(partie->plateaux_joues) );
+    gosh_foreach(p, partie->plateaux_joues )
+    {
+        sauvegarder_plateau(p, file);
+    }
+
+    fprintf(file, "%d\n",
+            partie->plateaux_annules->nombre_elements(partie->plateaux_annules) );
+    gosh_foreach(p, partie->plateaux_annules )
+    {
+        sauvegarder_plateau(p, file);
+    }
+
+    return true;
+}
+
+/** @bref place errno à ENOTSUP si le type de format n'est pas supporté */
+Partie charger_partie_fichier(const char * filename)
+{
+    FILE * file = fopen(filename, "r");
+    if (! file)
+        return false;
+    Partie partie = charger_partie(file);
+    fclose(file);
+    return partie;
+}
+
+Partie charger_partie(FILE * file)
+{
+    Partie p = creer_partie();
+    p->plateau = charger_plateau(file);
+    p->initialisee = fgetc(file) != '0';
+    p->finie = fgetc(file) != '0';
+    p->joueur_courant = fgetc(file) - '0';
+    fgetc(file);
+
+    for(int i = 0; i < 2; ++i)
+    {
+        char * nom = p->joueurs[i].nom;
+        fgets(nom, TAILLE_NOM_JOUEUR - 1, file);
+        if( nom[strlen(nom)-1] == '\n')
+            nom[strlen(nom)-1] = '\0';
+        else
+            fgetc(file);
+        char filename[4096];
+        fgets(nom, sizeof(filename)-1, file);
+        if( nom[strlen(nom)-1] == '\n')
+            nom[strlen(nom)-1] = '\0';
+        else
+            fgetc(file);
+        if(filename[0])
+            p->joueurs[i].ordinateur = charger_ordinateur(filename);
+        else
+            p->joueurs[i].ordinateur = NULL;
+    }
+
+    char number_buffer[20];
+    int number;
+    fgets(number_buffer, sizeof(number_buffer) - 1, file);
+    number_buffer[strlen(number_buffer)-1] = '\0';
+    number = atoi(number_buffer);
+
+    for(int i = 0; i < number; ++ i)
+        p->plateaux_joues->ajouter( p->plateaux_joues,
+                                    charger_plateau(file) );
+
+    fgets(number_buffer, sizeof(number_buffer) - 1, file);
+    number_buffer[strlen(number_buffer)-1] = '\0';
+    number = atoi(number_buffer);
+
+    for(int i = 0; i < number; ++ i)
+        p->plateaux_annules->ajouter( p->plateaux_annules,
+                                      charger_plateau(file) );
+
+    return p;
+}
+
 bool sauvegarder_plateau_fichier(const char * filename, Plateau plateau)
 {
-	FILE * file = fopen(filename, "w+");
+    FILE * file = fopen(filename, "w");
 	if (! file)
 		return false;
 	bool retour = sauvegarder_plateau(plateau, file);

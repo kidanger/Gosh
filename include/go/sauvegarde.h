@@ -20,6 +20,14 @@
 #include<stdio.h>
 
 #include "go/plateau_type.h"
+#include "go/partie.h"
+
+bool sauvegarder_partie_fichier(const char * filename, Partie);
+bool sauvegarder_partie(Partie, FILE * file);
+
+/** @bref place errno à ENOTSUP si le type de format n'est pas supporté */
+Partie charger_partie_fichier(const char * filename);
+Partie charger_partie(FILE * file);
 
 bool sauvegarder_plateau_fichier(const char * filename, Plateau);
 bool sauvegarder_plateau(Plateau, FILE * file);
