@@ -27,6 +27,7 @@ Partie creer_partie(void)
 	partie->initialisee = false;
 	partie->plateaux_joues = creer_plateaux();
 	partie->plateaux_annules = creer_plateaux();
+	partie->handicap = 0;
 	partie->finie = false;
 	return partie;
 }
@@ -152,6 +153,12 @@ bool partie_jouer_coup(Partie partie, s_Coup coup)
 		detruire_plateau(copie);
 	}
 
+	// si on est encore en phase 'handicap'
+	if (partie_en_cours_de_handicap(partie) && partie->joueur_courant == JOUEUR_BLANC) {
+		s_Coup passer = {POSITION_INVALIDE};
+		partie_jouer_coup(partie, passer);
+	}
+
 	// si on passe son tour, on vérifie la fin de partie
 	if (passer_son_tour && gosh_nombre_elements(partie->plateaux_joues) >= 2) {
 		Plateau n2 = gosh_get(partie->plateaux_joues, 1);
@@ -170,6 +177,11 @@ void partie_jouer_ordinateur(Partie partie)
 	ordinateur_jouer_coup(ordi, partie, partie->joueur_courant);
 }
 
+bool partie_en_cours_de_handicap(Partie partie)
+{
+	return gosh_nombre_elements(partie->plateaux_joues)/2 < partie->handicap - 1;
+}
+
 bool partie_annuler_coup(Partie partie)
 {
 	if (gosh_vide(partie->plateaux_joues)) {
@@ -180,9 +192,12 @@ bool partie_annuler_coup(Partie partie)
 	gosh_ajouter(partie->plateaux_annules, partie->plateau);
 	partie->plateau = nouveau;
 	partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
-	// si le nouveau joueur est un ordinateur, on annule son coup
-	if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
+
+	if (partie_en_cours_de_handicap(partie) && partie->joueur_courant == JOUEUR_BLANC) {
+		partie_annuler_coup(partie);
+	} else if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
 			partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
+		// si le nouveau joueur est un ordinateur, on annule son coup
 		partie_annuler_coup(partie);
 	}
 	return true;
@@ -198,9 +213,12 @@ bool partie_rejouer_coup(Partie partie)
 	gosh_ajouter(partie->plateaux_joues, partie->plateau);
 	partie->plateau = nouveau;
 	partie->joueur_courant = JOUEUR_SUIVANT(partie->joueur_courant);
-	// si le nouveau joueur est un ordinateur, on rejoue son coup
-	if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
+
+	if (partie_en_cours_de_handicap(partie) && partie->joueur_courant == JOUEUR_BLANC) {
+		partie_rejouer_coup(partie);
+	} else if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
 			partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
+		// si le nouveau joueur est un ordinateur, on rejoue son coup
 		partie_rejouer_coup(partie);
 	}
 	return true;

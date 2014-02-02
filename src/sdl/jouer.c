@@ -33,6 +33,7 @@ struct jouerdata {
 	int taille;
 
 	struct label* au_tour_de[2];
+	struct label* handicap;
 	struct label* partie_finie;
 	struct bouton* passer_son_tour;
 	Position hovered;
@@ -58,10 +59,12 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 
 	char buf[TAILLE_NOM_JOUEUR + 64];
 
+	set_color(230, 200, 150);
 	snprintf(buf, sizeof(buf), "Au tour de %s", partie->joueurs[JOUEUR_NOIR].nom);
 	jouer->au_tour_de[JOUEUR_NOIR] = creer_label(buf, W / 2, H * .1, CENTER_XY, BIG);
 	snprintf(buf, sizeof(buf), "Au tour de %s", partie->joueurs[JOUEUR_BLANC].nom);
 	jouer->au_tour_de[JOUEUR_BLANC] = creer_label(buf, W / 2, H * .1, CENTER_XY, BIG);
+	jouer->handicap = creer_label("Pierre de handicap", W / 2, H * .1, CENTER_XY, BIG);
 	jouer->partie_finie = creer_label("Partie terminée!", W / 2, H * .1, CENTER_XY, BIG);
 
 	jouer->hovered = POSITION_INVALIDE;
@@ -127,7 +130,11 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	int taille = jouer->taille;
 
 	if (!partie->finie) {
-		afficher_label(surface, jouer->au_tour_de[partie->joueur_courant]);
+		if (partie_en_cours_de_handicap(partie)) {
+			afficher_label(surface, jouer->handicap);
+		} else {
+			afficher_label(surface, jouer->au_tour_de[partie->joueur_courant]);
+		}
 	} else {
 		afficher_label(surface, jouer->partie_finie);
 	}

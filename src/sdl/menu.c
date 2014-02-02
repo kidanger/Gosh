@@ -47,6 +47,7 @@
 	(si ordi): Programme: o aléatoire  o gnugo
 
 	Taille: o 9  o 13  o 19
+	Handicap: [|  ]
 
 						[Jouer]
 
@@ -60,9 +61,9 @@
 #define GROUPE_TAILLE 4
 
 #define NUM_BOUTONS 3
-#define NUM_LABELS 7
+#define NUM_LABELS 8
 #define NUM_GROUPES 5
-#define NUM_TEXTINPUTS 2
+#define NUM_TEXTINPUTS 3
 struct menudata {
 	struct label* titre;
 	struct label* labels[NUM_LABELS];
@@ -196,7 +197,7 @@ struct state* creer_menu()
 	menu->groupes[id_groupe++] = groupe_programme_j2;
 
 	x = initx;
-	y += 30 * 3;
+	y += 30 * 2;
 
 	// taille du plateau
 	menu->labels[id_label] = creer_label("Taille :", x, y, LEFT, NORMAL);
@@ -207,6 +208,17 @@ struct state* creer_menu()
 	groupe_radio_ajouter(groupe_taille, "13x13", x + 100, y);
 	groupe_radio_ajouter(groupe_taille, "19x19", x + 200, y);
 	menu->groupes[id_groupe++] = groupe_taille;
+
+	x = initx;
+	y += 30;
+
+	// handicap
+	menu->labels[id_label] = creer_label("Handicap :", x, y, LEFT, NORMAL);
+	x += menu->labels[id_label]->w + 20;
+	id_label++;
+	set_color(150, 150, 150);
+	menu->textinputs[id_textinput] = creer_textinput(x, y, 60, 20, 3);
+	id_textinput++;
 
 	assert(id_label == NUM_LABELS);
 	assert(id_bouton == NUM_BOUTONS);
@@ -332,6 +344,12 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			int id = menu->groupes[NUM_GROUPES - 1]->courante;
 			int taille = id == 0 ? 9 : id == 1 ? 13 : 19;
 			partie->plateau = creer_plateau(taille);
+			break;
+		}
+		case HANDICAP: {
+			int handicap = atoi(menu->textinputs[NUM_TEXTINPUTS - 1]->buffer);
+			partie->handicap = handicap;
+			break;
 		}
 	}
 	return true;

@@ -28,6 +28,7 @@ bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
 {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	partie->joueurs[couleur].type = ORDINATEUR;
+	/*partie->joueurs[couleur].type = HUMAIN;*/
 	return true;
 #endif
 	const char* str = couleur == JOUEUR_NOIR ? "Type du joueur noir" : "Type du joueur blanc";
@@ -38,10 +39,12 @@ bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
 		type = ORDINATEUR;
 	else if (res == 'h')
 		type = HUMAIN;
+	else
+		return false;
 
 	partie->joueurs[couleur].type = type;
 
-	return res != 'r';
+	return true;
 }
 
 bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
@@ -111,6 +114,21 @@ bool saisir_taille_plateau(Partie partie)
 	return rep != 'r';
 }
 
+bool saisir_handicap(Partie partie)
+{
+#ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
+	partie->handicap = 3;
+	return true;
+#endif
+	const char* str = "Handicap (joueur noir)";
+	bool valide;
+	int rep = cli_demander_int(str, &valide);
+	if (valide)
+		partie->handicap = rep;
+	return valide;
+}
+
+
 bool questions_callback(enum Question question, Partie partie, void* userdata)
 {
 	(void) userdata;
@@ -129,6 +147,8 @@ bool questions_callback(enum Question question, Partie partie, void* userdata)
 			return saisir_programme(partie, JOUEUR_NOIR);
 		case TAILLE_PLATEAU:
 			return saisir_taille_plateau(partie);
+		case HANDICAP:
+			return saisir_handicap(partie);
 	}
 	return true;
 }
@@ -143,3 +163,4 @@ Partie cli_creer_nouvelle_partie(void)
 	}
 	return partie;
 }
+

@@ -26,6 +26,7 @@
 struct s_Partie {
 	Plateau plateau;
 	struct s_Joueur joueurs[2];
+	int handicap;
 	bool initialisee;
 	bool finie;
 	enum CouleurJoueur joueur_courant;
@@ -46,8 +47,9 @@ enum Question {
 	PROGRAMME_JOUEUR_NOIR, // si type = ORDINATEUR
 
 	TAILLE_PLATEAU,
+	HANDICAP,
 };
-#define NOMBRE_QUESTIONS (TAILLE_PLATEAU+1)
+#define NOMBRE_QUESTIONS (HANDICAP+1)
 
 typedef bool (*FonctionQuestions)(enum Question question, Partie partie, void* userdata);
 
@@ -63,6 +65,8 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, v
 enum CouleurJoueur partie_get_joueur(Partie partie);
 bool partie_jouer_coup(Partie partie, s_Coup coup);
 void partie_jouer_ordinateur(Partie partie);
+
+bool partie_en_cours_de_handicap(Partie partie);
 
 /**
  * Annule le dernier coup joué

@@ -16,6 +16,7 @@
 #ifndef GOSH_CLI_SAISIE
 #define GOSH_CLI_SAISIE
 
+#include <stdbool.h>
 #include <stdarg.h>
 
 typedef struct {
@@ -27,7 +28,6 @@ char cli_choisir_option(const char* prompt, char defaut, ...);
 
 char cli_choisir_option2(const char *prompt, char defaut, const Option * option);
 void cli_demander_string(const char* prompt, char* buffer, unsigned int taille);
-
-void flush_stdin(void);
+int cli_demander_int(const char* prompt, bool* valide);
 
 #endif

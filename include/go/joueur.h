@@ -18,7 +18,7 @@
 
 #include "go/plateau_type.h"
 
-#define TAILLE_NOM_JOUEUR 32
+#define TAILLE_NOM_JOUEUR 12
 
 enum CouleurJoueur {
 	JOUEUR_BLANC,

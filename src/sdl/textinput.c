@@ -15,6 +15,7 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <string.h>
 #include <ctype.h>
+#include <wctype.h>
 
 #include "gosh_alloc.h"
 #include "sdl/tools.h"
@@ -104,14 +105,19 @@ void utiliser_event_textinput(struct textinput* ti, SDL_Event event)
 			ti->active = false;
 		}
 	} else if (event.type == SDL_KEYDOWN && ti->active) {
-		char c = event.key.keysym.sym;
-		if (event.key.keysym.sym == SDLK_BACKSPACE) {
+		int c = event.key.keysym.sym;
+		if (c == SDLK_BACKSPACE) {
 			if (ti->curseur > 0) {
 				ti->buffer[--ti->curseur] = 0;
 				refresh(ti);
 			}
-		} else if (isalpha(c)) {
-			if (ti->curseur < ti->taillemax) {
+		} else if (c >= SDLK_KP0 && c <= SDLK_KP9) {
+			c = '0' + c - SDLK_KP0;
+		}
+		if (isalnum(c)) {
+			if (ti->curseur < ti->taillemax - 1) {
+				if (event.key.keysym.mod & KMOD_SHIFT)
+					c = toupper(c);
 				ti->buffer[ti->curseur++] = c;
 				refresh(ti);
 			}
