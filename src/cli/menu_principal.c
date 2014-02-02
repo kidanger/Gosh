@@ -5,6 +5,7 @@
 #include "cli/affichage.h"
 #include "cli/configurer_partie.h"
 #include "cli/deroulement_partie.h"
+#include "go/sauvegarde.h"
 
 void afficher_menu_principal(void)
 {
@@ -26,8 +27,14 @@ void afficher_menu_principal(void)
 				cli_jouer_partie(p);
 			}
 		}
-		if (choix == 'l')
-			perror("Not implemented");
+        if (choix == 'l')
+        {
+            char buffer[4096];
+            cli_demander_string("fichier de sauvegarde", buffer, sizeof(buffer));
+            Partie p = charger_partie_fichier(buffer);
+            cli_afficher_plateau(p->plateau);
+            cli_jouer_partie(p);
+        }
 		if (choix == 'c')
 			puts("==========Credit===========\n"
 			     "Programme réalisé par Anger Jérémy et Migdal Denis (2013-2014)"
