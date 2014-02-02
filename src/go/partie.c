@@ -227,5 +227,6 @@ bool partie_rejouer_coup(Partie partie)
 void reinitialisation_partie(Partie partie)
 {
     while( partie_annuler_coup(partie) );
+    partie->finie = false;
 }
 

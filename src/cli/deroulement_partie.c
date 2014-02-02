@@ -48,6 +48,7 @@ void cli_jouer_partie(Partie partie)
         char rep[32];
         while (!partie->finie) {
             enum CouleurJoueur couleur = partie_get_joueur(partie);
+
             if (partie->joueurs[couleur].type == HUMAIN) {
                 snprintf(label, sizeof(label), "Au joueur %s de jouer",
                          couleur == JOUEUR_BLANC ? "blanc" : "noir");

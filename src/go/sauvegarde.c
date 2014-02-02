@@ -54,11 +54,11 @@ bool sauvegarder_partie(Partie partie, FILE * file)
 
     for(int i = 0; i < 2; ++i)
     {
-        fprintf(file, "%d\n%s\n%s\n", partie->joueurs[i].type,
-                                      partie->joueurs[i].nom,
-                                      partie->joueurs[i].ordinateur ?
-                                      partie->joueurs[i].ordinateur->file
-                                          : "");
+        fprintf(file, "%c%s\n%s\n", partie->joueurs[i].type + '0',
+                                    partie->joueurs[i].nom,
+                                    partie->joueurs[i].ordinateur ?
+                                        partie->joueurs[i].ordinateur->file
+                                      : "");
     }
 
     Plateau p;
@@ -101,6 +101,8 @@ Partie charger_partie(FILE * file)
 
     for(int i = 0; i < 2; ++i)
     {
+        p->joueurs[i].type = fgetc(file) - '0';
+
         char * nom = p->joueurs[i].nom;
         fgets(nom, TAILLE_NOM_JOUEUR - 1, file);
         if( nom[strlen(nom)-1] == '\n')
@@ -108,9 +110,9 @@ Partie charger_partie(FILE * file)
         else
             fgetc(file);
         char filename[4096];
-        fgets(nom, sizeof(filename)-1, file);
-        if( nom[strlen(nom)-1] == '\n')
-            nom[strlen(nom)-1] = '\0';
+        fgets(filename, sizeof(filename)-1, file);
+        if( filename[strlen(filename)-1] == '\n')
+            filename[strlen(filename)-1] = '\0';
         else
             fgetc(file);
         if(filename[0])
@@ -141,6 +143,12 @@ Partie charger_partie(FILE * file)
     {
         detruire_partie(p);
         return NULL;
+    }
+
+    for(int i = 0; i < 2; ++i)
+    {
+        if(p->joueurs[i].ordinateur)
+            ordinateur_debut_partie(p->joueurs[i].ordinateur, p);
     }
 
     return p;
@@ -252,7 +260,7 @@ Plateau charger_plateau_binaire(FILE * file)
 
 	size_t nbElement = plateau_data_size(taille) / sizeof(uint32_t);
 	uint32_t * data = gosh_allocn(uint32_t, nbElement);
-	if (! fread(data, nbElement, 1, file)) {
+    if (! fread(data, nbElement, sizeof(uint32_t), file)) {
 		free(data);
 		return false;
 	}
