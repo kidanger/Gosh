@@ -184,7 +184,23 @@ Chaines plateau_entoure_un_territoire(Plateau plateau, Territoire territoire)
 			if (position_est_valide(p)) {
 				Chaine chaine = plateau_determiner_chaine(plateau, p);
 				if (chaine) {
-					if (gosh_appartient(chaines, chaine)) {
+					Chaine chaine_tmp;
+					// on recherche une chaine qui contient une même position
+					// si c'est le cas, alors on n'ajoute pas la nouvelle chaine
+					// à la liste
+					bool appartient = false;
+					gosh_foreach(chaine_tmp, chaines) {
+						Position pos;
+						gosh_foreach(chaine_tmp, chaines) {
+							if (gosh_appartient(chaine_tmp, pos)) {
+								appartient = true;
+								break;
+							}
+						}
+						if (appartient)
+							break;
+					}
+					if (appartient) {
 						detruire_chaine(chaine);
 					} else {
 						gosh_ajouter(chaines, chaine);
