@@ -21,7 +21,7 @@
 #include "gosh_alloc.h"
 #include "sdl/tools.h"
 
-#define FONT_FILENAME "data/arial.ttf"
+#define FONT_FILENAME "ressources/arial.ttf"
 
 static SDL_Color color = {255, 255, 255, 0};
 static const int font_sizes[] = {12, 20, 64};
