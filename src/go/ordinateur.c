@@ -14,6 +14,7 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdio.h>
+#include <string.h>
 #ifndef _WIN32
 #include <dlfcn.h>
 #define DLOPEN(path) dlopen(path, RTLD_LAZY)
@@ -73,6 +74,8 @@ Ordinateur charger_ordinateur(const char* filename)
 	ordi->ordidata = ordidata;
 	ordi->debut_partie = debut_partie;
 	ordi->notification_coup = notification_coup;
+    ordi->file = (char *)malloc(strlen(filename) + 1);
+    strcpy(ordi->file, filename);
 	return ordi;
 }
 
@@ -98,6 +101,7 @@ void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur co
 void decharger_ordinateur(Ordinateur ordi)
 {
 	DLCLOSE(ordi->dlptr);
+    free(ordi->file);
 	gosh_free(ordi);
 }
 
