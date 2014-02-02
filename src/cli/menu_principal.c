@@ -32,8 +32,13 @@ void afficher_menu_principal(void)
             char buffer[4096];
             cli_demander_string("fichier de sauvegarde", buffer, sizeof(buffer));
             Partie p = charger_partie_fichier(buffer);
-            cli_afficher_plateau(p->plateau);
-            cli_jouer_partie(p);
+            if(p)
+            {
+                cli_afficher_plateau(p->plateau);
+                cli_jouer_partie(p);
+            }
+            else
+                fprintf(stderr, "Impossible d'ouvrir le fichier '%s'\n", buffer);
         }
 		if (choix == 'c')
 			puts("==========Credit===========\n"

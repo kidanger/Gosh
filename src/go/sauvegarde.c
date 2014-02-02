@@ -137,6 +137,12 @@ Partie charger_partie(FILE * file)
         p->plateaux_annules->ajouter( p->plateaux_annules,
                                       charger_plateau(file) );
 
+    if( ! p->plateau )
+    {
+        detruire_partie(p);
+        return NULL;
+    }
+
     return p;
 }
 
