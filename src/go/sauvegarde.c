@@ -46,11 +46,11 @@ bool sauvegarder_partie_fichier(const char * filename, Partie partie)
 bool sauvegarder_partie(Partie partie, FILE * file)
 {
     sauvegarder_plateau(partie->plateau, file);
+
     putc( (partie->initialisee) ? '1' : '0' , file);
     putc( (partie->finie) ? '1' : '0' , file);
     putc( partie->joueur_courant + '0', file);
     putc('\n', file);
-
 
     for(int i = 0; i < 2; ++i)
     {
@@ -153,6 +153,7 @@ bool sauvegarder_plateau_fichier(const char * filename, Plateau plateau)
 bool sauvegarder_plateau(Plateau plateau, FILE * file)
 {
 	size_t longueur = plateau_get_taille(plateau);
+
 	uint32_t version = htonl(SERIALIZE_VERSION);
 	uint32_t taille = htonl(longueur);
 	char format = BINAIRE;
@@ -165,15 +166,14 @@ bool sauvegarder_plateau(Plateau plateau, FILE * file)
 		return false;
 	}
 
-	size_t nbElement = plateau_data_size(taille) / sizeof(uint32_t);
+    size_t nbElement = plateau_data_size(longueur) / sizeof(uint32_t);
 	const uint32_t * data = plateau_data(plateau);
 
 	for (size_t i = 0; i < nbElement; ++i) {
 		uint32_t toWrite = htonl(data[i]);
 		if (! fwrite(&toWrite, sizeof(toWrite), 1, file))
 			return false; // error
-	}
-
+    }
 
 	return true;
 }

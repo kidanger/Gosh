@@ -206,3 +206,8 @@ bool partie_rejouer_coup(Partie partie)
 	return true;
 }
 
+void reinitialisation_partie(Partie partie)
+{
+    while( partie_annuler_coup(partie) );
+}
+
