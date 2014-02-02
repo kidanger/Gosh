@@ -1,0 +1,4 @@
+# si on passe 2 fois son tour, la partie s'arrête
+passer
+passer
+assert_partie_finie true
