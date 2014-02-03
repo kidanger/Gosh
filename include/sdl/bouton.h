@@ -26,6 +26,7 @@ struct bouton {
 	int w, h;
 	SDL_Color couleur;
 	float deplacement_auto_timer;
+	bool visible;
 
 	void(*callback)(struct bouton*, void*);
 	void* userdata;

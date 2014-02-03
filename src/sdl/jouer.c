@@ -23,7 +23,9 @@
 #include "go/plateau.h"
 #include "go/libertes.h"
 #include "sdl/state.h"
+#include "sdl/main.h"
 #include "sdl/label.h"
+#include "sdl/bouton.h"
 #include "sdl/tools.h"
 #include "sdl/jouer.h"
 
@@ -37,12 +39,15 @@ struct jouerdata {
 	struct label* partie_finie;
 	struct label* score;
 	struct bouton* passer_son_tour;
+	struct bouton* retour_menu;
 	Position hovered;
 };
 
 static void afficher_jouer(struct state*, SDL_Surface*);
 static void mise_a_jour_jouer(struct state*, double);
 static void mousemotion_jouer(struct state*, SDL_Event);
+static void jouer_bouton_retour(struct bouton*, void * data);
+static void jouer_bouton_passer(struct bouton*, void * data);
 
 struct state* creer_jouer(struct state* parent, Partie partie)
 {
@@ -56,6 +61,7 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	state->mise_a_jour = mise_a_jour_jouer;
 	state->mousemotion = mousemotion_jouer;
 	state->mousebuttondown = mousemotion_jouer;
+	state->mousebuttonup = mousemotion_jouer;
 	state->keydown = mousemotion_jouer;
 
 	char buf[TAILLE_NOM_JOUEUR + 64];
@@ -68,6 +74,18 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	jouer->handicap = creer_label("Pierre de handicap", W / 2, H * .1, CENTER_XY, BIG);
 	jouer->partie_finie = creer_label("Partie terminée !", W / 2, H * .1, CENTER_XY, BIG);
 
+	set_color(155, 50, 50);
+	struct bouton* bouton = creer_bouton("Retour menu", W * .07, H * .91, 140, 30);
+	bouton->callback = jouer_bouton_retour;
+	bouton->userdata = state;
+	jouer->retour_menu = bouton;
+
+	set_color(255, 255, 255);
+	bouton = creer_bouton("Passer son tour", W * .75, H * .15, 150, 30);
+	bouton->callback = jouer_bouton_passer;
+	bouton->userdata = state;
+	jouer->passer_son_tour = bouton;
+
 	jouer->hovered = POSITION_INVALIDE;
 
 	return state;
@@ -78,6 +96,11 @@ void detruire_jouer(struct state* state)
 	struct jouerdata* jouer = state->data;
 	detruire_label(jouer->au_tour_de[0]);
 	detruire_label(jouer->au_tour_de[1]);
+	detruire_label(jouer->handicap);
+	detruire_label(jouer->partie_finie);
+	if (jouer->score)
+		detruire_label(jouer->score);
+	detruire_bouton(jouer->retour_menu);
 
 	gosh_free(jouer);
 	gosh_free(state);
@@ -106,8 +129,24 @@ static void mise_a_jour_jouer(struct state* state, double dt)
 			         scores[JOUEUR_NOIR], scores[JOUEUR_BLANC]);
 			set_color(200, 200, 200);
 			jouer->score = creer_label(buffer, W / 2, H * .95, CENTER_XY, NORMAL);
+
+			set_color(100, 200, 100);
+			jouer->retour_menu->couleur = get_color();
+
+			jouer->passer_son_tour->visible = false;
 		}
 	}
+
+	// mise à jour du bouton passer
+	enum CouleurJoueur j = partie->joueur_courant;
+	if (j == JOUEUR_NOIR)
+		set_color(100, 100, 100);
+	else
+		set_color(200, 200, 200);
+	jouer->passer_son_tour->couleur = get_color();
+
+	mise_a_jour_bouton(jouer->passer_son_tour, dt);
+	mise_a_jour_bouton(jouer->retour_menu, dt);
 }
 
 Position get_position_depuis_ecran(struct jouerdata* jouer, int x, int y)
@@ -144,17 +183,6 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	struct jouerdata* jouer = state->data;
 	Partie partie = jouer->partie;
 	int taille = jouer->taille;
-
-	if (!partie->finie) {
-		if (partie_en_cours_de_handicap(partie)) {
-			afficher_label(surface, jouer->handicap);
-		} else {
-			afficher_label(surface, jouer->au_tour_de[partie->joueur_courant]);
-		}
-	} else {
-		afficher_label(surface, jouer->partie_finie);
-		afficher_label(surface, jouer->score);
-	}
 
 	int x1 = W * .2;
 	int y1 = H * .2;
@@ -243,11 +271,26 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 		detruire_libertes(libertes);
 	if (yeux)
 		detruire_ensemble_position(yeux);
+
+	if (!partie->finie) {
+		if (partie_en_cours_de_handicap(partie)) {
+			afficher_label(surface, jouer->handicap);
+		} else {
+			afficher_label(surface, jouer->au_tour_de[partie->joueur_courant]);
+		}
+	} else {
+		afficher_label(surface, jouer->partie_finie);
+		afficher_label(surface, jouer->score);
+	}
+	afficher_bouton(surface, jouer->retour_menu);
+	afficher_bouton(surface, jouer->passer_son_tour);
 }
 
 static void mousemotion_jouer(struct state* state, SDL_Event event)
 {
 	struct jouerdata* jouer = state->data;
+	utiliser_event_bouton(jouer->retour_menu, event);
+	utiliser_event_bouton(jouer->passer_son_tour, event);
 	if (event.type == SDL_MOUSEMOTION) {
 		jouer->hovered = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
 	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
@@ -277,5 +320,25 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 			partie_rejouer_coup(jouer->partie);
 		}
 	}
+}
+
+static void jouer_bouton_retour(struct bouton* bouton, void * data)
+{
+	(void) bouton;
+	struct state* state = data;
+	struct jouerdata* jouer = state->data;
+	detruire_partie(jouer->partie);
+	set_state(jouer->parent);
+	detruire_jouer(state);
+}
+
+static void jouer_bouton_passer(struct bouton* bouton, void * data)
+{
+	(void) bouton;
+	struct state* state = data;
+	struct jouerdata* jouer = state->data;
+	s_Coup coup;
+	coup.position = POSITION_INVALIDE;
+	partie_jouer_coup(jouer->partie, coup);
 }
 

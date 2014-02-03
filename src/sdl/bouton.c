@@ -28,6 +28,7 @@ struct bouton* creer_bouton(const char* text, int x, int y, int w, int h)
 	bouton->oy = y;
 	bouton->w = w;
 	bouton->h = h;
+	bouton->visible = true;
 	bouton->couleur = get_color();
 	bouton->hover = false;
 	bouton->en_deplacement = false;
@@ -36,6 +37,8 @@ struct bouton* creer_bouton(const char* text, int x, int y, int w, int h)
 }
 void afficher_bouton(SDL_Surface* on, struct bouton* bouton)
 {
+	if (!bouton->visible)
+		return;
 	if (bouton->hover) {
 		set_color(bouton->couleur.r / 2, bouton->couleur.g / 2, bouton->couleur.b / 2);
 	} else {
@@ -52,8 +55,8 @@ void afficher_bouton(SDL_Surface* on, struct bouton* bouton)
 void mise_a_jour_bouton(struct bouton* bouton, double dt)
 {
 	if (!bouton->en_deplacement && bouton->deplacement_auto_timer == 0) {
-		bouton->x += (bouton->ox - bouton->x) * .01;
-		bouton->y += (bouton->oy - bouton->y) * .01;
+		bouton->x += (bouton->ox - bouton->x) * .1;
+		bouton->y += (bouton->oy - bouton->y) * .1;
 	}
 	if (bouton->deplacement_auto_timer > 0) {
 		bouton->deplacement_auto_timer -= dt;
@@ -65,6 +68,8 @@ void mise_a_jour_bouton(struct bouton* bouton, double dt)
 
 void utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 {
+	if (!bouton->visible)
+		return;
 #define INSIDE(_x, _y) \
 	(bouton->x < (_x) && (_x) < bouton->x + bouton->w && \
 	 bouton->y < (_y) && (_y) < bouton->y + bouton->h)
@@ -90,7 +95,7 @@ void utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 		if (INSIDE(event.button.x, event.button.y)) {
 			if (event.button.button == 3) {
 				bouton->en_deplacement = false;
-				bouton->deplacement_auto_timer = 5;
+				bouton->deplacement_auto_timer = 1;
 			}
 		}
 	}

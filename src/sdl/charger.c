@@ -35,6 +35,7 @@ struct chargerdata {
 };
 
 static void afficher_charger(struct state*, SDL_Surface*);
+static void mise_a_jour_charger(struct state* state, double dt);
 static void event_charger(struct state* state, SDL_Event event);
 static void charger_bouton_retour(struct bouton*, void * data);
 
@@ -45,6 +46,7 @@ struct state* creer_charger(struct state* parent)
 	state->data = charger;
 	state->quitter = false;
 	state->afficher = afficher_charger;
+	state->mise_a_jour = mise_a_jour_charger;
 	state->mousemotion = event_charger;
 	state->mousebuttondown = event_charger;
 	state->mousebuttonup = event_charger;
@@ -88,6 +90,13 @@ static void afficher_charger(struct state* state, SDL_Surface* surface)
 		struct bouton* b = charger->boutons[i];
 		afficher_bouton(surface, b);
 	}
+}
+
+static void mise_a_jour_charger(struct state* state, double dt)
+{
+	struct chargerdata* charger = state->data;
+	for (int i = 0; i < NUM_BOUTONS; i++)
+		mise_a_jour_bouton(charger->boutons[i], dt);
 }
 
 static void event_charger(struct state* state, SDL_Event event)
