@@ -23,6 +23,8 @@
 #include "go/coup.h"
 #include "go/ensemble_plateaux.h"
 
+#define VALEUR_KOMI_FRANCE 7.5
+
 struct s_Partie {
 	Plateau plateau;
 	struct s_Joueur joueurs[2];
@@ -78,6 +80,11 @@ bool partie_annuler_coup(Partie partie);
  * Rejoue le dernier coup annulé
  */
 bool partie_rejouer_coup(Partie partie);
+
+/** Calcul la valeur des deux scores des deux joueurs en fin de partie en tenant compte du komi.
+ * @bug ne tient pas compte des pierres mortes/vivantes
+ */
+void partie_score_joueurs(Partie p, float *scores, float valKomi);
 
 
 #endif

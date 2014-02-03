@@ -35,6 +35,7 @@ struct jouerdata {
 	struct label* au_tour_de[2];
 	struct label* handicap;
 	struct label* partie_finie;
+	struct label* score;
 	struct bouton* passer_son_tour;
 	Position hovered;
 };
@@ -65,7 +66,7 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	snprintf(buf, sizeof(buf), "Au tour de %s", partie->joueurs[JOUEUR_BLANC].nom);
 	jouer->au_tour_de[JOUEUR_BLANC] = creer_label(buf, W / 2, H * .1, CENTER_XY, BIG);
 	jouer->handicap = creer_label("Pierre de handicap", W / 2, H * .1, CENTER_XY, BIG);
-	jouer->partie_finie = creer_label("Partie terminée!", W / 2, H * .1, CENTER_XY, BIG);
+	jouer->partie_finie = creer_label("Partie terminée !", W / 2, H * .1, CENTER_XY, BIG);
 
 	jouer->hovered = POSITION_INVALIDE;
 
@@ -90,6 +91,21 @@ static void mise_a_jour_jouer(struct state* state, double dt)
 	if (!partie->finie) {
 		if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR) {
 			partie_jouer_ordinateur(partie);
+		}
+	}
+	if (partie->finie) {
+		if (jouer->score == NULL) {
+			float scores[2];
+			partie_score_joueurs(partie, scores, VALEUR_KOMI_FRANCE);
+			enum CouleurJoueur gagnant = scores[JOUEUR_NOIR] > scores[JOUEUR_BLANC] ? JOUEUR_NOIR : JOUEUR_BLANC;
+
+			char buffer[256] = {0};
+			snprintf(buffer, sizeof(buffer), "Gagnant : %s (%s) %.1f - %.1f",
+					partie->joueurs[gagnant].nom,
+					gagnant == JOUEUR_NOIR ? "noir" : "blanc",
+					scores[JOUEUR_NOIR], scores[JOUEUR_BLANC]);
+			set_color(200, 200, 200);
+			jouer->score = creer_label(buffer, W / 2, H * .95, CENTER_XY, NORMAL);
 		}
 	}
 }
@@ -137,6 +153,7 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 		}
 	} else {
 		afficher_label(surface, jouer->partie_finie);
+		afficher_label(surface, jouer->score);
 	}
 
 	int x1 = W * .2;

@@ -98,6 +98,14 @@ void cli_jouer_partie(Partie partie)
                 cli_afficher_plateau(partie->plateau);
             }
         }
+		printf("Partie terminée !\n");
+		float scores[2];
+		partie_score_joueurs(partie, scores, VALEUR_KOMI_FRANCE);
+		enum CouleurJoueur gagnant = scores[JOUEUR_NOIR] > scores[JOUEUR_BLANC] ? JOUEUR_NOIR : JOUEUR_BLANC;
+		printf("Gagnant : %s (%s)\n", partie->joueurs[gagnant].nom,
+				gagnant == JOUEUR_NOIR ? "noir" : "blanc");
+		printf("Score des noirs : %.1f\n", scores[JOUEUR_NOIR]);
+		printf("Score des blancs : %.1f\n", scores[JOUEUR_BLANC]);
 
         choix = cli_choisir_option("Que souhaitez-vous faire ?", 0, 'r', "rejouer la partie",
                                                                     's', "sauvegarger la partie",

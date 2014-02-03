@@ -230,3 +230,31 @@ void reinitialisation_partie(Partie partie)
     partie->finie = false;
 }
 
+void partie_score_joueurs(Partie partie, float* scores, float valKomi)
+{
+	// méthode peu efficace, mais on ne calcule le score qu'une fois
+	// donc c'est assez négligeable
+	scores[JOUEUR_NOIR] = 0;
+	scores[JOUEUR_BLANC] = partie->handicap <= 1 ? 0.5 : valKomi;
+	int taille = plateau_get_taille(partie->plateau);
+	for (int y = 0; y < taille; y++) {
+		for (int x = 0; x < taille; x++) {
+			Position pos = position(x, y, taille);
+			Couleur c = plateau_get_at(partie->plateau, pos);
+			if (c == NOIR) {
+				scores[JOUEUR_NOIR]++;
+			} else if (c == BLANC) {
+				scores[JOUEUR_BLANC]++;
+			} else {
+				Territoire territoire = determiner_territoire(partie->plateau, pos);
+				if (ensemble_colore_couleur(territoire) == NOIR) {
+					scores[JOUEUR_NOIR]++;
+				} else if (ensemble_colore_couleur(territoire) == BLANC) {
+					scores[JOUEUR_BLANC]++;
+				}
+				detruire_territoire(territoire);
+			}
+		}
+	}
+}
+
