@@ -32,7 +32,7 @@ typedef void(*DebutPartieFunc)(void*, Partie);
 typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 
 struct s_Ordinateur {
-    char * file;
+	char * file;
 	void* dlptr;
 	JouerFunc jouer;
 	DebutPartieFunc debut_partie;

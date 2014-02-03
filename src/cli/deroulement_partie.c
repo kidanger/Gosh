@@ -40,90 +40,78 @@ s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide)
 
 void cli_jouer_partie(Partie partie)
 {
-    char choix;
+	char choix;
 
-    do{
+	do {
 
-        char label[32];
-        char rep[32];
-        while (!partie->finie) {
-            enum CouleurJoueur couleur = partie_get_joueur(partie);
+		char label[32];
+		char rep[32];
+		while (!partie->finie) {
+			enum CouleurJoueur couleur = partie_get_joueur(partie);
 
-            if (partie->joueurs[couleur].type == HUMAIN) {
-                snprintf(label, sizeof(label), "Au joueur %s de jouer",
-                         couleur == JOUEUR_BLANC ? "blanc" : "noir");
-                cli_demander_string(label, rep, sizeof(rep));
+			if (partie->joueurs[couleur].type == HUMAIN) {
+				snprintf(label, sizeof(label), "Au joueur %s de jouer",
+				         couleur == JOUEUR_BLANC ? "blanc" : "noir");
+				cli_demander_string(label, rep, sizeof(rep));
 
-                if( ! strcmp(rep, "s") )
-                {
-                    char filename[4096];
-                    cli_demander_string("Sauvegarder la partie dans le fichier", filename, sizeof(filename));
-                    if( ! sauvegarder_partie_fichier(filename, partie) )
-                        perror("Erreur dans la sauvegarde de la partie");
-                    continue;
-                }
-                else if( ! strcmp(rep, "p"))
-                {
-                    s_Coup passer = { POSITION_INVALIDE };
-                    partie_jouer_coup(partie, passer );
-                    continue;
-                }
-                else if( ! strcmp(rep, "a"))
-                {
-                    partie_annuler_coup(partie);
-                    cli_afficher_plateau(partie->plateau);
-                    continue;
-                }
-                else if( ! strcmp(rep, "r"))
-                {
-                    partie_rejouer_coup(partie);
-                    cli_afficher_plateau(partie->plateau);
-                    continue;
-                }
-                else if( ! strcmp(rep, "q") )
-                {
-                    break;
-                }
+				if (! strcmp(rep, "s")) {
+					char filename[4096];
+					cli_demander_string("Sauvegarder la partie dans le fichier", filename, sizeof(filename));
+					if (! sauvegarder_partie_fichier(filename, partie))
+						perror("Erreur dans la sauvegarde de la partie");
+					continue;
+				} else if (! strcmp(rep, "p")) {
+					s_Coup passer = { POSITION_INVALIDE };
+					partie_jouer_coup(partie, passer);
+					continue;
+				} else if (! strcmp(rep, "a")) {
+					partie_annuler_coup(partie);
+					cli_afficher_plateau(partie->plateau);
+					continue;
+				} else if (! strcmp(rep, "r")) {
+					partie_rejouer_coup(partie);
+					cli_afficher_plateau(partie->plateau);
+					continue;
+				} else if (! strcmp(rep, "q")) {
+					break;
+				}
 
 
-                bool valide;
-                s_Coup coup = cli_convertir_coup(partie, rep, &valide);
-                if (valide) {
-                    bool reussi = partie_jouer_coup(partie, coup);
-                    gosh_debug("coup reussi: %s", reussi ? "oui" : "non");
-                    cli_afficher_plateau(partie->plateau);
-                }
-            } else {
-                partie_jouer_ordinateur(partie);
-                cli_afficher_plateau(partie->plateau);
-            }
-        }
+				bool valide;
+				s_Coup coup = cli_convertir_coup(partie, rep, &valide);
+				if (valide) {
+					bool reussi = partie_jouer_coup(partie, coup);
+					gosh_debug("coup reussi: %s", reussi ? "oui" : "non");
+					cli_afficher_plateau(partie->plateau);
+				}
+			} else {
+				partie_jouer_ordinateur(partie);
+				cli_afficher_plateau(partie->plateau);
+			}
+		}
 		printf("Partie terminée !\n");
 		float scores[2];
 		partie_score_joueurs(partie, scores, VALEUR_KOMI_FRANCE);
 		enum CouleurJoueur gagnant = scores[JOUEUR_NOIR] > scores[JOUEUR_BLANC] ? JOUEUR_NOIR : JOUEUR_BLANC;
 		printf("Gagnant : %s (%s)\n", partie->joueurs[gagnant].nom,
-				gagnant == JOUEUR_NOIR ? "noir" : "blanc");
+		       gagnant == JOUEUR_NOIR ? "noir" : "blanc");
 		printf("Score des noirs : %.1f\n", scores[JOUEUR_NOIR]);
 		printf("Score des blancs : %.1f\n", scores[JOUEUR_BLANC]);
 
-        choix = cli_choisir_option("Que souhaitez-vous faire ?", 0, 'r', "rejouer la partie",
-                                                                    's', "sauvegarger la partie",
-                                                                    'q', "quitter");
-        if( choix == 's')
-        {
-            char filename[4096];
-            cli_demander_string("Sauvegarder la partie dans le fichier", filename, sizeof(filename));
-            if( ! sauvegarder_partie_fichier(filename, partie) )
-                perror("Erreur dans la sauvegarde de la partie");
-        }
-        else if(choix =='r')
-        {
-            reinitialisation_partie(partie);
-            partie->finie = false;
-            cli_afficher_plateau(partie->plateau);
-        }
-    } while( choix != 'q');
+		choix = cli_choisir_option("Que souhaitez-vous faire ?", 0, 'r', "rejouer la partie",
+		                           's', "sauvegarger la partie",
+		                           'q', "quitter");
+		if (choix == 's') {
+			char filename[4096];
+			cli_demander_string("Sauvegarder la partie dans le fichier", filename, sizeof(filename));
+			if (! sauvegarder_partie_fichier(filename, partie))
+				perror("Erreur dans la sauvegarde de la partie");
+		} else if (choix == 'r') {
+			reinitialisation_partie(partie);
+			partie->finie = false;
+			cli_afficher_plateau(partie->plateau);
+		}
+	} while (choix != 'q');
 
 
 }

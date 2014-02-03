@@ -101,9 +101,9 @@ static void mise_a_jour_jouer(struct state* state, double dt)
 
 			char buffer[256] = {0};
 			snprintf(buffer, sizeof(buffer), "Gagnant : %s (%s) %.1f - %.1f",
-					partie->joueurs[gagnant].nom,
-					gagnant == JOUEUR_NOIR ? "noir" : "blanc",
-					scores[JOUEUR_NOIR], scores[JOUEUR_BLANC]);
+			         partie->joueurs[gagnant].nom,
+			         gagnant == JOUEUR_NOIR ? "noir" : "blanc",
+			         scores[JOUEUR_NOIR], scores[JOUEUR_BLANC]);
 			set_color(200, 200, 200);
 			jouer->score = creer_label(buffer, W / 2, H * .95, CENTER_XY, NORMAL);
 		}

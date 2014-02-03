@@ -74,8 +74,8 @@ Ordinateur charger_ordinateur(const char* filename)
 	ordi->ordidata = ordidata;
 	ordi->debut_partie = debut_partie;
 	ordi->notification_coup = notification_coup;
-    ordi->file = (char *)malloc(strlen(filename) + 1);
-    strcpy(ordi->file, filename);
+	ordi->file = (char *)malloc(strlen(filename) + 1);
+	strcpy(ordi->file, filename);
 	return ordi;
 }
 
@@ -101,7 +101,7 @@ void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur co
 void decharger_ordinateur(Ordinateur ordi)
 {
 	DLCLOSE(ordi->dlptr);
-    free(ordi->file);
+	free(ordi->file);
 	gosh_free(ordi);
 }
 

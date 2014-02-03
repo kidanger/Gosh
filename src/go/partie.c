@@ -179,7 +179,7 @@ void partie_jouer_ordinateur(Partie partie)
 
 bool partie_en_cours_de_handicap(Partie partie)
 {
-	return gosh_nombre_elements(partie->plateaux_joues)/2 < partie->handicap - 1;
+	return gosh_nombre_elements(partie->plateaux_joues) / 2 < partie->handicap - 1;
 }
 
 bool partie_annuler_coup(Partie partie)
@@ -196,7 +196,7 @@ bool partie_annuler_coup(Partie partie)
 	if (partie_en_cours_de_handicap(partie) && partie->joueur_courant == JOUEUR_BLANC) {
 		partie_annuler_coup(partie);
 	} else if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
-			partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
+	           partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
 		// si le nouveau joueur est un ordinateur, on annule son coup
 		partie_annuler_coup(partie);
 	}
@@ -217,7 +217,7 @@ bool partie_rejouer_coup(Partie partie)
 	if (partie_en_cours_de_handicap(partie) && partie->joueur_courant == JOUEUR_BLANC) {
 		partie_rejouer_coup(partie);
 	} else if (partie->joueurs[partie->joueur_courant].type == ORDINATEUR &&
-			partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
+	           partie->joueurs[JOUEUR_SUIVANT(partie->joueur_courant)].type == HUMAIN) {
 		// si le nouveau joueur est un ordinateur, on rejoue son coup
 		partie_rejouer_coup(partie);
 	}
@@ -226,8 +226,8 @@ bool partie_rejouer_coup(Partie partie)
 
 void reinitialisation_partie(Partie partie)
 {
-    while( partie_annuler_coup(partie) );
-    partie->finie = false;
+	while (partie_annuler_coup(partie));
+	partie->finie = false;
 }
 
 void partie_score_joueurs(Partie partie, float* scores, float valKomi)

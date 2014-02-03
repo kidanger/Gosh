@@ -58,10 +58,10 @@ char cli_choisir_option2(const char *prompt, char defaut, const Option * options
 		size_t i = 0;
 		while (options[i].code) {
 			printf(" - %s%c%s : %s\n",
-					options[i].code == defaut ? C_YELLOW : C_NORMAL,
-					options[i].code,
-					C_GREY,
-					options[i].phrase);
+			       options[i].code == defaut ? C_YELLOW : C_NORMAL,
+			       options[i].code,
+			       C_GREY,
+			       options[i].phrase);
 			++i;
 		}
 		printf("> ");

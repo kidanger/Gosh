@@ -81,7 +81,7 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 	do {
 		const char* str = "Type d'ordinateur";
 		char rep = cli_choisir_option(str, 'g', 'a', "Aléatoire",
-				'g', "GNU Go", 'r', "retour", 0);
+		                              'g', "GNU Go", 'r', "retour", 0);
 		if (rep == 'a') {
 			ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
 		} else if (rep == 'g') {

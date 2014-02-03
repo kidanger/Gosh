@@ -27,19 +27,16 @@ void afficher_menu_principal(void)
 				cli_jouer_partie(p);
 			}
 		}
-        if (choix == 'l')
-        {
-            char buffer[4096];
-            cli_demander_string("fichier de sauvegarde", buffer, sizeof(buffer));
-            Partie p = charger_partie_fichier(buffer);
-            if(p)
-            {
-                cli_afficher_plateau(p->plateau);
-                cli_jouer_partie(p);
-            }
-            else
-                fprintf(stderr, "Impossible d'ouvrir le fichier '%s'\n", buffer);
-        }
+		if (choix == 'l') {
+			char buffer[4096];
+			cli_demander_string("fichier de sauvegarde", buffer, sizeof(buffer));
+			Partie p = charger_partie_fichier(buffer);
+			if (p) {
+				cli_afficher_plateau(p->plateau);
+				cli_jouer_partie(p);
+			} else
+				fprintf(stderr, "Impossible d'ouvrir le fichier '%s'\n", buffer);
+		}
 		if (choix == 'c')
 			puts("==========Credit===========\n"
 			     "Programme réalisé par Anger Jérémy et Migdal Denis (2013-2014)"
