@@ -60,7 +60,11 @@
 #define GROUPE_PROGRAMME_J2 3
 #define GROUPE_TAILLE 4
 
+#ifndef EMSCRIPTEN
 #define NUM_BOUTONS 3
+#else // en enlève le bouton charger
+#define NUM_BOUTONS 2
+#endif
 #define NUM_LABELS 8
 #define NUM_GROUPES 5
 #define NUM_TEXTINPUTS 3
@@ -113,11 +117,13 @@ struct state* creer_menu()
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
 
+#ifndef EMSCRIPTEN
 	set_color(50, 50, 200);
 	bouton = creer_bouton("Charger", W * .7, H * .9, 100, 30);
 	bouton->callback = menu_bouton_charger;
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
+#endif
 
 	set_color(255, 255, 255);
 
@@ -153,9 +159,14 @@ struct state* creer_menu()
 	menu->labels[id_label]->visible = false;
 	x += menu->labels[id_label]->w + 50;
 	id_label++;
+#ifndef EMSCRIPTEN
 	struct groupe_radio* groupe_programme_j1 = creer_groupe_radio(2);
 	groupe_radio_ajouter(groupe_programme_j1, "GNU Go", x, y);
 	groupe_radio_ajouter(groupe_programme_j1, "Aléatoire", x + 100, y);
+#else
+	struct groupe_radio* groupe_programme_j1 = creer_groupe_radio(1);
+	groupe_radio_ajouter(groupe_programme_j1, "Aléatoire", x + 100, y);
+#endif
 	groupe_programme_j1->visible = false;
 	menu->groupes[id_groupe++] = groupe_programme_j1;
 
@@ -190,9 +201,14 @@ struct state* creer_menu()
 	menu->labels[id_label]->visible = false;
 	x += menu->labels[id_label]->w + 50;
 	id_label++;
+#ifndef EMSCRIPTEN
 	struct groupe_radio* groupe_programme_j2 = creer_groupe_radio(2);
 	groupe_radio_ajouter(groupe_programme_j2, "GNU Go", x, y);
 	groupe_radio_ajouter(groupe_programme_j2, "Aléatoire", x + 100, y);
+#else
+	struct groupe_radio* groupe_programme_j2 = creer_groupe_radio(1);
+	groupe_radio_ajouter(groupe_programme_j2, "Aléatoire", x + 100, y);
+#endif
 	groupe_programme_j2->visible = false;
 	menu->groupes[id_groupe++] = groupe_programme_j2;
 

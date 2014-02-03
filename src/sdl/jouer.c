@@ -49,7 +49,7 @@ struct jouerdata {
 
 static void afficher_jouer(struct state*, SDL_Surface*);
 static void mise_a_jour_jouer(struct state*, double);
-static void mousemotion_jouer(struct state*, SDL_Event);
+static void event_jouer(struct state*, SDL_Event);
 static void jouer_bouton_retour(struct bouton*, void * data);
 static void jouer_bouton_passer(struct bouton*, void * data);
 static void jouer_bouton_sauvegarder(struct bouton*, void * data);
@@ -64,10 +64,10 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	jouer->taille = plateau_get_taille(partie->plateau);
 	state->data = jouer;
 	state->mise_a_jour = mise_a_jour_jouer;
-	state->mousemotion = mousemotion_jouer;
-	state->mousebuttondown = mousemotion_jouer;
-	state->mousebuttonup = mousemotion_jouer;
-	state->keydown = mousemotion_jouer;
+	state->mousemotion = event_jouer;
+	state->mousebuttondown = event_jouer;
+	state->mousebuttonup = event_jouer;
+	state->keydown = event_jouer;
 
 	char buf[TAILLE_NOM_JOUEUR + 64];
 
@@ -307,7 +307,12 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	afficher_bouton(surface, jouer->sauvegarder);
 }
 
-static void mousemotion_jouer(struct state* state, SDL_Event event)
+static void afficher_sauvegarder(struct jouerdata* jouer)
+{
+	jouer->sauvegarder->visible = jouer->nom_partie->buffer[0] != 0;
+}
+
+static void event_jouer(struct state* state, SDL_Event event)
 {
 	struct jouerdata* jouer = state->data;
 	utiliser_event_bouton(jouer->retour_menu, event);
@@ -315,7 +320,7 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 	utiliser_event_bouton(jouer->sauvegarder, event);
 	utiliser_event_textinput(jouer->nom_partie, event);
 	if (jouer->nom_partie->active) {
-		jouer->sauvegarder->visible = jouer->nom_partie->buffer[0] != 0;
+		afficher_sauvegarder(jouer);
 		return; // ne pas interférer entre la saisie et les raccourcis claviers
 	}
 	if (event.type == SDL_MOUSEMOTION) {
@@ -327,31 +332,31 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 			if (position_est_valide(pos)) {
 				s_Coup coup = {pos};
 				partie_jouer_coup(jouer->partie, coup);
-				jouer->sauvegarder->visible = true;
+				afficher_sauvegarder(jouer);
 			}
 		} else if (b == 2) {
 			s_Coup coup;
 			coup.position = POSITION_INVALIDE;
 			partie_jouer_coup(jouer->partie, coup);
-			jouer->sauvegarder->visible = true;
+			afficher_sauvegarder(jouer);
 		} else if (b == 4) {
 			partie_annuler_coup(jouer->partie);
-			jouer->sauvegarder->visible = true;
+			afficher_sauvegarder(jouer);
 		} else if (b == 5) {
 			partie_rejouer_coup(jouer->partie);
-			jouer->sauvegarder->visible = true;
+			afficher_sauvegarder(jouer);
 		}
 	} else if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == SDLK_p) {
 			s_Coup coup = {POSITION_INVALIDE};
 			partie_jouer_coup(jouer->partie, coup);
-			jouer->sauvegarder->visible = true;
+			afficher_sauvegarder(jouer);
 		} else if (event.key.keysym.sym == SDLK_a) {
 			partie_annuler_coup(jouer->partie);
-			jouer->sauvegarder->visible = true;
+			afficher_sauvegarder(jouer);
 		} else if (event.key.keysym.sym == SDLK_r) {
 			partie_rejouer_coup(jouer->partie);
-			jouer->sauvegarder->visible = true;
+			afficher_sauvegarder(jouer);
 		}
 	}
 }
@@ -381,7 +386,10 @@ static void jouer_bouton_sauvegarder(struct bouton* bouton, void * data)
 	(void) bouton;
 	struct state* state = data;
 	struct jouerdata* jouer = state->data;
-	sauvegarder_partie_fichier(jouer->nom_partie->buffer, jouer->partie);
-	jouer->sauvegarder->visible = false;
+	if (sauvegarder_partie_fichier(jouer->nom_partie->buffer, jouer->partie)) {
+		jouer->sauvegarder->visible = false;
+	} else {
+		perror("sauvegarder");
+	}
 }
 

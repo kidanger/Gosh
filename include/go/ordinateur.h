@@ -19,13 +19,13 @@
 #include "go/partie.h"
 
 #define JOUER_COUP_STR "jouer_coup_ordi"
-#define JOUER_COUP jouer_coup_ordi
+#define JOUER_COUP __attribute__((used)) jouer_coup_ordi
 #define INITIALISER_STR "initialiser_ordi"
-#define INITIALISER initialiser_ordi
+#define INITIALISER __attribute__((used)) initialiser_ordi
 #define DEBUT_PARTIE_STR "debut_partie_ordi"
-#define DEBUT_PARTIE debut_partie_ordi
+#define DEBUT_PARTIE __attribute__((used)) debut_partie_ordi
 #define NOTIFICATION_COUP_STR "notification_coup_ordi"
-#define NOTIFICATION_COUP notification_coup_ordi
+#define NOTIFICATION_COUP __attribute__((used)) notification_coup_ordi
 
 typedef void(*JouerFunc)(void*, Partie, enum CouleurJoueur);
 typedef void(*DebutPartieFunc)(void*, Partie);
