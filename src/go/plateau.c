@@ -214,7 +214,6 @@ Chaines plateau_capture_chaines(Plateau plateau, s_Pion pion, bool* valide)
 
 	// il y a déjà une case
 	if (plateau_get_at(plateau, pion.position) != VIDE) {
-		gosh_debug("déjà une case");
 		return NULL;
 	}
 

@@ -55,12 +55,12 @@ void afficher_textinput(SDL_Surface* on, struct textinput* ti)
 	draw_rect(on, ti->x + border, ti->y + border, ti->w - border * 2, ti->h - border * 2);
 
 	if (ti->active) {
-		float freq = .4; // clignotements par seconde
+		float freq = 2.0; // clignotements par seconde
 		bool blink = (int)(ti->time * 1000) / (int)(1000 / freq) % 2;
 		if (blink) {
 			set_color(20, 20, 20);
 			int border = 2;
-			int pitch = ti->curseur > 0 ? ti->surface->w / strlen(ti->buffer) + 1 : 0;
+			float pitch = ti->curseur > 0 ? (float)ti->surface->w / strlen(ti->buffer) : 0;
 			draw_rect(on, ti->x + border + ti->curseur * pitch, ti->y + border, 20 / 4, ti->h - border * 2);
 		}
 	}

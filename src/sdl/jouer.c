@@ -22,10 +22,12 @@
 #include "go/partie.h"
 #include "go/plateau.h"
 #include "go/libertes.h"
+#include "go/sauvegarde.h"
 #include "sdl/state.h"
 #include "sdl/main.h"
 #include "sdl/label.h"
 #include "sdl/bouton.h"
+#include "sdl/textinput.h"
 #include "sdl/tools.h"
 #include "sdl/jouer.h"
 
@@ -40,6 +42,8 @@ struct jouerdata {
 	struct label* score;
 	struct bouton* passer_son_tour;
 	struct bouton* retour_menu;
+	struct textinput* nom_partie;
+	struct bouton* sauvegarder;
 	Position hovered;
 };
 
@@ -48,6 +52,7 @@ static void mise_a_jour_jouer(struct state*, double);
 static void mousemotion_jouer(struct state*, SDL_Event);
 static void jouer_bouton_retour(struct bouton*, void * data);
 static void jouer_bouton_passer(struct bouton*, void * data);
+static void jouer_bouton_sauvegarder(struct bouton*, void * data);
 
 struct state* creer_jouer(struct state* parent, Partie partie)
 {
@@ -75,7 +80,7 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	jouer->partie_finie = creer_label("Partie terminée !", W / 2, H * .1, CENTER_XY, BIG);
 
 	set_color(155, 50, 50);
-	struct bouton* bouton = creer_bouton("Retour menu", W * .07, H * .91, 140, 30);
+	struct bouton* bouton = creer_bouton("Retour menu", 10, H * .81, 140, 30);
 	bouton->callback = jouer_bouton_retour;
 	bouton->userdata = state;
 	jouer->retour_menu = bouton;
@@ -85,6 +90,16 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	bouton->callback = jouer_bouton_passer;
 	bouton->userdata = state;
 	jouer->passer_son_tour = bouton;
+
+	set_color(255, 255, 255);
+	bouton = creer_bouton("Sauvegarder", W * .75, H * .93, 150, 30);
+	bouton->callback = jouer_bouton_sauvegarder;
+	bouton->userdata = state;
+	bouton->visible = false;
+	jouer->sauvegarder = bouton;
+
+	set_color(150, 150, 150);
+	jouer->nom_partie = creer_textinput(W * 0.5, H * .94, 180, 20, 16);
 
 	jouer->hovered = POSITION_INVALIDE;
 
@@ -101,6 +116,8 @@ void detruire_jouer(struct state* state)
 	if (jouer->score)
 		detruire_label(jouer->score);
 	detruire_bouton(jouer->retour_menu);
+	detruire_textinput(jouer->nom_partie);
+	detruire_bouton(jouer->sauvegarder);
 
 	gosh_free(jouer);
 	gosh_free(state);
@@ -128,7 +145,7 @@ static void mise_a_jour_jouer(struct state* state, double dt)
 			         gagnant == JOUEUR_NOIR ? "noir" : "blanc",
 			         scores[JOUEUR_NOIR], scores[JOUEUR_BLANC]);
 			set_color(200, 200, 200);
-			jouer->score = creer_label(buffer, W / 2, H * .95, CENTER_XY, NORMAL);
+			jouer->score = creer_label(buffer, W * .3, H * .95, CENTER_XY, NORMAL);
 
 			set_color(100, 200, 100);
 			jouer->retour_menu->couleur = get_color();
@@ -147,6 +164,8 @@ static void mise_a_jour_jouer(struct state* state, double dt)
 
 	mise_a_jour_bouton(jouer->passer_son_tour, dt);
 	mise_a_jour_bouton(jouer->retour_menu, dt);
+	mise_a_jour_bouton(jouer->sauvegarder, dt);
+	mise_a_jour_textinput(jouer->nom_partie, dt);
 }
 
 Position get_position_depuis_ecran(struct jouerdata* jouer, int x, int y)
@@ -284,6 +303,8 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 	}
 	afficher_bouton(surface, jouer->retour_menu);
 	afficher_bouton(surface, jouer->passer_son_tour);
+	afficher_textinput(surface, jouer->nom_partie);
+	afficher_bouton(surface, jouer->sauvegarder);
 }
 
 static void mousemotion_jouer(struct state* state, SDL_Event event)
@@ -291,6 +312,12 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 	struct jouerdata* jouer = state->data;
 	utiliser_event_bouton(jouer->retour_menu, event);
 	utiliser_event_bouton(jouer->passer_son_tour, event);
+	utiliser_event_bouton(jouer->sauvegarder, event);
+	utiliser_event_textinput(jouer->nom_partie, event);
+	if (jouer->nom_partie->active) {
+		jouer->sauvegarder->visible = jouer->nom_partie->buffer[0] != 0;
+		return; // ne pas interférer entre la saisie et les raccourcis claviers
+	}
 	if (event.type == SDL_MOUSEMOTION) {
 		jouer->hovered = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
 	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
@@ -300,24 +327,31 @@ static void mousemotion_jouer(struct state* state, SDL_Event event)
 			if (position_est_valide(pos)) {
 				s_Coup coup = {pos};
 				partie_jouer_coup(jouer->partie, coup);
+				jouer->sauvegarder->visible = true;
 			}
 		} else if (b == 2) {
 			s_Coup coup;
 			coup.position = POSITION_INVALIDE;
 			partie_jouer_coup(jouer->partie, coup);
+			jouer->sauvegarder->visible = true;
 		} else if (b == 4) {
 			partie_annuler_coup(jouer->partie);
+			jouer->sauvegarder->visible = true;
 		} else if (b == 5) {
 			partie_rejouer_coup(jouer->partie);
+			jouer->sauvegarder->visible = true;
 		}
 	} else if (event.type == SDL_KEYDOWN) {
 		if (event.key.keysym.sym == SDLK_p) {
 			s_Coup coup = {POSITION_INVALIDE};
 			partie_jouer_coup(jouer->partie, coup);
+			jouer->sauvegarder->visible = true;
 		} else if (event.key.keysym.sym == SDLK_a) {
 			partie_annuler_coup(jouer->partie);
+			jouer->sauvegarder->visible = true;
 		} else if (event.key.keysym.sym == SDLK_r) {
 			partie_rejouer_coup(jouer->partie);
+			jouer->sauvegarder->visible = true;
 		}
 	}
 }
@@ -340,5 +374,14 @@ static void jouer_bouton_passer(struct bouton* bouton, void * data)
 	s_Coup coup;
 	coup.position = POSITION_INVALIDE;
 	partie_jouer_coup(jouer->partie, coup);
+}
+
+static void jouer_bouton_sauvegarder(struct bouton* bouton, void * data)
+{
+	(void) bouton;
+	struct state* state = data;
+	struct jouerdata* jouer = state->data;
+	sauvegarder_partie_fichier(jouer->nom_partie->buffer, jouer->partie);
+	jouer->sauvegarder->visible = false;
 }
 
