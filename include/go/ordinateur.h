@@ -22,20 +22,20 @@
 #define JOUER_COUP __attribute__((used)) jouer_coup_ordi
 #define INITIALISER_STR "initialiser_ordi"
 #define INITIALISER __attribute__((used)) initialiser_ordi
-#define DEBUT_PARTIE_STR "debut_partie_ordi"
-#define DEBUT_PARTIE __attribute__((used)) debut_partie_ordi
+#define REMPLACER_PLATEAU_STR "remplacer_plateau_ordi"
+#define REMPLACER_PLATEAU __attribute__((used)) remplacer_plateau_ordi
 #define NOTIFICATION_COUP_STR "notification_coup_ordi"
 #define NOTIFICATION_COUP __attribute__((used)) notification_coup_ordi
 
 typedef void(*JouerFunc)(void*, Partie, enum CouleurJoueur);
-typedef void(*DebutPartieFunc)(void*, Partie);
+typedef void(*RemplacerPlateauFunc)(void*, Plateau);
 typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 
 struct s_Ordinateur {
 	char * file;
 	void* dlptr;
 	JouerFunc jouer;
-	DebutPartieFunc debut_partie;
+	RemplacerPlateauFunc remplacer_plateau;
 	NotificationCoupFunc notification_coup;
 	void* ordidata;
 };
@@ -46,7 +46,7 @@ Ordinateur charger_ordinateur(const char* filename);
 void decharger_ordinateur(Ordinateur ordi);
 
 void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur);
-void ordinateur_debut_partie(Ordinateur ordi, Partie partie);
+void ordinateur_remplacer_plateau(Ordinateur ordi, Plateau plateau);
 void ordinateur_notifier_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur, s_Coup coup);
 
 #endif

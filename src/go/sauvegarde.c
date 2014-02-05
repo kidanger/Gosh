@@ -61,14 +61,12 @@ bool sauvegarder_partie(Partie partie, FILE * file)
 	}
 
 	Plateau p;
-	fprintf(file, "%d\n",
-	        partie->plateaux_joues->nombre_elements(partie->plateaux_joues));
+	fprintf(file, "%d\n", gosh_nombre_elements(partie->plateaux_joues));
 	gosh_foreach(p, partie->plateaux_joues) {
 		sauvegarder_plateau(p, file);
 	}
 
-	fprintf(file, "%d\n",
-	        partie->plateaux_annules->nombre_elements(partie->plateaux_annules));
+	fprintf(file, "%d\n", gosh_nombre_elements(partie->plateaux_annules));
 	gosh_foreach(p, partie->plateaux_annules) {
 		sauvegarder_plateau(p, file);
 	}
@@ -123,27 +121,22 @@ Partie charger_partie(FILE * file)
 	number_buffer[strlen(number_buffer) - 1] = '\0';
 	number = atoi(number_buffer);
 
-	for (int i = 0; i < number; ++ i)
-		p->plateaux_joues->ajouter(p->plateaux_joues,
-		                           charger_plateau(file));
+	for (int i = 0; i < number; i++)
+		gosh_ajouter(p->plateaux_joues, charger_plateau(file));
 
 	fgets(number_buffer, sizeof(number_buffer) - 1, file);
 	number_buffer[strlen(number_buffer) - 1] = '\0';
 	number = atoi(number_buffer);
 
-	for (int i = 0; i < number; ++ i)
-		p->plateaux_annules->ajouter(p->plateaux_annules,
-		                             charger_plateau(file));
+	for (int i = 0; i < number; i++)
+		gosh_ajouter(p->plateaux_annules, charger_plateau(file));
 
 	if (! p->plateau) {
 		detruire_partie(p);
 		return NULL;
 	}
 
-	for (int i = 0; i < 2; ++i) {
-		if (p->joueurs[i].ordinateur)
-			ordinateur_debut_partie(p->joueurs[i].ordinateur, p);
-	}
+	partie_informer_ordinateur(p);
 
 	return p;
 }

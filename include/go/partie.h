@@ -64,10 +64,12 @@ void detruire_partie(Partie partie);
   * - taille du plateau parmi 9x9, 13x13 et 19x19 */
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, void* userdata);
 void reinitialisation_partie(Partie partie);
+void partie_jouer_ordinateur(Partie partie);
 
 enum CouleurJoueur partie_get_joueur(Partie partie);
 bool partie_jouer_coup(Partie partie, s_Coup coup);
-void partie_jouer_ordinateur(Partie partie);
+
+void partie_informer_ordinateur(Partie partie);
 
 bool partie_en_cours_de_handicap(Partie partie);
 

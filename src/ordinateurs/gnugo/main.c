@@ -99,15 +99,13 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 	const char* cmd = couleur == JOUEUR_BLANC ? "reg_genmove white" : "reg_genmove black";
 
 	s_Coup coup;
-	//do {
 	envoyer_commande(data, cmd);
 	coup = recuperer_coup(data, partie);
-	//} while (!partie_jouer_coup(partie, coup));
 	bool valide = partie_jouer_coup(partie, coup);
 	if (!valide) {
+		gosh_debug("coup invalide");
 		exit(1);
 	}
-	// sleep(1); // pour le debug
 }
 
 void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_Coup coup)
@@ -123,14 +121,28 @@ void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_C
 	}
 }
 
-void DEBUT_PARTIE(Data data, Partie partie)
+void REMPLACER_PLATEAU(Data data, Plateau plateau)
 {
+	int taille = plateau_get_taille(plateau);
 	char buf[64];
-	sprintf(buf, "boardsize %d", plateau_get_taille(partie->plateau));
+	sprintf(buf, "boardsize %d", taille);
 	envoyer_commande(data, buf);
 	ignorer_sortie(data);
 	envoyer_commande(data, "level 1");
 	ignorer_sortie(data);
+
+	for (int y = 0; y < taille; y++) {
+		for (int x = 0; x < taille; x++) {
+			Couleur c = plateau_get(plateau, x, y);
+			if (c != VIDE) {
+				char cmd[64];
+				sprintf(cmd, "play %s %c%d", c == BLANC ? "white" : "black",
+						GOSH_TO_GNUGNO[x], y + 1);
+				envoyer_commande(data, cmd);
+				ignorer_sortie(data);
+			}
+		}
+	}
 }
 
 void* INITIALISER()

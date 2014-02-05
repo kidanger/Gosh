@@ -64,7 +64,7 @@ bool question_coherante(enum Question idQuestion, Partie partie)
 
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, void* userdata)
 {
-	enum Question idQuestion = PREMIERE_QUESTION;
+	int idQuestion = PREMIERE_QUESTION;
 
 	while (idQuestion < NOMBRE_QUESTIONS) {
 		if (question_coherante(idQuestion, partie) && ! fonctionQuestions(idQuestion, partie, userdata))
@@ -76,15 +76,28 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, v
 	if (idQuestion == NOMBRE_QUESTIONS) {
 		partie->initialisee = true;
 	}
+
+	partie->joueur_courant = JOUEUR_NOIR;
+	partie_informer_ordinateur(partie);
+}
+
+void reinitialisation_partie(Partie partie)
+{
+	while (partie_annuler_coup(partie));
+	partie->finie = false;
+
+	partie_informer_ordinateur(partie);
+}
+
+void partie_informer_ordinateur(Partie partie)
+{
 	// envoi des informations aux ordinateurs
 	for (int j = 0; j < 2; j++) {
 		struct s_Joueur joueur = partie->joueurs[j];
 		if (joueur.type == ORDINATEUR) {
-			ordinateur_debut_partie(joueur.ordinateur, partie);
+			ordinateur_remplacer_plateau(joueur.ordinateur, partie->plateau);
 		}
 	}
-
-	partie->joueur_courant = JOUEUR_NOIR;
 }
 
 enum CouleurJoueur partie_get_joueur(Partie partie)
@@ -222,12 +235,6 @@ bool partie_rejouer_coup(Partie partie)
 		partie_rejouer_coup(partie);
 	}
 	return true;
-}
-
-void reinitialisation_partie(Partie partie)
-{
-	while (partie_annuler_coup(partie));
-	partie->finie = false;
 }
 
 void partie_score_joueurs(Partie partie, float* scores, float valKomi)

@@ -65,24 +65,24 @@ Ordinateur charger_ordinateur(const char* filename)
 		return NULL;
 	}
 
-	DebutPartieFunc debut_partie = recuperer_fonction(dlptr, DEBUT_PARTIE_STR, false);
+	RemplacerPlateauFunc remplacer_plateau = recuperer_fonction(dlptr, REMPLACER_PLATEAU_STR, false);
 	NotificationCoupFunc notification_coup = recuperer_fonction(dlptr, NOTIFICATION_COUP_STR, false);
 
 	Ordinateur ordi = gosh_alloc(*ordi);
 	ordi->dlptr = dlptr;
 	ordi->jouer = jouer;
 	ordi->ordidata = ordidata;
-	ordi->debut_partie = debut_partie;
+	ordi->remplacer_plateau = remplacer_plateau;
 	ordi->notification_coup = notification_coup;
 	ordi->file = (char *)malloc(strlen(filename) + 1);
 	strcpy(ordi->file, filename);
 	return ordi;
 }
 
-void ordinateur_debut_partie(Ordinateur ordi, Partie partie)
+void ordinateur_remplacer_plateau(Ordinateur ordi, Plateau plateau)
 {
-	if (ordi->debut_partie) {
-		ordi->debut_partie(ordi->ordidata, partie);
+	if (ordi->remplacer_plateau) {
+		ordi->remplacer_plateau(ordi->ordidata, plateau);
 	}
 }
 
