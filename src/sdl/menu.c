@@ -60,11 +60,7 @@
 #define GROUPE_PROGRAMME_J2 3
 #define GROUPE_TAILLE 4
 
-#ifndef EMSCRIPTEN
 #define NUM_BOUTONS 3
-#else // en enlève le bouton charger
-#define NUM_BOUTONS 2
-#endif
 #define NUM_LABELS 8
 #define NUM_GROUPES 5
 #define NUM_TEXTINPUTS 3
@@ -117,13 +113,11 @@ struct state* creer_menu()
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
 
-#ifndef EMSCRIPTEN
 	set_color(50, 50, 200);
 	bouton = creer_bouton("Charger", W * .7, H * .9, 100, 30);
 	bouton->callback = menu_bouton_charger;
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
-#endif
 
 	set_color(255, 255, 255);
 
