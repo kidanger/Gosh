@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file unittest.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup test
+ *  @brief Teste les fonctionnalités de gosh
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -26,6 +35,11 @@
 #include "go/territoire.h"
 #include "cli/affichage.h"
 
+/** @ingroup test
+ *  @brief Affiche le plateau en mode "debug"
+ *  @param plateau à afficher.
+ *  @todo le rajouter en tant que fonctionnalité de cli?
+ */
 void afficher_plateau(Plateau plateau)
 {
 	int taille = plateau_get_taille(plateau);
@@ -73,6 +87,10 @@ void afficher_plateau(Plateau plateau)
 		detruire_territoire(territoire);
 }
 
+
+/** @ingroup test
+ *  @brief Teste les opérations d'accès aux cases du tableau
+ */
 void test_get_set(void)
 {
 	Plateau p = creer_plateau(9);
@@ -96,6 +114,10 @@ void test_get_set(void)
 	detruire_plateau(p);
 }
 
+/** @ingroup test
+ *  @brief Teste les positions
+ *
+ */
 void test_position(void)
 {
 	assert(position_est_valide(position(0, 0, 19)));
@@ -127,6 +149,10 @@ void test_position(void)
 #undef TEST
 }
 
+/** @ingroup test
+ *  @brief Teste les ensemble de positions
+ *
+ */
 void test_ensemble_position(void)
 {
 #define NUM 100
@@ -151,6 +177,10 @@ void test_ensemble_position(void)
 	detruire_ensemble_position(ensemble);
 }
 
+/** @ingroup test
+ *  @brief Teste les plateaux
+ *
+ */
 void test_plateau(void)
 {
 	int taille = 19;
@@ -169,6 +199,11 @@ void test_plateau(void)
 	detruire_plateau(plateau);
 }
 
+
+/** @ingroup test
+ *  @brief Teste le bon fonctionnement des chaines.
+ *
+ */
 void test_chaines(void)
 {
 	Chaines ch = creer_chaines();
@@ -181,6 +216,11 @@ void test_chaines(void)
 	detruire_chaines(ch); // à tester sur valgrind
 }
 
+
+/** @ingroup test
+ *  @brief Teste le bon fonctionnement de partie_jouer_coup().
+ *
+ */
 void test_coup(void)
 {
 	Partie partie = creer_partie();

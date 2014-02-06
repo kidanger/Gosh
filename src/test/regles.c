@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file regles.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup test
+ *  @brief Teste la validité des règles de gosh.
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -24,6 +33,7 @@
 #include "cli/deroulement_partie.h"
 #include "cli/affichage.h"
 
+
 bool handle_passer(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -32,6 +42,8 @@ bool handle_passer(Partie partie, FILE* file, const char* arguments)
 	coup.position = POSITION_INVALIDE;
 	return partie_jouer_coup(partie, coup);
 }
+
+
 bool handle_afficher(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -140,6 +152,11 @@ bool test_reponses_aux_questions(enum Question question, Partie partie, void* us
 	}
 }
 
+/** @ingroup test
+ *  @brief Teste un fichier
+ *  @param fichier à tester
+ *  @return Retourne vrai si le teste à réussi, faux sinon.
+ */
 bool tester(const char* filename)
 {
 	struct {
