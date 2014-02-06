@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file deroulement_partie.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ *  @brief Implémente les fonctions utiles au déroulement d'une partie.
+ */
+
 #include <stdio.h>
 #include <string.h>
 

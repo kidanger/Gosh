@@ -16,10 +16,25 @@
 #ifndef GOSH_CLI_CONFIGURER_PARTIE
 #define GOSH_CLI_CONFIGURER_PARTIE
 
+/** @file configurer_partie.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ *  @brief Déclare les fonctions permettant la configuration d'une partie.
+ */
+
 #include "go/partie.h"
 
 //#define CONFIGURER_PARTIE_AUTOMATIQUEMENT // pour passer l'étape de configuration;
 
+
+/** @ingroup cli
+ *  @brief Configure une partie
+ *
+ *  Demande à l'utilisateur de renseigner quelques données pour configurer la partie.
+ *  @return Partie ainsi créée
+ */
 Partie cli_creer_nouvelle_partie(void);
 
 

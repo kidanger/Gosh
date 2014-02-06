@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file saisie.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ *  @brief Implémente les fonctions utiles à la demande de saisie
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -28,16 +37,31 @@
 #include "cli/saisie.h"
 #include "cli/affichage.h"
 
+
+/** @ingroup cli
+ *  @brief affiche le début du prompt
+ *
+ */
 static void debut_prompt(void)
 {
 	printf(C_GREY);
 	fflush(stdout);
 }
+/** @ingroup cli
+ *  @brief Prépare la console au début de la saisie de l'utilisateur
+ *
+ *  Vide l'entrée standard
+ *
+ */
 static void debut_saisie(void)
 {
 	printf(C_GREEN);
 	fflush(stdout);
 }
+/** @ingroup cli
+ *  @brief affiche la fin du prompt
+ *
+ */
 static void fin(void)
 {
 	printf(C_NORMAL);

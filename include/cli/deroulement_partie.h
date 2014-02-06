@@ -16,10 +16,33 @@
 #ifndef GOSH_CLI_DEROULEMENT_PARTIE
 #define GOSH_CLI_DEROULEMENT_PARTIE
 
+/** @file deroulement_partie.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ *  @brief Déclare les fonctions utiles au déroulement d'une partie.
+ */
+
 #include "go/partie.h"
 
+
+/** @ingroup cli
+ *  @brief Convertit la réponse de l'utilisateur en un coup.
+ *  @param Partie en cours
+ *  @param Coup entré par le joueur
+ *  @param Mis à false si le coup est invalide
+ *  @return Le coup joué par le joueur.
+ */
 s_Coup cli_convertir_coup(const Partie partie, const char* str, bool* valide);
 
+
+/** @ingroup cli
+ *  @brief Joue une partie
+ *
+ *  @warning Cette fonction ne retourne pas avant la fin de la partie
+ *  @param Partie à jouer.
+ */
 void cli_jouer_partie(Partie partie);
 
 #endif
