@@ -21,8 +21,8 @@
  *  @ingroup outils
  *  @brief Défini un ensemble contenant des objets de type TYPE.
  *
+ *  Un ensemble est un container implémenté sous forme de liste.
  *  Pour utiliser cet header, vous devez définir TYPE et TYPE_LOWER (nom du type en minuscule).
- *  Vous obtiendrez alors un ensemble nommé CONTAINER_NAME (EnsembleTYPE)
  */
 
 #include <stdbool.h>
@@ -39,7 +39,7 @@
 
 /** @def CONTAINER_NAME
  *  @ingroup outils
- *  @brief Type du container défini
+ *  @brief Type du container
  */
 #define CONTAINER_NAME CONCAT_2(Ensemble, TYPE)
 
@@ -76,18 +76,19 @@
 #define SCN CONCAT_2(s_, CONTAINER_NAME)
 
 
-/** @brief Données de l'ensemble
+/** @ingroup outils
+ *  @brief Données de l'ensemble
  *  @note Vous n'avez pas d'accès direct à ces données.
  */
 struct IMPL_CONTAINER_NAME;
 
 
-/** @brief Structure donnant les fonctionnalités offerte par l'ensemble. */
+/** @ingroup outils
+ *  @brief Structure donnant les fonctionnalités offerte par l'ensemble.
+ *  @note Utilisez les macro définies dans gosh_macros.h pour manipuler l'ensemble.
+ */
 struct SCN {
-    /** @brief Permet d'incrémenter l'itérateur passé en paramètre.
-     *
-     *  Retourne un pointeur sur l'élément pointé par le nouvel itérateur ou NULL s'il n'y a pas d'élément.
-     */
+    /** @brief Permet d'incrémenter l'itérateur passé en paramètre. */
 	TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
     /** @brief Créé un itérateur sur le premier élément */
 	GoshIterateur(*createIterateur)(void);
@@ -109,60 +110,68 @@ struct SCN {
 
 };
 
-/** @brief Ensemble
+/** @ingroup outils
+ *  @brief Ensemble
  *
- *  Utilisez les fonctions fournie pour manipuler les données de l'ensemble.
- *  Vous n'avez pas d'accès direct aux éléments de cet ensemble.
+ *  Vous n'avez pas d'accès direct aux éléments de ce container.
+ *  Utilisez les macros contenues dans gosh_macros.h pour manipuler le container.
  */
 typedef SCN * CONTAINER_NAME;
 
 // déclaration des fonctions
 
-/** @brief Crée un ensemble.
+/** @ingroup outils
+ *  @brief Crée un ensemble.
  *  @return Ensembre ainsi créé.
  */
 CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
 
-/** @brief Detruit un ensemble
+/** @ingroup outils
+ *  @brief Detruit un ensemble
  *  @param ensemble à détruire.
  */
 void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ensemble);
 
-/** @brief Incrémente un itérateur
+/** @ingroup outils
+ *  @brief Incrémente un itérateur
  *  @param Itérateur à incrémenter
- *  @param Container vers lequel point l'itérateur
+ *  @param Ensemble vers lequel point l'itérateur
  *  @param si non NULL, copie le nouvel élément pointé par l'itérateur après son incrémentation.
  *  @return pointeur sur le nouvel élément pointé par l'itérateur après son incrémentation.
- *  Retourne NULL si l'itérateur est arrivé à la fin du container.
+ *  Retourne NULL si l'itérateur est arrivé à la fin de l'ensemble.
  */
 TYPE * FUNC_NAME(next)(GoshIterateur *, CONTAINER_NAME, TYPE *);
 
-/** @brief Crée un itérateur sur le premier élément du container.
+/** @ingroup outils
+ *  @brief Crée un itérateur sur le premier élément de l'ensemble.
  *  @return Itérateur ainsi crée */
 GoshIterateur FUNC_NAME(createIterateur)(void);
 
-/** @brief Indique si le container est vide ou non
- *  @param Container à tester
- *  @return true si le container est vide sinon retourne false.
+/** @ingroup outils
+ *  @brief Indique si l'ensemble est vide ou non
+ *  @param Ensemble à tester
+ *  @return vrai si l'ensemble est vide sinon retourne faux.
  */
 bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
 
 
-/** @brief Ajoute un élément u container.
- *  @param Container auquel ajouter l'élément.
+/** @ingroup outils
+ *  @brief Ajoute un élément à l'ensemble.
+ *  @param Ensemble auquel ajouter l'élément.
  *  @param Element à ajouter au container.
  */
 void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
 
 
-/** @brief Supprimer l'élément en tête du container.
- *  @param Container dont on va supprimer l'élément en tête.
+/** @brief Supprimer l'élément en tête de l'ensemble.
+ *  @param Ensemble dont on va supprimer l'élément en tête.
  *  @return valeur de l'élément supprimé.
  */
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
 
 
-/** @brief Indique si un élément appartient à l'ensemble ou non.
+/** @ingroup outils
+ *  @brief Indique si un élément appartient à l'ensemble ou non.
  *  @param Ensemble à tester
  *  @param Element à rechercher dans l'ensemble
  *  @return true si l'élément est trouvé dans le container sinon retourne false.
@@ -170,21 +179,19 @@ TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
 bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);
 
 
-/** @brief Retourne le nombre d'élément du container.
+/** @ingroup outils
+ *  @brief Retourne le nombre d'élément de l'ensemble.
  *  @param Container à tester
  *  @return Nombre d'éléments de l'ensemble.
  */
 int FUNC_NAME(nombre_elements)(CONTAINER_NAME ensemble);
 
 
-/** @brief Retourne un pointeur sur un élément de l'ensemble.
- *  @param Container auquel appartient l'élément
+/** @ingroup outils
+ *  @brief Retourne un pointeur sur un élément de l'ensemble.
+ *  @param Ensemble auquel appartient l'élément
  *  @param Numéro de l'élément à récupérer
+ *  @todo Retourner un TYPE * au lieu d'un TYPE ?
  *  @return Element voulu
  */
 TYPE FUNC_NAME(get)(CONTAINER_NAME ensemble, int n);
-
-/** @todo : ensemble -> container
-    @todo : get : retourner un TYPE * ?
-    @todo : conseiller l'utilisation des gosh_macro
-*/

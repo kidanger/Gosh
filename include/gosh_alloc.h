@@ -21,7 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup outils
- *  @brief Défini des fonctions d'allocations/libérations de la mémoire.
+ *  @brief Défini des fonctions d'allocation/libération de la mémoire.
  */
 
 #include <stdlib.h> // size_t
