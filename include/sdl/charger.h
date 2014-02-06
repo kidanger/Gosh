@@ -16,6 +16,15 @@
 #ifndef GOSH_SDL_CHARGER
 #define GOSH_SDL_CHARGER
 
+/** @file charger.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Permet de créer des chargeur de ressources ????
+ *
+ */
+
 struct state* creer_charger(struct state* parent);
 void detruire_charger(struct state*);
 

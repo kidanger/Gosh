@@ -16,12 +16,20 @@
 #ifndef GOSH_GO_ENSEMBLE_COLORE
 #define GOSH_GO_ENSEMBLE_COLORE
 
+/** @file ensemble_colore.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Déclare un ensemble de couleurs
+ */
+
 #include "ensemble_positions.h"
 #include "couleur.h"
 
 struct ImplEnsembleColore;
 
-typedef struct s_EnsembleColore {
+struct s_EnsembleColore {
 	TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
 	GoshIterateur(*createIterateur)(void);
 	bool (*vide)(struct s_EnsembleColore *);
@@ -31,7 +39,12 @@ typedef struct s_EnsembleColore {
 
 	struct ImplEnsembleColore * data;
 
-} * EnsembleColore;
+};
+
+/** @ingroup go
+ *  @brief Ensemble de couleurs
+ */
+typedef s_EnsembleColore * EnsembleColore;
 
 EnsembleColore creer_ensemble_colore();
 void detruire_ensemble_colore(EnsembleColore ensemble);

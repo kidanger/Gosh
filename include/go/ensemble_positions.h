@@ -16,6 +16,13 @@
 #ifndef GOSH_GO_ENSEMBLE_POSITIONS
 #define GOSH_GO_ENSEMBLE_POSITIONS
 
+/** @file ensemble_positions.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #include "position.h"
 
 #undef TYPE

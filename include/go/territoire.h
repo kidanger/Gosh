@@ -16,27 +16,63 @@
 #ifndef GOSH_GO_TERRITOIRE
 #define GOSH_GO_TERRITOIRE
 
+/** @file territoire.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #include "go/plateau_type.h"
 #include "go/ensemble_colore.h"
 #include "go/chaines.h"
 
+/** @ingroup go
+ *  @brief Défini le type Territoire
+ */
 typedef EnsembleColore Territoire;
 
-/** @brief retourne un ensemble d’intersections inoccupées voisines de proche
+/** @ingroup go
+ *  @brief retourne un ensemble d’intersections inoccupées voisines de proche
  * en proche délimitees par des pierres de même couleur en commencant par l’intersection
  * vide à la position pos.
- * Important : Si la case ne fait pas partie d’un territoire de même couleur,
+ *
+ * @warning Si la case ne fait pas partie d’un territoire de même couleur,
  * retourne quand même l’ensemble des intersections voisines mais en specifiant que
- * ce ”Territoire” n’a aucune couleur. Ce cas est exploité par la fonction estUnSeki */
+ * ce ”Territoire” n’a aucune couleur. Ce cas est exploité par la fonction estUnSeki
+ * @param Plateau courant
+ * @param position pos
+ * @return Territoire contenant la position pos
+ */
 Territoire determiner_territoire(Plateau plateau, Position pos);
 
-/** @brief détermine si un territoire forme un seki pour les chaines de
- * différentes couleurs concernées. */
+/** @ingroup go
+ *  @brief détermine si un territoire forme un seki pour les chaines de
+ *  différentes couleurs concernées.
+ *  @param territoire étudié
+ *  @param Chaînes entourrant le territoire
+ *  @param Plateau courrant
+ *  @return Vrai si le territoire est un seki
+ */
 bool estUnSeki(Territoire leTerritoire, Chaines lesChaines, Plateau plateau);
 
+
+/** @ingroup go
+ *  @brief Indique si une position appartient à un territoire
+ *  @param Territoire à tester
+ *  @param position à tester
+ *  @return vrai si la position appartient au territoire
+ */
 bool territoire_appartient(Territoire territoire, Position position);
 
+/** @def creer_territoire
+ *  @brief Crée un territoire
+ */
 #define creer_territoire creer_ensemble_colore
+
+/** @ef detruire_territoire
+ *  @brief Détruit un territoire
+ */
 #define detruire_territoire detruire_ensemble_colore
 
 #endif

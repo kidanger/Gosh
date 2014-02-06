@@ -15,6 +15,13 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "go/plateau.h"
 
+/** @file ensemble_plateaux.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #undef TYPE
 #undef TYPE_LOWER
 #define TYPE Plateau

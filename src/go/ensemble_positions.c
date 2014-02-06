@@ -15,6 +15,13 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include "go/position.h"
 
+/** @file ensemble_positions.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #define TYPE Position
 #define TYPE_LOWER position
 #include "gosh_ensemble.c"

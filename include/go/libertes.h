@@ -16,17 +16,40 @@
 #ifndef GOSH_GO_LIBERTES
 #define GOSH_GO_LIBERTES
 
+/** @file libertes.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Déclare les fonctions relatives aux libertés
+ */
+
 #include "go/plateau.h"
 #include "go/chaine.h"
 #include "go/ensemble_positions.h"
 
+/** @brief Défini un ensemble de libertés */
 typedef EnsemblePosition Libertes;
 
-/** @brief Détermine l’ensemble des libertés d’une chaine donnée en fonction
- * de la position des pions sur le plateau. */
+/** @ingroup go
+ *  @brief Détermine l’ensemble des libertés d’une chaine donnée en fonction
+ *  de la position des pions sur le plateau.
+ *  @param Plateau où se trouve la chaine
+ *  @param Chaine à tester
+ *  @return Libertés de la chaine
+ */
 Libertes determiner_libertes(Plateau plateau, Chaine chaine);
 
+/** @def creer_libertes
+ *  @ingroup go
+ *  @brief Crée un ensemble de libertés
+ */
 #define creer_libertes creer_ensemble_position
+
+/** @def detruire_libertes
+ *  @ingroup go
+ *  @brief Détruit un ensemble de libertés
+ */
 #define detruire_libertes detruire_ensemble_position
 
 #endif
