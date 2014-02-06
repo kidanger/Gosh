@@ -13,8 +13,17 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef GOSH_TABLEAU
-#define GOSH_TABLEAU
+
+/** @file gosh_tableau.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup outils
+ *  @brief Défini un container de type tableau dynamique.
+ *
+ *  TYPE (type stocké par le tableau) et TYPE_LOWER (TYPE en minuscules) doivent être définis.
+ *  Utilisez les macro de gosh_macros.h pour le manipuler.
+ */
 
 #ifndef TYPE
 #error "TYPE non défini"
@@ -27,55 +36,124 @@
 #include "concat.h"
 #include "gosh_macros.h"
 
+/** @def CONTAINER_NAME
+ *  @ingroup outils
+ *  @brief Type du container déclaré.
+ */
 #define CONTAINER_NAME CONCAT_2(DynamicTab, TYPE)
 
+
+/** @def FUNC_NAME(name)
+ *  @ingroup outils
+ *  @brief Donne le nom d'une fonction permettant de manipuler le tableau.
+ *  @note Vous n'avez pas à l'utiliser.
+ */
 #define FUNC_NAME(name) CONCAT_3(dynamicTab_, TYPE_LOWER, _##name)
 
-#define IPLM_CONTAINER_NAME CONCAT_2(Impl, CONTAINER_NAME)
+/** @def IPLM_CONTAINER_NAME
+ *  @ingroup outils
+ *  @brief Type de la structure stockant les données du container.
+ *  @note Vous n'avez pas à l'utiliser.
+ */
+#define IPLM_CONTAINER_NAME
 
+/** @def SCN CONCAT_2(s_, CONTAINER_NAME)
+ *  @ingroup outils
+ *  @brief Type de la structure du container.
+ *  @note Vous n'avez pas à l'utiliser.
+ */
 #define SCN CONCAT_2(s_, CONTAINER_NAME)
 
-
-/** @def DEF_DYNAMIC_TAB
-  * @author Denis Migdal
-  * @date 14/12/2013
-  * @ingroup go
-  * @brief declare a container for dynamic tabs.
-  *
-  * Not really usefull but provides an exemple for container which can be used
-  * by gosh_foreach.
-  * @todo separate declaration and definition (1).
-  * @todo create the same for a generic list (2) ?
-  * @todo add some stuffs like resize/getElement()/destroy()/setElement/end()/previous()/compareIterator()
-  * @note we use void pointer to simplify prototypes.
-  */
+/** @ingroup outils
+ *  @brief Structure stockant les données du container
+ */
 struct IMPL_CONTAINER_NAME;
 
-typedef struct SCN {
+
+/** @ingroup outils
+ *  @brief structure du container.
+ */
+struct SCN {
+    /** @brief Permet d'incrémenter l'itérateur */
 	TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
+    /** @brief Permet de créer un itérateur */
 	GoshIterateur(*createIterateur)(void);
+    /** @brief Permet de tester si le container est vide. */
 	bool (*vide)(struct SCN *);
+    /** @brief Permet d'ajouter un élément au container. */
 	void (*ajouter)(struct SCN *, TYPE);
+    /** @brief Permet de réserver size éléments dans le container. */
 	void (*reserve)(struct SCN *, size_t size);
 	//bool (*appartient)(struct SCN *, TYPE);
+    /** @brief Supprime l'élément en tête du container. */
 	TYPE(*supprimer_tete)(struct SCN *);
 
+    /** @brief Données stockées par le container. */
 	struct IMPL_CONTAINER_NAME * data;
-} * CONTAINER_NAME;
+};
+
+/** @ingroup outils
+ *  @brief Container.
+ *  @note utilisez les macro de gosh_macros.h pour le manipuler.
+ */
+typedef SCN * CONTAINER_NAME;
 
 // déclaration des fonctions
+
+/** @ingroup outils
+ *  @brief Crée un container
+ *  @return Container créé.
+ *  @todo modifier nom ?
+ */
 CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
+
+/** @ingroup outils
+ *  @brief Détruit un container
+ *  @param Container à détruire.
+ *  @todo : modifier nom ?
+ */
 void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ensemble);
 
+
+/** @ingroup outils
+ *  @brief Incrémente un itérateur
+ *  @param itérateur à incrémenter
+ *  @param container sur lequel pointe l'itérateur
+ *  @param si non NULL copie le nouvel élément pointé par l'itérateur dans l'espace mémoire pointé par le pointeur.
+ *  @return pointeur sur l'élément suivant ou NULL si l'itérateur ne pointe sur aucun élément.
+ */
 TYPE * FUNC_NAME(next)(GoshIterateur *, CONTAINER_NAME, TYPE *);
+
+/** @ingroup outils
+ *  @brief Créé un itérateur sur le premier élément
+ *  @return Itérateur ainsi créé
+ */
 GoshIterateur FUNC_NAME(createIterateur)(void);
 
+
+/** @ingroup outils
+ *  @brief Teste si le container est vide.
+ *  @totototototo
+ */
 bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
+
+/** @ingroup outils
+ *  @brief
+ */
 void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
+
+/** @ingroup outils
+ *  @brief
+ */
 TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
+
+
+/** @ingroup outils
+ *  @brief
+ */
 bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);
+
+/** @ingroup outils
+ *  @brief
+ */
 void FUNC_NAME(reserve)(CONTAINER_NAME ensemble, size_t size);
-
-
-
-#endif

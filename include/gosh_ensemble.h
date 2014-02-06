@@ -13,12 +13,6 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef TYPE
-#error "TYPE non défini"
-#endif
-#ifndef TYPE_LOWER
-#error "TYPE_LOWER non défini"
-#endif
 
 /** @file gosh_ensemble.h
  *  @author Jéremy Anger
@@ -35,8 +29,11 @@
 #include "concat.h"
 #include "gosh_macros.h"
 
-#if not defined TYPE || not defined TYPE_LOWER
-    #warning "TYPE ou TYPE_LOWER non défini"
+#ifndef TYPE
+#error "TYPE non défini"
+#endif
+#ifndef TYPE_LOWER
+#error "TYPE_LOWER non défini"
 #endif
 
 
