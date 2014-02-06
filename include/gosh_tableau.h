@@ -101,24 +101,23 @@ typedef SCN * CONTAINER_NAME;
 // déclaration des fonctions
 
 /** @ingroup outils
- *  @brief Crée un container
- *  @return Container créé.
- *  @todo modifier nom ?
+ *  @brief Crée un tableau
+ *  @return Tableau créé.
  */
-CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void);
+CONTAINER_NAME CONCAT_2(creer_tableau_, TYPE_LOWER)(void);
 
 /** @ingroup outils
- *  @brief Détruit un container
- *  @param Container à détruire.
+ *  @brief Détruit un tableau
+ *  @param Tableau à détruire.
  *  @todo : modifier nom ?
  */
-void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ensemble);
+void CONCAT_2(detruire_tableau_, TYPE_LOWER)(CONTAINER_NAME tableau);
 
 
 /** @ingroup outils
  *  @brief Incrémente un itérateur
  *  @param itérateur à incrémenter
- *  @param container sur lequel pointe l'itérateur
+ *  @param Tableau sur lequel pointe l'itérateur
  *  @param si non NULL copie le nouvel élément pointé par l'itérateur dans l'espace mémoire pointé par le pointeur.
  *  @return pointeur sur l'élément suivant ou NULL si l'itérateur ne pointe sur aucun élément.
  */
@@ -132,28 +131,37 @@ GoshIterateur FUNC_NAME(createIterateur)(void);
 
 
 /** @ingroup outils
- *  @brief Teste si le container est vide.
- *  @totototototo
+ *  @brief Teste si le tableau est vide.
+ *  @return Vrai si le tableau est vide, faux sinon.
  */
-bool FUNC_NAME(vide)(CONTAINER_NAME ensemble);
+bool FUNC_NAME(vide)(CONTAINER_NAME tableau);
 
 /** @ingroup outils
- *  @brief
+ *  @brief Ajoute un élément en tête du tableau
+ *  @param Tableau auquel ajouter l'élément
+ *  @param Element à ajouter au tableau
  */
-void FUNC_NAME(ajouter)(CONTAINER_NAME ensemble, TYPE element);
+void FUNC_NAME(ajouter)(CONTAINER_NAME tableau, TYPE element);
 
 /** @ingroup outils
- *  @brief
+ *  @brief Supprime l'élément en tête du tableau
+ *  @param Tableau auquel supprimer l'élément en tête
+ *  @return Valeur de l'élément en tête.
  */
-TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ensemble);
+TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME tableau);
 
 
 /** @ingroup outils
- *  @brief
+ *  @brief Indique si un élément appartient au tableau
+ *  @param Tableau à tester
+ *  @param Element à rechercher
+ *  @return Vrai si l'élément appartient au tableau, faux sinon.
  */
-bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element);
+bool FUNC_NAME(appartient)(CONTAINER_NAME tableau, TYPE element);
 
 /** @ingroup outils
- *  @brief
+ *  @brief Réserve size éléments dans le tableau
+ *  @param Tableau
+ *  @param Nouvelle taille (en nombre d'élément)
  */
-void FUNC_NAME(reserve)(CONTAINER_NAME ensemble, size_t size);
+void FUNC_NAME(reserve)(CONTAINER_NAME tableau, size_t size);
