@@ -41,13 +41,9 @@ struct textinput {
     /** @brief Buffer contenant le texte tapé par l'utilisateur */
 	char* buffer;
 
-    /** @brief position de la zone de texte
-     *  @todo utiliser une structure "position"
-     */
+    /** @brief position de la zone de texte */
 	int x, y;
-    /** @brief taille de la zone de texte
-     *  @todo utiliser une structure "position"
-     */
+    /** @brief taille de la zone de texte */
 	int w, h;
     /** @brief Couleur du texte */
 	SDL_Color couleur;

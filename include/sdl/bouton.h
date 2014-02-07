@@ -31,7 +31,6 @@
 
 /** @ingroup sdl
  *  @brief Bouton SDL
- *  @todo utiliser une structeur Position pour (x,y), (ox, oy), (w,h)
  */
 struct bouton {
     /** @brief Texture du bouton */

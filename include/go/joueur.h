@@ -34,7 +34,6 @@
 
 /** @ingroup go
  *  @brief Indique la couleur du joueur
- *  @todo remplacer par Couleur
  */
 enum CouleurJoueur {
 	JOUEUR_BLANC,

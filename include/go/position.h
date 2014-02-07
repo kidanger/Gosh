@@ -34,14 +34,12 @@
 typedef struct {
     /** @brief Abscisse de la position */
 	int8_t x;
-    /** @brief Ordonné de la position */
+    /** @brief Ordonnée de la position */
 	int8_t y;
-    /** @brief taille du plateau */
+    /** @brief Taille du plateau */
 	int8_t taille;
-    /** @brief Indique si la position est valide
-     *  @todo utiliser un booléen
-     */
-	char valide;
+    /** @brief Indique si la position est valide */
+	bool valide;
 } Position;
 
 /** @ingroup go

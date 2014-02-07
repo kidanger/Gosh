@@ -35,13 +35,9 @@
 struct label {
     /** @brief Label à afficher */
 	SDL_Surface* surface;
-    /** @brief Position du label
-     *  @todo Utiliser structure "position"
-     */
+    /** @brief Position du label */
 	int x, y;
-    /** @brief Taille du label
-     *  @todo Utiliser structure "position"
-     */
+    /** @brief Taille du label */
 	int w, h;
     /** @brief Alignement du texte dans le label */
 	enum Align align;
