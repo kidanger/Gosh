@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file sauvegarde.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Implémente les méthodes de chargement et de sauvegarde de parties
+ */
+
 #include "go/sauvegarde.h"
 #include "go/ordinateur.h"
 #include "go/plateau.h"
@@ -29,8 +38,22 @@
 #include <assert.h>
 #include <stdint.h>
 
+/** @def SERIALIZE_VERSION
+ *  @ingroup go
+ *  @brief Version de la sérialisation utilisée
+ */
 #define SERIALIZE_VERSION 0
+
+/** @def BINAIRE
+ *  @ingroup go
+ *  @brief Mode binaire, utilisé pour la sérialisation de plateaux
+ */
 #define BINAIRE 'B'
+
+/** @def TEXTE
+ *  @ingroup go
+ *  @brief Mode texte, utilisé pour la sérialisation de plateaux
+ */
 #define TEXTE 'T'
 
 bool sauvegarder_partie_fichier(const char * filename, Partie partie)
@@ -74,7 +97,6 @@ bool sauvegarder_partie(Partie partie, FILE * file)
 	return true;
 }
 
-/** @bref place errno à ENOTSUP si le type de format n'est pas supporté */
 Partie charger_partie_fichier(const char * filename)
 {
 	FILE * file = fopen(filename, "r");
@@ -189,6 +211,11 @@ Plateau charger_plateau_fichier(const char * filename)
 	return retour;
 }
 
+/** @ingroup go
+ *  @brief Charge un plateau à partir d'un flux contenant du texte
+ *  @param Flux contenant du texte
+ *  @return Plateau ainsi créé
+ */
 Plateau charger_plateau_texte(FILE * file)
 {
 	int taille;
@@ -223,7 +250,11 @@ Plateau charger_plateau_texte(FILE * file)
 	return plateau;
 }
 
-
+/** @ingroup go
+ *  @brief Charge un plateau à partir d'un flux binaire
+ *  @param Flux binaire
+ *  @return Plateau ainsi créé
+ */
 Plateau charger_plateau_binaire(FILE * file)
 {
 	uint32_t version;

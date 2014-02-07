@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file tools.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Implémente les outils sdl
+ */
+
 #include <stdbool.h>
 
 #include <SDL/SDL.h>
@@ -21,11 +30,28 @@
 #include "gosh_alloc.h"
 #include "sdl/tools.h"
 
+/** @def FONT_FILENAME
+ *  @ingroup sdl
+ *  @brief Nom de la police utilisée
+ */
 #define FONT_FILENAME "ressources/arial.ttf"
 
+/** @ingroup sdl
+ *  @brief Couleur du pinceau
+ */
 static SDL_Color color = {255, 255, 255, 0};
+
+/** @ingroup sdl
+ *  @brief Différentes tailles de polices.
+ *  @see FontSize
+ */
 static const int font_sizes[] = {12, 20, 64};
 
+/** @ingroup sdl
+ *  @brief Crée une police ttf
+ *  @param Taille de la police
+ *  @return Police ainsi créée
+ */
 static TTF_Font* get_font(enum FontSize size);
 
 void set_color(int r, int g, int b)
@@ -34,6 +60,7 @@ void set_color(int r, int g, int b)
 	color.g = g;
 	color.b = b;
 }
+
 
 SDL_Color get_color()
 {

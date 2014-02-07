@@ -16,11 +16,24 @@
 #ifndef GOSH_GO_PION
 #define GOSH_GO_PION
 
+/** @file pion.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #include "go/couleur.h"
 #include "go/position.h"
 
+
+/** @ingroup go
+ *  @brief Défini un pion
+ */
 typedef struct {
+    /** @brief Couleur du pion */
 	Couleur couleur;
+    /** @brief Position du pion */
 	Position position;
 } s_Pion;
 

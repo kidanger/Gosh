@@ -13,6 +13,16 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file gnugo/main.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup ordinateurs
+ *  @brief ?????
+ */
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>

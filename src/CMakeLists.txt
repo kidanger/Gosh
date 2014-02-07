@@ -10,6 +10,8 @@ include_directories(../include)
 
 aux_source_directory(. COMMON_SOURCES)
 
+file(GLOB_RECURSE headers ../include/*.h) # add headers files in QtCreator
+
 add_library(gosh_common STATIC
 	${COMMON_SOURCES}
 	${headers}

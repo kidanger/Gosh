@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file chaines.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Défini un ensemble de chaines
+ */
+
 #ifndef GOSH_GO_CHAINES
 #define GOSH_GO_CHAINES
 
@@ -24,9 +33,21 @@
 #define TYPE_LOWER chaine
 #include "gosh_ensemble.h"
 
+/** @ingroup go
+ *  @brief Défini un ensemble de chaine.
+ */
 typedef EnsembleChaine Chaines;
 
+/** @def creer_chaines
+ *  @ingroup go
+ *  @brief Crée un ensemble de chaines
+ */
 #define creer_chaines creer_ensemble_chaine
+
+/** @def detruire_chaines
+ *  @ingroup go
+ *  @brief Détruit un ensemble de chaines
+ */
 #define detruire_chaines detruire_ensemble_chaine
 
 #endif

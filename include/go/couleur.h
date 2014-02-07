@@ -16,7 +16,24 @@
 #ifndef GOSH_GO_COULEUR
 #define GOSH_GO_COULEUR
 
+/** @file couleur.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Déclare le type couleur
+ */
+
+/** @ingroup go
+ *  @brief Type couleur
+ *
+ *  A chaque joueur correspond une couleur différente. Le joueur peut donc être désigné par sa couleur
+ */
 typedef enum {
+    /** @brief Pas de couleur
+     *
+     *  Indique une case sans pion.
+     */
 	VIDE,
 	BLANC,
 	NOIR

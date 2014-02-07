@@ -17,6 +17,12 @@
 #include "go/plateau.h"
 #include "go/libertes.h"
 
+/** @file territoire.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
 
 Territoire determiner_territoire(Plateau plateau, Position position)
 {

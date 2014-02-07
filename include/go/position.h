@@ -16,19 +16,42 @@
 #ifndef GOSH_GO_POSITION
 #define GOSH_GO_POSITION
 
+/** @file position.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Déclare toutes les structures relatives aux positions
+ */
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h> //size_t
 
+/** @ingroup go
+ *  @brief Représente une position
+ */
 typedef struct {
+    /** @brief Abscisse de la position */
 	int8_t x;
+    /** @brief Ordonné de la position */
 	int8_t y;
+    /** @brief taille du plateau */
 	int8_t taille;
+    /** @brief Indique si la position est valide
+     *  @todo utiliser un booléen
+     */
 	char valide;
 } Position;
 
+/** @ingroup go
+ *  @brief Défini une position invalide */
 extern Position POSITION_INVALIDE;
 
+/** @def POSITION_VOISINS(position)
+ *  @ingroup go
+ *  @brief Donne la liste des positions voisine d'une position
+ */
 #define POSITION_VOISINS(position) { \
 		position_gauche(position), \
 		position_droite(position), \
@@ -36,15 +59,51 @@ extern Position POSITION_INVALIDE;
 		position_bas(position), \
 	}
 
+/** @ingroup go
+ *  @brief Crée une position
+ *  @param abscisse de la position
+ *  @param ordonné de la position
+ *  @param taille du plateau
+ *  @return Position ainsi crée
+ */
 Position position(int x, int y, int taille);
 
+/** @ingroup go
+ *  @brief Indique si la position est valide
+ *  @param Position à tester
+ *  @return Vrai si la position est valide
+ */
 bool position_est_valide(Position);
 
+/** @ingroup go
+ *  @brief Donne la position à gauche de la position P
+ *  @param position P
+ *  @return Position à gauche de la position P.
+ */
 Position position_gauche(Position);
+/** @ingroup go
+ *  @brief Donne la position à droite de la position P
+ *  @param position P
+ *  @return Position à droite de la position P.
+ */
 Position position_droite(Position);
+/** @ingroup go
+ *  @brief Donne la position en haut de la position P
+ *  @param position P
+ *  @return Position en haut de la position P.
+ */
 Position position_haut(Position);
+/** @ingroup go
+ *  @brief Donne la position en bas de la position P
+ *  @param position P
+ *  @return Position en bas de la position P.
+ */
 Position position_bas(Position);
 
+/** @def POSITION_EQ(p1, p2)
+ *  @ingroup go
+ *  @brief Teste l'égalité entre deux positions
+ */
 #define POSITION_EQ(p1, p2) ((p1).x == (p2).x && (p1).y == (p2).y)
 
 #endif

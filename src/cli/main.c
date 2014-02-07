@@ -15,8 +15,18 @@
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 
-#include "cli/menu_principal.h"
+/** @defgroup cli
+ *  @brief Ensemble des fichiers et des fonctions utilisées pour le mode console de gosh.
+ */
 
+/** @file cli/main.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ */
+
+#include "cli/menu_principal.h"
 
 int main(int argc, const char *argv[])
 {

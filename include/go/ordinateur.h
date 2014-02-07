@@ -16,6 +16,14 @@
 #ifndef GOSH_GO_ORDINATEUR
 #define GOSH_GO_ORDINATEUR
 
+/** @file ordinateur.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Défini l'interface utilisé pour les IA
+ */
+
 #include "go/partie.h"
 
 #define JOUER_COUP_STR "jouer_coup_ordi"
@@ -31,22 +39,61 @@ typedef void(*JouerFunc)(void*, Partie, enum CouleurJoueur);
 typedef void(*RemplacerPlateauFunc)(void*, Plateau);
 typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 
+/** @ingroup go
+ *  @brief Décris une IA
+ */
 struct s_Ordinateur {
+    /** @brief bibliothèque dynamique contenant l'IA */
 	char * file;
 	void* dlptr;
+    /** @brief Fonction jouer */
 	JouerFunc jouer;
+    /** @brief Change le plateau */
 	RemplacerPlateauFunc remplacer_plateau;
+    /** @brief Notifie l'IA d'un changement de coup */
 	NotificationCoupFunc notification_coup;
+    /** @brief Données utilisées par l'IA */
 	void* ordidata;
 };
 
 typedef struct s_Ordinateur* Ordinateur;
 
+/** @ingroup go
+ *  @brief Charge une IA
+ *  @param Bibliothèque dynamique contenant l'IA
+ *  @return Description de l'IA
+ */
 Ordinateur charger_ordinateur(const char* filename);
+
+/** @ingroup go
+ *  @brief Libère les ressources associées à l'IA
+ *  @param IA à libérer
+ */
 void decharger_ordinateur(Ordinateur ordi);
 
+
+/** @ingroup go
+ *  @brief Demande à l'IA de jouer un coup
+ *  @param IA
+ *  @param Partie en cours
+ *  @param Couleur du joueur
+ */
 void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur);
+
+/** @ingroup go
+ *  @brief Remplace le plateau
+ *  @param IA
+ *  @param Nouveau plateau
+ */
 void ordinateur_remplacer_plateau(Ordinateur ordi, Plateau plateau);
+
+/** @ingroup go
+ *  @brief Notifie l'IA qu'un coup vient d'être joué
+ *  @param IA
+ *  @param Partie en cours
+ *  @param Joueur
+ *  @param Coup joué
+ */
 void ordinateur_notifier_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur, s_Coup coup);
 
 #endif

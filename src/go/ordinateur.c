@@ -13,6 +13,16 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file ordinateur.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Défini les fonctionnalités de chargement d'IA
+ */
+
+
 #include <stdio.h>
 #include <string.h>
 #ifndef _WIN32

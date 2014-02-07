@@ -16,7 +16,24 @@
 #ifndef GOSH_SDL_MENU
 #define GOSH_SDL_MENU
 
+/** @file menu.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Donne l'interface permettant de manipuler les menus
+ */
+
+/** @ingroup sdl
+ *  @brief Crée le menu principal de gosh
+ *  @return ???
+ */
 struct state* creer_menu();
+
+/** @ingroup sdl
+ *  @brief Détruit le menu principal de gosh
+ *  @param ????
+ */
 void detruire_menu(struct state*);
 
 #endif

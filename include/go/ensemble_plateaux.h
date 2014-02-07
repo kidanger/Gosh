@@ -16,6 +16,13 @@
 #ifndef GOSH_GO_ENSEMBLE_PLATEAUX
 #define GOSH_GO_ENSEMBLE_PLATEAUX
 
+/** @file ensemble_plateaux.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #include "go/plateau_type.h"
 
 #undef TYPE
@@ -24,7 +31,16 @@
 #define TYPE_LOWER plateau
 #include "gosh_ensemble.h"
 
+/** @def creer_plateaux
+ *  @ingroup go
+ *  @brief Crée un ensemble de plateau
+ */
 #define creer_plateaux creer_ensemble_plateau
+
+/** @def detruire_plateaux
+ *  @ingroup go
+ *  @brief Detruit un ensemble de plateau
+ */
 #define detruire_plateaux detruire_ensemble_plateau
 
 #endif

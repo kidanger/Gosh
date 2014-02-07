@@ -16,27 +16,85 @@
 #ifndef SAUVEGARDE_H
 #define SAUVEGARDE_H
 
+/** @file sauvegarde.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Déclare les méthodes de chargement et de sauvegarde de parties
+ */
+
 #include<stdbool.h>
 #include<stdio.h>
 
 #include "go/plateau_type.h"
 #include "go/partie.h"
 
+/** @ingroup go
+ *  @brief Sauvegarde une partie dans un fichier
+ *  @param Nom du fichier dans lequel sauvegarder la partie
+ *  @param Partie à sauvegarder
+ *  @return Faux en cas d'erreur
+ */
 bool sauvegarder_partie_fichier(const char * filename, Partie);
+
+/** @ingroup go
+ *  @brief Sauvegarde une partie dans un flux
+ *  @param flux dans lequel sauvegarder la partie
+ *  @param Partie à sauvegarder
+ *  @return Faux en cas d'erreur
+ */
 bool sauvegarder_partie(Partie, FILE * file);
 
-/** @bref place errno à ENOTSUP si le type de format n'est pas supporté */
+/** @ingroup go
+ *  @brief Crée une partie en la chargeant à partir d'un fichier
+ *
+ *  Place errno à ENOTSUP si le type de format n'est pas supporté
+ *  @param fichier à partir duquel charger la partie
+ *  @return Partie ainsi crée
+ */
+
 Partie charger_partie_fichier(const char * filename);
+/** @ingroup go
+ *  @brief Crée une partie en la chargeant à partir d'un flux
+ *  @param flux à partir duquel charger la partie
+ *  @return Partie ainsi crée
+ */
 Partie charger_partie(FILE * file);
 
+/** @ingroup go
+ *  @brief Sauvegarde un plateau dans un fichier
+ *  @param Nom du fichier dans lequel sauvegarder le plateau
+ *  @param Plateau à sauvegarder
+ *  @return Faux en cas d'erreur
+ */
 bool sauvegarder_plateau_fichier(const char * filename, Plateau);
+
+/** @ingroup go
+ *  @brief Sauvegarde un plateau dans un flux
+ *  @param Flux dans lequel sauvegarder le plateau
+ *  @param Plateau à sauvegarder
+ *  @return Faux en cas d'erreur
+ */
 bool sauvegarder_plateau(Plateau, FILE * file);
 
 
-/** @bref place errno à ENOTSUP si le type de format n'est pas supporté */
+/** @ingroup go
+ *  @brief Crée un plateau en le chargeant à partir d'un fichier
+ *
+ *  Place errno à ENOTSUP si le type de format n'est pas supporté
+ *  @param fichier à partir duquel charger le plateau
+ *  @return Plateau ainsi crée
+ */
 Plateau charger_plateau_fichier(const char * filename);
 
-
+/** @ingroup go
+ *  @brief Crée un plateau en le chargeant à partir d'un flux
+ *
+ *  Place errno à ENOTSUP si le type de format n'est pas supporté
+ *  @param Flux à partir duquel charger le plateau
+ *  @return Plateau ainsi crée
+ */
 Plateau charger_plateau(FILE * file);
 
 #endif // SAUVEGARDE_H

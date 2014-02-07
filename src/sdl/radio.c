@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file radio.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Implémente les fonctionnalités liées aux boutons radios
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -22,22 +31,55 @@
 #include "sdl/tools.h"
 #include "sdl/radio.h"
 
+/** @ingroup sdl
+ *  @brief Représente un bouton radio
+ */
 struct radio {
+    /** @brief Label du bouton radio */
 	SDL_Surface* texte_surface;
-
+    /** @brief Abscisse du bouton */
 	float x;
+    /** @brief Ordonné du bouton */
 	float y;
+    /** @brief Largeur du bouton */
 	int w;
+    /** @brief Hauteur du bouton */
 	int h;
+    /** @brief Couleur du bouton */
 	SDL_Color couleur;
-
+    /** @brief Indique si le bouton est coché ou non */
 	bool coche;
+    /** @brief ?? */
 	bool hover;
 };
 
+/** @ingroup sdl
+ *  @brief Crée un bouton radio
+ *  @param Label du bouton radio
+ *  @param Abscisse du bouton
+ *  @param Ordonné du bouton
+ *  @return Bouton ainsi crée
+ */
 struct radio* creer_radio(const char* texte, int x, int y);
+
+/** @ingroup sdl
+ *  @brief Dessine un bouton radio sur une texture
+ *  @param Texture sur laquelle dessiner le bouton
+ *  @param Bouton à dessiner
+ */
 void afficher_radio(SDL_Surface*, struct radio*);
+
+/** @ingroup sdl
+ *  @brief ???
+ *  @param  bouton radio
+ *  @param  événement sdl
+ */
 void utiliser_event_radio(struct radio*, SDL_Event);
+
+/** @ingroup sdl
+ *  @brief Détruit un bouton radio et libère les ressources associées
+ *  @brief Bouton radio à détruire.
+ */
 void detruire_radio(struct radio*);
 
 struct groupe_radio* creer_groupe_radio(int nombre)

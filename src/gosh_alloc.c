@@ -13,12 +13,18 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file gosh_alloc.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup outils
+ *  @brief Implémente les fonctions d'allocation et de libération de la mémoire.
+ */
 #include <stdlib.h>
 #include <string.h>
 
 #include "gosh_alloc.h"
-
-// TODO: check malloc return
 
 void* gosh_alloc_size(size_t size)
 {

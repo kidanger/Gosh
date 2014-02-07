@@ -16,20 +16,52 @@
 #ifndef GOSH_GO_CHAINE
 #define GOSH_GO_CHAINE
 
+/** @file chaine.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Permet d'utiliser les chaines
+ */
+
 #include "go/ensemble_colore.h"
 #include "go/ensemble_positions.h"
 #include "go/plateau_type.h"
 
+
+/** @ingroup go
+ *  @brief Défini le type chaine
+ */
 typedef EnsembleColore Chaine;
 
-/** @brief Détermine la position des yeux relatifs à une chaine.
- * Si la chaine n’a aucun oeil alors la valeur retournée est NULL. */
+/** @ingroup go
+ *  @brief Détermine la position des yeux relatifs à une chaine.
+ *
+ *  Si la chaine n’a aucun oeil alors la valeur retournée est NULL.
+ *  @param Chaine à tester
+ *  @param Plateau où se trouve la chaine
+ *  @return Ensemble des yeux de la chaine
+ */
 EnsemblePosition lesYeuxDeLaChaine(Chaine chaine, Plateau plateau);
 
-// pour moins de verbosité dans le code
+/** @ingroup go
+ *  @brief Indique si une position appartient à la chaine
+ *  @param Chaine à tester
+ *  @param position à tester
+ *  @return Retourne vrai si la position appartient à la chaine.
+ */
 bool chaine_appartient(Chaine chaine, Position position);
 
+/** @def creer_chaine
+ *  @ingroup go
+ *  @brief Permet de créer une chaine
+ */
 #define creer_chaine creer_ensemble_colore
+
+/** @def detruire_chaine
+ *  @ingroup go
+ *  @brief Permet de détruire une chaine
+ */
 #define detruire_chaine detruire_ensemble_colore
 
 #endif

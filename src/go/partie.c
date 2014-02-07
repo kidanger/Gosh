@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file partie.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Implémente les fonctions liées à la partie
+ */
+
 #include "gosh_alloc.h"
 #include "go/plateau.h"
 #include "go/position.h"

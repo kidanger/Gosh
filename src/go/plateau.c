@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file plateau.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ *  @brief Implémente tous les fonctions liées au plateau
+ */
+
 #include <stdlib.h>
 #include <string.h> // memset
 #include <assert.h>
@@ -22,11 +31,21 @@
 #include "go/plateau.h"
 #include "go/libertes.h"
 
+/** @ingroup go
+ *  @brief Représente un plateau
+ */
 struct s_Plateau {
+    /** @brief Données du tableau */
 	uint32_t * cases;
+    /** @brief Taille du plateau */
 	int taille;
 };
 
+/** @ingroup go
+ *  @brief Donne la taille en "cases" des données du tableau
+ *  @param taille du tableau
+ *  @return taille en "cases" des données du tableau
+ */
 size_t impl_get_nbCases(size_t taille)
 {
 	size_t tailleCasesEnBits = (taille * taille * 2);

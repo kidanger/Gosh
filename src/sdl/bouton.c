@@ -14,6 +14,14 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 
+/** @file bouton.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Implémente les fonctionnalités liées aux boutons.
+ */
+
 #include "gosh_alloc.h"
 #include "sdl/tools.h"
 #include "sdl/bouton.h"

@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file charger.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief ????
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -30,21 +39,67 @@
 #include "sdl/jouer.h"
 #include "sdl/charger.h"
 
+/** @def NUM_BOUTONS
+ *  @ingroup sdl
+ *  @brief ??
+ */
+
 #define NUM_BOUTONS 2
+
+
+/** @ingroup sdl
+ *  @brief ??
+ */
 struct chargerdata {
+    /** @brief ?? */
 	struct state* parent;
+    /** @brief Titre */
 	struct label* titre;
+    /** @brief ?? */
 	struct label* choix;
+    /** @brief ?? */
 	struct label* erreur;
+    /** @brief ?? */
 	struct textinput* nom_partie;
+    /** @brief ?? */
 	struct bouton* boutons[NUM_BOUTONS];
+    /** @brief ?? */
 	bool shake;
 };
 
+/** @ingroup sdl
+ *  @brief Dessine le menu sur une texture
+ *  @param ???
+ *  @param Texture sur laquelle dessiner le menu
+ */
 static void afficher_charger(struct state*, SDL_Surface*);
+
+/** @ingroup sdl
+ *  @brief Met à jour le menu
+ *  @param ???
+ *  @param ???
+ */
 static void mise_a_jour_charger(struct state* state, double dt);
+
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ???
+ *  @param événement sdl
+ */
 static void event_charger(struct state* state, SDL_Event event);
+
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ???
+ *  @param ???
+ */
 static void charger_bouton_retour(struct bouton*, void * data);
+
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ???
+ *  @param ???
+ */
 static void charger_bouton_charger(struct bouton*, void * data);
 
 struct state* creer_charger(struct state* parent)

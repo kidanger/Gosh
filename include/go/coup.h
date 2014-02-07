@@ -16,13 +16,36 @@
 #ifndef GOSH_GO_COUP
 #define GOSH_GO_COUP
 
+/** @file coup.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #include <stdbool.h>
 #include "go/position.h"
 
+
+/** @ingroup go
+ *  @brief Coup joué par un joueur
+ */
 typedef struct {
-	Position position; // = invalide position si passe son tour
+    /** @brief Position du coup joué par le joueur.
+     *
+     *  @note si la position est invalide, on considère que le joueur passe son tour.
+     */
+    Position position;
 } s_Coup;
 
+/** @ingroup go
+ *  @brief Convertit une chaîne de caractères en un coup
+ *
+ *  @param chaine de caractère à convertir
+ *  @param taille de la chaine de caractère
+ *  @param est mis à faux si la chaine de caractères représente un coup invalide
+ *  @return Coup représenté par la chaîne de caractères.
+ */
 s_Coup str2coup(const char* str, int taille, bool* valide);
 
 #endif

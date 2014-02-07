@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file configurer_partie.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ *  @brief Implémente les fonctions permettant de configurer une partie.
+ */
+
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
@@ -23,7 +32,12 @@
 #include "go/joueur.h"
 #include "go/ordinateur.h"
 
-
+/** @ingroup cli
+ *  @brief Demande à l'utilisateur de saisir le type d'un joueur
+ *  @param Partie à configurer
+ *  @param Couleur du joueur à configurer
+ *  @return Retourne faux en cas d'échec.
+ */
 bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
 {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
@@ -47,6 +61,12 @@ bool saisir_type_joueur(Partie partie, enum CouleurJoueur couleur)
 	return true;
 }
 
+
+/** @ingroup cli
+ *  @brief Demande à l'utilisateur de saisir le nom du joueur.
+ *  @param Partie à configurer
+ *  @param Couleur du joueur à configurer
+ */
 bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
 {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
@@ -67,6 +87,13 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
 	return buf[0] != 0;
 }
 
+
+/** @ingroup cli
+ *  @brief Demande à l'utilisateur d'entrer le type de robot à utiliser
+ *  @param Partie à configurer
+ *  @param Couleur du joueur à configurer
+ *  @return Retourne faux en cas d'échec.
+ */
 bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 {
 	Ordinateur ordi;
@@ -96,6 +123,12 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 	return ordi != NULL;
 }
 
+
+/** @ingroup cli
+ *  @brief Demande à l'utilisateur de saisir la taille du plateau utilisé
+ *  @param Partie à configurer
+ *  @return Retourne faux en cas d'échec.
+ */
 bool saisir_taille_plateau(Partie partie)
 {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
@@ -114,6 +147,12 @@ bool saisir_taille_plateau(Partie partie)
 	return rep != 'r';
 }
 
+
+/** @ingroup cli
+ *  @brief Demande à l'utilisateur de saisir l'handicap pour la partie
+ *  @param Partie à configurer
+ *  @return Retourne faux en cas d'échec.
+ */
 bool saisir_handicap(Partie partie)
 {
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
@@ -128,7 +167,13 @@ bool saisir_handicap(Partie partie)
 	return valide;
 }
 
-
+/** @ingroup cli
+ *  @brief Demande à l'utilisateur de répondre à une question
+ *  @param Question à laquelle l'utilisateur doit répondre
+ *  @param Partie à configurer
+ *  @param Données quelconques
+ *  @return Retourne faux en cas d'échec.
+ */
 bool questions_callback(enum Question question, Partie partie, void* userdata)
 {
 	(void) userdata;
@@ -149,10 +194,19 @@ bool questions_callback(enum Question question, Partie partie, void* userdata)
 			return saisir_taille_plateau(partie);
 		case HANDICAP:
 			return saisir_handicap(partie);
+        default :
+        break;
 	}
 	return true;
 }
 
+
+/** @ingroup cli
+ *  @brief Crée une nouvelle partie
+ *
+ *  Demande à l'utilisateur de saisir les informations nécessaire à la configuration d'une partie
+ *  @return Partie ainsi créée.
+ */
 Partie cli_creer_nouvelle_partie(void)
 {
 	Partie partie = creer_partie();

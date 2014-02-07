@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file menu.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Implémente les fonctionnalités liées aux menus
+ */
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
@@ -54,6 +63,7 @@
 	[Quitter]						[Charger]
 */
 
+/** @todo ??????? */
 #define GROUPE_TYPE_J1 0
 #define GROUPE_PROGRAMME_J1 1
 #define GROUPE_TYPE_J2 2
@@ -64,20 +74,60 @@
 #define NUM_LABELS 8
 #define NUM_GROUPES 5
 #define NUM_TEXTINPUTS 3
+
+
+/** @ingroup sdl
+ *  @brief Donne les données du menu
+ */
 struct menudata {
+    /** @brief Titre du menu */
 	struct label* titre;
+    /** @brief Labels du menu */
 	struct label* labels[NUM_LABELS];
+    /** @brief Boutons du menu */
 	struct bouton* boutons[NUM_BOUTONS];
+    /** @brief Groupe de boutons radio du menu */
 	struct groupe_radio* groupes[NUM_GROUPES];
+    /** @brief Zones de textes du menu */
 	struct textinput* textinputs[NUM_TEXTINPUTS];
 };
 
+/** @ingroup sdl
+ *  @brief Dessine le menu sur une texture
+ *  @param Menu à dessiner ?
+ *  @param Texture sur laquelle dessiner le menu
+ */
 static void afficher_menu(struct state*, SDL_Surface*);
+
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ???
+ *  @param événement sdl
+ */
 static void event_menu(struct state*, SDL_Event);
+
+/** @ingroup sdl
+ *  @brief Met à jour le menu
+ *  @param Menu à mettre à jour
+ *  @param ??
+ */
 static void mise_a_jour_menu(struct state *, double);
+
+/** @ingroup sdl
+ *  @brief ???
+ */
 static void menu_bouton_quitter(struct bouton*, void *);
+/** @ingroup sdl
+ *  @brief ???
+ */
 static void menu_bouton_jouer(struct bouton*, void *);
+/** @ingroup sdl
+ *  @brief ???
+ */
 static void menu_bouton_charger(struct bouton*, void *);
+/** @ingroup sdl
+ *  @brief ???
+ */
 static void menu_radio_type_joueur(struct groupe_radio*, void*);
 
 struct state* creer_menu()
@@ -360,6 +410,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			int handicap = atoi(menu->textinputs[NUM_TEXTINPUTS - 1]->buffer);
 			partie->handicap = handicap;
 			break;
+         default :
+           break;
 		}
 	}
 	return true;

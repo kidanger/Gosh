@@ -16,6 +16,16 @@
 #ifndef GOSH_GO_PLATEAU_TYPE
 #define GOSH_GO_PLATEAU_TYPE
 
+/** @file plateaux_type.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
+/** @ingroup go
+ *  @brief Défini Plateau
+ */
 typedef struct s_Plateau* Plateau;
 
 #endif

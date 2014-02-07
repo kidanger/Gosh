@@ -13,6 +13,14 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file libertés.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup go
+ */
+
 #include "gosh_macros.h"
 #include "go/libertes.h"
 #include "go/libertes.h"
