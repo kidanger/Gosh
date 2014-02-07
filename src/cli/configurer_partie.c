@@ -159,12 +159,10 @@ bool saisir_handicap(Partie partie)
 	partie->handicap = 3;
 	return true;
 #endif
-	const char* str = "Handicap (joueur noir)";
-	bool valide;
-	int rep = cli_demander_int(str, &valide);
-	if (valide)
-		partie->handicap = rep;
-	return valide;
+	const char* str = "Handicap (joueur noir) (-1 pour retour)";
+	int rep = cli_demander_int(str);
+	partie->handicap = rep;
+	return rep != -1;
 }
 
 /** @ingroup cli

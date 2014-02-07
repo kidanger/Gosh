@@ -77,9 +77,8 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille);
 /** @ingroup cli
  *  @brief Demande à l'utilisateur de renseigner un entier
  *  @param Prompt à afficher
- *  @param Est mis à false si la saisie de l'utilisateur n'est pas un entier.
  *  @return entier saisi par l'utilisateur.
  */
-int cli_demander_int(const char* prompt, bool* valide);
+int cli_demander_int(const char* prompt);
 
 #endif
