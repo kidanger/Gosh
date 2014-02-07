@@ -116,7 +116,7 @@ struct SCN {
  *  Vous n'avez pas d'accès direct aux éléments de ce container.
  *  Utilisez les macros contenues dans gosh_macros.h pour manipuler le container.
  */
-typedef SCN * CONTAINER_NAME;
+typedef struct SCN * CONTAINER_NAME;
 
 // déclaration des fonctions
 

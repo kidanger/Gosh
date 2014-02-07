@@ -78,6 +78,16 @@
  *  @brief Valeur à écrire dans la sortie standard pour changer la police du texte (sans gras).
  */
 #define C_NOBOLD "\033[22m"
+/** @def C_BACKGROUND_BROWN
+ *  @ingroup cli
+ *  @brief Valeur à écrire dans la sortie standard pour changer la couleur de fond (marron).
+ */
+#define C_BACKGROUND_BROWN "\033[43m"
+/** @def C_BACKGROUND_NORMAL
+ *  @ingroup cli
+ *  @brief Valeur à écrire dans la sortie standard pour changer la couleur de fond (couleur par défaut).
+ */
+#define C_BACKGROUND_NORMAL "\033[m"
 #else
 #define C_NORMAL ""
 #define C_WHITE ""
@@ -89,6 +99,8 @@
 #define C_BLUE ""
 #define C_BOLD ""
 #define C_NOBOLD ""
+#define C_BACKGROUND_BROWN ""
+#define C_BACKGROUND_NORMAL ""
 #endif
 
 #define C_YELLOW_BG "\033[43m"

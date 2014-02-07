@@ -44,7 +44,7 @@ struct s_EnsembleColore {
 /** @ingroup go
  *  @brief Ensemble de couleurs
  */
-typedef s_EnsembleColore * EnsembleColore;
+typedef struct s_EnsembleColore * EnsembleColore;
 
 EnsembleColore creer_ensemble_colore();
 void detruire_ensemble_colore(EnsembleColore ensemble);

@@ -60,7 +60,7 @@ TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME ptrContainer, TYPE* el
 	return ptrElement;
 }
 
-CONTAINER_NAME CONCAT_2(creer_tableau_, TYPE_LOWER)(void)
+CONTAINER_NAME CONCAT_2(creer_ensemble_, TYPE_LOWER)(void)
 {
 	CONTAINER_NAME ptrContainer = gosh_alloc(*ptrContainer);
 	ptrContainer->data = gosh_alloc(*ptrContainer->data);
@@ -78,7 +78,7 @@ CONTAINER_NAME CONCAT_2(creer_tableau_, TYPE_LOWER)(void)
 	return ptrContainer;
 }
 
-void CONCAT_2(detruire_tableau_, TYPE_LOWER)(CONTAINER_NAME ptrContainer)
+void CONCAT_2(detruire_ensemble_, TYPE_LOWER)(CONTAINER_NAME ptrContainer)
 {
 	struct IMPL_CONTAINER_NAME * ensemble = ptrContainer->data;
 	struct NODE_NAME * noeud = ensemble->tete;

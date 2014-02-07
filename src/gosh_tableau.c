@@ -47,70 +47,70 @@ TYPE * FUNC_NAME(next)(GoshIterateur * it, CONTAINER_NAME container, TYPE* eleme
 
 CONTAINER_NAME CONCAT_2(creer_dynamicTab_, TYPE_LOWER)(void)
 {
-	CONTAINER_NAME ptrEnsemble = gosh_alloc(*ptrEnsemble);
-	ptrEnsemble->data = gosh_alloc(*ptrEnsemble->data);
-	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
-	ensemble->m_size = 0;
-	ensemble->m_allocatedSize = 0;
-	ensemble->m_data = NULL;
+    CONTAINER_NAME ptrTableau = gosh_alloc(*ptrTableau);
+    ptrTableau->data = gosh_alloc(*ptrTableau->data);
+    struct IMPL_CONTAINER_NAME * Tableau = ptrTableau->data;
+    Tableau->m_size = 0;
+    Tableau->m_allocatedSize = 0;
+    Tableau->m_data = NULL;
 
-	ptrEnsemble->next = FUNC_NAME(next);
-	ptrEnsemble->createIterateur = FUNC_NAME(createIterateur);
-	ptrEnsemble->vide = FUNC_NAME(vide);
-	ptrEnsemble->ajouter = FUNC_NAME(ajouter);
-	ptrEnsemble->reserve = FUNC_NAME(reserve);
-	//ensemble->appartient = FUNC_NAME(appartient);
-	ptrEnsemble->supprimer_tete = FUNC_NAME(supprimer_tete);
+    ptrTableau->next = FUNC_NAME(next);
+    ptrTableau->createIterateur = FUNC_NAME(createIterateur);
+    ptrTableau->vide = FUNC_NAME(vide);
+    ptrTableau->ajouter = FUNC_NAME(ajouter);
+    ptrTableau->reserve = FUNC_NAME(reserve);
+    //Tableau->appartient = FUNC_NAME(appartient);
+    ptrTableau->supprimer_tete = FUNC_NAME(supprimer_tete);
 
-	return ptrEnsemble;
+    return ptrTableau;
 }
 
-void CONCAT_2(detruire_dynamicTab_, TYPE_LOWER)(CONTAINER_NAME ensemble)
+void CONCAT_2(detruire_dynamicTab_, TYPE_LOWER)(CONTAINER_NAME tableau)
 {
-	gosh_free(ensemble->data->m_data);
-	gosh_free(ensemble->data);
-	gosh_free(ensemble);
+    gosh_free(tableau->data->m_data);
+    gosh_free(tableau->data);
+    gosh_free(tableau);
 }
 
-bool FUNC_NAME(vide)(CONTAINER_NAME ensemble)
+bool FUNC_NAME(vide)(CONTAINER_NAME tableau)
 {
-	return  ! ensemble->data->m_data || ! ensemble->data->size_t;
+    return  ! tableau->data->m_data || ! tableau->data->size_t;
 }
 
-void FUNC_NAME(reserve)(CONTAINER_NAME ptrEnsemble, size_t size)
+void FUNC_NAME(reserve)(CONTAINER_NAME ptrtableau, size_t size)
 {
-	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
+    struct IMPL_CONTAINER_NAME * tableau = ptrtableau->data;
 
-	if (ensemble->m_size < size)
-		ensemble->m_allocatedSize = ensemble->m_size;
+    if (tableau->m_size < size)
+        tableau->m_allocatedSize = tableau->m_size;
 	else
-		ensemble->m_allocatedSize = size;
+        tableau->m_allocatedSize = size;
 
-	if (! ensemble->m_data)
-		ensemble->m_data = gosh_allocn(TYPE, ensemble->m_allocatedSize);
+    if (! tableau->m_data)
+        tableau->m_data = gosh_allocn(TYPE, tableau->m_allocatedSize);
 	else
-		ensemble->m_data = gosh_reallocn(ensemble->m_data, TYPE, ensemble->m_allocatedSize);
+        tableau->m_data = gosh_reallocn(tableau->m_data, TYPE, tableau->m_allocatedSize);
 }
 
-void FUNC_NAME(ajouter)(CONTAINER_NAME ptrEnsemble, TYPE element)
+void FUNC_NAME(ajouter)(CONTAINER_NAME ptrtableau, TYPE element)
 {
-	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble->data;
-	if (ensemble->m_size >= ensemble->reservedSize)
-		ensemble->reserve(ensemble, m_size + 1);
-	ensemble->m_data[ensemble->m_size++] = element;
+    struct IMPL_CONTAINER_NAME * tableau = ptrTableau->data;
+    if (tableau->m_size >= tableau->reservedSize)
+        tableau->reserve(tableau, m_size + 1);
+    tableau->m_data[tableau->m_size++] = element;
 }
 
-TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrEnsemble)
+TYPE FUNC_NAME(supprimer_tete)(CONTAINER_NAME ptrTableau)
 {
-	struct IMPL_CONTAINER_NAME * ensemble = ptrEnsemble;
-	assert(ensemble->m_size);
-	TYPE element = ensemble->m_data[--ensemble->m_size];
+    struct IMPL_CONTAINER_NAME * tableau = ptrTableau;
+    assert(tableau->m_size);
+    TYPE element = tableau->m_data[--tableau->m_size];
 	return pos;
 }
 /*
 
-bool FUNC_NAME(appartient)(CONTAINER_NAME ensemble, TYPE element) {
-    struct NODE_NAME * noeud = ensemble->tete;
+bool FUNC_NAME(appartient)(CONTAINER_NAME tableau, TYPE element) {
+    struct NODE_NAME * noeud = tableau->tete;
     while ( noeud ) {
         if (noeud->element == element) {
             return true;

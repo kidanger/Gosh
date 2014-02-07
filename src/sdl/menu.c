@@ -410,6 +410,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			int handicap = atoi(menu->textinputs[NUM_TEXTINPUTS - 1]->buffer);
 			partie->handicap = handicap;
 			break;
+         default :
+           break;
 		}
 	}
 	return true;
