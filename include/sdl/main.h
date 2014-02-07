@@ -16,8 +16,20 @@
 #ifndef GOSH_SDL_MAIN
 #define GOSH_SDL_MAIN
 
+/** @file main.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief ????
+ */
+
 #include "sdl/state.h"
 
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ??
+ */
 void set_state(struct state*);
 
 #endif

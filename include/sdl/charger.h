@@ -25,7 +25,17 @@
  *
  */
 
+
+/** @ingroup sdl
+ *  @brief ??
+ *  @param ??
+ *  @return ??
+ */
 struct state* creer_charger(struct state* parent);
+
+/** @ingroup sdl
+ *  @brief ??
+ */
 void detruire_charger(struct state*);
 
 #endif

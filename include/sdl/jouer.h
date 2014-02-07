@@ -16,9 +16,27 @@
 #ifndef GOSH_SDL_JOUER
 #define GOSH_SDL_JOUER
 
+/** @file jouer.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief ???
+ */
+
 #include "go/partie.h"
 
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ??
+ *  @param Partie en cours
+ */
 struct state* creer_jouer(struct state* parent, Partie partie);
+
+/** @ingroup sdl
+ *  @brief ???
+ *  @param ???
+ */
 void detruire_jouer(struct state*);
 
 #endif

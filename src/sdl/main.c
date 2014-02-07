@@ -13,6 +13,14 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file main.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -25,9 +33,21 @@
 #include "sdl/tools.h"
 #include "sdl/main.h"
 
+/** @ingroup sdl
+ *  @brief Texture principale de la fenêtre
+ */
 SDL_Surface* window;
+
+/** @ingroup sdl
+ *  @brief ???
+ */
 struct state* state;
 
+
+/** @ingroup sdl
+ *  @brief Traite les événements SDL
+ *  @param ??
+ */
 void sdl_handle_events(struct state* state)
 {
 	SDL_Event event;
@@ -63,10 +83,17 @@ void set_state(struct state* newstate)
 	state = newstate;
 }
 
+/** @def EMSCRIPTEN
+ *  @ingroup sdl
+ *  @brief Macro utile à la compilation vers ???
+ */
 #ifdef EMSCRIPTEN
 #include "emscripten.h"
 #endif
 
+/** @ingroup sdl
+ *  @brief Met à jour la fenêtre
+ */
 void update()
 {
 	sdl_handle_events(state);

@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file jouer.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief ???
+ */
+
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -31,27 +40,74 @@
 #include "sdl/tools.h"
 #include "sdl/jouer.h"
 
+/** @ingroup sdl
+ *  @brief ??
+ */
 struct jouerdata {
+    /** @brief ?? */
 	struct state* parent;
+    /** @brief Partie courante */
 	Partie partie;
+    /** @brief ?? */
 	int taille;
 
+    /** @brief ??? */
 	struct label* au_tour_de[2];
+    /** @brief Affiche le handicap de la partie */
 	struct label* handicap;
+    /** @brief Affiche ??? */
 	struct label* partie_finie;
+    /** @brief Affiche le score */
 	struct label* score;
+    /** @brief Bouton permettant au joueur de passer son tour */
 	struct bouton* passer_son_tour;
+    /** @brief Bouton permettant de retourner au menu */
 	struct bouton* retour_menu;
+    /** @brief Zone de texte permettant de renseigner le nom de la partie */
 	struct textinput* nom_partie;
+    /** @brief Bouton permettant de sauvegarder la partie courrante */
 	struct bouton* sauvegarder;
+    /** @brief ?? */
 	Position hovered;
 };
 
+/** @ingroup sdl
+ *  @brief Dessiner le ??? sur une texture
+ *  @param ???
+ *  @param Texture sur laquelle dessiner le ??
+ */
 static void afficher_jouer(struct state*, SDL_Surface*);
+
+/** @ingroup sdl
+ *  @brief Met à jour ??
+ *  @param ??
+ *  @param ??
+ */
 static void mise_a_jour_jouer(struct state*, double);
+
+/** @ingroup sdl
+ *  @brief ??
+ *  @param
+ *  @param événement SDL
+ */
 static void event_jouer(struct state*, SDL_Event);
+
+/** @ingroup sdl
+ *  @brief ??
+ *  @brief ??
+ */
 static void jouer_bouton_retour(struct bouton*, void * data);
+
+/** @ingroup sdl
+ *  @brief ??
+ *  @brief ??
+ */
 static void jouer_bouton_passer(struct bouton*, void * data);
+
+/** @ingroup sdl
+ *  @brief ??
+ *  @brief ??
+ */
 static void jouer_bouton_sauvegarder(struct bouton*, void * data);
 
 struct state* creer_jouer(struct state* parent, Partie partie)

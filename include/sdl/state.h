@@ -16,9 +16,21 @@
 #ifndef GOSH_SDL_STATE
 #define GOSH_SDL_STATE
 
+/** @file state.h
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup sdl
+ *  @brief Défini les états
+ */
+
 #include <stdbool.h>
 #include <SDL/SDL.h>
 
+/** @ingroup sdl
+ *  @brief Défini les états
+ *  @todo compléter
+ */
 struct state {
 	bool quitter;
 
