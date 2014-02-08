@@ -92,7 +92,7 @@ enum FontSize {
 	SMALL = 0,
 	NORMAL,
 	BIG,
-    /** @brief Nombre de tailles possibles */
+	/** @brief Nombre de tailles possibles */
 	NUM_FONTS
 };
 
@@ -108,13 +108,13 @@ SDL_Surface* text_surface(const char*, enum FontSize taille);
  *  @brief Donne les alignements du texte possibles
  */
 enum Align {
-    /** @brief aligné à gauche */
+	/** @brief aligné à gauche */
 	LEFT = 0,
-    /** @brief Centré horizontalement */
+	/** @brief Centré horizontalement */
 	CENTER_X,
-    /** @brief Centré verticalement */
+	/** @brief Centré verticalement */
 	CENTER_XY,
-    /** @brief aligné à droite */
+	/** @brief aligné à droite */
 	RIGHT
 };
 

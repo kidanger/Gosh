@@ -32,13 +32,13 @@
  *  @brief Représente une position
  */
 typedef struct {
-    /** @brief Abscisse de la position */
+	/** @brief Abscisse de la position */
 	int8_t x;
-    /** @brief Ordonnée de la position */
+	/** @brief Ordonnée de la position */
 	int8_t y;
-    /** @brief Taille du plateau */
+	/** @brief Taille du plateau */
 	int8_t taille;
-    /** @brief Indique si la position est valide */
+	/** @brief Indique si la position est valide */
 	bool valide;
 } Position;
 

@@ -35,7 +35,7 @@
  *  Un itérateur est une sorte de pointeur vers un élément d'un container permettant de parcourrir ce dernier.
  */
 typedef struct {
-    /** @brief Donnee permettant d'identifier vers quel élément du container pointe l'itérateur. */
+	/** @brief Donnee permettant d'identifier vers quel élément du container pointe l'itérateur. */
 	void * m_pos;
 } GoshIterateur;
 

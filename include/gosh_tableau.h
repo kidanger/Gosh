@@ -74,21 +74,21 @@ struct IMPL_CONTAINER_NAME;
  *  @brief structure du container.
  */
 struct SCN {
-    /** @brief Permet d'incrémenter l'itérateur */
+	/** @brief Permet d'incrémenter l'itérateur */
 	TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
-    /** @brief Permet de créer un itérateur */
+	/** @brief Permet de créer un itérateur */
 	GoshIterateur(*createIterateur)(void);
-    /** @brief Permet de tester si le container est vide. */
+	/** @brief Permet de tester si le container est vide. */
 	bool (*vide)(struct SCN *);
-    /** @brief Permet d'ajouter un élément au container. */
+	/** @brief Permet d'ajouter un élément au container. */
 	void (*ajouter)(struct SCN *, TYPE);
-    /** @brief Permet de réserver size éléments dans le container. */
+	/** @brief Permet de réserver size éléments dans le container. */
 	void (*reserve)(struct SCN *, size_t size);
 	//bool (*appartient)(struct SCN *, TYPE);
-    /** @brief Supprime l'élément en tête du container. */
+	/** @brief Supprime l'élément en tête du container. */
 	TYPE(*supprimer_tete)(struct SCN *);
 
-    /** @brief Données stockées par le container. */
+	/** @brief Données stockées par le container. */
 	struct IMPL_CONTAINER_NAME * data;
 };
 

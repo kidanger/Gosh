@@ -80,15 +80,15 @@
  *  @brief Donne les données du menu
  */
 struct menudata {
-    /** @brief Titre du menu */
+	/** @brief Titre du menu */
 	struct label* titre;
-    /** @brief Labels du menu */
+	/** @brief Labels du menu */
 	struct label* labels[NUM_LABELS];
-    /** @brief Boutons du menu */
+	/** @brief Boutons du menu */
 	struct bouton* boutons[NUM_BOUTONS];
-    /** @brief Groupe de boutons radio du menu */
+	/** @brief Groupe de boutons radio du menu */
 	struct groupe_radio* groupes[NUM_GROUPES];
-    /** @brief Zones de textes du menu */
+	/** @brief Zones de textes du menu */
 	struct textinput* textinputs[NUM_TEXTINPUTS];
 };
 
@@ -410,9 +410,9 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			int handicap = atoi(menu->textinputs[NUM_TEXTINPUTS - 1]->buffer);
 			partie->handicap = handicap;
 			break;
-         default :
-           break;
-		}
+			default :
+				break;
+			}
 	}
 	return true;
 }

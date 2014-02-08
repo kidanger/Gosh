@@ -192,8 +192,8 @@ bool questions_callback(enum Question question, Partie partie, void* userdata)
 			return saisir_taille_plateau(partie);
 		case HANDICAP:
 			return saisir_handicap(partie);
-        default :
-        break;
+		default :
+			break;
 	}
 	return true;
 }

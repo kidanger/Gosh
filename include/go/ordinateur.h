@@ -43,16 +43,16 @@ typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
  *  @brief Décris une IA
  */
 struct s_Ordinateur {
-    /** @brief bibliothèque dynamique contenant l'IA */
+	/** @brief bibliothèque dynamique contenant l'IA */
 	char * file;
 	void* dlptr;
-    /** @brief Fonction jouer */
+	/** @brief Fonction jouer */
 	JouerFunc jouer;
-    /** @brief Change le plateau */
+	/** @brief Change le plateau */
 	RemplacerPlateauFunc remplacer_plateau;
-    /** @brief Notifie l'IA d'un changement de coup */
+	/** @brief Notifie l'IA d'un changement de coup */
 	NotificationCoupFunc notification_coup;
-    /** @brief Données utilisées par l'IA */
+	/** @brief Données utilisées par l'IA */
 	void* ordidata;
 };
 

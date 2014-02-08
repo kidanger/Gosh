@@ -31,28 +31,28 @@
  *  @brief Décris une zone de texte
  */
 struct textinput {
-    /** @brief Surface de la zone de texte */
+	/** @brief Surface de la zone de texte */
 	SDL_Surface* surface;
 
-    /** @brief Taille maximal de la chaîne de caractère */
+	/** @brief Taille maximal de la chaîne de caractère */
 	int taillemax;
-    /** @brief Position du curseur dans la chaîne de caractères */
+	/** @brief Position du curseur dans la chaîne de caractères */
 	int curseur;
-    /** @brief Buffer contenant le texte tapé par l'utilisateur */
+	/** @brief Buffer contenant le texte tapé par l'utilisateur */
 	char* buffer;
 
-    /** @brief position de la zone de texte */
+	/** @brief position de la zone de texte */
 	int x, y;
-    /** @brief taille de la zone de texte */
+	/** @brief taille de la zone de texte */
 	int w, h;
-    /** @brief Couleur du texte */
+	/** @brief Couleur du texte */
 	SDL_Color couleur;
 
-    /** @brief ?? */
+	/** @brief ?? */
 	bool hover;
-    /** @brief Indique si la zone de texte est active ou non. */
+	/** @brief Indique si la zone de texte est active ou non. */
 	bool active;
-    /** @brief ?? */
+	/** @brief ?? */
 	double time;
 };
 

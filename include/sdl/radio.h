@@ -34,19 +34,19 @@
  *  Un seul bouton radio peut être coché à la fois.
  */
 struct groupe_radio {
-    /** @brief Nombre de boutons radios de ce groupe */
+	/** @brief Nombre de boutons radios de ce groupe */
 	int nombre;
-    /** @brief ?? */
+	/** @brief ?? */
 	int index_prochain;
-    /** @brief Boutons radios du groupe */
+	/** @brief Boutons radios du groupe */
 	struct radio** radios;
-    /** @brief Bouton coché */
+	/** @brief Bouton coché */
 	int courante;
-    /** @brief Indique si le groupe de bouton est visible ou non */
+	/** @brief Indique si le groupe de bouton est visible ou non */
 	bool visible;
-    /** @brief Indique la fonction à appeler lorsqu'un bouton radio est coché */
+	/** @brief Indique la fonction à appeler lorsqu'un bouton radio est coché */
 	void(*callback)(struct groupe_radio*, void*);
-    /** @brief ?? */
+	/** @brief ?? */
 	void* userdata;
 };
 

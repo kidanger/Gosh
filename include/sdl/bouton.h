@@ -33,28 +33,28 @@
  *  @brief Bouton SDL
  */
 struct bouton {
-    /** @brief Texture du bouton */
+	/** @brief Texture du bouton */
 	SDL_Surface* surface;
-    /** @brief position du bouton */
+	/** @brief position du bouton */
 	float x, y;
-    /** @brief position d'origine du bouton */
+	/** @brief position d'origine du bouton */
 	float ox, oy;
-    /** @brief taille du bouton */
+	/** @brief taille du bouton */
 	int w, h;
-    /** @brief Couleur du texte du bouton */
+	/** @brief Couleur du texte du bouton */
 	SDL_Color couleur;
-    /** @brief Temps de déplacement */
+	/** @brief Temps de déplacement */
 	float deplacement_auto_timer;
-    /** @brief Indique si le bouton doit être visible ou non */
+	/** @brief Indique si le bouton doit être visible ou non */
 	bool visible;
 
-    /** @brief Fonction appelée lorsque le bouton est cliqué */
+	/** @brief Fonction appelée lorsque le bouton est cliqué */
 	void(*callback)(struct bouton*, void*);
-    /** @brief Données à envoyer lorsque le bouton est cliqué */
+	/** @brief Données à envoyer lorsque le bouton est cliqué */
 	void* userdata;
-    /** @brief ? */
+	/** @brief ? */
 	bool hover;
-    /** @brief indique si le bouton est en mouvement ou non */
+	/** @brief indique si le bouton est en mouvement ou non */
 	bool en_deplacement;
 };
 

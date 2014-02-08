@@ -51,19 +51,19 @@
  *  @brief ??
  */
 struct chargerdata {
-    /** @brief ?? */
+	/** @brief ?? */
 	struct state* parent;
-    /** @brief Titre */
+	/** @brief Titre */
 	struct label* titre;
-    /** @brief ?? */
+	/** @brief ?? */
 	struct label* choix;
-    /** @brief ?? */
+	/** @brief ?? */
 	struct label* erreur;
-    /** @brief ?? */
+	/** @brief ?? */
 	struct textinput* nom_partie;
-    /** @brief ?? */
+	/** @brief ?? */
 	struct bouton* boutons[NUM_BOUTONS];
-    /** @brief ?? */
+	/** @brief ?? */
 	bool shake;
 };
 
@@ -123,7 +123,7 @@ struct state* creer_charger(struct state* parent)
 	charger->choix = creer_label("Choix de la partie :", x + 10, H * .3, LEFT, NORMAL);
 
 	set_color(250, 20, 20);
-	charger->erreur = creer_label("Impossible de charger la partie !", W*.5, H*.5, CENTER_XY, NORMAL);
+	charger->erreur = creer_label("Impossible de charger la partie !", W * .5, H * .5, CENTER_XY, NORMAL);
 	charger->erreur->visible = false;
 
 	set_color(100, 100, 100);
@@ -185,9 +185,9 @@ static void mise_a_jour_charger(struct state* state, double dt)
 	if (charger->shake) {
 		float offset;
 		offset = ((float)rand() / RAND_MAX) * 11 - 5;
-		charger->erreur->x = W*.5 + offset;
+		charger->erreur->x = W * .5 + offset;
 		offset = ((float)rand() / RAND_MAX) * 11 - 5;
-		charger->erreur->y = H*.5 + offset;
+		charger->erreur->y = H * .5 + offset;
 		// shake durera en moyenne une seconde
 		if ((float)rand() / RAND_MAX < dt) {
 			charger->shake = false;

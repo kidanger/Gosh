@@ -32,9 +32,9 @@
  *  @brief Réponse possible
  */
 typedef struct {
-    /** @brief Lettre associée à l'option */
+	/** @brief Lettre associée à l'option */
 	char code;
-    /** @brief Description de l'option */
+	/** @brief Description de l'option */
 	const char* phrase;
 } Option;
 

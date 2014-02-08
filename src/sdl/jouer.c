@@ -44,30 +44,30 @@
  *  @brief ??
  */
 struct jouerdata {
-    /** @brief ?? */
+	/** @brief ?? */
 	struct state* parent;
-    /** @brief Partie courante */
+	/** @brief Partie courante */
 	Partie partie;
-    /** @brief ?? */
+	/** @brief ?? */
 	int taille;
 
-    /** @brief ??? */
+	/** @brief ??? */
 	struct label* au_tour_de[2];
-    /** @brief Affiche le handicap de la partie */
+	/** @brief Affiche le handicap de la partie */
 	struct label* handicap;
-    /** @brief Affiche ??? */
+	/** @brief Affiche ??? */
 	struct label* partie_finie;
-    /** @brief Affiche le score */
+	/** @brief Affiche le score */
 	struct label* score;
-    /** @brief Bouton permettant au joueur de passer son tour */
+	/** @brief Bouton permettant au joueur de passer son tour */
 	struct bouton* passer_son_tour;
-    /** @brief Bouton permettant de retourner au menu */
+	/** @brief Bouton permettant de retourner au menu */
 	struct bouton* retour_menu;
-    /** @brief Zone de texte permettant de renseigner le nom de la partie */
+	/** @brief Zone de texte permettant de renseigner le nom de la partie */
 	struct textinput* nom_partie;
-    /** @brief Bouton permettant de sauvegarder la partie courrante */
+	/** @brief Bouton permettant de sauvegarder la partie courrante */
 	struct bouton* sauvegarder;
-    /** @brief ?? */
+	/** @brief ?? */
 	Position hovered;
 };
 

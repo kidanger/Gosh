@@ -35,9 +35,9 @@
  *  @brief Représente un plateau
  */
 struct s_Plateau {
-    /** @brief Données du tableau */
+	/** @brief Données du tableau */
 	uint32_t * cases;
-    /** @brief Taille du plateau */
+	/** @brief Taille du plateau */
 	int taille;
 };
 

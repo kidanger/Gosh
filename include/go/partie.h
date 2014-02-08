@@ -45,21 +45,21 @@
  *  @brief Décris une partie
  */
 struct s_Partie {
-    /** @brief Plateau de la partie */
+	/** @brief Plateau de la partie */
 	Plateau plateau;
-    /** @brief Joueurs de la partie */
+	/** @brief Joueurs de la partie */
 	struct s_Joueur joueurs[2];
-    /** @brief handicap de la partie */
+	/** @brief handicap de la partie */
 	int handicap;
-    /** @brief Indique si la partie a été initialisée */
+	/** @brief Indique si la partie a été initialisée */
 	bool initialisee;
-    /** @brief Indique si la partie est finie */
+	/** @brief Indique si la partie est finie */
 	bool finie;
-    /** @brief Indique le joueur dont c'est le tour de jouer. */
+	/** @brief Indique le joueur dont c'est le tour de jouer. */
 	enum CouleurJoueur joueur_courant;
-    /** @brief Ensemble des anciens états du plateau */
+	/** @brief Ensemble des anciens états du plateau */
 	EnsemblePlateau plateaux_joues;
-    /** @brief Ensemble des états du plateau annulé */
+	/** @brief Ensemble des états du plateau annulé */
 	EnsemblePlateau plateaux_annules;
 };
 
@@ -72,22 +72,22 @@ typedef struct s_Partie* Partie;
  *  @brief Donne les questions à poser au joueur
  */
 enum Question {
-    /** @brief Première question */
+	/** @brief Première question */
 	PREMIERE_QUESTION,
 	TYPE_JOUEUR_NOIR = PREMIERE_QUESTION,
 	NOM_JOUEUR_NOIR,
-    /** @brief Question posée si le joueur noir est une IA */
-    PROGRAMME_JOUEUR_NOIR,
+	/** @brief Question posée si le joueur noir est une IA */
+	PROGRAMME_JOUEUR_NOIR,
 
 	TYPE_JOUEUR_BLANC,
 	NOM_JOUEUR_BLANC,
-    /** @brief Question posée si le joueur blanc est une IA */
-    PROGRAMME_JOUEUR_BLANC,
+	/** @brief Question posée si le joueur blanc est une IA */
+	PROGRAMME_JOUEUR_BLANC,
 
 	TAILLE_PLATEAU,
 	HANDICAP,
-    /** @brief Nombre de questions */
-    NOMBRE_QUESTIONS
+	/** @brief Nombre de questions */
+	NOMBRE_QUESTIONS
 };
 
 /** @ingroup go
