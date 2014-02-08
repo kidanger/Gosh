@@ -108,7 +108,7 @@ void cli_jouer_partie(Partie partie)
 		printf("Score des blancs : %.1f\n", scores[JOUEUR_BLANC]);
 
 		choix = cli_choisir_option("Que souhaitez-vous faire ?", 0, 'r', "rejouer la partie",
-		                           's', "sauvegarger la partie",
+		                           's', "sauvegarder la partie",
 		                           'q', "quitter");
 		if (choix == 's') {
 			char filename[4096];
