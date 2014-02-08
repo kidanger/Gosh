@@ -74,15 +74,15 @@ typedef struct s_Partie* Partie;
 enum Question {
     /** @brief Première question */
 	PREMIERE_QUESTION,
-	TYPE_JOUEUR_BLANC = PREMIERE_QUESTION,
-	NOM_JOUEUR_BLANC,
-    /** @brief Question posée si le joueur blanc est une IA */
-    PROGRAMME_JOUEUR_BLANC,
-
-	TYPE_JOUEUR_NOIR,
+	TYPE_JOUEUR_NOIR = PREMIERE_QUESTION,
 	NOM_JOUEUR_NOIR,
     /** @brief Question posée si le joueur noir est une IA */
     PROGRAMME_JOUEUR_NOIR,
+
+	TYPE_JOUEUR_BLANC,
+	NOM_JOUEUR_BLANC,
+    /** @brief Question posée si le joueur blanc est une IA */
+    PROGRAMME_JOUEUR_BLANC,
 
 	TAILLE_PLATEAU,
 	HANDICAP,
