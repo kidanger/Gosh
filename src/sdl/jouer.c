@@ -381,7 +381,7 @@ static void event_jouer(struct state* state, SDL_Event event)
 	}
 	if (event.type == SDL_MOUSEMOTION) {
 		jouer->hovered = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
-	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
+	} else if (event.type == SDL_MOUSEBUTTONUP) {
 		int b = event.button.button;
 		if (b == 1) {
 			Position pos = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
