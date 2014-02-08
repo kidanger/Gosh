@@ -222,6 +222,8 @@ bool partie_annuler_coup(Partie partie)
 		// si le nouveau joueur est un ordinateur, on annule son coup
 		partie_annuler_coup(partie);
 	}
+
+	partie_informer_ordinateur(partie);
 	return true;
 }
 
@@ -243,6 +245,8 @@ bool partie_rejouer_coup(Partie partie)
 		// si le nouveau joueur est un ordinateur, on rejoue son coup
 		partie_rejouer_coup(partie);
 	}
+
+	partie_informer_ordinateur(partie);
 	return true;
 }
 
