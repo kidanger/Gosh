@@ -63,11 +63,15 @@
 	[Quitter]						[Charger]
 */
 
-/** @todo ??????? */
+/** @brief Indice du groupe radio correspondant au type du joueur 1 */
 #define GROUPE_TYPE_J1 0
+/** @brief Indice du groupe radio correspondant au programme du joueur 1 */
 #define GROUPE_PROGRAMME_J1 1
+/** @brief Indice du groupe radio correspondant au type du joueur 2 */
 #define GROUPE_TYPE_J2 2
+/** @brief Indice du groupe radio correspondant au programme du joueur 2 */
 #define GROUPE_PROGRAMME_J2 3
+/** @brief Indice du groupe radio correspondant à la taille du Goban */
 #define GROUPE_TAILLE 4
 
 #define NUM_BOUTONS 3
@@ -100,8 +104,8 @@ struct menudata {
 static void afficher_menu(struct state*, SDL_Surface*);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ???
+ *  @brief Traite un événement SDL
+ *  @param État courant
  *  @param événement sdl
  */
 static void event_menu(struct state*, SDL_Event);
@@ -109,24 +113,24 @@ static void event_menu(struct state*, SDL_Event);
 /** @ingroup sdl
  *  @brief Met à jour le menu
  *  @param Menu à mettre à jour
- *  @param ??
+ *  @param Temps passé depuis la dernière mise à jour
  */
 static void mise_a_jour_menu(struct state *, double);
 
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Quitte le programme
  */
 static void menu_bouton_quitter(struct bouton*, void *);
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Entre dans l'écran de jeu
  */
 static void menu_bouton_jouer(struct bouton*, void *);
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Entre dans le menu "charger une partie"
  */
 static void menu_bouton_charger(struct bouton*, void *);
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Appelé lorsque l'utilisateur coche une case
  */
 static void menu_radio_type_joueur(struct groupe_radio*, void*);
 

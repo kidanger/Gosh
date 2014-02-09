@@ -19,7 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup ordinateurs
- *  @brief ?????
+ *  @brief Bibliothèque de l'ordinateur qui joue aléatoirement
  */
 
 

@@ -21,21 +21,21 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup sdl
- *  @brief ???
+ *  @brief Gère l'état qui correspond à l'écran de jeu
  */
 
 #include "go/partie.h"
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ??
+ *  @brief Créer l'écran de jeu
+ *  @param État parent (menu principal)
  *  @param Partie en cours
  */
 struct state* creer_jouer(struct state* parent, Partie partie);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ???
+ *  @brief Détruit l'écran de jeu
+ *  @param État correspondant à l'écran de jeu
  */
 void detruire_jouer(struct state*);
 

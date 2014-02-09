@@ -21,20 +21,20 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup sdl
- *  @brief Permet de créer des chargeur de ressources ????
- *
+ *  @brief Gère le menu de chargement de partie
  */
 
 
 /** @ingroup sdl
- *  @brief ??
- *  @param ??
- *  @return ??
+ *  @brief Créer l'état "menu de chargement"
+ *  @param État parent (le menu principal)
+ *  @return menu de chargement
  */
 struct state* creer_charger(struct state* parent);
 
 /** @ingroup sdl
- *  @brief ??
+ *  @brief Détruit l'état "menu de chargement"
+ *  @param État à détruire
  */
 void detruire_charger(struct state*);
 

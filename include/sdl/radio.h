@@ -36,7 +36,7 @@
 struct groupe_radio {
 	/** @brief Nombre de boutons radios de ce groupe */
 	int nombre;
-	/** @brief ?? */
+	/** @brief Indique du prochain bouton radio à ajouter dans le groupe */
 	int index_prochain;
 	/** @brief Boutons radios du groupe */
 	struct radio** radios;
@@ -46,7 +46,7 @@ struct groupe_radio {
 	bool visible;
 	/** @brief Indique la fonction à appeler lorsqu'un bouton radio est coché */
 	void(*callback)(struct groupe_radio*, void*);
-	/** @brief ?? */
+	/** @brief Userdata passée en paramètre de la callback */
 	void* userdata;
 };
 
@@ -67,14 +67,14 @@ struct groupe_radio* creer_groupe_radio(int nombre);
 void groupe_radio_ajouter(struct groupe_radio* groupe, const char* texte, int x, int y);
 
 /** @ingroup sdl
- *  @brief Dessine un groupe de boutons radio sur une texture
- *  @param Texture sur laquelle afficher le groupe
+ *  @brief Dessine un groupe de boutons radio sur une surface
+ *  @param Surface sur laquelle afficher le groupe
  *  @param Groupe de boutons radios à dessiner
  */
 void afficher_groupe_radio(SDL_Surface*, struct groupe_radio*);
 
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Traite un événement SDL
  *  @param Groupe de boutons radio
  *  @param Evénement SDL
  */

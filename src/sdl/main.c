@@ -37,19 +37,19 @@
 #include "sdl/main.h"
 
 /** @ingroup sdl
- *  @brief Texture principale de la fenêtre
+ *  @brief Surface principale de la fenêtre
  */
 SDL_Surface* window;
 
 /** @ingroup sdl
- *  @brief ???
+ *  @brief État (écran) courant
  */
 struct state* state;
 
 
 /** @ingroup sdl
  *  @brief Traite les événements SDL
- *  @param ??
+ *  @param État courant
  */
 void sdl_handle_events(struct state* state)
 {

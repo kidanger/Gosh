@@ -21,14 +21,14 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup sdl
- *  @brief ????
+ *  @brief Gère l'état de l'application (un état correspond à un écran)
  */
 
 #include "sdl/state.h"
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ??
+ *  @brief Actualise l'état courant
+ *  @param État à mettre en avant
  */
 void set_state(struct state*);
 

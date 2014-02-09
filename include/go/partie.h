@@ -112,7 +112,7 @@ void detruire_partie(Partie partie);
  *  @brief Initialise la partie en fonction des réponses aux différentes questions.
  *  @param Partie à initialiser
  *  @param Questions à poser
- *  @param ?
+ *  @param Donnée utilisateur passé en paramètre de fonctionQuestions
  */
 void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, void* userdata);
 

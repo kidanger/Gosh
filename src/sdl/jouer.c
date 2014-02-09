@@ -19,7 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup sdl
- *  @brief ???
+ *  @brief Gère l'écran de jeu
  */
 
 #include <stdlib.h>
@@ -41,21 +41,21 @@
 #include "sdl/jouer.h"
 
 /** @ingroup sdl
- *  @brief ??
+ *  @brief Structure de l'écran de jeu
  */
 struct jouerdata {
-	/** @brief ?? */
+	/** @brief État parent (le menu) */
 	struct state* parent;
 	/** @brief Partie courante */
 	Partie partie;
-	/** @brief ?? */
+	/** @brief Taille du plateau */
 	int taille;
 
-	/** @brief ??? */
+	/** @brief Label titre indiquant à qui est le tour */
 	struct label* au_tour_de[2];
 	/** @brief Affiche le handicap de la partie */
 	struct label* handicap;
-	/** @brief Affiche ??? */
+	/** @brief Affiche "Partie terminée" */
 	struct label* partie_finie;
 	/** @brief Affiche le score */
 	struct label* score;
@@ -67,46 +67,49 @@ struct jouerdata {
 	struct textinput* nom_partie;
 	/** @brief Bouton permettant de sauvegarder la partie courrante */
 	struct bouton* sauvegarder;
-	/** @brief ?? */
+	/** @brief Position sur le goban actuellement survolée */
 	Position hovered;
 };
 
 /** @ingroup sdl
- *  @brief Dessiner le ??? sur une texture
- *  @param ???
- *  @param Texture sur laquelle dessiner le ??
+ *  @brief Dessiner l'écran de jeu sur une surface (l'écran)
+ *  @param État courant
+ *  @param Surface sur laquelle dessiner l'écran de jeu
  */
 static void afficher_jouer(struct state*, SDL_Surface*);
 
 /** @ingroup sdl
- *  @brief Met à jour ??
- *  @param ??
- *  @param ??
+ *  @brief Met à jour l'écran de jeu
+ *  @param État courant
+ *  @param Temps passé depuis la dernière mise à jour
  */
-static void mise_a_jour_jouer(struct state*, double);
+static void mise_a_jour_jouer(struct state*, double dt);
 
 /** @ingroup sdl
- *  @brief ??
- *  @param
- *  @param événement SDL
+ *  @brief Traite un événement SDL
+ *  @param État courant
+ *  @param Événement SDL
  */
 static void event_jouer(struct state*, SDL_Event);
 
 /** @ingroup sdl
- *  @brief ??
- *  @brief ??
+ *  @brief Appelée lors du clic sur le bouton "retour au menu"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void jouer_bouton_retour(struct bouton*, void * data);
 
 /** @ingroup sdl
- *  @brief ??
- *  @brief ??
+ *  @brief Appelée lors du clic sur le bouton "retour au menu"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void jouer_bouton_passer(struct bouton*, void * data);
 
 /** @ingroup sdl
- *  @brief ??
- *  @brief ??
+ *  @brief Appelée lors du clic sur le bouton "passer son tour"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void jouer_bouton_sauvegarder(struct bouton*, void * data);
 

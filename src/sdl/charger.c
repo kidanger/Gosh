@@ -19,7 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup sdl
- *  @brief ????
+ *  @brief Gère le menu de chargement de partie
  */
 
 #include <stdlib.h>
@@ -39,66 +39,62 @@
 #include "sdl/jouer.h"
 #include "sdl/charger.h"
 
-/** @def NUM_BOUTONS
- *  @ingroup sdl
- *  @brief ??
- */
 
 #define NUM_BOUTONS 2
 
 
 /** @ingroup sdl
- *  @brief ??
+ *  @brief Structure du menu de chargement de partie
  */
 struct chargerdata {
-	/** @brief ?? */
+	/** @brief État parent (le menu) */
 	struct state* parent;
 	/** @brief Titre */
 	struct label* titre;
-	/** @brief ?? */
-	struct label* choix;
-	/** @brief ?? */
+	/** @brief Label indiquant de saisir un nom */
+	struct label* saisir;
+	/** @brief Label affichant "impossible de charger" */
 	struct label* erreur;
-	/** @brief ?? */
+	/** @brief Boite de saisie du nom de la partie */
 	struct textinput* nom_partie;
-	/** @brief ?? */
+	/** @brief Boutons (retour, valider) */
 	struct bouton* boutons[NUM_BOUTONS];
-	/** @brief ?? */
+	/** @brief Indique si l'erreur est en cours de mouvement */
 	bool shake;
 };
 
 /** @ingroup sdl
  *  @brief Dessine le menu sur une texture
- *  @param ???
+ *  @param État courant
  *  @param Texture sur laquelle dessiner le menu
  */
 static void afficher_charger(struct state*, SDL_Surface*);
 
 /** @ingroup sdl
  *  @brief Met à jour le menu
- *  @param ???
- *  @param ???
+ *  @param État courant
+ *  @param Temps passé de la dernière mise à jour
  */
 static void mise_a_jour_charger(struct state* state, double dt);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ???
- *  @param événement sdl
+ *  @brief Traite un événement SDL
+ *  @param État courant
+ *  @param Événement sdl
  */
 static void event_charger(struct state* state, SDL_Event event);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ???
- *  @param ???
+ *  @brief Appelée lors du clic sur le bouton retour, ferme le menu charger
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void charger_bouton_retour(struct bouton*, void * data);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ???
- *  @param ???
+ *  @brief Appelée lors du clic sur le bouton "charger la partie"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void charger_bouton_charger(struct bouton*, void * data);
 
@@ -120,7 +116,7 @@ struct state* creer_charger(struct state* parent)
 	charger->titre = creer_label("Charger", W / 2, H * .1, CENTER_XY, BIG);
 	set_color(200, 200, 200);
 	int x = (W - W * .7) / 2;
-	charger->choix = creer_label("Choix de la partie :", x + 10, H * .3, LEFT, NORMAL);
+	charger->saisir = creer_label("Saisir le nom de la partie :", x + 10, H * .3, LEFT, NORMAL);
 
 	set_color(250, 20, 20);
 	charger->erreur = creer_label("Impossible de charger la partie !", W * .5, H * .5, CENTER_XY, NORMAL);
@@ -152,7 +148,7 @@ void detruire_charger(struct state* state)
 {
 	struct chargerdata* charger = state->data;
 	detruire_label(charger->titre);
-	detruire_label(charger->choix);
+	detruire_label(charger->saisir);
 	detruire_label(charger->erreur);
 	detruire_textinput(charger->nom_partie);
 	for (int i = 0; i < NUM_BOUTONS; i++) {
@@ -169,7 +165,7 @@ static void afficher_charger(struct state* state, SDL_Surface* surface)
 	set_color(50, 50, 50);
 	draw_rect(surface, (W - W * .7) / 2, H * .2, W * .7, H * .6);
 	afficher_label(surface, charger->titre);
-	afficher_label(surface, charger->choix);
+	afficher_label(surface, charger->saisir);
 	afficher_label(surface, charger->erreur);
 	afficher_textinput(surface, charger->nom_partie);
 	for (int i = 0; i < NUM_BOUTONS; i++) {

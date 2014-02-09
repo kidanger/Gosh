@@ -49,7 +49,7 @@ struct radio {
 	SDL_Color couleur;
 	/** @brief Indique si le bouton est coché ou non */
 	bool coche;
-	/** @brief ?? */
+	/** @brief Indique si le bouton est actuellement survolé par le curseur */
 	bool hover;
 };
 
@@ -70,9 +70,9 @@ struct radio* creer_radio(const char* texte, int x, int y);
 void afficher_radio(SDL_Surface*, struct radio*);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param  bouton radio
- *  @param  événement sdl
+ *  @brief Traite un événement SDL
+ *  @param bouton radio
+ *  @param événement sdl
  */
 void utiliser_event_radio(struct radio*, SDL_Event);
 
