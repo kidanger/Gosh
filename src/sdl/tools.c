@@ -30,11 +30,14 @@
 #include "gosh_alloc.h"
 #include "sdl/tools.h"
 
-/** @def FONT_FILENAME
+/** @def FONT_FILENAMES
  *  @ingroup sdl
- *  @brief Nom de la police utilisée
+ *  @brief Chemins possible vers la police
  */
-#define FONT_FILENAME "ressources/arial.ttf"
+const char* FONT_FILENAMES[] = {
+	SOURCE_PATH"/ressources/arial.ttf",
+	INSTALL_PATH"/share/gosh/arial.ttf"
+};
 
 /** @ingroup sdl
  *  @brief Couleur du pinceau
@@ -60,7 +63,6 @@ void set_color(int r, int g, int b)
 	color.g = g;
 	color.b = b;
 }
-
 
 SDL_Color get_color()
 {
@@ -104,7 +106,11 @@ TTF_Font* get_font(enum FontSize size)
 	static TTF_Font* fonts[NUM_FONTS] = {NULL};
 	int i = size;
 	if (!fonts[i]) {
-		fonts[i] = TTF_OpenFont(FONT_FILENAME, font_sizes[i]);
+		unsigned p = 0;
+		while (!fonts[i] && p < sizeof(FONT_FILENAMES)/sizeof(FONT_FILENAMES[0])) {
+			fonts[i] = TTF_OpenFont(FONT_FILENAMES[p], font_sizes[i]);
+			p++;
+		}
 		TTF_CHECK(fonts[i] != NULL);
 	}
 	return fonts[i];

@@ -383,9 +383,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			strcpy(partie->joueurs[JOUEUR_BLANC].nom, menu->textinputs[1]->buffer);
 			break;
 		case PROGRAMME_JOUEUR_BLANC:
-			partie->joueurs[JOUEUR_BLANC].ordinateur = menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ?
-			        charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
-			        charger_ordinateur("build/src/ordinateurs/librandom.so");
+			partie->joueurs[JOUEUR_BLANC].ordinateur = charger_ordinateur(
+					menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ? "gnugo" : "random");
 			break;
 
 		case TYPE_JOUEUR_NOIR:
@@ -395,9 +394,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			strcpy(partie->joueurs[JOUEUR_NOIR].nom, menu->textinputs[0]->buffer);
 			break;
 		case PROGRAMME_JOUEUR_NOIR:
-			partie->joueurs[JOUEUR_NOIR].ordinateur = menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ?
-			        charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
-			        charger_ordinateur("build/src/ordinateurs/librandom.so");
+			partie->joueurs[JOUEUR_NOIR].ordinateur = charger_ordinateur(
+					menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ? "gnugo" : "random");
 			break;
 
 		case TAILLE_PLATEAU: {

@@ -129,15 +129,17 @@ struct state* creer_charger(struct state* parent)
 	set_color(100, 100, 100);
 	charger->nom_partie = creer_textinput(x + 200, H * .4, 200, 25, 16);
 
-	set_color(155, 50, 50);
-	struct bouton* bouton = creer_bouton("Retour", W * .1, H * .9, 100, 30);
-	bouton->callback = charger_bouton_retour;
-	bouton->userdata = state;
-	charger->boutons[0] = bouton;
+	struct bouton* bouton;
 
 	set_color(50, 250, 50);
 	bouton = creer_bouton("Charger", W * .6, H * .7, 100, 30);
 	bouton->callback = charger_bouton_charger;
+	bouton->userdata = state;
+	charger->boutons[0] = bouton;
+
+	set_color(155, 50, 50);
+	bouton = creer_bouton("Retour", W * .1, H * .9, 100, 30);
+	bouton->callback = charger_bouton_retour;
 	bouton->userdata = state;
 	charger->boutons[1] = bouton;
 

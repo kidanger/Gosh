@@ -99,9 +99,9 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 	Ordinateur ordi;
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	if (couleur == JOUEUR_BLANC)
-		ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
+		ordi = charger_ordinateur("random");
 	else
-		ordi = charger_ordinateur("build/src/ordinateurs/libgnugo.so");
+		ordi = charger_ordinateur("gnugo");
 	partie->joueurs[couleur].ordinateur = ordi;
 	return ordi != NULL;
 #endif
@@ -110,9 +110,9 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 		char rep = cli_choisir_option(str, 'g', 'a', "Aléatoire",
 		                              'g', "GNU Go", 'r', "retour", 0);
 		if (rep == 'a') {
-			ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
+			ordi = charger_ordinateur("random");
 		} else if (rep == 'g') {
-			ordi = charger_ordinateur("build/src/ordinateurs/libgnugo.so");
+			ordi = charger_ordinateur("gnugo");
 			if (!ordi)
 				printf("Nécessite l'installation de GNU Go.\n");
 		} else if (rep == 'r') {

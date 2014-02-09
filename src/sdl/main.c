@@ -27,6 +27,9 @@
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
+#ifdef EMSCRIPTEN
+#include <emscripten.h>
+#endif
 
 #include "sdl/state.h"
 #include "sdl/menu.h"
@@ -82,14 +85,6 @@ void set_state(struct state* newstate)
 {
 	state = newstate;
 }
-
-/** @def EMSCRIPTEN
- *  @ingroup sdl
- *  @brief Macro utile à la compilation vers ???
- */
-#ifdef EMSCRIPTEN
-#include "emscripten.h"
-#endif
 
 /** @ingroup sdl
  *  @brief Met à jour la fenêtre

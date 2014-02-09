@@ -1,6 +1,6 @@
-set(OUT sdl)
+set(OUT goshsdl)
 if(EMSCRIPTEN)
-        set(OUT sdl.js)
+        set(OUT goshsdl.js)
 endif(EMSCRIPTEN)
 
 aux_source_directory(. SDL_SOURCES)

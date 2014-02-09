@@ -371,9 +371,6 @@ static void afficher_sauvegarder(struct jouerdata* jouer)
 static void event_jouer(struct state* state, SDL_Event event)
 {
 	struct jouerdata* jouer = state->data;
-	utiliser_event_bouton(jouer->retour_menu, event);
-	utiliser_event_bouton(jouer->passer_son_tour, event);
-	utiliser_event_bouton(jouer->sauvegarder, event);
 	utiliser_event_textinput(jouer->nom_partie, event);
 	if (jouer->nom_partie->active) {
 		afficher_sauvegarder(jouer);
@@ -415,6 +412,9 @@ static void event_jouer(struct state* state, SDL_Event event)
 			afficher_sauvegarder(jouer);
 		}
 	}
+	utiliser_event_bouton(jouer->passer_son_tour, event);
+	utiliser_event_bouton(jouer->sauvegarder, event);
+	utiliser_event_bouton(jouer->retour_menu, event);
 }
 
 static void jouer_bouton_retour(struct bouton* bouton, void * data)

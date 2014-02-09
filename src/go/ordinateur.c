@@ -50,16 +50,36 @@ static void* recuperer_fonction(void* dlptr, const char* nom, bool importante)
 	return func;
 }
 
-Ordinateur charger_ordinateur(const char* filename)
+Ordinateur charger_ordinateur(const char* name)
 {
+	void* dlptr = NULL;
+
 #ifdef EMSCRIPTEN
-	filename = NULL;
+	dlptr = DLOPEN(NULL);
+#else
+#ifndef _WIN32
+	const char* extension = ".so";
+#else
+	const char* extension = ".dll";
 #endif
-	void* dlptr = DLOPEN(filename);
+	const char* paths[] = { BUILD_PATH"/src/ordinateurs/", INSTALL_PATH"/share/gosh/" };
+	char filename[256];
+
+	unsigned p = 0;;
+	while (dlptr == NULL && p < sizeof(paths)/sizeof(paths[0])) {
+		snprintf(filename, sizeof(filename), "%slib%s%s", paths[p], name, extension);
+		dlptr = DLOPEN(filename);
+		if (dlptr == NULL) {
+			gosh_debug("Impossible de charger le fichier %s.", filename);
+		}
+		p++;
+	}
 	if (dlptr == NULL) {
-		printf("Impossible de charger le fichier %s.\n", filename);
+		fprintf(stderr, "Impossible de charger l'ordinateur %s.\n", name);
 		return NULL;
 	}
+	gosh_debug("%s chargé", filename);
+#endif
 
 	void*(*initialiser)() = recuperer_fonction(dlptr, INITIALISER_STR, true);
 	if (initialiser == NULL) {
@@ -84,8 +104,8 @@ Ordinateur charger_ordinateur(const char* filename)
 	ordi->ordidata = ordidata;
 	ordi->remplacer_plateau = remplacer_plateau;
 	ordi->notification_coup = notification_coup;
-	ordi->file = (char *)malloc(strlen(filename) + 1);
-	strcpy(ordi->file, filename);
+	ordi->name = malloc(strlen(name) + 1);
+	strcpy(ordi->name, name);
 	return ordi;
 }
 
@@ -111,7 +131,7 @@ void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur co
 void decharger_ordinateur(Ordinateur ordi)
 {
 	DLCLOSE(ordi->dlptr);
-	free(ordi->file);
+	free(ordi->name);
 	gosh_free(ordi);
 }
 

@@ -342,5 +342,5 @@ const uint32_t * plateau_data(Plateau p)
 void plateau_load_data(Plateau plateau, const uint32_t * data)
 {
 	memcpy(plateau->cases, data, sizeof(uint32_t) * impl_get_nbCases(plateau->taille));
-
 }
+

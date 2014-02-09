@@ -84,10 +84,9 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, v
 
 	if (idQuestion == NOMBRE_QUESTIONS) {
 		partie->initialisee = true;
+		partie->joueur_courant = JOUEUR_NOIR;
+		partie_informer_ordinateur(partie);
 	}
-
-	partie->joueur_courant = JOUEUR_NOIR;
-	partie_informer_ordinateur(partie);
 }
 
 void reinitialisation_partie(Partie partie)

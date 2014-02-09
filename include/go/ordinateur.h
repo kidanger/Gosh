@@ -44,7 +44,7 @@ typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
  */
 struct s_Ordinateur {
 	/** @brief bibliothèque dynamique contenant l'IA */
-	char * file;
+	char * name;
 	void* dlptr;
 	/** @brief Fonction jouer */
 	JouerFunc jouer;
@@ -60,10 +60,10 @@ typedef struct s_Ordinateur* Ordinateur;
 
 /** @ingroup go
  *  @brief Charge une IA
- *  @param Bibliothèque dynamique contenant l'IA
+ *  @param Nom de la bibliothèque dynamique contenant l'IA
  *  @return Description de l'IA
  */
-Ordinateur charger_ordinateur(const char* filename);
+Ordinateur charger_ordinateur(const char* name);
 
 /** @ingroup go
  *  @brief Libère les ressources associées à l'IA
