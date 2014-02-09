@@ -253,6 +253,14 @@ void get_position_vers_ecran(struct jouerdata* jouer, int x, int y, int* sx, int
 	*sy = y1 + bordure + y * pixel_par_case;
 }
 
+static int get_marge(int i, int taille)
+{
+	if (i < taille / 2)
+		return i;
+	else
+		return taille - i - 1;
+}
+
 static void afficher_jouer(struct state* state, SDL_Surface* surface)
 {
 	struct jouerdata* jouer = state->data;
@@ -313,13 +321,24 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 				}
 				draw = true;
 			}
+			int marge = (taille == 9 ? 2 : 3);
 			if (draw) {
+				// affichage de la pierre
 				int sx, sy;
 				get_position_vers_ecran(jouer, x, y, &sx, &sy);
 				sx -= taille_stone / 2;
 				sy -= taille_stone / 2;
 				draw_rect(surface, sx, sy, taille_stone, taille_stone);
+			} else if ((get_marge(x, taille) == marge || x == taille / 2)
+					&& (get_marge(y, taille) == marge || y == taille / 2)) {
+				// affichage du hoshi
+				int sx, sy;
+				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				set_color(0, 0, 0);
+				draw_rect(surface, sx - 3, sy - 3, 6, 6);
 			}
+
+			// affichage d'indicateurs d'aide
 			draw = false;
 			if (chaine && gosh_appartient(chaine, pos)) {
 				set_color(120, 120, 120);
