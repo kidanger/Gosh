@@ -123,6 +123,9 @@ void liberer_polices()
 	for (i = 0; i < NUM_FONTS; i++) {
 		TTF_CloseFont(fonts[i]);
 	}
+#ifndef EMSCRIPTEN
+	// non défini par Emscripten
 	TTF_Quit();
+#endif
 }
 
