@@ -61,6 +61,8 @@ struct chargerdata {
 	struct bouton* boutons[NUM_BOUTONS];
 	/** @brief Indique si l'erreur est en cours de mouvement */
 	bool shake;
+	/** @brief Indique si la structure doit être libérée (suite à un changement d'état) */
+	bool libere;
 };
 
 /** @ingroup sdl
@@ -111,6 +113,8 @@ struct state* creer_charger(struct state* parent)
 	state->mousebuttonup = event_charger;
 	state->keydown = event_charger;
 	charger->parent = parent;
+	charger->libere = false;
+	state->destructeur = detruire_jouer;
 
 	set_color(50, 50, 150);
 	charger->titre = creer_label("Charger", W / 2, H * .1, CENTER_XY, BIG);
@@ -205,6 +209,9 @@ static void event_charger(struct state* state, SDL_Event event)
 		struct bouton* b = charger->boutons[i];
 		utiliser_event_bouton(b, event);
 	}
+	if (charger->libere) {
+		detruire_charger(state);
+	}
 }
 
 static void charger_bouton_retour(struct bouton* bouton, void * data)
@@ -225,7 +232,7 @@ static void charger_bouton_charger(struct bouton* bouton, void * data)
 	if (partie != NULL) {
 		struct state* jeu = creer_jouer(charger->parent, partie);
 		set_state(jeu);
-		detruire_charger(state);
+		charger->libere = true;
 	} else {
 		charger->erreur->visible = true;
 		charger->shake = true;

@@ -152,5 +152,10 @@ void draw_surface(SDL_Surface* on, SDL_Surface* from, int x, int y, enum Align a
 		} \
 	} while (0)
 
+/** @ingroup sdl
+ *  @brief Libère les polices allouées lors de l'exécution.
+ */
+void liberer_polices();
+
 #endif
 

@@ -127,6 +127,7 @@ struct state* creer_jouer(struct state* parent, Partie partie)
 	state->mousebuttondown = event_jouer;
 	state->mousebuttonup = event_jouer;
 	state->keydown = event_jouer;
+	state->destructeur = detruire_jouer;
 
 	char buf[TAILLE_NOM_JOUEUR + 64];
 
@@ -177,6 +178,7 @@ void detruire_jouer(struct state* state)
 	detruire_bouton(jouer->retour_menu);
 	detruire_textinput(jouer->nom_partie);
 	detruire_bouton(jouer->sauvegarder);
+	detruire_bouton(jouer->passer_son_tour);
 
 	gosh_free(jouer);
 	gosh_free(state);

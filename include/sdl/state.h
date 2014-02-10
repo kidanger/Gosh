@@ -29,18 +29,28 @@
 
 /** @ingroup sdl
  *  @brief Défini les états
- *  @todo compléter
  */
 struct state {
+	/** @brief Si à true, l'application s'arrête */
 	bool quitter;
 
+	/** @brief Callback d'affichage */
 	void(*afficher)(struct state*, SDL_Surface*);
+	/** @brief Callback lorsqu'un event de type KEYDOWN est reçu */
 	void(*keydown)(struct state*, SDL_Event);
+	/** @brief Callback lorsqu'un event de type MOUSEMOTION est reçu */
 	void(*mousemotion)(struct state*, SDL_Event);
+	/** @brief Callback lorsqu'un event de type MOUSEBUTTONDOWN est reçu */
 	void(*mousebuttondown)(struct state*, SDL_Event);
+	/** @brief Callback lorsqu'un event de type MOUSEBUTTONUP est reçu */
 	void(*mousebuttonup)(struct state*, SDL_Event);
+	/** @brief Callback de mise à jour */
 	void(*mise_a_jour)(struct state*, double);
+	/** @brief Données cachées de l'état (menu, charger, jouer) */
 	void* data;
+
+	/** @brief Appelé pour détruire l'état */
+	void(*destructeur)(struct state*);
 };
 
 

@@ -146,6 +146,7 @@ struct state* creer_menu()
 	state->mousebuttonup = event_menu;
 	state->keydown = event_menu;
 	state->mise_a_jour = mise_a_jour_menu;
+	state->destructeur = detruire_menu;
 
 	set_color(200, 50, 50);
 	menu->titre = creer_label("Gosh", W / 2, H * .1, CENTER_XY, BIG);
@@ -311,7 +312,7 @@ void detruire_menu(struct state* state)
 		struct textinput* ti = menu->textinputs[i];
 		detruire_textinput(ti);
 	}
-	gosh_free(state->data);
+	gosh_free(menu);
 	gosh_free(state);
 }
 

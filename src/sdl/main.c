@@ -49,9 +49,8 @@ struct state* state;
 
 /** @ingroup sdl
  *  @brief Traite les événements SDL
- *  @param État courant
  */
-void sdl_handle_events(struct state* state)
+void sdl_handle_events()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
@@ -91,7 +90,7 @@ void set_state(struct state* newstate)
  */
 void update()
 {
-	sdl_handle_events(state);
+	sdl_handle_events();
 
 	double dt = 1 / 60.;
 	if (state->mise_a_jour)
@@ -115,10 +114,11 @@ int main(int argc, char *argv[])
 {
 	(void) argc;
 	(void) argv;
-	SDL_CHECK(SDL_Init(SDL_INIT_EVERYTHING) == 0);
+	SDL_CHECK(SDL_Init(SDL_INIT_VIDEO) == 0);
 	atexit(SDL_Quit);
 
 	TTF_CHECK(TTF_Init() == 0);
+	atexit(liberer_polices);
 
 	window = SDL_SetVideoMode(W, H, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_CHECK(window != NULL);
@@ -133,6 +133,7 @@ int main(int argc, char *argv[])
 		SDL_Delay(1000 / 60.);
 	}
 #endif
+	state->destructeur(state);
 
 	return EXIT_SUCCESS;
 }

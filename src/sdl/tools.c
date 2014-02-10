@@ -101,9 +101,10 @@ void draw_surface(SDL_Surface* on, SDL_Surface* from, int x, int y, enum Align a
 	SDL_BlitSurface(from, NULL, on, &dest);
 }
 
+static TTF_Font* fonts[NUM_FONTS] = {NULL};
+
 TTF_Font* get_font(enum FontSize size)
 {
-	static TTF_Font* fonts[NUM_FONTS] = {NULL};
 	int i = size;
 	if (!fonts[i]) {
 		unsigned p = 0;
@@ -114,5 +115,14 @@ TTF_Font* get_font(enum FontSize size)
 		TTF_CHECK(fonts[i] != NULL);
 	}
 	return fonts[i];
+}
+
+void liberer_polices()
+{
+	int i;
+	for (i = 0; i < NUM_FONTS; i++) {
+		TTF_CloseFont(fonts[i]);
+	}
+	TTF_Quit();
 }
 

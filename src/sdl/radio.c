@@ -134,8 +134,9 @@ void utiliser_event_groupe_radio(struct groupe_radio* groupe, SDL_Event event)
 void detruire_groupe_radio(struct groupe_radio* groupe)
 {
 	for (int i = 0; i < groupe->nombre; i++) {
-		gosh_free(groupe->radios[i]);
+		detruire_radio(groupe->radios[i]);
 	}
+	gosh_free(groupe->radios);
 	gosh_free(groupe);
 }
 
