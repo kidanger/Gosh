@@ -49,6 +49,14 @@ void detruire_partie(Partie partie)
 		detruire_plateaux(partie->plateaux_annules);
 	if (partie->plateau)
 		detruire_plateau(partie->plateau);
+	if (partie->initialisee) {
+		if (partie->joueurs[0].type == ORDINATEUR) {
+			decharger_ordinateur(partie->joueurs[0].ordinateur);
+		}
+		if (partie->joueurs[1].type == ORDINATEUR) {
+			decharger_ordinateur(partie->joueurs[1].ordinateur);
+		}
+	}
 	gosh_free(partie);
 }
 

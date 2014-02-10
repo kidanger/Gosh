@@ -130,6 +130,13 @@ void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur co
 
 void decharger_ordinateur(Ordinateur ordi)
 {
+	if (ordi->ordidata) {
+		void(*liberer)(void*) = recuperer_fonction(ordi->dlptr, LIBERER_STR, false);
+		if (liberer) {
+			liberer(ordi->ordidata);
+		}
+	}
+
 	DLCLOSE(ordi->dlptr);
 	free(ordi->name);
 	gosh_free(ordi);

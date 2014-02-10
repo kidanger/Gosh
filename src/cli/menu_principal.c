@@ -40,6 +40,7 @@ void afficher_menu_principal(void)
 			if (p) {
 				cli_afficher_plateau(p->plateau);
 				cli_jouer_partie(p);
+				detruire_partie(p);
 			}
 		}
 		if (choix == 'l') {
@@ -49,6 +50,7 @@ void afficher_menu_principal(void)
 			if (p) {
 				cli_afficher_plateau(p->plateau);
 				cli_jouer_partie(p);
+				detruire_partie(p);
 			} else
 				fprintf(stderr, "Impossible d'ouvrir le fichier '%s'\n", buffer);
 		}

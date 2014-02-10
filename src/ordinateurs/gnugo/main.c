@@ -213,4 +213,10 @@ void* INITIALISER()
 	return data;
 }
 
+void LIBERER(Data data)
+{
+	close(data->fdout);
+	close(data->fdin);
+	free(data);
+}
 

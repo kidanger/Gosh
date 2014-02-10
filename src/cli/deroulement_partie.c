@@ -112,7 +112,7 @@ void cli_jouer_partie(Partie partie)
 
 		choix = cli_choisir_option("Que souhaitez-vous faire ?", 0, 'r', "rejouer la partie",
 		                           's', "sauvegarder la partie",
-		                           'q', "quitter");
+		                           'q', "quitter", 0);
 		if (choix == 's') {
 			char filename[4096];
 			cli_demander_string("Sauvegarder la partie dans le fichier", filename, sizeof(filename));

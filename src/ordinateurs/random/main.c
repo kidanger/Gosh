@@ -32,6 +32,7 @@
 #include "gosh_macros.h"
 #include "gosh_alloc.h"
 
+// non utilisé dans le cas de l'ordinateur random
 typedef struct {
 } *Data;
 
@@ -62,5 +63,10 @@ void* INITIALISER()
 	Data data = gosh_alloc(*data);
 	gosh_debug("Initialisation du botrandom");
 	return data;
+}
+
+void LIBERER(Data data)
+{
+	free(data);
 }
 

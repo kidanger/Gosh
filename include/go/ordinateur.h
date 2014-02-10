@@ -30,6 +30,8 @@
 #define JOUER_COUP __attribute__((used)) jouer_coup_ordi
 #define INITIALISER_STR "initialiser_ordi"
 #define INITIALISER __attribute__((used)) initialiser_ordi
+#define LIBERER_STR "liberer_ordi"
+#define LIBERER __attribute__((used)) liberer_ordi
 #define REMPLACER_PLATEAU_STR "remplacer_plateau_ordi"
 #define REMPLACER_PLATEAU __attribute__((used)) remplacer_plateau_ordi
 #define NOTIFICATION_COUP_STR "notification_coup_ordi"
