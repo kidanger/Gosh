@@ -90,6 +90,7 @@ void cli_jouer_partie(Partie partie)
 				s_Coup coup = cli_convertir_coup(partie, rep, &valide);
 				if (valide) {
 					bool reussi = partie_jouer_coup(partie, coup);
+					(void) reussi; // pour les erreurs de compilation en mode release
 					gosh_debug("coup reussi: %s", reussi ? "oui" : "non");
 					cli_afficher_plateau(partie->plateau);
 				}

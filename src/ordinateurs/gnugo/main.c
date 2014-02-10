@@ -57,10 +57,12 @@ void ignorer_sortie(Data data)
 	char buf[256];
 	int len = read(data->fdin, buf, sizeof(buf));
 	buf[len] = 0;
-	if (isalpha(buf[0]))
+	if (isalpha(buf[0])) {
 		gosh_debug("buffer vidé: %s", buf);
-	if (len == sizeof(buf))
+	}
+	if (len == sizeof(buf)) {
 		ignorer_sortie(data);
+	}
 }
 
 bool envoyer_commande(Data data, const char* commande)

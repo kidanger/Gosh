@@ -30,7 +30,7 @@ Territoire determiner_territoire(Plateau plateau, Position position)
 	EnsemblePosition territoire_positions = ensemble_colore_positions(territoire);
 
 	EnsemblePosition possibles = creer_ensemble_position();
-	Couleur couleur;
+	Couleur couleur = VIDE;
 	bool couleur_connue = false;
 
 	ensemble_position_ajouter(possibles, position);

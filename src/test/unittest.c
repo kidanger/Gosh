@@ -48,7 +48,7 @@ void afficher_plateau(Plateau plateau)
 	Libertes libertes = determiner_libertes(plateau, chaine);
 	Territoire territoire = determiner_territoire(plateau, position(taille - 1, taille - 1, taille));
 
-	const char* couleur_territoire;
+	const char* couleur_territoire = NULL;
 	switch (ensemble_colore_couleur(territoire)) {
 		case BLANC:
 			couleur_territoire = C_YELLOW;
@@ -124,6 +124,7 @@ void test_position(void)
 
 	int taille = 19;
 	int max = taille - 1;
+	(void) max;
 #define TEST(dir, x, y) position_est_valide(position_##dir( position(x, y, taille)))
 
 	assert(!TEST(gauche, 0, 0));
@@ -230,6 +231,7 @@ void test_coup(void)
 	// à tester sur valgrind
 	partie->joueur_courant = JOUEUR_NOIR;
 	s_Coup coup = {position(1, 0, 9)};
+	(void) coup;
 	assert(partie_jouer_coup(partie, coup));
 
 	coup.position = POSITION_INVALIDE;
