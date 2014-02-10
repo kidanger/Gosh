@@ -26,13 +26,13 @@
 
 /** @ingroup sdl
  *  @brief Crée le menu principal de gosh
- *  @return ???
+ *  @return État correspondant au menu
  */
 struct state* creer_menu();
 
 /** @ingroup sdl
  *  @brief Détruit le menu principal de gosh
- *  @param ????
+ *  @param État correspondant au menu
  */
 void detruire_menu(struct state*);
 

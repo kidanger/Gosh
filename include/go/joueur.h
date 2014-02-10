@@ -34,7 +34,6 @@
 
 /** @ingroup go
  *  @brief Indique la couleur du joueur
- *  @todo remplacer par Couleur
  */
 enum CouleurJoueur {
 	JOUEUR_BLANC,
@@ -45,9 +44,9 @@ enum CouleurJoueur {
  *  @brief Indique le type du joueur
  */
 enum TypeJoueur {
-    /** @brief Le joueur est un être humain */
+	/** @brief Le joueur est un être humain */
 	HUMAIN,
-    /** @brief Le joueur est joué par l'ordinateur. */
+	/** @brief Le joueur est joué par l'ordinateur. */
 	ORDINATEUR
 };
 
@@ -56,12 +55,12 @@ enum TypeJoueur {
  *  @brief Décris un joueur
  */
 struct s_Joueur {
-    /** @brief Type du joueur. */
+	/** @brief Type du joueur. */
 	enum TypeJoueur type;
-    /** @brief Nom du joueur */
+	/** @brief Nom du joueur */
 	char nom[TAILLE_NOM_JOUEUR];
-    /** @brief Si le joueur est joué par l'ordinateur, décris l'IA utilisé */
-    struct s_Ordinateur* ordinateur;
+	/** @brief Si le joueur est joué par l'ordinateur, décris l'IA utilisé */
+	struct s_Ordinateur* ordinateur;
 };
 
 

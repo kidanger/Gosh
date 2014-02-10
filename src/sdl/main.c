@@ -27,6 +27,9 @@
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
+#ifdef EMSCRIPTEN
+#include <emscripten.h>
+#endif
 
 #include "sdl/state.h"
 #include "sdl/menu.h"
@@ -34,19 +37,19 @@
 #include "sdl/main.h"
 
 /** @ingroup sdl
- *  @brief Texture principale de la fenêtre
+ *  @brief Surface principale de la fenêtre
  */
 SDL_Surface* window;
 
 /** @ingroup sdl
- *  @brief ???
+ *  @brief État (écran) courant
  */
 struct state* state;
 
 
 /** @ingroup sdl
  *  @brief Traite les événements SDL
- *  @param ??
+ *  @param État courant
  */
 void sdl_handle_events(struct state* state)
 {
@@ -82,14 +85,6 @@ void set_state(struct state* newstate)
 {
 	state = newstate;
 }
-
-/** @def EMSCRIPTEN
- *  @ingroup sdl
- *  @brief Macro utile à la compilation vers ???
- */
-#ifdef EMSCRIPTEN
-#include "emscripten.h"
-#endif
 
 /** @ingroup sdl
  *  @brief Met à jour la fenêtre

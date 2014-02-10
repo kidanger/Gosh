@@ -84,10 +84,9 @@ void initialisation_partie(Partie partie, FonctionQuestions fonctionQuestions, v
 
 	if (idQuestion == NOMBRE_QUESTIONS) {
 		partie->initialisee = true;
+		partie->joueur_courant = JOUEUR_NOIR;
+		partie_informer_ordinateur(partie);
 	}
-
-	partie->joueur_courant = JOUEUR_NOIR;
-	partie_informer_ordinateur(partie);
 }
 
 void reinitialisation_partie(Partie partie)
@@ -222,6 +221,8 @@ bool partie_annuler_coup(Partie partie)
 		// si le nouveau joueur est un ordinateur, on annule son coup
 		partie_annuler_coup(partie);
 	}
+
+	partie_informer_ordinateur(partie);
 	return true;
 }
 
@@ -243,6 +244,8 @@ bool partie_rejouer_coup(Partie partie)
 		// si le nouveau joueur est un ordinateur, on rejoue son coup
 		partie_rejouer_coup(partie);
 	}
+
+	partie_informer_ordinateur(partie);
 	return true;
 }
 

@@ -79,7 +79,7 @@ bool sauvegarder_partie(Partie partie, FILE * file)
 		fprintf(file, "%c%s\n%s\n", partie->joueurs[i].type + '0',
 		        partie->joueurs[i].nom,
 		        partie->joueurs[i].ordinateur ?
-		        partie->joueurs[i].ordinateur->file
+		        partie->joueurs[i].ordinateur->name
 		        : "");
 	}
 
@@ -125,14 +125,14 @@ Partie charger_partie(FILE * file)
 			nom[strlen(nom) - 1] = '\0';
 		else
 			fgetc(file);
-		char filename[4096];
-		fgets(filename, sizeof(filename) - 1, file);
-		if (filename[strlen(filename) - 1] == '\n')
-			filename[strlen(filename) - 1] = '\0';
+		char name[4096];
+		fgets(name, sizeof(name) - 1, file);
+		if (name[strlen(name) - 1] == '\n')
+			name[strlen(name) - 1] = '\0';
 		else
 			fgetc(file);
-		if (filename[0])
-			p->joueurs[i].ordinateur = charger_ordinateur(filename);
+		if (name[0])
+			p->joueurs[i].ordinateur = charger_ordinateur(name);
 		else
 			p->joueurs[i].ordinateur = NULL;
 	}

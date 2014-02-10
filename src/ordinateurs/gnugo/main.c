@@ -19,7 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup ordinateurs
- *  @brief ?????
+ *  @brief Bibliothèque de l'ordinateur qui joue aléatoirement
  */
 
 
@@ -147,7 +147,7 @@ void REMPLACER_PLATEAU(Data data, Plateau plateau)
 			if (c != VIDE) {
 				char cmd[64];
 				sprintf(cmd, "play %s %c%d", c == BLANC ? "white" : "black",
-						GOSH_TO_GNUGNO[x], y + 1);
+				        GOSH_TO_GNUGNO[x], y + 1);
 				envoyer_commande(data, cmd);
 				ignorer_sortie(data);
 			}

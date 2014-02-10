@@ -63,11 +63,15 @@
 	[Quitter]						[Charger]
 */
 
-/** @todo ??????? */
+/** @brief Indice du groupe radio correspondant au type du joueur 1 */
 #define GROUPE_TYPE_J1 0
+/** @brief Indice du groupe radio correspondant au programme du joueur 1 */
 #define GROUPE_PROGRAMME_J1 1
+/** @brief Indice du groupe radio correspondant au type du joueur 2 */
 #define GROUPE_TYPE_J2 2
+/** @brief Indice du groupe radio correspondant au programme du joueur 2 */
 #define GROUPE_PROGRAMME_J2 3
+/** @brief Indice du groupe radio correspondant à la taille du Goban */
 #define GROUPE_TAILLE 4
 
 #define NUM_BOUTONS 3
@@ -80,15 +84,15 @@
  *  @brief Donne les données du menu
  */
 struct menudata {
-    /** @brief Titre du menu */
+	/** @brief Titre du menu */
 	struct label* titre;
-    /** @brief Labels du menu */
+	/** @brief Labels du menu */
 	struct label* labels[NUM_LABELS];
-    /** @brief Boutons du menu */
+	/** @brief Boutons du menu */
 	struct bouton* boutons[NUM_BOUTONS];
-    /** @brief Groupe de boutons radio du menu */
+	/** @brief Groupe de boutons radio du menu */
 	struct groupe_radio* groupes[NUM_GROUPES];
-    /** @brief Zones de textes du menu */
+	/** @brief Zones de textes du menu */
 	struct textinput* textinputs[NUM_TEXTINPUTS];
 };
 
@@ -100,8 +104,8 @@ struct menudata {
 static void afficher_menu(struct state*, SDL_Surface*);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param ???
+ *  @brief Traite un événement SDL
+ *  @param État courant
  *  @param événement sdl
  */
 static void event_menu(struct state*, SDL_Event);
@@ -109,24 +113,24 @@ static void event_menu(struct state*, SDL_Event);
 /** @ingroup sdl
  *  @brief Met à jour le menu
  *  @param Menu à mettre à jour
- *  @param ??
+ *  @param Temps passé depuis la dernière mise à jour
  */
 static void mise_a_jour_menu(struct state *, double);
 
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Quitte le programme
  */
 static void menu_bouton_quitter(struct bouton*, void *);
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Entre dans l'écran de jeu
  */
 static void menu_bouton_jouer(struct bouton*, void *);
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Entre dans le menu "charger une partie"
  */
 static void menu_bouton_charger(struct bouton*, void *);
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Appelé lorsque l'utilisateur coche une case
  */
 static void menu_radio_type_joueur(struct groupe_radio*, void*);
 
@@ -383,9 +387,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			strcpy(partie->joueurs[JOUEUR_BLANC].nom, menu->textinputs[1]->buffer);
 			break;
 		case PROGRAMME_JOUEUR_BLANC:
-			partie->joueurs[JOUEUR_BLANC].ordinateur = menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ?
-			        charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
-			        charger_ordinateur("build/src/ordinateurs/librandom.so");
+			partie->joueurs[JOUEUR_BLANC].ordinateur = charger_ordinateur(
+					menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ? "gnugo" : "random");
 			break;
 
 		case TYPE_JOUEUR_NOIR:
@@ -395,9 +398,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			strcpy(partie->joueurs[JOUEUR_NOIR].nom, menu->textinputs[0]->buffer);
 			break;
 		case PROGRAMME_JOUEUR_NOIR:
-			partie->joueurs[JOUEUR_NOIR].ordinateur = menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ?
-			        charger_ordinateur("build/src/ordinateurs/libgnugo.so") :
-			        charger_ordinateur("build/src/ordinateurs/librandom.so");
+			partie->joueurs[JOUEUR_NOIR].ordinateur = charger_ordinateur(
+					menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ? "gnugo" : "random");
 			break;
 
 		case TAILLE_PLATEAU: {
@@ -410,9 +412,9 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			int handicap = atoi(menu->textinputs[NUM_TEXTINPUTS - 1]->buffer);
 			partie->handicap = handicap;
 			break;
-         default :
-           break;
-		}
+			default :
+				break;
+			}
 	}
 	return true;
 }

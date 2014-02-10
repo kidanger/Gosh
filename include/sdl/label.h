@@ -33,21 +33,17 @@
  *  @brief Représente un label
  */
 struct label {
-    /** @brief Label à afficher */
+	/** @brief Label à afficher */
 	SDL_Surface* surface;
-    /** @brief Position du label
-     *  @todo Utiliser structure "position"
-     */
+	/** @brief Position du label */
 	int x, y;
-    /** @brief Taille du label
-     *  @todo Utiliser structure "position"
-     */
+	/** @brief Taille du label */
 	int w, h;
-    /** @brief Alignement du texte dans le label */
+	/** @brief Alignement du texte dans le label */
 	enum Align align;
-    /** @brief Couleur du texte du label */
+	/** @brief Couleur du texte du label */
 	SDL_Color couleur;
-    /** @brief Indique si le label est visible ou non */
+	/** @brief Indique si le label est visible ou non */
 	bool visible;
 };
 

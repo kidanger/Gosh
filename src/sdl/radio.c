@@ -35,21 +35,21 @@
  *  @brief Représente un bouton radio
  */
 struct radio {
-    /** @brief Label du bouton radio */
+	/** @brief Label du bouton radio */
 	SDL_Surface* texte_surface;
-    /** @brief Abscisse du bouton */
+	/** @brief Abscisse du bouton */
 	float x;
-    /** @brief Ordonné du bouton */
+	/** @brief Ordonné du bouton */
 	float y;
-    /** @brief Largeur du bouton */
+	/** @brief Largeur du bouton */
 	int w;
-    /** @brief Hauteur du bouton */
+	/** @brief Hauteur du bouton */
 	int h;
-    /** @brief Couleur du bouton */
+	/** @brief Couleur du bouton */
 	SDL_Color couleur;
-    /** @brief Indique si le bouton est coché ou non */
+	/** @brief Indique si le bouton est coché ou non */
 	bool coche;
-    /** @brief ?? */
+	/** @brief Indique si le bouton est actuellement survolé par le curseur */
 	bool hover;
 };
 
@@ -70,9 +70,9 @@ struct radio* creer_radio(const char* texte, int x, int y);
 void afficher_radio(SDL_Surface*, struct radio*);
 
 /** @ingroup sdl
- *  @brief ???
- *  @param  bouton radio
- *  @param  événement sdl
+ *  @brief Traite un événement SDL
+ *  @param bouton radio
+ *  @param événement sdl
  */
 void utiliser_event_radio(struct radio*, SDL_Event);
 

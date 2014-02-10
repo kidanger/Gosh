@@ -19,7 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup sdl
- *  @brief ???
+ *  @brief Gère l'écran de jeu
  */
 
 #include <stdlib.h>
@@ -41,72 +41,75 @@
 #include "sdl/jouer.h"
 
 /** @ingroup sdl
- *  @brief ??
+ *  @brief Structure de l'écran de jeu
  */
 struct jouerdata {
-    /** @brief ?? */
+	/** @brief État parent (le menu) */
 	struct state* parent;
-    /** @brief Partie courante */
+	/** @brief Partie courante */
 	Partie partie;
-    /** @brief ?? */
+	/** @brief Taille du plateau */
 	int taille;
 
-    /** @brief ??? */
+	/** @brief Label titre indiquant à qui est le tour */
 	struct label* au_tour_de[2];
-    /** @brief Affiche le handicap de la partie */
+	/** @brief Affiche le handicap de la partie */
 	struct label* handicap;
-    /** @brief Affiche ??? */
+	/** @brief Affiche "Partie terminée" */
 	struct label* partie_finie;
-    /** @brief Affiche le score */
+	/** @brief Affiche le score */
 	struct label* score;
-    /** @brief Bouton permettant au joueur de passer son tour */
+	/** @brief Bouton permettant au joueur de passer son tour */
 	struct bouton* passer_son_tour;
-    /** @brief Bouton permettant de retourner au menu */
+	/** @brief Bouton permettant de retourner au menu */
 	struct bouton* retour_menu;
-    /** @brief Zone de texte permettant de renseigner le nom de la partie */
+	/** @brief Zone de texte permettant de renseigner le nom de la partie */
 	struct textinput* nom_partie;
-    /** @brief Bouton permettant de sauvegarder la partie courrante */
+	/** @brief Bouton permettant de sauvegarder la partie courrante */
 	struct bouton* sauvegarder;
-    /** @brief ?? */
+	/** @brief Position sur le goban actuellement survolée */
 	Position hovered;
 };
 
 /** @ingroup sdl
- *  @brief Dessiner le ??? sur une texture
- *  @param ???
- *  @param Texture sur laquelle dessiner le ??
+ *  @brief Dessiner l'écran de jeu sur une surface (l'écran)
+ *  @param État courant
+ *  @param Surface sur laquelle dessiner l'écran de jeu
  */
 static void afficher_jouer(struct state*, SDL_Surface*);
 
 /** @ingroup sdl
- *  @brief Met à jour ??
- *  @param ??
- *  @param ??
+ *  @brief Met à jour l'écran de jeu
+ *  @param État courant
+ *  @param Temps passé depuis la dernière mise à jour
  */
-static void mise_a_jour_jouer(struct state*, double);
+static void mise_a_jour_jouer(struct state*, double dt);
 
 /** @ingroup sdl
- *  @brief ??
- *  @param
- *  @param événement SDL
+ *  @brief Traite un événement SDL
+ *  @param État courant
+ *  @param Événement SDL
  */
 static void event_jouer(struct state*, SDL_Event);
 
 /** @ingroup sdl
- *  @brief ??
- *  @brief ??
+ *  @brief Appelée lors du clic sur le bouton "retour au menu"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void jouer_bouton_retour(struct bouton*, void * data);
 
 /** @ingroup sdl
- *  @brief ??
- *  @brief ??
+ *  @brief Appelée lors du clic sur le bouton "retour au menu"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void jouer_bouton_passer(struct bouton*, void * data);
 
 /** @ingroup sdl
- *  @brief ??
- *  @brief ??
+ *  @brief Appelée lors du clic sur le bouton "passer son tour"
+ *  @param Bouton qui a déclenché l'appel
+ *  @param État courant
  */
 static void jouer_bouton_sauvegarder(struct bouton*, void * data);
 
@@ -253,6 +256,14 @@ void get_position_vers_ecran(struct jouerdata* jouer, int x, int y, int* sx, int
 	*sy = y1 + bordure + y * pixel_par_case;
 }
 
+static int get_marge(int i, int taille)
+{
+	if (i < taille / 2)
+		return i;
+	else
+		return taille - i - 1;
+}
+
 static void afficher_jouer(struct state* state, SDL_Surface* surface)
 {
 	struct jouerdata* jouer = state->data;
@@ -313,13 +324,24 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 				}
 				draw = true;
 			}
+			int marge = (taille == 9 ? 2 : 3);
 			if (draw) {
+				// affichage de la pierre
 				int sx, sy;
 				get_position_vers_ecran(jouer, x, y, &sx, &sy);
 				sx -= taille_stone / 2;
 				sy -= taille_stone / 2;
 				draw_rect(surface, sx, sy, taille_stone, taille_stone);
+			} else if ((get_marge(x, taille) == marge || x == taille / 2)
+					&& (get_marge(y, taille) == marge || y == taille / 2)) {
+				// affichage du hoshi
+				int sx, sy;
+				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				set_color(0, 0, 0);
+				draw_rect(surface, sx - 3, sy - 3, 6, 6);
 			}
+
+			// affichage d'indicateurs d'aide
 			draw = false;
 			if (chaine && gosh_appartient(chaine, pos)) {
 				set_color(120, 120, 120);
@@ -371,9 +393,6 @@ static void afficher_sauvegarder(struct jouerdata* jouer)
 static void event_jouer(struct state* state, SDL_Event event)
 {
 	struct jouerdata* jouer = state->data;
-	utiliser_event_bouton(jouer->retour_menu, event);
-	utiliser_event_bouton(jouer->passer_son_tour, event);
-	utiliser_event_bouton(jouer->sauvegarder, event);
 	utiliser_event_textinput(jouer->nom_partie, event);
 	if (jouer->nom_partie->active) {
 		afficher_sauvegarder(jouer);
@@ -381,7 +400,7 @@ static void event_jouer(struct state* state, SDL_Event event)
 	}
 	if (event.type == SDL_MOUSEMOTION) {
 		jouer->hovered = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
-	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
+	} else if (event.type == SDL_MOUSEBUTTONUP) {
 		int b = event.button.button;
 		if (b == 1) {
 			Position pos = get_position_depuis_ecran(jouer, event.motion.x, event.motion.y);
@@ -415,6 +434,9 @@ static void event_jouer(struct state* state, SDL_Event event)
 			afficher_sauvegarder(jouer);
 		}
 	}
+	utiliser_event_bouton(jouer->passer_son_tour, event);
+	utiliser_event_bouton(jouer->sauvegarder, event);
+	utiliser_event_bouton(jouer->retour_menu, event);
 }
 
 static void jouer_bouton_retour(struct bouton* bouton, void * data)

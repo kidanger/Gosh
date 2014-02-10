@@ -30,10 +30,10 @@
  *  A chaque joueur correspond une couleur différente. Le joueur peut donc être désigné par sa couleur
  */
 typedef enum {
-    /** @brief Pas de couleur
-     *
-     *  Indique une case sans pion.
-     */
+	/** @brief Pas de couleur
+	 *
+	 *  Indique une case sans pion.
+	 */
 	VIDE,
 	BLANC,
 	NOIR

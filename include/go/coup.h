@@ -31,11 +31,11 @@
  *  @brief Coup joué par un joueur
  */
 typedef struct {
-    /** @brief Position du coup joué par le joueur.
-     *
-     *  @note si la position est invalide, on considère que le joueur passe son tour.
-     */
-    Position position;
+	/** @brief Position du coup joué par le joueur.
+	 *
+	 *  @note si la position est invalide, on considère que le joueur passe son tour.
+	 */
+	Position position;
 } s_Coup;
 
 /** @ingroup go

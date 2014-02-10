@@ -88,24 +88,24 @@ struct IMPL_CONTAINER_NAME;
  *  @note Utilisez les macro définies dans gosh_macros.h pour manipuler l'ensemble.
  */
 struct SCN {
-    /** @brief Permet d'incrémenter l'itérateur passé en paramètre. */
+	/** @brief Permet d'incrémenter l'itérateur passé en paramètre. */
 	TYPE * (* next)(GoshIterateur *, struct SCN *, TYPE *);
-    /** @brief Créé un itérateur sur le premier élément */
+	/** @brief Créé un itérateur sur le premier élément */
 	GoshIterateur(*createIterateur)(void);
-    /** @brief Teste si l'ensemble est vide */
+	/** @brief Teste si l'ensemble est vide */
 	bool (*vide)(struct SCN *);
-    /** @brief Ajoute un élément à l'ensemble. */
+	/** @brief Ajoute un élément à l'ensemble. */
 	void (*ajouter)(struct SCN *, TYPE);
-    /** @brief Indique si un élément appartient à l'ensemble. */
+	/** @brief Indique si un élément appartient à l'ensemble. */
 	bool (*appartient)(struct SCN *, TYPE);
-    /** @brief Supprime l'élément en tête de l'ensemble. */
+	/** @brief Supprime l'élément en tête de l'ensemble. */
 	TYPE(*supprimer_tete)(struct SCN *);
-    /** @brief Retourne le nombre d'élément contenu dans l'ensemble */
+	/** @brief Retourne le nombre d'élément contenu dans l'ensemble */
 	int(*nombre_elements)(struct SCN *);
-    /** @brief Retourne le nième élément de l'ensemble */
+	/** @brief Retourne le nième élément de l'ensemble */
 	TYPE(*get)(struct SCN *, int n);
 
-    /** @brief Données de l'ensemble */
+	/** @brief Données de l'ensemble */
 	struct IMPL_CONTAINER_NAME * data;
 
 };

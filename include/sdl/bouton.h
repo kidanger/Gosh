@@ -31,31 +31,30 @@
 
 /** @ingroup sdl
  *  @brief Bouton SDL
- *  @todo utiliser une structeur Position pour (x,y), (ox, oy), (w,h)
  */
 struct bouton {
-    /** @brief Texture du bouton */
+	/** @brief Texture du bouton */
 	SDL_Surface* surface;
-    /** @brief position du bouton */
+	/** @brief position du bouton */
 	float x, y;
-    /** @brief position d'origine du bouton */
+	/** @brief position d'origine du bouton */
 	float ox, oy;
-    /** @brief taille du bouton */
+	/** @brief taille du bouton */
 	int w, h;
-    /** @brief Couleur du texte du bouton */
+	/** @brief Couleur du texte du bouton */
 	SDL_Color couleur;
-    /** @brief Temps de déplacement */
+	/** @brief Temps de déplacement */
 	float deplacement_auto_timer;
-    /** @brief Indique si le bouton doit être visible ou non */
+	/** @brief Indique si le bouton doit être visible ou non */
 	bool visible;
 
-    /** @brief Fonction appelée lorsque le bouton est cliqué */
+	/** @brief Fonction appelée lorsque le bouton est cliqué */
 	void(*callback)(struct bouton*, void*);
-    /** @brief Données à envoyer lorsque le bouton est cliqué */
+	/** @brief Donnée à passer en paramètre lorsque le bouton est cliqué */
 	void* userdata;
-    /** @brief ? */
+	/** @brief Indique si le bouton est survolé par le curseur */
 	bool hover;
-    /** @brief indique si le bouton est en mouvement ou non */
+	/** @brief indique si le bouton est en mouvement ou non */
 	bool en_deplacement;
 };
 
@@ -78,16 +77,16 @@ struct bouton* creer_bouton(const char* text, int x, int y, int w, int h);
 void afficher_bouton(SDL_Surface* on, struct bouton*);
 
 /** @ingroup sdl
- *  @brief ??? Pas explicite
+ *  @brief Actualise l'état du bouton (remise à sa place s'il avait été déplacé)
  *  @param Bouton à mettre à jour
- *  @param ?
+ *  @param Temps depuis la dernière mise à jour
  */
-void mise_a_jour_bouton(struct bouton*, double);
+void mise_a_jour_bouton(struct bouton*, double dt);
 
 /** @ingroup sdl
- *  @brief Met à jour la position du bouton
- *  @param Bouton à mettre à jour
- *  @param Temps écoulé depuis la dernière mise à jour
+ *  @brief Traite un événement SDL
+ *  @param Bouton potentiellement intéressé par l'événement
+ *  @param Événement SDL
  */
 void utiliser_event_bouton(struct bouton*, SDL_Event);
 

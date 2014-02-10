@@ -38,7 +38,6 @@
 /** @ingroup test
  *  @brief Affiche le plateau en mode "debug"
  *  @param plateau à afficher.
- *  @todo le rajouter en tant que fonctionnalité de cli?
  */
 void afficher_plateau(Plateau plateau)
 {

@@ -93,15 +93,15 @@ void utiliser_event_bouton(struct bouton* bouton, SDL_Event event)
 		}
 	} else if (event.type == SDL_MOUSEBUTTONDOWN) {
 		if (INSIDE(event.button.x, event.button.y)) {
-			if (event.button.button == 1) {
-				bouton->callback(bouton, bouton->userdata);
-			} else if (event.button.button == 3) {
+			if (event.button.button == 3) {
 				bouton->en_deplacement = true;
 			}
 		}
 	} else if (event.type == SDL_MOUSEBUTTONUP) {
 		if (INSIDE(event.button.x, event.button.y)) {
-			if (event.button.button == 3) {
+			if (event.button.button == 1) {
+				bouton->callback(bouton, bouton->userdata);
+			} else if (event.button.button == 3) {
 				bouton->en_deplacement = false;
 				bouton->deplacement_auto_timer = 1;
 			}

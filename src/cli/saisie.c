@@ -163,9 +163,11 @@ void cli_demander_string(const char* prompt, char* buffer, unsigned int taille)
 	}
 }
 
-int cli_demander_int(const char* prompt, bool* valide)
+int cli_demander_int(const char* prompt)
 {
 	bool eof;
+	int num;
+	bool valide;
 	char buffer[32];
 	do {
 		debut_prompt();
@@ -175,14 +177,13 @@ int cli_demander_int(const char* prompt, bool* valide)
 		eof = fgets(buffer, sizeof(buffer), stdin) == NULL;
 		if (buffer[strlen(buffer) - 1] == '\n')
 			buffer[strlen(buffer) - 1] = 0; // suppression du \n
-	} while (buffer[0] == 0 && !eof);
+		valide = sscanf(buffer, "%d", &num) == 1;
+	} while (!eof && !valide);
 	fin();
 	if (eof) {
 		printf("EOF reçu, arrêt du programme.\n");
 		exit(EXIT_FAILURE);
 	}
-	int num;
-	*valide = sscanf(buffer, "%d", &num);
 	return num;
 }
 

@@ -1,10 +1,10 @@
 aux_source_directory(. CLI_SOURCES)
 
-add_executable(cli
+add_executable(goshcli
 	${CLI_SOURCES}
 )
 
-target_link_libraries(cli go)
-target_link_libraries(cli gosh_common)
+target_link_libraries(goshcli go)
+target_link_libraries(goshcli gosh_common)
 
-install(TARGETS cli DESTINATION bin)
+install(TARGETS goshcli DESTINATION bin)

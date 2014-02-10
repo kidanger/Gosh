@@ -31,32 +31,28 @@
  *  @brief Décris une zone de texte
  */
 struct textinput {
-    /** @brief Surface de la zone de texte */
+	/** @brief Surface de la zone de texte */
 	SDL_Surface* surface;
 
-    /** @brief Taille maximal de la chaîne de caractère */
+	/** @brief Taille maximal de la chaîne de caractère */
 	int taillemax;
-    /** @brief Position du curseur dans la chaîne de caractères */
+	/** @brief Position du curseur dans la chaîne de caractères */
 	int curseur;
-    /** @brief Buffer contenant le texte tapé par l'utilisateur */
+	/** @brief Buffer contenant le texte tapé par l'utilisateur */
 	char* buffer;
 
-    /** @brief position de la zone de texte
-     *  @todo utiliser une structure "position"
-     */
+	/** @brief position de la zone de texte */
 	int x, y;
-    /** @brief taille de la zone de texte
-     *  @todo utiliser une structure "position"
-     */
+	/** @brief taille de la zone de texte */
 	int w, h;
-    /** @brief Couleur du texte */
+	/** @brief Couleur du texte */
 	SDL_Color couleur;
 
-    /** @brief ?? */
+	/** @brief Indique si la zone de texte est survolée par le curseur */
 	bool hover;
-    /** @brief Indique si la zone de texte est active ou non. */
+	/** @brief Indique si la zone de texte est active ou non. */
 	bool active;
-    /** @brief ?? */
+	/** @brief Temps total d'existance en seconde (utile pour faire clignoter le marqueur) */
 	double time;
 };
 
@@ -79,14 +75,14 @@ struct textinput* creer_textinput(int x, int y, int w, int h, int taillemax);
 void afficher_textinput(SDL_Surface* on, struct textinput*);
 
 /** @ingroup sdl
- *  @brief ??
+ *  @brief Met à jour la zone de texte
  *  @param zone de texte
- *  @param ??
+ *  @param Temps passé depuis la dernière mise à jour
  */
-void mise_a_jour_textinput(struct textinput*, double);
+void mise_a_jour_textinput(struct textinput*, double dt);
 
 /** @ingroup sdl
- *  @brief ???
+ *  @brief Traite un événement SDL
  *  @param zone de texte
  *  @param événement sdl
  */

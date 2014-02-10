@@ -99,9 +99,9 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 	Ordinateur ordi;
 #ifdef CONFIGURER_PARTIE_AUTOMATIQUEMENT
 	if (couleur == JOUEUR_BLANC)
-		ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
+		ordi = charger_ordinateur("random");
 	else
-		ordi = charger_ordinateur("build/src/ordinateurs/libgnugo.so");
+		ordi = charger_ordinateur("gnugo");
 	partie->joueurs[couleur].ordinateur = ordi;
 	return ordi != NULL;
 #endif
@@ -110,9 +110,9 @@ bool saisir_programme(Partie partie, enum CouleurJoueur couleur)
 		char rep = cli_choisir_option(str, 'g', 'a', "Aléatoire",
 		                              'g', "GNU Go", 'r', "retour", 0);
 		if (rep == 'a') {
-			ordi = charger_ordinateur("build/src/ordinateurs/librandom.so");
+			ordi = charger_ordinateur("random");
 		} else if (rep == 'g') {
-			ordi = charger_ordinateur("build/src/ordinateurs/libgnugo.so");
+			ordi = charger_ordinateur("gnugo");
 			if (!ordi)
 				printf("Nécessite l'installation de GNU Go.\n");
 		} else if (rep == 'r') {
@@ -159,12 +159,10 @@ bool saisir_handicap(Partie partie)
 	partie->handicap = 3;
 	return true;
 #endif
-	const char* str = "Handicap (joueur noir)";
-	bool valide;
-	int rep = cli_demander_int(str, &valide);
-	if (valide)
-		partie->handicap = rep;
-	return valide;
+	const char* str = "Handicap (joueur noir) (-1 pour retour)";
+	int rep = cli_demander_int(str);
+	partie->handicap = rep;
+	return rep != -1;
 }
 
 /** @ingroup cli
@@ -194,8 +192,8 @@ bool questions_callback(enum Question question, Partie partie, void* userdata)
 			return saisir_taille_plateau(partie);
 		case HANDICAP:
 			return saisir_handicap(partie);
-        default :
-        break;
+		default :
+			break;
 	}
 	return true;
 }

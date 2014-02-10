@@ -31,9 +31,9 @@
  *  @brief Défini un pion
  */
 typedef struct {
-    /** @brief Couleur du pion */
+	/** @brief Couleur du pion */
 	Couleur couleur;
-    /** @brief Position du pion */
+	/** @brief Position du pion */
 	Position position;
 } s_Pion;
 
