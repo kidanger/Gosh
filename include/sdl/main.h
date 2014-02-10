@@ -16,6 +16,10 @@
 #ifndef GOSH_SDL_MAIN
 #define GOSH_SDL_MAIN
 
+/** @defgroup sdl
+ *  @brief Ensemble des structures et des fonctions sdl utilisées pour gosh
+ */
+
 /** @file main.h
  *  @author Jéremy Anger
  *  @author Denis Migdal
