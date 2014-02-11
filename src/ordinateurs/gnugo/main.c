@@ -161,6 +161,12 @@ void* INITIALISER()
 {
 	srand(time(0));
 	gosh_debug("Initialisation du botgnugo");
+	FILE* f_test = fopen("/usr/bin/gnugo", "r");
+	if (!f_test) {
+		fprintf(stderr, "Binaire GNUGO non présent.\n");
+		return NULL;
+	}
+	fclose(f_test);
 
 	int fds1[2]; // [1] : écrire vers gnugo
 	int fds2[2]; // [0] : lire ce qu'envoie gnugo

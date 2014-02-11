@@ -401,8 +401,7 @@ static bool construction_function(enum Question question, Partie partie, void* u
 		case PROGRAMME_JOUEUR_BLANC:
 			partie->joueurs[JOUEUR_BLANC].ordinateur = charger_ordinateur(
 					menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ? "gnugo" : "random");
-			break;
-
+			return partie->joueurs[JOUEUR_BLANC].ordinateur != NULL;
 		case TYPE_JOUEUR_NOIR:
 			partie->joueurs[JOUEUR_NOIR].type = menu->groupes[GROUPE_TYPE_J1]->courante == 0 ? HUMAIN : ORDINATEUR;
 			break;
@@ -410,9 +409,7 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			strcpy(partie->joueurs[JOUEUR_NOIR].nom, menu->textinputs[0]->buffer);
 			break;
 		case PROGRAMME_JOUEUR_NOIR:
-			partie->joueurs[JOUEUR_NOIR].ordinateur = charger_ordinateur(
-					menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ? "gnugo" : "random");
-			break;
+			return partie->joueurs[JOUEUR_NOIR].ordinateur != NULL;
 
 		case TAILLE_PLATEAU: {
 			int id = menu->groupes[NUM_GROUPES - 1]->courante;
@@ -438,9 +435,12 @@ static void menu_bouton_jouer(struct bouton* bouton, void * data)
 
 	Partie partie = creer_partie();
 	initialisation_partie(partie, construction_function, menu);
-
-	struct state* new_state = creer_jouer(state, partie);
-	set_state(new_state);
+	if (partie->initialisee) {
+		struct state* new_state = creer_jouer(state, partie);
+		set_state(new_state);
+	} else {
+		detruire_partie(partie);
+	}
 }
 
 static void menu_bouton_charger(struct bouton* bouton, void * data)
