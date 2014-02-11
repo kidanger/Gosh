@@ -25,7 +25,7 @@ Sur GNU/Linux
 ```
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 sudo make install
 ```
@@ -36,7 +36,7 @@ Sur Windows
 ```
 md build
 cd build
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 make install
 ```
