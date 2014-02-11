@@ -1357,7 +1357,7 @@ var memoryInitializer = null;
 
 STATIC_BASE = 8;
 
-STATICTOP = STATIC_BASE + 2064;
+STATICTOP = STATIC_BASE + 4280;
 
 
 /* global initializers */ __ATINIT__.push({ func: function() { runPostSets() } });
@@ -1531,7 +1531,129 @@ var _stderr=_stderr=allocate([0,0,0,0,0,0,0,0], "i8", ALLOC_STATIC);;
 
 
 
-/* memory initializer */ allocate([16,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,12,0,0,0,20,0,0,0,64,0,0,0,0,0,0,0,255,255,255,0,0,0,0,0,98,108,97,110,99,0,0,0,91,37,115,58,37,100,93,9,80,108,97,116,101,97,117,32,105,100,101,110,116,105,113,117,101,10,0,0,0,0,0,0,65,108,195,169,97,116,111,105,114,101,0,0,0,0,0,0,105,110,105,116,105,97,108,105,115,101,114,95,111,114,100,105,0,0,0,0,0,0,0,0,110,111,105,114,0,0,0,0,80,114,111,103,114,97,109,109,101,32,58,0,0,0,0,0,71,97,103,110,97,110,116,32,58,32,37,115,32,40,37,115,41,32,37,46,49,102,32,45,32,37,46,49,102,0,0,0,110,111,101,117,100,0,0,0,78,111,109,32,58,0,0,0,115,97,117,118,101,103,97,114,100,101,114,0,0,0,0,0,67,111,117,108,101,117,114,32,105,110,118,97,108,105,100,101,32,39,37,99,39,32,101,110,32,37,100,44,37,100,10,0,79,114,100,105,110,97,116,101,117,114,0,0,0,0,0,0,76,97,32,114,195,169,99,117,112,195,169,114,97,116,105,111,110,32,100,101,32,108,97,32,102,111,110,99,116,105,111,110,32,37,115,32,97,32,195,169,99,104,111,117,195,169,101,46,10,0,0,0,0,0,0,0,83,97,117,118,101,103,97,114,100,101,114,0,0,0,0,0,37,99,0,0,0,0,0,0,72,117,109,97,105,110,0,0,108,105,98,101,114,101,114,95,111,114,100,105,0,0,0,0,80,97,115,115,101,114,32,115,111,110,32,116,111,117,114,0,65,117,32,116,111,117,114,32,100,101,32,37,115,0,0,0,114,0,0,0,0,0,0,0,106,32,60,32,112,108,97,116,101,97,117,45,62,116,97,105,108,108,101,0,0,0,0,0,74,111,117,101,117,114,32,110,111,105,114,32,58,0,0,0,110,111,116,105,102,105,99,97,116,105,111,110,95,99,111,117,112,95,111,114,100,105,0,0,82,101,116,111,117,114,32,109,101,110,117,0,0,0,0,0,82,101,116,111,117,114,0,0,37,100,10,0,0,0,0,0,105,32,60,32,112,108,97,116,101,97,117,45,62,116,97,105,108,108,101,0,0,0,0,0,67,104,97,114,103,101,114,0,91,37,115,58,37,100,93,9,80,97,114,116,105,101,32,116,101,114,109,105,110,195,169,101,10,0,0,0,0,0,0,0,47,104,111,109,101,47,97,110,103,101,114,47,100,101,118,47,71,111,115,104,47,114,101,115,115,111,117,114,99,101,115,47,97,114,105,97,108,46,116,116,102,0,0,0,0,0,0,0,114,101,109,112,108,97,99,101,114,95,112,108,97,116,101,97,117,95,111,114,100,105,0,0,80,97,114,116,105,101,32,116,101,114,109,105,110,195,169,101,32,33,0,0,0,0,0,0,67,104,97,114,103,101,114,0,73,109,112,111,115,115,105,98,108,101,32,100,101,32,99,104,97,114,103,101,114,32,108,97,32,112,97,114,116,105,101,32,33,0,0,0,0,0,0,0,114,97,110,100,111,109,0,0,106,32,62,61,32,48,0,0,103,110,117,103,111,0,0,0,105,100,95,116,101,120,116,105,110,112,117,116,32,61,61,32,78,85,77,95,84,69,88,84,73,78,80,85,84,83,0,0,74,111,117,101,114,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,47,112,97,114,116,105,101,46,99,0,0,0,0,0,0,0,0,105,100,95,103,114,111,117,112,101,32,61,61,32,78,85,77,95,71,82,79,85,80,69,83,0,0,0,0,0,0,0,0,106,111,117,101,114,95,99,111,117,112,95,111,114,100,105,0,91,37,115,58,37,100,93,9,73,110,105,116,105,97,108,105,115,97,116,105,111,110,32,100,117,32,98,111,116,114,97,110,100,111,109,10,0,0,0,0,105,100,95,98,111,117,116,111,110,32,61,61,32,78,85,77,95,66,79,85,84,79,78,83,0,0,0,0,0,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,115,104,95,101,110,115,101,109,98,108,101,46,99,0,0,0,0,110,111,101,117,100,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,115,100,108,47,109,101,110,117,46,99,0,110,111,101,117,100,0,0,0,105,100,95,108,97,98,101,108,32,61,61,32,78,85,77,95,76,65,66,69,76,83,0,0,119,0,0,0,0,0,0,0,72,97,110,100,105,99,97,112,32,58,0,0,0,0,0,0,80,105,101,114,114,101,32,100,101,32,104,97,110,100,105,99,97,112,0,0,0,0,0,0,49,57,120,49,57,0,0,0,47,117,115,114,47,108,111,99,97,108,47,115,104,97,114,101,47,103,111,115,104,47,97,114,105,97,108,46,116,116,102,0,49,51,120,49,51,0,0,0,83,97,105,115,105,114,32,108,101,32,110,111,109,32,100,101,32,108,97,32,112,97,114,116,105,101,32,58,0,0,0,0,57,120,57,0,0,0,0,0,81,117,105,116,116,101,114,0,46,46,47,46,46,47,46,46,47,115,114,99,47,111,114,100,105,110,97,116,101,117,114,115,47,114,97,110,100,111,109,47,109,97,105,110,46,99,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,115,104,95,101,110,115,101,109,98,108,101,46,99,0,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,115,104,95,101,110,115,101,109,98,108,101,46,99,0,0,0,0,105,32,62,61,32,48,0,0,37,99,37,115,10,37,115,10,0,0,0,0,0,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,47,112,108,97,116,101,97,117,46,99,0,0,0,0,0,0,0,84,97,105,108,108,101,32,58,0,0,0,0,0,0,0,0,74,111,117,101,117,114,32,98,108,97,110,99,32,58,0,0,71,111,115,104,0,0,0,0,81,117,105,116,116,101,33,10,0,0,0,0,0,0,0,0,112,108,97,116,101,97,117,95,115,101,116,0,0,0,0,0,112,108,97,116,101,97,117,95,103,101,116,0,0,0,0,0,101,110,115,101,109,98,108,101,95,112,111,115,105,116,105,111,110,95,103,101,116,0,0,0,101,110,115,101,109,98,108,101,95,112,108,97,116,101,97,117,95,103,101,116,0,0,0,0,101,110,115,101,109,98,108,101,95,99,104,97,105,110,101,95,103,101,116,0,0,0,0,0,99,114,101,101,114,95,109,101,110,117,0,0,0,0,0,0,255,255,0,0,0,0,0,0,56,2,0,0,56,4,0,0], "i8", ALLOC_NONE, Runtime.GLOBAL_BASE);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* memory initializer */ allocate([16,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,12,0,0,0,20,0,0,0,64,0,0,0,0,0,0,0,216,7,0,0,48,6,0,0,128,4,0,0,216,2,0,0,120,2,0,0,48,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,2,0,0,216,13,0,0,144,13,0,0,192,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,12,0,0,8,12,0,0,208,11,0,0,144,11,0,0,128,4,0,0,56,11,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,10,0,0,56,10,0,0,232,9,0,0,72,9,0,0,8,9,0,0,232,8,0,0,128,4,0,0,184,8,0,0,104,8,0,0,64,8,0,0,0,0,0,0,56,8,0,0,232,7,0,0,168,7,0,0,128,4,0,0,128,7,0,0,32,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,7,0,0,232,6,0,0,192,6,0,0,176,6,0,0,128,4,0,0,136,6,0,0,104,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,6,0,0,8,6,0,0,224,5,0,0,128,5,0,0,104,5,0,0,128,4,0,0,56,5,0,0,16,5,0,0,240,4,0,0,0,0,0,0,0,0,0,0,216,4,0,0,176,4,0,0,136,4,0,0,80,4,0,0,48,4,0,0,128,4,0,0,200,3,0,0,168,3,0,0,128,3,0,0,104,3,0,0,0,0,0,0,88,3,0,0,48,3,0,0,8,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,255,0,0,0,0,0,80,114,111,103,114,97,109,109,101,32,58,0,0,0,0,0,98,108,97,110,99,0,0,0,47,104,111,109,101,47,97,110,103,101,114,47,100,101,118,47,71,111,115,104,47,114,101,115,115,111,117,114,99,101,115,47,97,114,105,97,108,46,116,116,102,0,0,0,0,0,0,0,76,101,115,32,106,111,117,101,117,114,115,0,0,0,0,0,78,111,109,32,58,0,0,0,67,104,97,114,103,101,114,0,110,111,105,114,0,0,0,0,71,111,98,97,110,115,32,100,101,32,49,51,120,49,51,32,111,117,32,57,120,57,46,0,79,114,100,105,110,97,116,101,117,114,0,0,0,0,0,0,71,97,103,110,97,110,116,32,58,32,37,115,32,40,37,115,41,32,37,46,49,102,32,45,32,37,46,49,102,0,0,0,109,97,105,115,32,111,110,32,112,101,117,116,32,97,117,115,115,105,32,106,111,117,101,114,32,115,117,114,32,100,101,115,0,0,0,0,0,0,0,0,72,117,109,97,105,110,0,0,67,111,117,108,101,117,114,32,105,110,118,97,108,105,100,101,32,39,37,99,39,32,101,110,32,37,100,44,37,100,10,0,115,97,117,118,101,103,97,114,100,101,114,0,0,0,0,0,83,97,32,116,97,105,108,108,101,32,111,102,102,105,99,105,101,108,108,101,32,101,115,116,32,100,101,32,49,57,120,49,57,0,0,0,0,0,0,0,71,111,115,104,0,0,0,0,114,101,110,100,101,122,45,118,111,117,115,32,115,117,114,32,104,116,116,112,58,47,47,106,101,117,100,101,103,111,46,111,114,103,0,0,0,0,0,0,80,111,117,114,32,112,108,117,115,32,100,101,32,100,195,169,116,97,105,108,115,44,0,0,74,111,117,101,117,114,32,110,111,105,114,32,58,0,0,0,68,195,169,116,97,105,108,115,0,0,0,0,0,0,0,0,103,97,103,110,101,32,108,97,32,112,97,114,116,105,101,46,0,0,0,0,0,0,0,0,76,101,32,106,111,117,101,117,114,32,113,117,105,32,97,32,108,101,32,112,108,117,115,32,100,101,32,112,111,105,110,116,115,0,0,0,0,0,0,0,97,117,32,106,111,117,101,117,114,32,98,108,97,110,99,46,0,0,0,0,0,0,0,0,37,99,0,0,0,0,0,0,79,110,32,97,106,111,117,116,101,32,55,46,53,32,112,111,105,110,116,115,32,40,108,101,32,107,111,109,105,41,0,0,76,97,32,114,195,169,99,117,112,195,169,114,97,116,105,111,110,32,100,101,32,108,97,32,102,111,110,99,116,105,111,110,32,37,115,32,97,32,195,169,99,104,111,117,195,169,101,46,10,0,0,0,0,0,0,0,83,97,117,118,101,103,97,114,100,101,114,0,0,0,0,0,100,101,115,32,116,101,114,114,105,116,111,105,114,101,115,32,113,117,39,105,108,32,112,111,115,115,195,168,100,101,46,0,100,101,32,115,97,32,99,111,117,108,101,117,114,32,101,116,32,97,117,32,110,111,109,98,114,101,32,100,39,105,110,116,101,114,115,101,99,116,105,111,110,115,0,0,0,0,0,0,32,0,0,0,0,0,0,0,106,111,117,101,117,114,32,99,111,114,114,101,115,112,111,110,100,32,97,117,32,110,111,109,98,114,101,32,100,101,32,112,105,101,114,114,101,0,0,0,195,128,32,108,97,32,102,105,110,32,100,101,32,108,97,32,112,97,114,116,105,101,44,32,108,101,115,32,112,111,105,110,116,115,32,100,39,117,110,0,80,111,105,110,116,115,0,0,84,117,116,111,114,105,101,108,0,0,0,0,0,0,0,0,105,108,32,99,97,112,116,117,114,101,32,117,110,101,32,99,104,97,195,174,110,101,32,97,100,118,101,114,115,101,46,0,115,97,110,115,32,108,105,98,101,114,116,195,169,32,115,97,117,102,32,115,105,32,112,97,114,32,99,101,32,99,111,117,112,0,0,0,0,0,0,0,85,110,32,106,111,117,101,117,114,32,110,101,32,112,101,117,116,32,99,111,110,115,116,114,117,105,114,101,32,117,110,101,32,99,104,97,195,174,110,101,0,0,0,0,0,0,0,0,100,117,32,71,111,98,97,110,46,0,0,0,0,0,0,0,114,0,0,0,0,0,0,0,101,110,32,114,101,116,105,114,97,110,116,32,108,101,115,32,112,105,101,114,114,101,115,32,100,101,32,108,97,32,99,104,97,195,174,110,101,0,0,0,106,32,60,32,112,108,97,116,101,97,117,45,62,116,97,105,108,108,101,0,0,0,0,0,108,105,98,101,114,101,114,95,111,114,100,105,0,0,0,0,80,97,115,115,101,114,32,115,111,110,32,116,111,117,114,0,108,105,98,101,114,116,195,169,32,100,39,117,110,101,32,99,104,97,105,110,101,44,32,105,108,32,108,97,32,99,97,112,116,117,114,101,0,0,0,0,83,105,32,117,110,32,106,111,117,101,117,114,32,115,117,112,112,114,105,109,101,32,108,97,32,100,101,114,110,105,195,168,114,101,0,0,0,0,0,0,76,101,32,112,108,97,116,101,97,117,32,115,39,97,112,112,101,108,108,101,32,117,110,32,71,111,98,97,110,46,0,0,76,105,98,101,114,116,195,169,115,0,0,0,0,0,0,0,82,101,116,111,117,114,0,0,100,39,105,110,116,101,114,115,101,99,116,105,111,110,115,32,118,111,105,115,105,110,101,115,32,118,105,100,101,115,46,0,85,110,32,116,101,114,114,105,116,111,105,114,101,32,101,115,116,32,117,110,32,101,110,115,101,109,98,108,101,0,0,0,67,104,97,114,103,101,114,0,195,160,32,108,97,32,99,104,97,105,110,101,46,0,0,0,105,110,116,101,114,115,101,99,116,105,111,110,115,32,105,110,111,99,99,117,112,195,169,101,115,32,101,116,32,118,111,105,115,105,110,101,115,0,0,0,76,101,115,32,108,105,98,101,114,116,195,169,115,32,100,101,32,108,97,32,99,104,97,105,110,101,32,115,111,110,116,32,108,101,115,0,0,0,0,0,67,97,112,116,117,114,101,0,37,100,10,0,0,0,0,0,118,111,105,115,105,110,101,115,32,100,101,32,112,114,111,99,104,101,115,32,101,110,32,112,114,111,99,104,101,115,46,0,105,32,60,32,112,108,97,116,101,97,117,45,62,116,97,105,108,108,101,0,0,0,0,0,110,111,116,105,102,105,99,97,116,105,111,110,95,99,111,117,112,95,111,114,100,105,0,0,82,101,116,111,117,114,32,109,101,110,117,0,0,0,0,0,85,110,101,32,99,104,97,195,174,110,101,32,101,115,116,32,117,110,32,101,110,115,101,109,98,108,101,32,100,101,32,112,105,101,114,114,101,115,0,0,115,111,110,116,32,97,100,106,97,99,101,110,116,101,115,32,40,103,97,117,99,104,101,44,32,104,97,117,116,44,32,98,97,115,44,32,100,114,111,105,116,41,46,0,0,0,0,0,76,101,32,71,111,98,97,110,0,0,0,0,0,0,0,0,68,101,117,120,32,112,105,101,114,114,101,115,32,115,111,110,116,32,118,111,105,115,105,110,101,115,32,115,105,32,101,108,108,101,115,0,0,0,0,0,73,109,112,111,115,115,105,98,108,101,32,100,101,32,99,104,97,114,103,101,114,32,108,97,32,112,97,114,116,105,101,32,33,0,0,0,0,0,0,0,67,104,97,195,174,110,101,0,195,160,32,117,110,32,100,101,32,115,101,115,32,195,169,116,97,116,32,97,110,116,195,169,114,105,101,117,114,46,0,0,74,111,117,101,114,0,0,0,114,101,100,111,110,110,101,114,32,97,117,32,71,111,98,97,110,32,117,110,32,195,169,116,97,116,32,105,100,101,110,116,105,113,117,101,0,0,0,0,91,37,115,58,37,100,93,9,73,110,105,116,105,97,108,105,115,97,116,105,111,110,32,100,117,32,98,111,116,114,97,110,100,111,109,10,0,0,0,0,85,110,32,106,111,117,101,117,114,32,110,101,32,112,101,117,116,32,112,97,115,44,32,101,110,32,106,111,117,97,110,116,44,0,0,0,0,0,0,0,110,111,101,117,100,0,0,0,99,111,109,109,101,32,102,105,110,105,101,46,0,0,0,0,114,97,110,100,111,109,0,0,110,111,101,117,100,0,0,0,116,111,117,114,32,195,160,32,108,97,32,115,117,105,116,101,44,32,108,97,32,112,97,114,116,105,101,32,101,115,116,32,99,111,110,115,105,100,195,169,114,195,169,101,0,0,0,0,103,110,117,103,111,0,0,0,119,0,0,0,0,0,0,0,83,105,32,108,101,115,32,100,101,117,120,32,106,111,117,101,117,114,115,32,112,97,115,115,101,110,116,32,108,101,117,114,0,0,0,0,0,0,0,0,106,32,62,61,32,48,0,0,105,100,95,116,101,120,116,105,110,112,117,116,32,61,61,32,78,85,77,95,84,69,88,84,73,78,80,85,84,83,0,0,91,37,115,58,37,100,93,9,80,97,114,116,105,101,32,116,101,114,109,105,110,195,169,101,10,0,0,0,0,0,0,0,114,101,109,112,108,97,99,101,114,95,112,108,97,116,101,97,117,95,111,114,100,105,0,0,80,97,114,116,105,101,32,116,101,114,109,105,110,195,169,101,32,33,0,0,0,0,0,0,115,111,105,116,32,112,111,115,101,114,32,117,110,101,32,112,105,101,114,114,101,44,32,115,111,105,116,32,112,97,115,115,101,114,32,115,111,110,32,116,111,117,114,0,0,0,0,0,105,100,95,103,114,111,117,112,101,32,61,61,32,78,85,77,95,71,82,79,85,80,69,83,0,0,0,0,0,0,0,0,195,128,32,99,104,97,113,117,101,32,116,111,117,114,44,32,108,101,115,32,106,111,117,101,117,114,115,32,100,101,118,114,111,110,116,0,0,0,0,0,80,114,195,169,99,101,100,101,110,116,0,0,0,0,0,0,105,100,95,98,111,117,116,111,110,32,61,61,32,78,85,77,95,66,79,85,84,79,78,83,0,0,0,0,0,0,0,0,47,117,115,114,47,108,111,99,97,108,47,115,104,97,114,101,47,103,111,115,104,47,97,114,105,97,108,46,116,116,102,0,68,195,169,114,111,117,108,101,109,101,110,116,0,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,115,100,108,47,109,101,110,117,46,99,0,83,97,105,115,105,114,32,108,101,32,110,111,109,32,100,101,32,108,97,32,112,97,114,116,105,101,32,58,0,0,0,0,105,32,62,61,32,48,0,0,118,97,108,101,117,114,115,32,115,39,97,112,112,101,108,108,101,110,116,32,100,101,115,32,72,111,115,104,105,115,46,0,105,100,95,108,97,98,101,108,32,61,61,32,78,85,77,95,76,65,66,69,76,83,0,0,76,101,115,32,105,110,116,101,114,115,101,99,116,105,111,110,115,32,109,105,115,101,115,32,101,110,0,0,0,0,0,0,72,97,110,100,105,99,97,112,32,58,0,0,0,0,0,0,91,37,115,58,37,100,93,9,80,108,97,116,101,97,117,32,105,100,101,110,116,105,113,117,101,10,0,0,0,0,0,0,81,117,105,116,116,101,114,0,117,110,101,32,105,110,116,101,114,115,101,99,116,105,111,110,32,105,110,111,99,99,117,112,195,169,101,46,0,0,0,0,49,57,120,49,57,0,0,0,105,110,105,116,105,97,108,105,115,101,114,95,111,114,100,105,0,0,0,0,0,0,0,0,100,101,32,108,101,117,114,32,99,111,117,108,101,117,114,32,40,110,111,109,109,195,169,32,112,105,101,114,114,101,41,32,115,117,114,0,0,0,0,0,49,51,120,49,51,0,0,0,110,111,101,117,100,0,0,0,76,101,115,32,106,111,117,101,117,114,115,32,112,101,117,118,101,110,116,32,112,111,115,101,114,32,117,110,32,112,105,111,110,0,0,0,0,0,0,0,57,120,57,0,0,0,0,0,73,110,116,101,114,115,101,99,116,105,111,110,115,0,0,0,84,97,105,108,108,101,32,58,0,0,0,0,0,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,111,114,100,105,110,97,116,101,117,114,115,47,114,97,110,100,111,109,47,109,97,105,110,46,99,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,115,104,95,101,110,115,101,109,98,108,101,46,99,0,0,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,115,104,95,101,110,115,101,109,98,108,101,46,99,0,0,0,0,99,111,117,108,101,117,114,32,40,98,108,97,110,99,32,111,117,32,110,111,105,114,41,46,0,0,0,0,0,0,0,0,37,99,37,115,10,37,115,10,0,0,0,0,0,0,0,0,83,117,105,118,97,110,116,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,47,112,108,97,116,101,97,117,46,99,0,0,0,0,0,0,0,74,111,117,101,117,114,32,98,108,97,110,99,32,58,0,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,47,112,97,114,116,105,101,46,99,0,0,0,0,0,0,0,0,106,111,117,101,114,95,99,111,117,112,95,111,114,100,105,0,46,46,47,46,46,47,46,46,47,115,114,99,47,103,111,115,104,95,101,110,115,101,109,98,108,101,46,99,0,0,0,0,80,105,101,114,114,101,32,100,101,32,104,97,110,100,105,99,97,112,0,0,0,0,0,0,67,104,97,113,117,101,32,106,111,117,101,117,114,32,101,115,116,32,97,115,115,111,99,105,195,169,32,195,160,32,117,110,101,0,0,0,0,0,0,0,65,108,195,169,97,116,111,105,114,101,0,0,0,0,0,0,65,117,32,116,111,117,114,32,100,101,32,37,115,0,0,0,76,101,32,103,111,32,115,101,32,106,111,117,101,32,195,160,32,100,101,117,120,46,0,0,84,117,116,111,114,105,101,108,0,0,0,0,0,0,0,0,81,117,105,116,116,101,33,10,0,0,0,0,0,0,0,0,112,108,97,116,101,97,117,95,115,101,116,0,0,0,0,0,112,108,97,116,101,97,117,95,103,101,116,0,0,0,0,0,101,110,115,101,109,98,108,101,95,112,111,115,105,116,105,111,110,95,103,101,116,0,0,0,101,110,115,101,109,98,108,101,95,112,108,97,116,101,97,117,95,103,101,116,0,0,0,0,101,110,115,101,109,98,108,101,95,99,104,97,105,110,101,95,103,101,116,0,0,0,0,0,99,114,101,101,114,95,109,101,110,117,0,0,0,0,0,0,255,255,0,0,0,0,0,0,216,1,0,0,144,10,0,0], "i8", ALLOC_NONE, Runtime.GLOBAL_BASE);
 function runPostSets() {
 
 
@@ -6246,6 +6368,36 @@ function copyTempDouble(ptr) {
       }
     }
 
+  
+  function _memset(ptr, value, num) {
+      ptr = ptr|0; value = value|0; num = num|0;
+      var stop = 0, value4 = 0, stop4 = 0, unaligned = 0;
+      stop = (ptr + num)|0;
+      if ((num|0) >= 20) {
+        // This is unaligned, but quite large, so work hard to get to aligned settings
+        value = value & 0xff;
+        unaligned = ptr & 3;
+        value4 = value | (value << 8) | (value << 16) | (value << 24);
+        stop4 = stop & ~3;
+        if (unaligned) {
+          unaligned = (ptr + 4 - unaligned)|0;
+          while ((ptr|0) < (unaligned|0)) { // no need to check for stop, since we have large num
+            HEAP8[(ptr)]=value;
+            ptr = (ptr+1)|0;
+          }
+        }
+        while ((ptr|0) < (stop4|0)) {
+          HEAP32[((ptr)>>2)]=value4;
+          ptr = (ptr+4)|0;
+        }
+      }
+      while ((ptr|0) < (stop|0)) {
+        HEAP8[(ptr)]=value;
+        ptr = (ptr+1)|0;
+      }
+      return (ptr-num)|0;
+    }var _llvm_memset_p0i8_i64=_memset;
+
   function ___assert_fail(condition, filename, line, func) {
       ABORT = true;
       throw 'Assertion failed: ' + Pointer_stringify(condition) + ', at: ' + [filename ? Pointer_stringify(filename) : 'unknown filename', line, func ? Pointer_stringify(func) : 'unknown function'] + ' at ' + stackTrace();
@@ -6510,35 +6662,7 @@ function copyTempDouble(ptr) {
       return result.length;
     }
 
-  
-  function _memset(ptr, value, num) {
-      ptr = ptr|0; value = value|0; num = num|0;
-      var stop = 0, value4 = 0, stop4 = 0, unaligned = 0;
-      stop = (ptr + num)|0;
-      if ((num|0) >= 20) {
-        // This is unaligned, but quite large, so work hard to get to aligned settings
-        value = value & 0xff;
-        unaligned = ptr & 3;
-        value4 = value | (value << 8) | (value << 16) | (value << 24);
-        stop4 = stop & ~3;
-        if (unaligned) {
-          unaligned = (ptr + 4 - unaligned)|0;
-          while ((ptr|0) < (unaligned|0)) { // no need to check for stop, since we have large num
-            HEAP8[(ptr)]=value;
-            ptr = (ptr+1)|0;
-          }
-        }
-        while ((ptr|0) < (stop4|0)) {
-          HEAP32[((ptr)>>2)]=value4;
-          ptr = (ptr+4)|0;
-        }
-      }
-      while ((ptr|0) < (stop|0)) {
-        HEAP8[(ptr)]=value;
-        ptr = (ptr+1)|0;
-      }
-      return (ptr-num)|0;
-    }var _llvm_memset_p0i8_i32=_memset;
+  var _llvm_memset_p0i8_i32=_memset;
 
   function _memcmp(p1, p2, num) {
       p1 = p1|0; p2 = p2|0; num = num|0;
@@ -7473,8 +7597,8 @@ assert(DYNAMIC_BASE < TOTAL_MEMORY, "TOTAL_MEMORY not big enough for stack");
 
 
 
-var FUNCTION_TABLE = [0,0,_liberer_polices,0,_menu_bouton_jouer,0,_ensemble_colore_createIterateur,0,_charger_ordinateur,0,_ensemble_chaine_supprimer_tete,0,_event_charger,0,_ensemble_colore_next,0,_detruire_ensemble_colore,0,_utiliser_event_groupe_radio,0,_utiliser_event_bouton,0,_ensemble_plateau_nombre_elements,0,_mise_a_jour_charger,0,_ensemble_position_nombre_elements,0,_detruire_textinput,0,_charger_plateau_texte,0,_plateau_determiner_chaine,0,_ensemble_plateau_createIterateur,0,_charger_partie,0,_jouer_bouton_passer,0,_creer_ensemble_colore,0,_creer_textinput,0,_afficher_menu,0,_afficher_jouer,0,_menu_bouton_charger,0,_creer_menu,0,_afficher_groupe_radio,0,_detruire_plateau,0,_free,0,_plateau_load_data,0,_detruire_menu,0,_creer_radio,0,_ensemble_chaine_ajouter,0,_territoire_appartient,0,_detruire_ensemble_position,0,_try_realloc_chunk,0,_sdl_handle_events,0,_ensemble_chaine_get,0,_lesYeuxDeLaChaine,0,_plateau_set_at,0,_plateau_capture_chaines,0,_position_bas,0,_main,0,_plateau_est_identique,0,_partie_informer_ordinateur,0,_afficher_bouton,0,_ensemble_position_vide,0,_afficher_radio,0,_partie_jouer_coup,0,_ensemble_colore_vide,0,_detruire_label,0,_position,0,_draw_surface,0,_ensemble_plateau_get,0,_ensemble_chaine_next,0,_menu_radio_type_joueur,0,_ensemble_colore_set_couleur,0,_plateau_copie,0,_detruire_groupe_radio,0,_ensemble_colore_nombre_elements,0,_decharger_ordinateur,0,_ensemble_plateau_appartient,0,_creer_label,0,_partie_annuler_coup,0,_jouer_bouton_retour,0,_detruire_ensemble_plateau,0,_ordinateur_remplacer_plateau,0,_mise_a_jour_menu,0,_position_gauche,0,_get_color,0,_afficher_textinput,0,_utiliser_event_radio,0,_liberer_ordi,0,_ensemble_position_ajouter,0,_plateau_get,0,_creer_groupe_radio,0,_creer_partie,0,_ensemble_position_createIterateur,0,_partie_en_cours_de_handicap,0,_determiner_libertes,0,_afficher_label,0,_plateau_set,0,_ensemble_plateau_ajouter,0,_jouer_coup_ordi,0,_charger_partie_fichier,0,_afficher_charger,0,_ensemble_colore_ajouter,0,_jouer_bouton_sauvegarder,0,_get_position_depuis_ecran,0,_position_droite,0,_menu_bouton_quitter,0,_ensemble_chaine_vide,0,_ensemble_plateau_supprimer_tete,0,_detruire_radio,0,_SDL_Quit,0,_get_marge,0,_mise_a_jour_textinput,0,_ensemble_position_next,0,_ensemble_colore_positions,0,_ensemble_position_get,0,_initialiser_ordi,0,_event_menu,0,_creer_bouton,0,_mise_a_jour_jouer,0,_set_state,0,_event_jouer,0,_sauvegarder_partie,0,_ordinateur_jouer_coup,0,_creer_charger,0,_ensemble_position_appartient,0,_text_surface,0,_plateau_get_taille,0,_sauvegarder_partie_fichier,0,_plateau_data,0,_get_position_vers_ecran,0,_creer_plateau,0,_dispose_chunk,0,_malloc,0,_creer_ensemble_position,0,_creer_ensemble_plateau,0,_ensemble_chaine_createIterateur,0,_detruire_partie,0,_charger_plateau,0,_ordinateur_notifier_coup,0,_update,0,_partie_rejouer_coup,0,_charger_bouton_charger,0,_ensemble_plateau_next,0,_utiliser_event_textinput,0,_construction_function,0,_gosh_free,0,_position_haut,0,_set_color,0,_gosh_alloc_size,0,_charger_bouton_retour,0,_initialisation_partie,0,_ensemble_chaine_appartient,0,_sauvegarder_plateau,0,_ensemble_plateau_vide,0,_ensemble_colore_couleur,0,_recuperer_fonction,0,_detruire_charger,0,_plateau_realiser_capture,0,_creer_ensemble_chaine,0,_afficher_sauvegarder,0,_question_coherante,0,_plateau_data_size,0,_partie_jouer_ordinateur,0,_plateau_clone,0,_draw_rect,0,_realloc,0,_refresh,0,_ensemble_position_supprimer_tete,0,_groupe_radio_ajouter,0,_partie_score_joueurs,0,_impl_get_nbCases,0,_plateau_get_at,0,_mise_a_jour_bouton,0,_gosh_realloc_size,0,_determiner_territoire,0,_position_est_valide,0,_detruire_ensemble_chaine,0,_detruire_jouer,0,_charger_plateau_binaire,0,_get_font,0,_detruire_bouton,0,_ensemble_chaine_nombre_elements,0,_ensemble_colore_appartient,0,_creer_jouer,0];
-var SYMBOL_TABLE = {_liberer_polices: 2, _menu_bouton_jouer: 4, _ensemble_colore_createIterateur: 6, _charger_ordinateur: 8, _ensemble_chaine_supprimer_tete: 10, _event_charger: 12, _ensemble_colore_next: 14, _ensemble_plateau_ajouter: 164, _utiliser_event_groupe_radio: 18, _utiliser_event_bouton: 20, _ensemble_position_nombre_elements: 26, _detruire_textinput: 28, _charger_plateau_texte: 30, _plateau_determiner_chaine: 32, _ensemble_plateau_createIterateur: 34, _charger_partie: 36, _plateau_set_nbPosParCase: 8, _jouer_bouton_passer: 38, _creer_ensemble_colore: 40, _creer_textinput: 42, _afficher_menu: 44, _fonts: 1576, _afficher_jouer: 46, _plateau_data: 226, _afficher_groupe_radio: 52, _detruire_plateau: 54, _free: 56, _plateau_load_data: 58, _detruire_menu: 60, _creer_radio: 62, _ensemble_chaine_ajouter: 64, _territoire_appartient: 66, _detruire_ensemble_position: 68, _try_realloc_chunk: 70, _sdl_handle_events: 72, _afficher_textinput: 140, _lesYeuxDeLaChaine: 76, _plateau_set_at: 78, _plateau_capture_chaines: 80, _position_bas: 82, _main: 84, _plateau_est_identique: 86, _partie_informer_ordinateur: 88, _POSITION_INVALIDE: 1504, _mparams: 1536, _ensemble_position_vide: 92, _afficher_radio: 94, _detruire_label: 100, _position: 102, _draw_surface: 104, _ensemble_plateau_get: 106, _ensemble_chaine_next: 108, _FONT_FILENAMES: 1512, _menu_radio_type_joueur: 110, _refresh: 302, _ensemble_colore_set_couleur: 112, _plateau_copie: 114, _detruire_groupe_radio: 116, _ensemble_colore_nombre_elements: 118, _decharger_ordinateur: 120, _ensemble_plateau_appartient: 122, _creer_ensemble_plateau: 238, _creer_label: 124, _detruire_bouton: 330, _position_droite: 178, _plateau_get_taille: 222, _jouer_bouton_retour: 128, _detruire_ensemble_plateau: 130, _partie_score_joueurs: 308, _mise_a_jour_menu: 134, _position_gauche: 136, _get_color: 138, _ensemble_chaine_get: 74, _utiliser_event_radio: 142, _liberer_ordi: 144, _ensemble_position_ajouter: 146, _plateau_get: 148, _window: 1520, _creer_groupe_radio: 150, _creer_partie: 152, _ensemble_position_createIterateur: 154, _partie_en_cours_de_handicap: 156, _determiner_libertes: 158, _afficher_label: 160, _plateau_set: 162, _detruire_ensemble_colore: 16, _jouer_coup_ordi: 166, _charger_partie_fichier: 168, _afficher_charger: 170, _ensemble_colore_ajouter: 172, _jouer_bouton_sauvegarder: 174, _get_position_depuis_ecran: 176, _partie_annuler_coup: 126, _menu_bouton_quitter: 180, _mise_a_jour_charger: 24, _font_sizes: 24, _detruire_radio: 186, _afficher_bouton: 90, _ensemble_plateau_supprimer_tete: 184, _get_marge: 190, _mise_a_jour_textinput: 192, _ensemble_position_next: 194, _partie_jouer_coup: 96, _ensemble_position_get: 198, _ensemble_plateau_nombre_elements: 22, _event_menu: 202, _creer_bouton: 204, _mise_a_jour_jouer: 206, _creer_menu: 50, _event_jouer: 210, _sauvegarder_partie: 212, _SDL_Quit: 188, _ordinateur_jouer_coup: 214, _creer_charger: 216, _ensemble_position_appartient: 218, _text_surface: 220, _ensemble_colore_vide: 98, _sauvegarder_partie_fichier: 224, _menu_bouton_charger: 48, _get_position_vers_ecran: 228, _creer_plateau: 230, _gosh_realloc_size: 316, _dispose_chunk: 232, __gm_: 1600, _determiner_territoire: 318, _color: 40, _ensemble_chaine_createIterateur: 240, _detruire_partie: 242, _plateau_get_nbPosParCase: 16, _charger_plateau: 244, _ordinateur_notifier_coup: 246, _update: 248, _ensemble_chaine_vide: 182, _charger_bouton_charger: 252, _state: 1528, _ensemble_plateau_next: 254, _utiliser_event_textinput: 256, _construction_function: 258, _gosh_free: 260, _position_haut: 262, _ensemble_colore_positions: 196, _set_color: 264, _gosh_alloc_size: 266, _charger_bouton_retour: 268, _initialisation_partie: 270, _detruire_jouer: 324, _llvm_used: 1560, _ensemble_chaine_appartient: 272, _sauvegarder_plateau: 274, _ensemble_plateau_vide: 276, _ensemble_colore_couleur: 278, _recuperer_fonction: 280, _detruire_charger: 282, _creer_ensemble_chaine: 286, _afficher_sauvegarder: 288, _question_coherante: 290, _plateau_data_size: 292, _partie_jouer_ordinateur: 294, _plateau_clone: 296, _draw_rect: 298, _realloc: 300, _initialiser_ordi: 200, _ensemble_position_supprimer_tete: 304, _groupe_radio_ajouter: 306, _ordinateur_remplacer_plateau: 132, _impl_get_nbCases: 310, _plateau_get_at: 312, _mise_a_jour_bouton: 314, _set_state: 208, _creer_ensemble_position: 236, _position_est_valide: 320, _detruire_ensemble_chaine: 322, _partie_rejouer_coup: 250, _malloc: 234, _charger_plateau_binaire: 326, _get_font: 328, _plateau_realiser_capture: 284, _ensemble_chaine_nombre_elements: 332, _ensemble_colore_appartient: 334, _creer_jouer: 336};
+var FUNCTION_TABLE = [0,0,_liberer_polices,0,_menu_bouton_jouer,0,_tutoriel_precedent,0,_ensemble_colore_createIterateur,0,_charger_ordinateur,0,_ensemble_chaine_supprimer_tete,0,_event_charger,0,_ensemble_colore_next,0,_afficher_groupe_radio,0,_detruire_ensemble_colore,0,_utiliser_event_groupe_radio,0,_utiliser_event_bouton,0,_ensemble_plateau_nombre_elements,0,_mise_a_jour_charger,0,_ensemble_position_nombre_elements,0,_detruire_textinput,0,_charger_plateau_texte,0,_plateau_determiner_chaine,0,_afficher_tutoriel,0,_ensemble_plateau_createIterateur,0,_charger_partie,0,_jouer_bouton_passer,0,_creer_ensemble_colore,0,_creer_textinput,0,_afficher_menu,0,_afficher_jouer,0,_menu_bouton_charger,0,_creer_menu,0,_detruire_tutoriel,0,_detruire_plateau,0,_free,0,_plateau_load_data,0,_detruire_menu,0,_creer_radio,0,_ensemble_chaine_ajouter,0,_territoire_appartient,0,_detruire_ensemble_position,0,_try_realloc_chunk,0,_sdl_handle_events,0,_ensemble_chaine_get,0,_lesYeuxDeLaChaine,0,_plateau_set_at,0,_plateau_capture_chaines,0,_position_bas,0,_main,0,_plateau_est_identique,0,_partie_informer_ordinateur,0,_afficher_bouton,0,_ensemble_position_vide,0,_afficher_radio,0,_partie_jouer_coup,0,_ensemble_colore_vide,0,_detruire_label,0,_position,0,_draw_surface,0,_ensemble_plateau_get,0,_ensemble_chaine_next,0,_menu_radio_type_joueur,0,_ensemble_colore_set_couleur,0,_plateau_copie,0,_mise_a_jour_tutoriel,0,_detruire_groupe_radio,0,_ensemble_colore_nombre_elements,0,_decharger_ordinateur,0,_ensemble_plateau_appartient,0,_creer_label,0,_partie_annuler_coup,0,_jouer_bouton_retour,0,_detruire_ensemble_plateau,0,_ordinateur_remplacer_plateau,0,_mise_a_jour_menu,0,_position_gauche,0,_get_color,0,_afficher_textinput,0,_utiliser_event_radio,0,_liberer_ordi,0,_ensemble_position_ajouter,0,_plateau_get,0,_creer_groupe_radio,0,_creer_partie,0,_ensemble_position_createIterateur,0,_partie_en_cours_de_handicap,0,_determiner_libertes,0,_afficher_label,0,_plateau_set,0,_ensemble_plateau_ajouter,0,_tutoriel_bouton_suivant,0,_jouer_coup_ordi,0,_charger_partie_fichier,0,_afficher_charger,0,_ensemble_colore_ajouter,0,_jouer_bouton_sauvegarder,0,_get_position_depuis_ecran,0,_position_droite,0,_event_tutoriel,0,_menu_bouton_quitter,0,_ensemble_chaine_vide,0,_ensemble_plateau_supprimer_tete,0,_detruire_radio,0,_SDL_Quit,0,_creer_tutoriel,0,_mise_a_jour_textinput,0,_ensemble_position_next,0,_ensemble_colore_positions,0,_ensemble_position_get,0,_initialiser_ordi,0,_event_menu,0,_creer_bouton,0,_mise_a_jour_jouer,0,_set_state,0,_event_jouer,0,_sauvegarder_partie,0,_ordinateur_jouer_coup,0,_creer_charger,0,_get_marge,0,_ensemble_position_appartient,0,_text_surface,0,_plateau_get_taille,0,_sauvegarder_partie_fichier,0,_plateau_data,0,_get_position_vers_ecran,0,_creer_plateau,0,_dispose_chunk,0,_malloc,0,_tutoriel_suivant,0,_creer_ensemble_plateau,0,_ensemble_chaine_createIterateur,0,_detruire_partie,0,_charger_plateau,0,_ordinateur_notifier_coup,0,_update,0,_partie_rejouer_coup,0,_charger_bouton_charger,0,_ensemble_plateau_next,0,_utiliser_event_textinput,0,_construction_function,0,_gosh_free,0,_position_haut,0,_set_color,0,_gosh_alloc_size,0,_charger_bouton_retour,0,_initialisation_partie,0,_ensemble_chaine_appartient,0,_sauvegarder_plateau,0,_ensemble_plateau_vide,0,_ensemble_colore_couleur,0,_recuperer_fonction,0,_detruire_charger,0,_plateau_realiser_capture,0,_creer_ensemble_chaine,0,_afficher_sauvegarder,0,_question_coherante,0,_menu_bouton_tutoriel,0,_plateau_data_size,0,_partie_jouer_ordinateur,0,_plateau_clone,0,_draw_rect,0,_realloc,0,_refresh,0,_ensemble_position_supprimer_tete,0,_groupe_radio_ajouter,0,_partie_score_joueurs,0,_impl_get_nbCases,0,_creer_ensemble_position,0,_plateau_get_at,0,_mise_a_jour_bouton,0,_gosh_realloc_size,0,_determiner_territoire,0,_position_est_valide,0,_tutoriel_bouton_precedent,0,_detruire_ensemble_chaine,0,_detruire_jouer,0,_charger_plateau_binaire,0,_get_font,0,_detruire_bouton,0,_ensemble_chaine_nombre_elements,0,_ensemble_colore_appartient,0,_creer_jouer,0];
+var SYMBOL_TABLE = {_liberer_polices: 2, _menu_bouton_jouer: 4, _sauvegarder_plateau: 288, _ensemble_colore_createIterateur: 8, _charger_ordinateur: 10, _ensemble_chaine_supprimer_tete: 12, _event_charger: 14, _ensemble_colore_next: 16, _afficher_groupe_radio: 18, _ensemble_plateau_ajouter: 172, _utiliser_event_groupe_radio: 22, _utiliser_event_bouton: 24, _ensemble_position_nombre_elements: 30, _detruire_textinput: 32, _charger_plateau_texte: 34, _plateau_determiner_chaine: 36, _afficher_tutoriel: 38, _ensemble_plateau_createIterateur: 40, _charger_partie: 42, _plateau_set_nbPosParCase: 8, _jouer_bouton_passer: 44, _creer_ensemble_colore: 46, _creer_textinput: 48, _afficher_menu: 50, _fonts: 3792, _afficher_jouer: 52, _plateau_data: 240, _detruire_tutoriel: 58, _detruire_plateau: 60, _free: 62, _plateau_load_data: 64, _detruire_menu: 66, _creer_radio: 68, _ensemble_chaine_ajouter: 70, _territoire_appartient: 72, _detruire_ensemble_position: 74, _try_realloc_chunk: 76, _sdl_handle_events: 78, _afficher_textinput: 148, _lesYeuxDeLaChaine: 82, _plateau_set_at: 84, _plateau_capture_chaines: 86, _position_bas: 88, _main: 90, _plateau_est_identique: 92, _partie_informer_ordinateur: 94, _POSITION_INVALIDE: 3720, _mparams: 3752, _ensemble_position_vide: 98, _afficher_radio: 100, _detruire_label: 106, _position: 108, _draw_surface: 110, _ensemble_plateau_get: 112, _ensemble_chaine_next: 114, _FONT_FILENAMES: 3728, _menu_radio_type_joueur: 116, _refresh: 318, _ensemble_colore_set_couleur: 118, _plateau_copie: 120, _mise_a_jour_tutoriel: 122, _detruire_groupe_radio: 124, _ensemble_colore_nombre_elements: 126, _decharger_ordinateur: 128, _ensemble_plateau_appartient: 130, _creer_ensemble_plateau: 252, _creer_label: 132, _detruire_bouton: 350, _position_droite: 188, _plateau_get_taille: 236, _jouer_bouton_retour: 136, _detruire_ensemble_plateau: 138, _partie_score_joueurs: 324, _mise_a_jour_menu: 142, _position_gauche: 144, _get_color: 146, _ensemble_chaine_get: 80, _utiliser_event_radio: 150, _liberer_ordi: 152, _ensemble_position_ajouter: 154, _plateau_get: 156, _window: 3736, _creer_groupe_radio: 158, _creer_partie: 160, _ensemble_position_createIterateur: 162, _partie_en_cours_de_handicap: 164, _determiner_libertes: 166, _afficher_label: 168, _plateau_set: 170, _detruire_ensemble_colore: 20, _tutoriel_bouton_suivant: 174, _jouer_coup_ordi: 176, _charger_partie_fichier: 178, _afficher_charger: 180, _ensemble_colore_ajouter: 182, _jouer_bouton_sauvegarder: 184, _get_position_depuis_ecran: 186, _partie_annuler_coup: 134, _event_tutoriel: 190, _menu_bouton_quitter: 192, _mise_a_jour_charger: 28, _font_sizes: 24, _detruire_radio: 198, _afficher_bouton: 96, _ensemble_plateau_supprimer_tete: 196, _creer_tutoriel: 202, _mise_a_jour_textinput: 204, _ensemble_position_next: 206, _partie_jouer_coup: 102, _ensemble_position_get: 210, _ensemble_plateau_nombre_elements: 26, _event_menu: 214, _creer_bouton: 216, _mise_a_jour_jouer: 218, _creer_menu: 56, _event_jouer: 222, _sauvegarder_partie: 224, _SDL_Quit: 200, _ordinateur_jouer_coup: 226, _creer_charger: 228, _get_marge: 230, _ensemble_position_appartient: 232, _text_surface: 234, _ensemble_colore_vide: 104, _sauvegarder_partie_fichier: 238, _menu_bouton_charger: 54, _get_position_vers_ecran: 242, _creer_plateau: 244, _gosh_realloc_size: 334, _dispose_chunk: 246, __gm_: 3816, _tutoriel_suivant: 250, _color: 440, _ensemble_chaine_createIterateur: 254, _detruire_partie: 256, _plateau_get_nbPosParCase: 16, _charger_plateau: 258, _ordinateur_notifier_coup: 260, _update: 262, _ensemble_chaine_vide: 194, _charger_bouton_charger: 266, _state: 3744, _ensemble_plateau_next: 268, _utiliser_event_textinput: 270, _construction_function: 272, _gosh_free: 274, _position_haut: 276, _ensemble_colore_positions: 208, _set_color: 278, _gosh_alloc_size: 280, _charger_bouton_retour: 282, _initialisation_partie: 284, _detruire_jouer: 344, _llvm_used: 3776, _ensemble_chaine_appartient: 286, _tutoriel_precedent: 6, _ensemble_plateau_vide: 290, _ensemble_colore_couleur: 292, _recuperer_fonction: 294, _detruire_charger: 296, _creer_ensemble_chaine: 300, _afficher_sauvegarder: 302, _question_coherante: 304, _menu_bouton_tutoriel: 306, _plateau_data_size: 308, _partie_jouer_ordinateur: 310, _plateau_clone: 312, _draw_rect: 314, _realloc: 316, _initialiser_ordi: 212, _ensemble_position_supprimer_tete: 320, _groupe_radio_ajouter: 322, _ordinateur_remplacer_plateau: 140, _impl_get_nbCases: 326, _plateau_get_at: 330, _mise_a_jour_bouton: 332, _determiner_territoire: 336, _set_state: 220, _creer_ensemble_position: 328, _position_est_valide: 338, _tutoriel_bouton_precedent: 340, _detruire_ensemble_chaine: 342, _partie_rejouer_coup: 264, _malloc: 248, _charger_plateau_binaire: 346, _get_font: 348, _plateau_realiser_capture: 298, _ensemble_chaine_nombre_elements: 352, _ensemble_colore_appartient: 354, _creer_jouer: 356};
 // EMSCRIPTEN_START_FUNCS
 
 function _sdl_handle_events(){
@@ -7493,23 +7617,23 @@ function _sdl_handle_events(){
   var $6=HEAP32[(($5)>>2)]; //@line 57 "../../../src/sdl/main.c"
   switch (($6|0)) {
   case 256: {
-   var $8=HEAP32[((1528)>>2)]; //@line 59 "../../../src/sdl/main.c"
+   var $8=HEAP32[((3744)>>2)]; //@line 59 "../../../src/sdl/main.c"
    var $9=(($8)|0); //@line 59 "../../../src/sdl/main.c"
    HEAP8[($9)]=1; //@line 59 "../../../src/sdl/main.c"
     //@line 60 "../../../src/sdl/main.c"
    break;
   }
   case 768: {
-   var $11=HEAP32[((1528)>>2)]; //@line 62 "../../../src/sdl/main.c"
+   var $11=HEAP32[((3744)>>2)]; //@line 62 "../../../src/sdl/main.c"
    var $12=(($11+8)|0); //@line 62 "../../../src/sdl/main.c"
    var $13=HEAP32[(($12)>>2)]; //@line 62 "../../../src/sdl/main.c"
    var $14=($13|0)!=0; //@line 62 "../../../src/sdl/main.c"
     //@line 62 "../../../src/sdl/main.c"
    if ($14) {
-    var $16=HEAP32[((1528)>>2)]; //@line 63 "../../../src/sdl/main.c"
+    var $16=HEAP32[((3744)>>2)]; //@line 63 "../../../src/sdl/main.c"
     var $17=(($16+8)|0); //@line 63 "../../../src/sdl/main.c"
     var $18=HEAP32[(($17)>>2)]; //@line 63 "../../../src/sdl/main.c"
-    var $19=HEAP32[((1528)>>2)]; //@line 63 "../../../src/sdl/main.c"
+    var $19=HEAP32[((3744)>>2)]; //@line 63 "../../../src/sdl/main.c"
     FUNCTION_TABLE[$18]($19,$event); //@line 63 "../../../src/sdl/main.c"
      //@line 63 "../../../src/sdl/main.c"
    }
@@ -7521,16 +7645,16 @@ function _sdl_handle_events(){
    break;
   }
   case 1024: {
-   var $23=HEAP32[((1528)>>2)]; //@line 68 "../../../src/sdl/main.c"
+   var $23=HEAP32[((3744)>>2)]; //@line 68 "../../../src/sdl/main.c"
    var $24=(($23+12)|0); //@line 68 "../../../src/sdl/main.c"
    var $25=HEAP32[(($24)>>2)]; //@line 68 "../../../src/sdl/main.c"
    var $26=($25|0)!=0; //@line 68 "../../../src/sdl/main.c"
     //@line 68 "../../../src/sdl/main.c"
    if ($26) {
-    var $28=HEAP32[((1528)>>2)]; //@line 69 "../../../src/sdl/main.c"
+    var $28=HEAP32[((3744)>>2)]; //@line 69 "../../../src/sdl/main.c"
     var $29=(($28+12)|0); //@line 69 "../../../src/sdl/main.c"
     var $30=HEAP32[(($29)>>2)]; //@line 69 "../../../src/sdl/main.c"
-    var $31=HEAP32[((1528)>>2)]; //@line 69 "../../../src/sdl/main.c"
+    var $31=HEAP32[((3744)>>2)]; //@line 69 "../../../src/sdl/main.c"
     FUNCTION_TABLE[$30]($31,$event); //@line 69 "../../../src/sdl/main.c"
      //@line 69 "../../../src/sdl/main.c"
    }
@@ -7538,16 +7662,16 @@ function _sdl_handle_events(){
    break;
   }
   case 1025: {
-   var $34=HEAP32[((1528)>>2)]; //@line 72 "../../../src/sdl/main.c"
+   var $34=HEAP32[((3744)>>2)]; //@line 72 "../../../src/sdl/main.c"
    var $35=(($34+16)|0); //@line 72 "../../../src/sdl/main.c"
    var $36=HEAP32[(($35)>>2)]; //@line 72 "../../../src/sdl/main.c"
    var $37=($36|0)!=0; //@line 72 "../../../src/sdl/main.c"
     //@line 72 "../../../src/sdl/main.c"
    if ($37) {
-    var $39=HEAP32[((1528)>>2)]; //@line 73 "../../../src/sdl/main.c"
+    var $39=HEAP32[((3744)>>2)]; //@line 73 "../../../src/sdl/main.c"
     var $40=(($39+16)|0); //@line 73 "../../../src/sdl/main.c"
     var $41=HEAP32[(($40)>>2)]; //@line 73 "../../../src/sdl/main.c"
-    var $42=HEAP32[((1528)>>2)]; //@line 73 "../../../src/sdl/main.c"
+    var $42=HEAP32[((3744)>>2)]; //@line 73 "../../../src/sdl/main.c"
     FUNCTION_TABLE[$41]($42,$event); //@line 73 "../../../src/sdl/main.c"
      //@line 73 "../../../src/sdl/main.c"
    }
@@ -7555,16 +7679,16 @@ function _sdl_handle_events(){
    break;
   }
   case 1026: {
-   var $45=HEAP32[((1528)>>2)]; //@line 76 "../../../src/sdl/main.c"
+   var $45=HEAP32[((3744)>>2)]; //@line 76 "../../../src/sdl/main.c"
    var $46=(($45+20)|0); //@line 76 "../../../src/sdl/main.c"
    var $47=HEAP32[(($46)>>2)]; //@line 76 "../../../src/sdl/main.c"
    var $48=($47|0)!=0; //@line 76 "../../../src/sdl/main.c"
     //@line 76 "../../../src/sdl/main.c"
    if ($48) {
-    var $50=HEAP32[((1528)>>2)]; //@line 77 "../../../src/sdl/main.c"
+    var $50=HEAP32[((3744)>>2)]; //@line 77 "../../../src/sdl/main.c"
     var $51=(($50+20)|0); //@line 77 "../../../src/sdl/main.c"
     var $52=HEAP32[(($51)>>2)]; //@line 77 "../../../src/sdl/main.c"
-    var $53=HEAP32[((1528)>>2)]; //@line 77 "../../../src/sdl/main.c"
+    var $53=HEAP32[((3744)>>2)]; //@line 77 "../../../src/sdl/main.c"
     FUNCTION_TABLE[$52]($53,$event); //@line 77 "../../../src/sdl/main.c"
      //@line 77 "../../../src/sdl/main.c"
    }
@@ -7586,7 +7710,7 @@ function _set_state($newstate){
  var $1;
  $1=$newstate;
  var $2=$1; //@line 85 "../../../src/sdl/main.c"
- HEAP32[((1528)>>2)]=$2; //@line 85 "../../../src/sdl/main.c"
+ HEAP32[((3744)>>2)]=$2; //@line 85 "../../../src/sdl/main.c"
  STACKTOP=sp;return; //@line 86 "../../../src/sdl/main.c"
 }
 
@@ -7598,32 +7722,32 @@ function _update(){
  var $dt;
  _sdl_handle_events(); //@line 93 "../../../src/sdl/main.c"
  $dt=0.016666666666666666; //@line 95 "../../../src/sdl/main.c"
- var $1=HEAP32[((1528)>>2)]; //@line 96 "../../../src/sdl/main.c"
+ var $1=HEAP32[((3744)>>2)]; //@line 96 "../../../src/sdl/main.c"
  var $2=(($1+24)|0); //@line 96 "../../../src/sdl/main.c"
  var $3=HEAP32[(($2)>>2)]; //@line 96 "../../../src/sdl/main.c"
  var $4=($3|0)!=0; //@line 96 "../../../src/sdl/main.c"
   //@line 96 "../../../src/sdl/main.c"
  if ($4) {
-  var $6=HEAP32[((1528)>>2)]; //@line 97 "../../../src/sdl/main.c"
+  var $6=HEAP32[((3744)>>2)]; //@line 97 "../../../src/sdl/main.c"
   var $7=(($6+24)|0); //@line 97 "../../../src/sdl/main.c"
   var $8=HEAP32[(($7)>>2)]; //@line 97 "../../../src/sdl/main.c"
-  var $9=HEAP32[((1528)>>2)]; //@line 97 "../../../src/sdl/main.c"
+  var $9=HEAP32[((3744)>>2)]; //@line 97 "../../../src/sdl/main.c"
   var $10=$dt; //@line 97 "../../../src/sdl/main.c"
   FUNCTION_TABLE[$8]($9,$10); //@line 97 "../../../src/sdl/main.c"
    //@line 97 "../../../src/sdl/main.c"
  }
  _set_color(40,40,40); //@line 99 "../../../src/sdl/main.c"
- var $12=HEAP32[((1520)>>2)]; //@line 100 "../../../src/sdl/main.c"
+ var $12=HEAP32[((3736)>>2)]; //@line 100 "../../../src/sdl/main.c"
  _draw_rect($12,0,0,800,680); //@line 100 "../../../src/sdl/main.c"
- var $13=HEAP32[((1528)>>2)]; //@line 101 "../../../src/sdl/main.c"
+ var $13=HEAP32[((3744)>>2)]; //@line 101 "../../../src/sdl/main.c"
  var $14=(($13+4)|0); //@line 101 "../../../src/sdl/main.c"
  var $15=HEAP32[(($14)>>2)]; //@line 101 "../../../src/sdl/main.c"
- var $16=HEAP32[((1528)>>2)]; //@line 101 "../../../src/sdl/main.c"
- var $17=HEAP32[((1520)>>2)]; //@line 101 "../../../src/sdl/main.c"
+ var $16=HEAP32[((3744)>>2)]; //@line 101 "../../../src/sdl/main.c"
+ var $17=HEAP32[((3736)>>2)]; //@line 101 "../../../src/sdl/main.c"
  FUNCTION_TABLE[$15]($16,$17); //@line 101 "../../../src/sdl/main.c"
- var $18=HEAP32[((1520)>>2)]; //@line 103 "../../../src/sdl/main.c"
+ var $18=HEAP32[((3736)>>2)]; //@line 103 "../../../src/sdl/main.c"
  var $19=_SDL_Flip($18); //@line 103 "../../../src/sdl/main.c"
- var $20=HEAP32[((1528)>>2)]; //@line 105 "../../../src/sdl/main.c"
+ var $20=HEAP32[((3744)>>2)]; //@line 105 "../../../src/sdl/main.c"
  var $21=(($20)|0); //@line 105 "../../../src/sdl/main.c"
  var $22=HEAP8[($21)]; //@line 105 "../../../src/sdl/main.c"
  var $23=(($22)&1); //@line 105 "../../../src/sdl/main.c"
@@ -7631,7 +7755,7 @@ function _update(){
  if (!($23)) {
   STACKTOP=sp;return; //@line 111 "../../../src/sdl/main.c"
  }
- var $25=_printf(1368,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 1)|0,STACKTOP = (((STACKTOP)+7)&-8),(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=0,tempVarArgs)); STACKTOP=tempVarArgs; //@line 106 "../../../src/sdl/main.c"
+ var $25=_printf(3584,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 1)|0,STACKTOP = (((STACKTOP)+7)&-8),(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=0,tempVarArgs)); STACKTOP=tempVarArgs; //@line 106 "../../../src/sdl/main.c"
  _emscripten_cancel_main_loop(); //@line 108 "../../../src/sdl/main.c"
   //@line 110 "../../../src/sdl/main.c"
  STACKTOP=sp;return; //@line 111 "../../../src/sdl/main.c"
@@ -7660,7 +7784,7 @@ function _main($argc,$argv){
   throw "Reached an unreachable!"; //@line 117 "../../../src/sdl/main.c"
  }
   //@line 117 "../../../src/sdl/main.c"
- var $13=_atexit(188); //@line 118 "../../../src/sdl/main.c"
+ var $13=_atexit(200); //@line 118 "../../../src/sdl/main.c"
   //@line 120 "../../../src/sdl/main.c"
  var $15=_TTF_Init(); //@line 120 "../../../src/sdl/main.c"
  var $16=($15|0)==0; //@line 120 "../../../src/sdl/main.c"
@@ -7674,9 +7798,9 @@ function _main($argc,$argv){
   //@line 120 "../../../src/sdl/main.c"
  var $21=_atexit(2); //@line 121 "../../../src/sdl/main.c"
  var $22=_SDL_SetVideoMode(800,680,32,138412033); //@line 123 "../../../src/sdl/main.c"
- HEAP32[((1520)>>2)]=$22; //@line 123 "../../../src/sdl/main.c"
+ HEAP32[((3736)>>2)]=$22; //@line 123 "../../../src/sdl/main.c"
   //@line 124 "../../../src/sdl/main.c"
- var $24=HEAP32[((1520)>>2)]; //@line 124 "../../../src/sdl/main.c"
+ var $24=HEAP32[((3736)>>2)]; //@line 124 "../../../src/sdl/main.c"
  var $25=($24|0)!=0; //@line 124 "../../../src/sdl/main.c"
   //@line 124 "../../../src/sdl/main.c"
  if (!($25)) {
@@ -7687,12 +7811,12 @@ function _main($argc,$argv){
  }
   //@line 124 "../../../src/sdl/main.c"
  var $30=_creer_menu(); //@line 126 "../../../src/sdl/main.c"
- HEAP32[((1528)>>2)]=$30; //@line 126 "../../../src/sdl/main.c"
- _emscripten_set_main_loop((248),0,1); //@line 129 "../../../src/sdl/main.c"
- var $31=HEAP32[((1528)>>2)]; //@line 136 "../../../src/sdl/main.c"
+ HEAP32[((3744)>>2)]=$30; //@line 126 "../../../src/sdl/main.c"
+ _emscripten_set_main_loop((262),0,1); //@line 129 "../../../src/sdl/main.c"
+ var $31=HEAP32[((3744)>>2)]; //@line 136 "../../../src/sdl/main.c"
  var $32=(($31+32)|0); //@line 136 "../../../src/sdl/main.c"
  var $33=HEAP32[(($32)>>2)]; //@line 136 "../../../src/sdl/main.c"
- var $34=HEAP32[((1528)>>2)]; //@line 136 "../../../src/sdl/main.c"
+ var $34=HEAP32[((3744)>>2)]; //@line 136 "../../../src/sdl/main.c"
  FUNCTION_TABLE[$33]($34); //@line 136 "../../../src/sdl/main.c"
  STACKTOP=sp;return 0; //@line 138 "../../../src/sdl/main.c"
 }
@@ -9163,6 +9287,1002 @@ function _detruire_label($label){
 }
 
 
+function _creer_tutoriel($parent){
+ var label=0;
+ var sp=STACKTOP;STACKTOP=(STACKTOP+976)|0; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $state;
+ var $tuto;
+ var $bouton;
+ var $instructions=sp;
+ var $x;
+ var $e;
+ var $instr;
+ var $y;
+ var $titre;
+ var $nb;
+ var $i;
+ var $infos=(sp)+(400);
+ var $c;
+ var $e1;
+ var $i2;
+ $1=$parent;
+ var $2=_gosh_alloc_size(36); //@line 101 "../../../src/sdl/tutoriel.c"
+ var $3=$2; //@line 101 "../../../src/sdl/tutoriel.c"
+ $state=$3; //@line 101 "../../../src/sdl/tutoriel.c"
+ var $4=_gosh_alloc_size(164); //@line 102 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 102 "../../../src/sdl/tutoriel.c"
+ $tuto=$5; //@line 102 "../../../src/sdl/tutoriel.c"
+ var $6=$state; //@line 103 "../../../src/sdl/tutoriel.c"
+ var $7=(($6+4)|0); //@line 103 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($7)>>2)]=38; //@line 103 "../../../src/sdl/tutoriel.c"
+ var $8=$state; //@line 104 "../../../src/sdl/tutoriel.c"
+ var $9=(($8+24)|0); //@line 104 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($9)>>2)]=122; //@line 104 "../../../src/sdl/tutoriel.c"
+ var $10=$state; //@line 105 "../../../src/sdl/tutoriel.c"
+ var $11=(($10+12)|0); //@line 105 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($11)>>2)]=190; //@line 105 "../../../src/sdl/tutoriel.c"
+ var $12=$state; //@line 106 "../../../src/sdl/tutoriel.c"
+ var $13=(($12+16)|0); //@line 106 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($13)>>2)]=190; //@line 106 "../../../src/sdl/tutoriel.c"
+ var $14=$state; //@line 107 "../../../src/sdl/tutoriel.c"
+ var $15=(($14+20)|0); //@line 107 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($15)>>2)]=190; //@line 107 "../../../src/sdl/tutoriel.c"
+ var $16=$state; //@line 108 "../../../src/sdl/tutoriel.c"
+ var $17=(($16+8)|0); //@line 108 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($17)>>2)]=190; //@line 108 "../../../src/sdl/tutoriel.c"
+ var $18=$state; //@line 109 "../../../src/sdl/tutoriel.c"
+ var $19=(($18+32)|0); //@line 109 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($19)>>2)]=58; //@line 109 "../../../src/sdl/tutoriel.c"
+ var $20=$tuto; //@line 110 "../../../src/sdl/tutoriel.c"
+ var $21=$20; //@line 110 "../../../src/sdl/tutoriel.c"
+ var $22=$state; //@line 110 "../../../src/sdl/tutoriel.c"
+ var $23=(($22+28)|0); //@line 110 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($23)>>2)]=$21; //@line 110 "../../../src/sdl/tutoriel.c"
+ var $24=$1; //@line 111 "../../../src/sdl/tutoriel.c"
+ var $25=$tuto; //@line 111 "../../../src/sdl/tutoriel.c"
+ var $26=(($25)|0); //@line 111 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($26)>>2)]=$24; //@line 111 "../../../src/sdl/tutoriel.c"
+ _set_color(50,50,150); //@line 113 "../../../src/sdl/tutoriel.c"
+ var $27=_creer_label(3568,320,34,2,2); //@line 114 "../../../src/sdl/tutoriel.c"
+ var $28=$tuto; //@line 114 "../../../src/sdl/tutoriel.c"
+ var $29=(($28+4)|0); //@line 114 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($29)>>2)]=$27; //@line 114 "../../../src/sdl/tutoriel.c"
+ _set_color(50,250,50); //@line 116 "../../../src/sdl/tutoriel.c"
+ var $30=_creer_bouton(3312,520,612,100,30); //@line 118 "../../../src/sdl/tutoriel.c"
+ $bouton=$30; //@line 118 "../../../src/sdl/tutoriel.c"
+ var $31=$bouton; //@line 119 "../../../src/sdl/tutoriel.c"
+ var $32=(($31+40)|0); //@line 119 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($32)>>2)]=174; //@line 119 "../../../src/sdl/tutoriel.c"
+ var $33=$state; //@line 120 "../../../src/sdl/tutoriel.c"
+ var $34=$33; //@line 120 "../../../src/sdl/tutoriel.c"
+ var $35=$bouton; //@line 120 "../../../src/sdl/tutoriel.c"
+ var $36=(($35+44)|0); //@line 120 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($36)>>2)]=$34; //@line 120 "../../../src/sdl/tutoriel.c"
+ var $37=$bouton; //@line 121 "../../../src/sdl/tutoriel.c"
+ var $38=$tuto; //@line 121 "../../../src/sdl/tutoriel.c"
+ var $39=(($38+12)|0); //@line 121 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($39)>>2)]=$37; //@line 121 "../../../src/sdl/tutoriel.c"
+ var $40=_creer_bouton(2656,200,612,100,30); //@line 122 "../../../src/sdl/tutoriel.c"
+ $bouton=$40; //@line 122 "../../../src/sdl/tutoriel.c"
+ var $41=$bouton; //@line 123 "../../../src/sdl/tutoriel.c"
+ var $42=(($41+40)|0); //@line 123 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($42)>>2)]=340; //@line 123 "../../../src/sdl/tutoriel.c"
+ var $43=$state; //@line 124 "../../../src/sdl/tutoriel.c"
+ var $44=$43; //@line 124 "../../../src/sdl/tutoriel.c"
+ var $45=$bouton; //@line 124 "../../../src/sdl/tutoriel.c"
+ var $46=(($45+44)|0); //@line 124 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($46)>>2)]=$44; //@line 124 "../../../src/sdl/tutoriel.c"
+ var $47=$bouton; //@line 125 "../../../src/sdl/tutoriel.c"
+ var $48=$tuto; //@line 125 "../../../src/sdl/tutoriel.c"
+ var $49=(($48+8)|0); //@line 125 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($49)>>2)]=$47; //@line 125 "../../../src/sdl/tutoriel.c"
+ _set_color(155,50,50); //@line 127 "../../../src/sdl/tutoriel.c"
+ var $50=$instructions; //@line 218 "../../../src/sdl/tutoriel.c"
+ assert(396 % 1 === 0);(_memcpy($50, 40, 396)|0); //@line 218 "../../../src/sdl/tutoriel.c"
+ $x=416; //@line 219 "../../../src/sdl/tutoriel.c"
+ $e=0; //@line 220 "../../../src/sdl/tutoriel.c"
+  //@line 220 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $52=$e; //@line 220 "../../../src/sdl/tutoriel.c"
+  var $53=($52|0)<9; //@line 220 "../../../src/sdl/tutoriel.c"
+   //@line 220 "../../../src/sdl/tutoriel.c"
+  if (!($53)) {
+   break;
+  }
+  var $55=$e; //@line 221 "../../../src/sdl/tutoriel.c"
+  var $56=(($instructions+((($55)*(44))&-1))|0); //@line 221 "../../../src/sdl/tutoriel.c"
+  var $57=(($56)|0); //@line 221 "../../../src/sdl/tutoriel.c"
+  $instr=$57; //@line 221 "../../../src/sdl/tutoriel.c"
+  $y=204; //@line 222 "../../../src/sdl/tutoriel.c"
+  var $58=$instr; //@line 223 "../../../src/sdl/tutoriel.c"
+  var $59=(($58)|0); //@line 223 "../../../src/sdl/tutoriel.c"
+  var $60=HEAP32[(($59)>>2)]; //@line 223 "../../../src/sdl/tutoriel.c"
+  $titre=$60; //@line 223 "../../../src/sdl/tutoriel.c"
+  var $61=$titre; //@line 224 "../../../src/sdl/tutoriel.c"
+  var $62=_creer_label($61,560,136,2,2); //@line 224 "../../../src/sdl/tutoriel.c"
+  var $63=$e; //@line 224 "../../../src/sdl/tutoriel.c"
+  var $64=$tuto; //@line 224 "../../../src/sdl/tutoriel.c"
+  var $65=(($64+128)|0); //@line 224 "../../../src/sdl/tutoriel.c"
+  var $66=(($65+($63<<2))|0); //@line 224 "../../../src/sdl/tutoriel.c"
+  HEAP32[(($66)>>2)]=$62; //@line 224 "../../../src/sdl/tutoriel.c"
+  $nb=0; //@line 225 "../../../src/sdl/tutoriel.c"
+  $i=1; //@line 227 "../../../src/sdl/tutoriel.c"
+   //@line 228 "../../../src/sdl/tutoriel.c"
+  while(1) {
+   var $68=$i; //@line 228 "../../../src/sdl/tutoriel.c"
+   var $69=$instr; //@line 228 "../../../src/sdl/tutoriel.c"
+   var $70=(($69+($68<<2))|0); //@line 228 "../../../src/sdl/tutoriel.c"
+   var $71=HEAP32[(($70)>>2)]; //@line 228 "../../../src/sdl/tutoriel.c"
+   var $72=($71|0)!=0; //@line 228 "../../../src/sdl/tutoriel.c"
+    //@line 228 "../../../src/sdl/tutoriel.c"
+   if (!($72)) {
+    break;
+   }
+   var $74=$nb; //@line 229 "../../../src/sdl/tutoriel.c"
+   var $75=((($74)+(1))|0); //@line 229 "../../../src/sdl/tutoriel.c"
+   $nb=$75; //@line 229 "../../../src/sdl/tutoriel.c"
+   var $76=$i; //@line 230 "../../../src/sdl/tutoriel.c"
+   var $77=((($76)+(1))|0); //@line 230 "../../../src/sdl/tutoriel.c"
+   $i=$77; //@line 230 "../../../src/sdl/tutoriel.c"
+    //@line 231 "../../../src/sdl/tutoriel.c"
+  }
+  var $79=$nb; //@line 232 "../../../src/sdl/tutoriel.c"
+  var $80=($79<<2); //@line 232 "../../../src/sdl/tutoriel.c"
+  var $81=_gosh_alloc_size($80); //@line 232 "../../../src/sdl/tutoriel.c"
+  var $82=$81; //@line 232 "../../../src/sdl/tutoriel.c"
+  var $83=$e; //@line 232 "../../../src/sdl/tutoriel.c"
+  var $84=$tuto; //@line 232 "../../../src/sdl/tutoriel.c"
+  var $85=(($84+56)|0); //@line 232 "../../../src/sdl/tutoriel.c"
+  var $86=(($85+($83<<2))|0); //@line 232 "../../../src/sdl/tutoriel.c"
+  HEAP32[(($86)>>2)]=$82; //@line 232 "../../../src/sdl/tutoriel.c"
+  var $87=$nb; //@line 233 "../../../src/sdl/tutoriel.c"
+  var $88=$e; //@line 233 "../../../src/sdl/tutoriel.c"
+  var $89=$tuto; //@line 233 "../../../src/sdl/tutoriel.c"
+  var $90=(($89+92)|0); //@line 233 "../../../src/sdl/tutoriel.c"
+  var $91=(($90+($88<<2))|0); //@line 233 "../../../src/sdl/tutoriel.c"
+  HEAP32[(($91)>>2)]=$87; //@line 233 "../../../src/sdl/tutoriel.c"
+  $i=0; //@line 234 "../../../src/sdl/tutoriel.c"
+   //@line 234 "../../../src/sdl/tutoriel.c"
+  while(1) {
+   var $93=$i; //@line 234 "../../../src/sdl/tutoriel.c"
+   var $94=$nb; //@line 234 "../../../src/sdl/tutoriel.c"
+   var $95=($93|0)<($94|0); //@line 234 "../../../src/sdl/tutoriel.c"
+    //@line 234 "../../../src/sdl/tutoriel.c"
+   if (!($95)) {
+    break;
+   }
+   var $97=$i; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $98=((($97)+(1))|0); //@line 235 "../../../src/sdl/tutoriel.c"
+   var $99=$instr; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $100=(($99+($98<<2))|0); //@line 235 "../../../src/sdl/tutoriel.c"
+   var $101=HEAP32[(($100)>>2)]; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $102=$x; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $103=$y; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $104=_creer_label($101,$102,$103,0,1); //@line 235 "../../../src/sdl/tutoriel.c"
+   var $105=$i; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $106=$e; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $107=$tuto; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $108=(($107+56)|0); //@line 235 "../../../src/sdl/tutoriel.c"
+   var $109=(($108+($106<<2))|0); //@line 235 "../../../src/sdl/tutoriel.c"
+   var $110=HEAP32[(($109)>>2)]; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $111=(($110+($105<<2))|0); //@line 235 "../../../src/sdl/tutoriel.c"
+   HEAP32[(($111)>>2)]=$104; //@line 235 "../../../src/sdl/tutoriel.c"
+   var $112=$y; //@line 236 "../../../src/sdl/tutoriel.c"
+   var $113=((($112)+(25))|0); //@line 236 "../../../src/sdl/tutoriel.c"
+   $y=$113; //@line 236 "../../../src/sdl/tutoriel.c"
+    //@line 237 "../../../src/sdl/tutoriel.c"
+   var $115=$i; //@line 234 "../../../src/sdl/tutoriel.c"
+   var $116=((($115)+(1))|0); //@line 234 "../../../src/sdl/tutoriel.c"
+   $i=$116; //@line 234 "../../../src/sdl/tutoriel.c"
+    //@line 234 "../../../src/sdl/tutoriel.c"
+  }
+   //@line 238 "../../../src/sdl/tutoriel.c"
+  var $119=$e; //@line 220 "../../../src/sdl/tutoriel.c"
+  var $120=((($119)+(1))|0); //@line 220 "../../../src/sdl/tutoriel.c"
+  $e=$120; //@line 220 "../../../src/sdl/tutoriel.c"
+   //@line 220 "../../../src/sdl/tutoriel.c"
+ }
+ var $122=$infos; //@line 276 "../../../src/sdl/tutoriel.c"
+ _memset($122, 0, 576)|0; //@line 276 "../../../src/sdl/tutoriel.c"
+ var $123=(($infos)|0); //@line 276 "../../../src/sdl/tutoriel.c"
+ var $124=(($123)|0); //@line 276 "../../../src/sdl/tutoriel.c"
+ var $125=$124; //@line 276 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($125)]=HEAP8[(3720)];HEAP8[((($125)+(1))|0)]=HEAP8[(3721)];HEAP8[((($125)+(2))|0)]=HEAP8[(3722)];HEAP8[((($125)+(3))|0)]=HEAP8[(3723)]; //@line 276 "../../../src/sdl/tutoriel.c"
+ var $126=(($123+64)|0); //@line 276 "../../../src/sdl/tutoriel.c"
+ var $127=(($126)|0); //@line 276 "../../../src/sdl/tutoriel.c"
+ _position($127,1,0,9); //@line 245 "../../../src/sdl/tutoriel.c"
+ var $128=(($127+4)|0); //@line 245 "../../../src/sdl/tutoriel.c"
+ _position($128,2,0,9); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $129=(($128+4)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $130=$129; //@line 246 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($130)]=HEAP8[(3720)];HEAP8[((($130)+(1))|0)]=HEAP8[(3721)];HEAP8[((($130)+(2))|0)]=HEAP8[(3722)];HEAP8[((($130)+(3))|0)]=HEAP8[(3723)]; //@line 246 "../../../src/sdl/tutoriel.c"
+ var $131=(($126+64)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $132=(($131)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $133=$132; //@line 246 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($133)]=HEAP8[(3720)];HEAP8[((($133)+(1))|0)]=HEAP8[(3721)];HEAP8[((($133)+(2))|0)]=HEAP8[(3722)];HEAP8[((($133)+(3))|0)]=HEAP8[(3723)]; //@line 246 "../../../src/sdl/tutoriel.c"
+ var $134=(($131+64)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $135=(($134)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $136=$135; //@line 246 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($136)]=HEAP8[(3720)];HEAP8[((($136)+(1))|0)]=HEAP8[(3721)];HEAP8[((($136)+(2))|0)]=HEAP8[(3722)];HEAP8[((($136)+(3))|0)]=HEAP8[(3723)]; //@line 246 "../../../src/sdl/tutoriel.c"
+ var $137=(($134+64)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ var $138=(($137)|0); //@line 246 "../../../src/sdl/tutoriel.c"
+ _position($138,1,1,9); //@line 256 "../../../src/sdl/tutoriel.c"
+ var $139=(($138+4)|0); //@line 256 "../../../src/sdl/tutoriel.c"
+ _position($139,2,1,9); //@line 257 "../../../src/sdl/tutoriel.c"
+ var $140=(($139+4)|0); //@line 257 "../../../src/sdl/tutoriel.c"
+ var $141=$140; //@line 257 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($141)]=HEAP8[(3720)];HEAP8[((($141)+(1))|0)]=HEAP8[(3721)];HEAP8[((($141)+(2))|0)]=HEAP8[(3722)];HEAP8[((($141)+(3))|0)]=HEAP8[(3723)]; //@line 257 "../../../src/sdl/tutoriel.c"
+ var $142=(($137+64)|0); //@line 257 "../../../src/sdl/tutoriel.c"
+ var $143=(($142)|0); //@line 257 "../../../src/sdl/tutoriel.c"
+ _position($143,0,1,9); //@line 261 "../../../src/sdl/tutoriel.c"
+ var $144=(($143+4)|0); //@line 261 "../../../src/sdl/tutoriel.c"
+ _position($144,1,2,9); //@line 262 "../../../src/sdl/tutoriel.c"
+ var $145=(($144+4)|0); //@line 262 "../../../src/sdl/tutoriel.c"
+ _position($145,2,2,9); //@line 263 "../../../src/sdl/tutoriel.c"
+ var $146=(($145+4)|0); //@line 263 "../../../src/sdl/tutoriel.c"
+ _position($146,0,2,9); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $147=(($146+4)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $148=$147; //@line 264 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($148)]=HEAP8[(3720)];HEAP8[((($148)+(1))|0)]=HEAP8[(3721)];HEAP8[((($148)+(2))|0)]=HEAP8[(3722)];HEAP8[((($148)+(3))|0)]=HEAP8[(3723)]; //@line 264 "../../../src/sdl/tutoriel.c"
+ var $149=(($142+64)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $150=(($149)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $151=$150; //@line 264 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($151)]=HEAP8[(3720)];HEAP8[((($151)+(1))|0)]=HEAP8[(3721)];HEAP8[((($151)+(2))|0)]=HEAP8[(3722)];HEAP8[((($151)+(3))|0)]=HEAP8[(3723)]; //@line 264 "../../../src/sdl/tutoriel.c"
+ var $152=(($149+64)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $153=(($152)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $154=$153; //@line 264 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($154)]=HEAP8[(3720)];HEAP8[((($154)+(1))|0)]=HEAP8[(3721)];HEAP8[((($154)+(2))|0)]=HEAP8[(3722)];HEAP8[((($154)+(3))|0)]=HEAP8[(3723)]; //@line 264 "../../../src/sdl/tutoriel.c"
+ var $155=(($152+64)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $156=(($155)|0); //@line 264 "../../../src/sdl/tutoriel.c"
+ var $157=$156; //@line 264 "../../../src/sdl/tutoriel.c"
+ assert(4 % 1 === 0);HEAP8[($157)]=HEAP8[(3720)];HEAP8[((($157)+(1))|0)]=HEAP8[(3721)];HEAP8[((($157)+(2))|0)]=HEAP8[(3722)];HEAP8[((($157)+(3))|0)]=HEAP8[(3723)]; //@line 264 "../../../src/sdl/tutoriel.c"
+ $c=2; //@line 277 "../../../src/sdl/tutoriel.c"
+ $e1=0; //@line 278 "../../../src/sdl/tutoriel.c"
+  //@line 278 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $159=$e1; //@line 278 "../../../src/sdl/tutoriel.c"
+  var $160=($159|0)<9; //@line 278 "../../../src/sdl/tutoriel.c"
+   //@line 278 "../../../src/sdl/tutoriel.c"
+  if (!($160)) {
+   break;
+  }
+  var $162=$e1; //@line 279 "../../../src/sdl/tutoriel.c"
+  var $163=($162|0)==0; //@line 279 "../../../src/sdl/tutoriel.c"
+   //@line 279 "../../../src/sdl/tutoriel.c"
+  if ($163) {
+   var $165=_creer_plateau(9); //@line 280 "../../../src/sdl/tutoriel.c"
+   var $166=$e1; //@line 280 "../../../src/sdl/tutoriel.c"
+   var $167=$tuto; //@line 280 "../../../src/sdl/tutoriel.c"
+   var $168=(($167+20)|0); //@line 280 "../../../src/sdl/tutoriel.c"
+   var $169=(($168+($166<<2))|0); //@line 280 "../../../src/sdl/tutoriel.c"
+   HEAP32[(($169)>>2)]=$165; //@line 280 "../../../src/sdl/tutoriel.c"
+    //@line 281 "../../../src/sdl/tutoriel.c"
+  } else {
+   var $171=$e1; //@line 282 "../../../src/sdl/tutoriel.c"
+   var $172=((($171)-(1))|0); //@line 282 "../../../src/sdl/tutoriel.c"
+   var $173=$tuto; //@line 282 "../../../src/sdl/tutoriel.c"
+   var $174=(($173+20)|0); //@line 282 "../../../src/sdl/tutoriel.c"
+   var $175=(($174+($172<<2))|0); //@line 282 "../../../src/sdl/tutoriel.c"
+   var $176=HEAP32[(($175)>>2)]; //@line 282 "../../../src/sdl/tutoriel.c"
+   var $177=_plateau_clone($176); //@line 282 "../../../src/sdl/tutoriel.c"
+   var $178=$e1; //@line 282 "../../../src/sdl/tutoriel.c"
+   var $179=$tuto; //@line 282 "../../../src/sdl/tutoriel.c"
+   var $180=(($179+20)|0); //@line 282 "../../../src/sdl/tutoriel.c"
+   var $181=(($180+($178<<2))|0); //@line 282 "../../../src/sdl/tutoriel.c"
+   HEAP32[(($181)>>2)]=$177; //@line 282 "../../../src/sdl/tutoriel.c"
+  }
+  $i2=0; //@line 284 "../../../src/sdl/tutoriel.c"
+   //@line 285 "../../../src/sdl/tutoriel.c"
+  while(1) {
+   var $184=$i2; //@line 285 "../../../src/sdl/tutoriel.c"
+   var $185=$e1; //@line 285 "../../../src/sdl/tutoriel.c"
+   var $186=(($infos+($185<<6))|0); //@line 285 "../../../src/sdl/tutoriel.c"
+   var $187=(($186+($184<<2))|0); //@line 285 "../../../src/sdl/tutoriel.c"
+   var $188=_position_est_valide($187); //@line 285 "../../../src/sdl/tutoriel.c"
+    //@line 285 "../../../src/sdl/tutoriel.c"
+   if (!($188)) {
+    break;
+   }
+   var $190=$e1; //@line 286 "../../../src/sdl/tutoriel.c"
+   var $191=$tuto; //@line 286 "../../../src/sdl/tutoriel.c"
+   var $192=(($191+20)|0); //@line 286 "../../../src/sdl/tutoriel.c"
+   var $193=(($192+($190<<2))|0); //@line 286 "../../../src/sdl/tutoriel.c"
+   var $194=HEAP32[(($193)>>2)]; //@line 286 "../../../src/sdl/tutoriel.c"
+   var $195=$i2; //@line 286 "../../../src/sdl/tutoriel.c"
+   var $196=$e1; //@line 286 "../../../src/sdl/tutoriel.c"
+   var $197=(($infos+($196<<6))|0); //@line 286 "../../../src/sdl/tutoriel.c"
+   var $198=(($197+($195<<2))|0); //@line 286 "../../../src/sdl/tutoriel.c"
+   var $199=$c; //@line 286 "../../../src/sdl/tutoriel.c"
+   _plateau_set_at($194,$198,$199); //@line 286 "../../../src/sdl/tutoriel.c"
+   var $200=$c; //@line 287 "../../../src/sdl/tutoriel.c"
+   var $201=($200|0)==2; //@line 287 "../../../src/sdl/tutoriel.c"
+   var $202=($201?1:2); //@line 287 "../../../src/sdl/tutoriel.c"
+   $c=$202; //@line 287 "../../../src/sdl/tutoriel.c"
+   var $203=$i2; //@line 288 "../../../src/sdl/tutoriel.c"
+   var $204=((($203)+(1))|0); //@line 288 "../../../src/sdl/tutoriel.c"
+   $i2=$204; //@line 288 "../../../src/sdl/tutoriel.c"
+    //@line 289 "../../../src/sdl/tutoriel.c"
+  }
+   //@line 290 "../../../src/sdl/tutoriel.c"
+  var $207=$e1; //@line 278 "../../../src/sdl/tutoriel.c"
+  var $208=((($207)+(1))|0); //@line 278 "../../../src/sdl/tutoriel.c"
+  $e1=$208; //@line 278 "../../../src/sdl/tutoriel.c"
+   //@line 278 "../../../src/sdl/tutoriel.c"
+ }
+ var $210=$state; //@line 292 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return $210; //@line 292 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _afficher_tutoriel($state,$surface){
+ var label=0;
+ var sp=STACKTOP;STACKTOP=(STACKTOP+32)|0; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $2;
+ var $tuto;
+ var $plateau;
+ var $taille;
+ var $x1;
+ var $y1;
+ var $w;
+ var $pixel_par_case;
+ var $interbordure;
+ var $bordure;
+ var $x;
+ var $y;
+ var $taille_stone;
+ var $x2;
+ var $y3;
+ var $c;
+ var $draw;
+ var $marge;
+ var $sx=sp;
+ var $sy=(sp)+(8);
+ var $sx4=(sp)+(16);
+ var $sy5=(sp)+(24);
+ var $i;
+ $1=$state;
+ $2=$surface;
+ var $3=$1; //@line 315 "../../../src/sdl/tutoriel.c"
+ var $4=(($3+28)|0); //@line 315 "../../../src/sdl/tutoriel.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 315 "../../../src/sdl/tutoriel.c"
+ var $6=$5; //@line 315 "../../../src/sdl/tutoriel.c"
+ $tuto=$6; //@line 315 "../../../src/sdl/tutoriel.c"
+ var $7=$tuto; //@line 316 "../../../src/sdl/tutoriel.c"
+ var $8=(($7+16)|0); //@line 316 "../../../src/sdl/tutoriel.c"
+ var $9=HEAP32[(($8)>>2)]; //@line 316 "../../../src/sdl/tutoriel.c"
+ var $10=$tuto; //@line 316 "../../../src/sdl/tutoriel.c"
+ var $11=(($10+20)|0); //@line 316 "../../../src/sdl/tutoriel.c"
+ var $12=(($11+($9<<2))|0); //@line 316 "../../../src/sdl/tutoriel.c"
+ var $13=HEAP32[(($12)>>2)]; //@line 316 "../../../src/sdl/tutoriel.c"
+ $plateau=$13; //@line 316 "../../../src/sdl/tutoriel.c"
+ var $14=$plateau; //@line 317 "../../../src/sdl/tutoriel.c"
+ var $15=_plateau_get_taille($14); //@line 317 "../../../src/sdl/tutoriel.c"
+ $taille=$15; //@line 317 "../../../src/sdl/tutoriel.c"
+ $x1=40; //@line 319 "../../../src/sdl/tutoriel.c"
+ $y1=170; //@line 320 "../../../src/sdl/tutoriel.c"
+ var $16=$x1; //@line 321 "../../../src/sdl/tutoriel.c"
+ var $17=($16|0); //@line 321 "../../../src/sdl/tutoriel.c"
+ var $18=(400)-($17); //@line 321 "../../../src/sdl/tutoriel.c"
+ var $19=$y1; //@line 321 "../../../src/sdl/tutoriel.c"
+ var $20=($19|0); //@line 321 "../../../src/sdl/tutoriel.c"
+ var $21=(340)-($20); //@line 321 "../../../src/sdl/tutoriel.c"
+ var $22=$18>$21; //@line 321 "../../../src/sdl/tutoriel.c"
+  //@line 321 "../../../src/sdl/tutoriel.c"
+ if ($22) {
+  var $24=$x1; //@line 321 "../../../src/sdl/tutoriel.c"
+  var $25=($24|0); //@line 321 "../../../src/sdl/tutoriel.c"
+  var $26=(400)-($25); //@line 321 "../../../src/sdl/tutoriel.c"
+   //@line 321 "../../../src/sdl/tutoriel.c"
+  var $32=$26;
+ } else {
+  var $28=$y1; //@line 321 "../../../src/sdl/tutoriel.c"
+  var $29=($28|0); //@line 321 "../../../src/sdl/tutoriel.c"
+  var $30=(340)-($29); //@line 321 "../../../src/sdl/tutoriel.c"
+   //@line 321 "../../../src/sdl/tutoriel.c"
+  var $32=$30;
+ }
+ var $32; //@line 321 "../../../src/sdl/tutoriel.c"
+ var $33=(($32)&-1); //@line 321 "../../../src/sdl/tutoriel.c"
+ $w=$33; //@line 321 "../../../src/sdl/tutoriel.c"
+ var $34=$w; //@line 322 "../../../src/sdl/tutoriel.c"
+ var $35=$taille; //@line 322 "../../../src/sdl/tutoriel.c"
+ var $36=(((($34|0))%(($35|0)))&-1); //@line 322 "../../../src/sdl/tutoriel.c"
+ var $37=$w; //@line 322 "../../../src/sdl/tutoriel.c"
+ var $38=((($37)-($36))|0); //@line 322 "../../../src/sdl/tutoriel.c"
+ $w=$38; //@line 322 "../../../src/sdl/tutoriel.c"
+ var $39=$w; //@line 323 "../../../src/sdl/tutoriel.c"
+ var $40=$taille; //@line 323 "../../../src/sdl/tutoriel.c"
+ var $41=(((($39|0))/(($40|0)))&-1); //@line 323 "../../../src/sdl/tutoriel.c"
+ $pixel_par_case=$41; //@line 323 "../../../src/sdl/tutoriel.c"
+ $interbordure=2; //@line 324 "../../../src/sdl/tutoriel.c"
+ var $42=$w; //@line 325 "../../../src/sdl/tutoriel.c"
+ var $43=$pixel_par_case; //@line 325 "../../../src/sdl/tutoriel.c"
+ var $44=$taille; //@line 325 "../../../src/sdl/tutoriel.c"
+ var $45=((($44)-(1))|0); //@line 325 "../../../src/sdl/tutoriel.c"
+ var $46=(Math_imul($43,$45)|0); //@line 325 "../../../src/sdl/tutoriel.c"
+ var $47=((($42)-($46))|0); //@line 325 "../../../src/sdl/tutoriel.c"
+ var $48=(((($47|0))/(2))&-1); //@line 325 "../../../src/sdl/tutoriel.c"
+ $bordure=$48; //@line 325 "../../../src/sdl/tutoriel.c"
+ _set_color(240,174,95); //@line 328 "../../../src/sdl/tutoriel.c"
+ var $49=$2; //@line 329 "../../../src/sdl/tutoriel.c"
+ var $50=$x1; //@line 329 "../../../src/sdl/tutoriel.c"
+ var $51=$y1; //@line 329 "../../../src/sdl/tutoriel.c"
+ var $52=$w; //@line 329 "../../../src/sdl/tutoriel.c"
+ var $53=$w; //@line 329 "../../../src/sdl/tutoriel.c"
+ _draw_rect($49,$50,$51,$52,$53); //@line 329 "../../../src/sdl/tutoriel.c"
+ _set_color(30,30,30); //@line 332 "../../../src/sdl/tutoriel.c"
+ $x=0; //@line 333 "../../../src/sdl/tutoriel.c"
+  //@line 333 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $55=$x; //@line 333 "../../../src/sdl/tutoriel.c"
+  var $56=$taille; //@line 333 "../../../src/sdl/tutoriel.c"
+  var $57=($55|0)<($56|0); //@line 333 "../../../src/sdl/tutoriel.c"
+   //@line 333 "../../../src/sdl/tutoriel.c"
+  if (!($57)) {
+   break;
+  }
+  var $59=$2; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $60=$x1; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $61=$bordure; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $62=((($60)+($61))|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $63=$x; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $64=$pixel_par_case; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $65=(Math_imul($63,$64)|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $66=((($62)+($65))|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $67=$interbordure; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $68=(((($67|0))/(2))&-1); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $69=((($66)-($68))|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $70=$y1; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $71=$bordure; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $72=((($70)+($71))|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $73=$interbordure; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $74=$pixel_par_case; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $75=$taille; //@line 334 "../../../src/sdl/tutoriel.c"
+  var $76=((($75)-(1))|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  var $77=(Math_imul($74,$76)|0); //@line 334 "../../../src/sdl/tutoriel.c"
+  _draw_rect($59,$69,$72,$73,$77); //@line 334 "../../../src/sdl/tutoriel.c"
+   //@line 338 "../../../src/sdl/tutoriel.c"
+  var $79=$x; //@line 333 "../../../src/sdl/tutoriel.c"
+  var $80=((($79)+(1))|0); //@line 333 "../../../src/sdl/tutoriel.c"
+  $x=$80; //@line 333 "../../../src/sdl/tutoriel.c"
+   //@line 333 "../../../src/sdl/tutoriel.c"
+ }
+ $y=0; //@line 339 "../../../src/sdl/tutoriel.c"
+  //@line 339 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $83=$y; //@line 339 "../../../src/sdl/tutoriel.c"
+  var $84=$taille; //@line 339 "../../../src/sdl/tutoriel.c"
+  var $85=($83|0)<($84|0); //@line 339 "../../../src/sdl/tutoriel.c"
+   //@line 339 "../../../src/sdl/tutoriel.c"
+  if (!($85)) {
+   break;
+  }
+  var $87=$2; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $88=$x1; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $89=$bordure; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $90=((($88)+($89))|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $91=$y1; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $92=$bordure; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $93=((($91)+($92))|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $94=$y; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $95=$pixel_par_case; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $96=(Math_imul($94,$95)|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $97=((($93)+($96))|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $98=$interbordure; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $99=(((($98|0))/(2))&-1); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $100=((($97)-($99))|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $101=$pixel_par_case; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $102=$taille; //@line 340 "../../../src/sdl/tutoriel.c"
+  var $103=((($102)-(1))|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $104=(Math_imul($101,$103)|0); //@line 340 "../../../src/sdl/tutoriel.c"
+  var $105=$interbordure; //@line 340 "../../../src/sdl/tutoriel.c"
+  _draw_rect($87,$90,$100,$104,$105); //@line 340 "../../../src/sdl/tutoriel.c"
+   //@line 344 "../../../src/sdl/tutoriel.c"
+  var $107=$y; //@line 339 "../../../src/sdl/tutoriel.c"
+  var $108=((($107)+(1))|0); //@line 339 "../../../src/sdl/tutoriel.c"
+  $y=$108; //@line 339 "../../../src/sdl/tutoriel.c"
+   //@line 339 "../../../src/sdl/tutoriel.c"
+ }
+ var $110=$taille; //@line 346 "../../../src/sdl/tutoriel.c"
+ var $111=($110|0)==9; //@line 346 "../../../src/sdl/tutoriel.c"
+  //@line 346 "../../../src/sdl/tutoriel.c"
+ if ($111) {
+   //@line 346 "../../../src/sdl/tutoriel.c"
+  var $118=30;
+ } else {
+  var $114=$taille; //@line 346 "../../../src/sdl/tutoriel.c"
+  var $115=($114|0)==13; //@line 346 "../../../src/sdl/tutoriel.c"
+  var $116=($115?24:16); //@line 346 "../../../src/sdl/tutoriel.c"
+   //@line 346 "../../../src/sdl/tutoriel.c"
+  var $118=$116;
+ }
+ var $118; //@line 346 "../../../src/sdl/tutoriel.c"
+ $taille_stone=$118; //@line 346 "../../../src/sdl/tutoriel.c"
+ $x2=0; //@line 347 "../../../src/sdl/tutoriel.c"
+  //@line 347 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $120=$x2; //@line 347 "../../../src/sdl/tutoriel.c"
+  var $121=$taille; //@line 347 "../../../src/sdl/tutoriel.c"
+  var $122=($120|0)<($121|0); //@line 347 "../../../src/sdl/tutoriel.c"
+   //@line 347 "../../../src/sdl/tutoriel.c"
+  if (!($122)) {
+   break;
+  }
+  $y3=0; //@line 348 "../../../src/sdl/tutoriel.c"
+   //@line 348 "../../../src/sdl/tutoriel.c"
+  while(1) {
+   var $125=$y3; //@line 348 "../../../src/sdl/tutoriel.c"
+   var $126=$taille; //@line 348 "../../../src/sdl/tutoriel.c"
+   var $127=($125|0)<($126|0); //@line 348 "../../../src/sdl/tutoriel.c"
+    //@line 348 "../../../src/sdl/tutoriel.c"
+   if (!($127)) {
+    break;
+   }
+   var $129=$plateau; //@line 349 "../../../src/sdl/tutoriel.c"
+   var $130=$x2; //@line 349 "../../../src/sdl/tutoriel.c"
+   var $131=$y3; //@line 349 "../../../src/sdl/tutoriel.c"
+   var $132=_plateau_get($129,$130,$131); //@line 349 "../../../src/sdl/tutoriel.c"
+   $c=$132; //@line 349 "../../../src/sdl/tutoriel.c"
+   $draw=0; //@line 350 "../../../src/sdl/tutoriel.c"
+   var $133=$c; //@line 351 "../../../src/sdl/tutoriel.c"
+   var $134=($133|0)!=0; //@line 351 "../../../src/sdl/tutoriel.c"
+    //@line 351 "../../../src/sdl/tutoriel.c"
+   if ($134) {
+    var $136=$c; //@line 352 "../../../src/sdl/tutoriel.c"
+    var $137=($136|0)==1; //@line 352 "../../../src/sdl/tutoriel.c"
+     //@line 352 "../../../src/sdl/tutoriel.c"
+    if ($137) {
+     _set_color(210,210,210); //@line 353 "../../../src/sdl/tutoriel.c"
+      //@line 354 "../../../src/sdl/tutoriel.c"
+    } else {
+     _set_color(40,40,40); //@line 355 "../../../src/sdl/tutoriel.c"
+    }
+    $draw=1; //@line 357 "../../../src/sdl/tutoriel.c"
+     //@line 358 "../../../src/sdl/tutoriel.c"
+   }
+   var $142=$taille; //@line 359 "../../../src/sdl/tutoriel.c"
+   var $143=($142|0)==9; //@line 359 "../../../src/sdl/tutoriel.c"
+   var $144=($143?2:3); //@line 359 "../../../src/sdl/tutoriel.c"
+   $marge=$144; //@line 359 "../../../src/sdl/tutoriel.c"
+   var $145=$draw; //@line 360 "../../../src/sdl/tutoriel.c"
+   var $146=(($145)&1); //@line 360 "../../../src/sdl/tutoriel.c"
+    //@line 360 "../../../src/sdl/tutoriel.c"
+   if ($146) {
+    var $148=$taille; //@line 363 "../../../src/sdl/tutoriel.c"
+    var $149=$x2; //@line 363 "../../../src/sdl/tutoriel.c"
+    var $150=$y3; //@line 363 "../../../src/sdl/tutoriel.c"
+    var $151=$x1; //@line 363 "../../../src/sdl/tutoriel.c"
+    var $152=$y1; //@line 363 "../../../src/sdl/tutoriel.c"
+    var $153=$w; //@line 363 "../../../src/sdl/tutoriel.c"
+    _get_position_vers_ecran($148,$149,$150,$sx,$sy,$151,$152,$153); //@line 363 "../../../src/sdl/tutoriel.c"
+    var $154=$taille_stone; //@line 364 "../../../src/sdl/tutoriel.c"
+    var $155=(((($154|0))/(2))&-1); //@line 364 "../../../src/sdl/tutoriel.c"
+    var $156=HEAP32[(($sx)>>2)]; //@line 364 "../../../src/sdl/tutoriel.c"
+    var $157=((($156)-($155))|0); //@line 364 "../../../src/sdl/tutoriel.c"
+    HEAP32[(($sx)>>2)]=$157; //@line 364 "../../../src/sdl/tutoriel.c"
+    var $158=$taille_stone; //@line 365 "../../../src/sdl/tutoriel.c"
+    var $159=(((($158|0))/(2))&-1); //@line 365 "../../../src/sdl/tutoriel.c"
+    var $160=HEAP32[(($sy)>>2)]; //@line 365 "../../../src/sdl/tutoriel.c"
+    var $161=((($160)-($159))|0); //@line 365 "../../../src/sdl/tutoriel.c"
+    HEAP32[(($sy)>>2)]=$161; //@line 365 "../../../src/sdl/tutoriel.c"
+    var $162=$2; //@line 366 "../../../src/sdl/tutoriel.c"
+    var $163=HEAP32[(($sx)>>2)]; //@line 366 "../../../src/sdl/tutoriel.c"
+    var $164=HEAP32[(($sy)>>2)]; //@line 366 "../../../src/sdl/tutoriel.c"
+    var $165=$taille_stone; //@line 366 "../../../src/sdl/tutoriel.c"
+    var $166=$taille_stone; //@line 366 "../../../src/sdl/tutoriel.c"
+    _draw_rect($162,$163,$164,$165,$166); //@line 366 "../../../src/sdl/tutoriel.c"
+     //@line 367 "../../../src/sdl/tutoriel.c"
+   } else {
+    var $168=$x2; //@line 367 "../../../src/sdl/tutoriel.c"
+    var $169=$taille; //@line 367 "../../../src/sdl/tutoriel.c"
+    var $170=_get_marge($168,$169); //@line 367 "../../../src/sdl/tutoriel.c"
+    var $171=$marge; //@line 367 "../../../src/sdl/tutoriel.c"
+    var $172=($170|0)==($171|0); //@line 367 "../../../src/sdl/tutoriel.c"
+     //@line 367 "../../../src/sdl/tutoriel.c"
+    if ($172) {
+     label = 28;
+    } else {
+     var $174=$x2; //@line 367 "../../../src/sdl/tutoriel.c"
+     var $175=$taille; //@line 367 "../../../src/sdl/tutoriel.c"
+     var $176=(((($175|0))/(2))&-1); //@line 367 "../../../src/sdl/tutoriel.c"
+     var $177=($174|0)==($176|0); //@line 367 "../../../src/sdl/tutoriel.c"
+      //@line 367 "../../../src/sdl/tutoriel.c"
+     if ($177) {
+      label = 28;
+     }
+    }
+    do {
+     if (label == 28) {
+      label = 0;
+      var $179=$y3; //@line 368 "../../../src/sdl/tutoriel.c"
+      var $180=$taille; //@line 368 "../../../src/sdl/tutoriel.c"
+      var $181=_get_marge($179,$180); //@line 368 "../../../src/sdl/tutoriel.c"
+      var $182=$marge; //@line 368 "../../../src/sdl/tutoriel.c"
+      var $183=($181|0)==($182|0); //@line 368 "../../../src/sdl/tutoriel.c"
+       //@line 368 "../../../src/sdl/tutoriel.c"
+      if (!($183)) {
+       var $185=$y3; //@line 368 "../../../src/sdl/tutoriel.c"
+       var $186=$taille; //@line 368 "../../../src/sdl/tutoriel.c"
+       var $187=(((($186|0))/(2))&-1); //@line 368 "../../../src/sdl/tutoriel.c"
+       var $188=($185|0)==($187|0); //@line 368 "../../../src/sdl/tutoriel.c"
+        //@line 368 "../../../src/sdl/tutoriel.c"
+       if (!($188)) {
+        break;
+       }
+      }
+      var $190=$taille; //@line 371 "../../../src/sdl/tutoriel.c"
+      var $191=$x2; //@line 371 "../../../src/sdl/tutoriel.c"
+      var $192=$y3; //@line 371 "../../../src/sdl/tutoriel.c"
+      var $193=$x1; //@line 371 "../../../src/sdl/tutoriel.c"
+      var $194=$y1; //@line 371 "../../../src/sdl/tutoriel.c"
+      var $195=$w; //@line 371 "../../../src/sdl/tutoriel.c"
+      _get_position_vers_ecran($190,$191,$192,$sx4,$sy5,$193,$194,$195); //@line 371 "../../../src/sdl/tutoriel.c"
+      _set_color(0,0,0); //@line 372 "../../../src/sdl/tutoriel.c"
+      var $196=$2; //@line 373 "../../../src/sdl/tutoriel.c"
+      var $197=HEAP32[(($sx4)>>2)]; //@line 373 "../../../src/sdl/tutoriel.c"
+      var $198=((($197)-(3))|0); //@line 373 "../../../src/sdl/tutoriel.c"
+      var $199=HEAP32[(($sy5)>>2)]; //@line 373 "../../../src/sdl/tutoriel.c"
+      var $200=((($199)-(3))|0); //@line 373 "../../../src/sdl/tutoriel.c"
+      _draw_rect($196,$198,$200,6,6); //@line 373 "../../../src/sdl/tutoriel.c"
+       //@line 374 "../../../src/sdl/tutoriel.c"
+     }
+    } while(0);
+   }
+    //@line 376 "../../../src/sdl/tutoriel.c"
+   var $204=$y3; //@line 348 "../../../src/sdl/tutoriel.c"
+   var $205=((($204)+(1))|0); //@line 348 "../../../src/sdl/tutoriel.c"
+   $y3=$205; //@line 348 "../../../src/sdl/tutoriel.c"
+    //@line 348 "../../../src/sdl/tutoriel.c"
+  }
+   //@line 377 "../../../src/sdl/tutoriel.c"
+  var $208=$x2; //@line 347 "../../../src/sdl/tutoriel.c"
+  var $209=((($208)+(1))|0); //@line 347 "../../../src/sdl/tutoriel.c"
+  $x2=$209; //@line 347 "../../../src/sdl/tutoriel.c"
+   //@line 347 "../../../src/sdl/tutoriel.c"
+ }
+ var $211=$2; //@line 379 "../../../src/sdl/tutoriel.c"
+ var $212=$tuto; //@line 379 "../../../src/sdl/tutoriel.c"
+ var $213=(($212+16)|0); //@line 379 "../../../src/sdl/tutoriel.c"
+ var $214=HEAP32[(($213)>>2)]; //@line 379 "../../../src/sdl/tutoriel.c"
+ var $215=$tuto; //@line 379 "../../../src/sdl/tutoriel.c"
+ var $216=(($215+128)|0); //@line 379 "../../../src/sdl/tutoriel.c"
+ var $217=(($216+($214<<2))|0); //@line 379 "../../../src/sdl/tutoriel.c"
+ var $218=HEAP32[(($217)>>2)]; //@line 379 "../../../src/sdl/tutoriel.c"
+ _afficher_label($211,$218); //@line 379 "../../../src/sdl/tutoriel.c"
+ $i=0; //@line 380 "../../../src/sdl/tutoriel.c"
+  //@line 380 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $220=$i; //@line 380 "../../../src/sdl/tutoriel.c"
+  var $221=$tuto; //@line 380 "../../../src/sdl/tutoriel.c"
+  var $222=(($221+16)|0); //@line 380 "../../../src/sdl/tutoriel.c"
+  var $223=HEAP32[(($222)>>2)]; //@line 380 "../../../src/sdl/tutoriel.c"
+  var $224=$tuto; //@line 380 "../../../src/sdl/tutoriel.c"
+  var $225=(($224+92)|0); //@line 380 "../../../src/sdl/tutoriel.c"
+  var $226=(($225+($223<<2))|0); //@line 380 "../../../src/sdl/tutoriel.c"
+  var $227=HEAP32[(($226)>>2)]; //@line 380 "../../../src/sdl/tutoriel.c"
+  var $228=($220|0)<($227|0); //@line 380 "../../../src/sdl/tutoriel.c"
+   //@line 380 "../../../src/sdl/tutoriel.c"
+  if (!($228)) {
+   break;
+  }
+  var $230=$2; //@line 381 "../../../src/sdl/tutoriel.c"
+  var $231=$i; //@line 381 "../../../src/sdl/tutoriel.c"
+  var $232=$tuto; //@line 381 "../../../src/sdl/tutoriel.c"
+  var $233=(($232+16)|0); //@line 381 "../../../src/sdl/tutoriel.c"
+  var $234=HEAP32[(($233)>>2)]; //@line 381 "../../../src/sdl/tutoriel.c"
+  var $235=$tuto; //@line 381 "../../../src/sdl/tutoriel.c"
+  var $236=(($235+56)|0); //@line 381 "../../../src/sdl/tutoriel.c"
+  var $237=(($236+($234<<2))|0); //@line 381 "../../../src/sdl/tutoriel.c"
+  var $238=HEAP32[(($237)>>2)]; //@line 381 "../../../src/sdl/tutoriel.c"
+  var $239=(($238+($231<<2))|0); //@line 381 "../../../src/sdl/tutoriel.c"
+  var $240=HEAP32[(($239)>>2)]; //@line 381 "../../../src/sdl/tutoriel.c"
+  _afficher_label($230,$240); //@line 381 "../../../src/sdl/tutoriel.c"
+   //@line 382 "../../../src/sdl/tutoriel.c"
+  var $242=$i; //@line 380 "../../../src/sdl/tutoriel.c"
+  var $243=((($242)+(1))|0); //@line 380 "../../../src/sdl/tutoriel.c"
+  $i=$243; //@line 380 "../../../src/sdl/tutoriel.c"
+   //@line 380 "../../../src/sdl/tutoriel.c"
+ }
+ var $245=$2; //@line 384 "../../../src/sdl/tutoriel.c"
+ var $246=$tuto; //@line 384 "../../../src/sdl/tutoriel.c"
+ var $247=(($246+4)|0); //@line 384 "../../../src/sdl/tutoriel.c"
+ var $248=HEAP32[(($247)>>2)]; //@line 384 "../../../src/sdl/tutoriel.c"
+ _afficher_label($245,$248); //@line 384 "../../../src/sdl/tutoriel.c"
+ var $249=$2; //@line 385 "../../../src/sdl/tutoriel.c"
+ var $250=$tuto; //@line 385 "../../../src/sdl/tutoriel.c"
+ var $251=(($250+12)|0); //@line 385 "../../../src/sdl/tutoriel.c"
+ var $252=HEAP32[(($251)>>2)]; //@line 385 "../../../src/sdl/tutoriel.c"
+ _afficher_bouton($249,$252); //@line 385 "../../../src/sdl/tutoriel.c"
+ var $253=$2; //@line 386 "../../../src/sdl/tutoriel.c"
+ var $254=$tuto; //@line 386 "../../../src/sdl/tutoriel.c"
+ var $255=(($254+8)|0); //@line 386 "../../../src/sdl/tutoriel.c"
+ var $256=HEAP32[(($255)>>2)]; //@line 386 "../../../src/sdl/tutoriel.c"
+ _afficher_bouton($253,$256); //@line 386 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 387 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _mise_a_jour_tutoriel($state,$dt){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $2;
+ var $tuto;
+ $1=$state;
+ $2=$dt;
+ var $3=$1; //@line 391 "../../../src/sdl/tutoriel.c"
+ var $4=(($3+28)|0); //@line 391 "../../../src/sdl/tutoriel.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 391 "../../../src/sdl/tutoriel.c"
+ var $6=$5; //@line 391 "../../../src/sdl/tutoriel.c"
+ $tuto=$6; //@line 391 "../../../src/sdl/tutoriel.c"
+ var $7=$tuto; //@line 392 "../../../src/sdl/tutoriel.c"
+ var $8=(($7+12)|0); //@line 392 "../../../src/sdl/tutoriel.c"
+ var $9=HEAP32[(($8)>>2)]; //@line 392 "../../../src/sdl/tutoriel.c"
+ var $10=$2; //@line 392 "../../../src/sdl/tutoriel.c"
+ _mise_a_jour_bouton($9,$10); //@line 392 "../../../src/sdl/tutoriel.c"
+ var $11=$tuto; //@line 393 "../../../src/sdl/tutoriel.c"
+ var $12=(($11+8)|0); //@line 393 "../../../src/sdl/tutoriel.c"
+ var $13=HEAP32[(($12)>>2)]; //@line 393 "../../../src/sdl/tutoriel.c"
+ var $14=$2; //@line 393 "../../../src/sdl/tutoriel.c"
+ _mise_a_jour_bouton($13,$14); //@line 393 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 394 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _event_tutoriel($state,$event){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var tempParam = $event; $event=STACKTOP;STACKTOP = (STACKTOP + 48)|0;(assert((STACKTOP|0) < (STACK_MAX|0))|0);(_memcpy($event, tempParam, 48)|0);
+ var $1;
+ var $tuto;
+ $1=$state;
+ var $2=$1; //@line 417 "../../../src/sdl/tutoriel.c"
+ var $3=(($2+28)|0); //@line 417 "../../../src/sdl/tutoriel.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 417 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 417 "../../../src/sdl/tutoriel.c"
+ $tuto=$5; //@line 417 "../../../src/sdl/tutoriel.c"
+ var $6=$event; //@line 418 "../../../src/sdl/tutoriel.c"
+ var $7=HEAP32[(($6)>>2)]; //@line 418 "../../../src/sdl/tutoriel.c"
+ var $8=($7|0)==768; //@line 418 "../../../src/sdl/tutoriel.c"
+  //@line 418 "../../../src/sdl/tutoriel.c"
+ if ($8) {
+  var $10=$event; //@line 419 "../../../src/sdl/tutoriel.c"
+  var $11=(($10+12)|0); //@line 419 "../../../src/sdl/tutoriel.c"
+  var $12=(($11+4)|0); //@line 419 "../../../src/sdl/tutoriel.c"
+  var $13=HEAP32[(($12)>>2)]; //@line 419 "../../../src/sdl/tutoriel.c"
+  var $14=($13|0)==1104; //@line 419 "../../../src/sdl/tutoriel.c"
+   //@line 419 "../../../src/sdl/tutoriel.c"
+  do {
+   if ($14) {
+    var $16=$1; //@line 420 "../../../src/sdl/tutoriel.c"
+    _tutoriel_precedent($16); //@line 420 "../../../src/sdl/tutoriel.c"
+     //@line 421 "../../../src/sdl/tutoriel.c"
+   } else {
+    var $18=$event; //@line 421 "../../../src/sdl/tutoriel.c"
+    var $19=(($18+12)|0); //@line 421 "../../../src/sdl/tutoriel.c"
+    var $20=(($19+4)|0); //@line 421 "../../../src/sdl/tutoriel.c"
+    var $21=HEAP32[(($20)>>2)]; //@line 421 "../../../src/sdl/tutoriel.c"
+    var $22=($21|0)==1103; //@line 421 "../../../src/sdl/tutoriel.c"
+     //@line 421 "../../../src/sdl/tutoriel.c"
+    if (!($22)) {
+     break;
+    }
+    var $24=$1; //@line 422 "../../../src/sdl/tutoriel.c"
+    _tutoriel_suivant($24); //@line 422 "../../../src/sdl/tutoriel.c"
+     //@line 423 "../../../src/sdl/tutoriel.c"
+    STACKTOP=sp;return; //@line 429 "../../../src/sdl/tutoriel.c"
+   }
+  } while(0);
+   //@line 425 "../../../src/sdl/tutoriel.c"
+ }
+ var $28=$tuto; //@line 427 "../../../src/sdl/tutoriel.c"
+ var $29=(($28+8)|0); //@line 427 "../../../src/sdl/tutoriel.c"
+ var $30=HEAP32[(($29)>>2)]; //@line 427 "../../../src/sdl/tutoriel.c"
+ _utiliser_event_bouton($30,$event); //@line 427 "../../../src/sdl/tutoriel.c"
+ var $31=$tuto; //@line 428 "../../../src/sdl/tutoriel.c"
+ var $32=(($31+12)|0); //@line 428 "../../../src/sdl/tutoriel.c"
+ var $33=HEAP32[(($32)>>2)]; //@line 428 "../../../src/sdl/tutoriel.c"
+ _utiliser_event_bouton($33,$event); //@line 428 "../../../src/sdl/tutoriel.c"
+  //@line 429 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 429 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _detruire_tutoriel($state){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $tuto;
+ var $e;
+ var $i;
+ $1=$state;
+ var $2=$1; //@line 297 "../../../src/sdl/tutoriel.c"
+ var $3=(($2+28)|0); //@line 297 "../../../src/sdl/tutoriel.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 297 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 297 "../../../src/sdl/tutoriel.c"
+ $tuto=$5; //@line 297 "../../../src/sdl/tutoriel.c"
+ var $6=$tuto; //@line 298 "../../../src/sdl/tutoriel.c"
+ var $7=(($6+4)|0); //@line 298 "../../../src/sdl/tutoriel.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 298 "../../../src/sdl/tutoriel.c"
+ _detruire_label($8); //@line 298 "../../../src/sdl/tutoriel.c"
+ var $9=$tuto; //@line 299 "../../../src/sdl/tutoriel.c"
+ var $10=(($9+12)|0); //@line 299 "../../../src/sdl/tutoriel.c"
+ var $11=HEAP32[(($10)>>2)]; //@line 299 "../../../src/sdl/tutoriel.c"
+ _detruire_bouton($11); //@line 299 "../../../src/sdl/tutoriel.c"
+ var $12=$tuto; //@line 300 "../../../src/sdl/tutoriel.c"
+ var $13=(($12+8)|0); //@line 300 "../../../src/sdl/tutoriel.c"
+ var $14=HEAP32[(($13)>>2)]; //@line 300 "../../../src/sdl/tutoriel.c"
+ _detruire_bouton($14); //@line 300 "../../../src/sdl/tutoriel.c"
+ $e=0; //@line 301 "../../../src/sdl/tutoriel.c"
+  //@line 301 "../../../src/sdl/tutoriel.c"
+ while(1) {
+  var $16=$e; //@line 301 "../../../src/sdl/tutoriel.c"
+  var $17=($16|0)<9; //@line 301 "../../../src/sdl/tutoriel.c"
+   //@line 301 "../../../src/sdl/tutoriel.c"
+  if (!($17)) {
+   break;
+  }
+  var $19=$e; //@line 302 "../../../src/sdl/tutoriel.c"
+  var $20=$tuto; //@line 302 "../../../src/sdl/tutoriel.c"
+  var $21=(($20+128)|0); //@line 302 "../../../src/sdl/tutoriel.c"
+  var $22=(($21+($19<<2))|0); //@line 302 "../../../src/sdl/tutoriel.c"
+  var $23=HEAP32[(($22)>>2)]; //@line 302 "../../../src/sdl/tutoriel.c"
+  _detruire_label($23); //@line 302 "../../../src/sdl/tutoriel.c"
+  $i=0; //@line 303 "../../../src/sdl/tutoriel.c"
+   //@line 303 "../../../src/sdl/tutoriel.c"
+  while(1) {
+   var $25=$i; //@line 303 "../../../src/sdl/tutoriel.c"
+   var $26=$e; //@line 303 "../../../src/sdl/tutoriel.c"
+   var $27=$tuto; //@line 303 "../../../src/sdl/tutoriel.c"
+   var $28=(($27+92)|0); //@line 303 "../../../src/sdl/tutoriel.c"
+   var $29=(($28+($26<<2))|0); //@line 303 "../../../src/sdl/tutoriel.c"
+   var $30=HEAP32[(($29)>>2)]; //@line 303 "../../../src/sdl/tutoriel.c"
+   var $31=($25|0)<($30|0); //@line 303 "../../../src/sdl/tutoriel.c"
+    //@line 303 "../../../src/sdl/tutoriel.c"
+   if (!($31)) {
+    break;
+   }
+   var $33=$i; //@line 304 "../../../src/sdl/tutoriel.c"
+   var $34=$e; //@line 304 "../../../src/sdl/tutoriel.c"
+   var $35=$tuto; //@line 304 "../../../src/sdl/tutoriel.c"
+   var $36=(($35+56)|0); //@line 304 "../../../src/sdl/tutoriel.c"
+   var $37=(($36+($34<<2))|0); //@line 304 "../../../src/sdl/tutoriel.c"
+   var $38=HEAP32[(($37)>>2)]; //@line 304 "../../../src/sdl/tutoriel.c"
+   var $39=(($38+($33<<2))|0); //@line 304 "../../../src/sdl/tutoriel.c"
+   var $40=HEAP32[(($39)>>2)]; //@line 304 "../../../src/sdl/tutoriel.c"
+   _detruire_label($40); //@line 304 "../../../src/sdl/tutoriel.c"
+    //@line 305 "../../../src/sdl/tutoriel.c"
+   var $42=$i; //@line 303 "../../../src/sdl/tutoriel.c"
+   var $43=((($42)+(1))|0); //@line 303 "../../../src/sdl/tutoriel.c"
+   $i=$43; //@line 303 "../../../src/sdl/tutoriel.c"
+    //@line 303 "../../../src/sdl/tutoriel.c"
+  }
+  var $45=$e; //@line 306 "../../../src/sdl/tutoriel.c"
+  var $46=$tuto; //@line 306 "../../../src/sdl/tutoriel.c"
+  var $47=(($46+56)|0); //@line 306 "../../../src/sdl/tutoriel.c"
+  var $48=(($47+($45<<2))|0); //@line 306 "../../../src/sdl/tutoriel.c"
+  var $49=HEAP32[(($48)>>2)]; //@line 306 "../../../src/sdl/tutoriel.c"
+  var $50=$49; //@line 306 "../../../src/sdl/tutoriel.c"
+  _gosh_free($50); //@line 306 "../../../src/sdl/tutoriel.c"
+  var $51=$e; //@line 307 "../../../src/sdl/tutoriel.c"
+  var $52=$tuto; //@line 307 "../../../src/sdl/tutoriel.c"
+  var $53=(($52+20)|0); //@line 307 "../../../src/sdl/tutoriel.c"
+  var $54=(($53+($51<<2))|0); //@line 307 "../../../src/sdl/tutoriel.c"
+  var $55=HEAP32[(($54)>>2)]; //@line 307 "../../../src/sdl/tutoriel.c"
+  _detruire_plateau($55); //@line 307 "../../../src/sdl/tutoriel.c"
+   //@line 308 "../../../src/sdl/tutoriel.c"
+  var $57=$e; //@line 301 "../../../src/sdl/tutoriel.c"
+  var $58=((($57)+(1))|0); //@line 301 "../../../src/sdl/tutoriel.c"
+  $e=$58; //@line 301 "../../../src/sdl/tutoriel.c"
+   //@line 301 "../../../src/sdl/tutoriel.c"
+ }
+ var $60=$tuto; //@line 309 "../../../src/sdl/tutoriel.c"
+ var $61=$60; //@line 309 "../../../src/sdl/tutoriel.c"
+ _gosh_free($61); //@line 309 "../../../src/sdl/tutoriel.c"
+ var $62=$1; //@line 310 "../../../src/sdl/tutoriel.c"
+ var $63=$62; //@line 310 "../../../src/sdl/tutoriel.c"
+ _gosh_free($63); //@line 310 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 311 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _tutoriel_bouton_suivant($bouton,$data){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $2;
+ $1=$bouton;
+ $2=$data;
+ var $3=$1; //@line 439 "../../../src/sdl/tutoriel.c"
+ var $4=$2; //@line 440 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 440 "../../../src/sdl/tutoriel.c"
+ _tutoriel_suivant($5); //@line 440 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 441 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _tutoriel_bouton_precedent($bouton,$data){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $2;
+ $1=$bouton;
+ $2=$data;
+ var $3=$1; //@line 433 "../../../src/sdl/tutoriel.c"
+ var $4=$2; //@line 434 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 434 "../../../src/sdl/tutoriel.c"
+ _tutoriel_precedent($5); //@line 434 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 435 "../../../src/sdl/tutoriel.c"
+}
+
+
+function _tutoriel_suivant($state){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $tuto;
+ $1=$state;
+ var $2=$1; //@line 406 "../../../src/sdl/tutoriel.c"
+ var $3=(($2+28)|0); //@line 406 "../../../src/sdl/tutoriel.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 406 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 406 "../../../src/sdl/tutoriel.c"
+ $tuto=$5; //@line 406 "../../../src/sdl/tutoriel.c"
+ var $6=$tuto; //@line 407 "../../../src/sdl/tutoriel.c"
+ var $7=(($6+16)|0); //@line 407 "../../../src/sdl/tutoriel.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 407 "../../../src/sdl/tutoriel.c"
+ var $9=($8|0)<8; //@line 407 "../../../src/sdl/tutoriel.c"
+  //@line 407 "../../../src/sdl/tutoriel.c"
+ if ($9) {
+  var $11=$tuto; //@line 408 "../../../src/sdl/tutoriel.c"
+  var $12=(($11+16)|0); //@line 408 "../../../src/sdl/tutoriel.c"
+  var $13=HEAP32[(($12)>>2)]; //@line 408 "../../../src/sdl/tutoriel.c"
+  var $14=((($13)+(1))|0); //@line 408 "../../../src/sdl/tutoriel.c"
+  HEAP32[(($12)>>2)]=$14; //@line 408 "../../../src/sdl/tutoriel.c"
+   //@line 409 "../../../src/sdl/tutoriel.c"
+  STACKTOP=sp;return; //@line 413 "../../../src/sdl/tutoriel.c"
+ } else {
+  var $16=$tuto; //@line 410 "../../../src/sdl/tutoriel.c"
+  var $17=(($16)|0); //@line 410 "../../../src/sdl/tutoriel.c"
+  var $18=HEAP32[(($17)>>2)]; //@line 410 "../../../src/sdl/tutoriel.c"
+  _set_state($18); //@line 410 "../../../src/sdl/tutoriel.c"
+  var $19=$1; //@line 411 "../../../src/sdl/tutoriel.c"
+  _detruire_tutoriel($19); //@line 411 "../../../src/sdl/tutoriel.c"
+  STACKTOP=sp;return; //@line 413 "../../../src/sdl/tutoriel.c"
+ }
+}
+
+
+function _tutoriel_precedent($state){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $tuto;
+ $1=$state;
+ var $2=$1; //@line 398 "../../../src/sdl/tutoriel.c"
+ var $3=(($2+28)|0); //@line 398 "../../../src/sdl/tutoriel.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 398 "../../../src/sdl/tutoriel.c"
+ var $5=$4; //@line 398 "../../../src/sdl/tutoriel.c"
+ $tuto=$5; //@line 398 "../../../src/sdl/tutoriel.c"
+ var $6=$tuto; //@line 399 "../../../src/sdl/tutoriel.c"
+ var $7=(($6+16)|0); //@line 399 "../../../src/sdl/tutoriel.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 399 "../../../src/sdl/tutoriel.c"
+ var $9=($8|0)>0; //@line 399 "../../../src/sdl/tutoriel.c"
+  //@line 399 "../../../src/sdl/tutoriel.c"
+ if (!($9)) {
+  STACKTOP=sp;return; //@line 402 "../../../src/sdl/tutoriel.c"
+ }
+ var $11=$tuto; //@line 400 "../../../src/sdl/tutoriel.c"
+ var $12=(($11+16)|0); //@line 400 "../../../src/sdl/tutoriel.c"
+ var $13=HEAP32[(($12)>>2)]; //@line 400 "../../../src/sdl/tutoriel.c"
+ var $14=((($13)-(1))|0); //@line 400 "../../../src/sdl/tutoriel.c"
+ HEAP32[(($12)>>2)]=$14; //@line 400 "../../../src/sdl/tutoriel.c"
+  //@line 401 "../../../src/sdl/tutoriel.c"
+ STACKTOP=sp;return; //@line 402 "../../../src/sdl/tutoriel.c"
+}
+
+
 function _creer_menu(){
  var label=0;
  var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
@@ -9181,516 +10301,535 @@ function _creer_menu(){
  var $groupe_type_j2;
  var $groupe_programme_j2;
  var $groupe_taille;
- var $1=_gosh_alloc_size(36); //@line 139 "../../../src/sdl/menu.c"
- var $2=$1; //@line 139 "../../../src/sdl/menu.c"
- $state=$2; //@line 139 "../../../src/sdl/menu.c"
- var $3=_gosh_alloc_size(80); //@line 140 "../../../src/sdl/menu.c"
- var $4=$3; //@line 140 "../../../src/sdl/menu.c"
- $menu=$4; //@line 140 "../../../src/sdl/menu.c"
- var $5=$menu; //@line 141 "../../../src/sdl/menu.c"
- var $6=$5; //@line 141 "../../../src/sdl/menu.c"
- var $7=$state; //@line 141 "../../../src/sdl/menu.c"
- var $8=(($7+28)|0); //@line 141 "../../../src/sdl/menu.c"
- HEAP32[(($8)>>2)]=$6; //@line 141 "../../../src/sdl/menu.c"
- var $9=$state; //@line 142 "../../../src/sdl/menu.c"
- var $10=(($9)|0); //@line 142 "../../../src/sdl/menu.c"
- HEAP8[($10)]=0; //@line 142 "../../../src/sdl/menu.c"
- var $11=$state; //@line 143 "../../../src/sdl/menu.c"
- var $12=(($11+4)|0); //@line 143 "../../../src/sdl/menu.c"
- HEAP32[(($12)>>2)]=44; //@line 143 "../../../src/sdl/menu.c"
- var $13=$state; //@line 144 "../../../src/sdl/menu.c"
- var $14=(($13+12)|0); //@line 144 "../../../src/sdl/menu.c"
- HEAP32[(($14)>>2)]=202; //@line 144 "../../../src/sdl/menu.c"
- var $15=$state; //@line 145 "../../../src/sdl/menu.c"
- var $16=(($15+16)|0); //@line 145 "../../../src/sdl/menu.c"
- HEAP32[(($16)>>2)]=202; //@line 145 "../../../src/sdl/menu.c"
- var $17=$state; //@line 146 "../../../src/sdl/menu.c"
- var $18=(($17+20)|0); //@line 146 "../../../src/sdl/menu.c"
- HEAP32[(($18)>>2)]=202; //@line 146 "../../../src/sdl/menu.c"
- var $19=$state; //@line 147 "../../../src/sdl/menu.c"
- var $20=(($19+8)|0); //@line 147 "../../../src/sdl/menu.c"
- HEAP32[(($20)>>2)]=202; //@line 147 "../../../src/sdl/menu.c"
- var $21=$state; //@line 148 "../../../src/sdl/menu.c"
- var $22=(($21+24)|0); //@line 148 "../../../src/sdl/menu.c"
- HEAP32[(($22)>>2)]=134; //@line 148 "../../../src/sdl/menu.c"
- var $23=$state; //@line 149 "../../../src/sdl/menu.c"
- var $24=(($23+32)|0); //@line 149 "../../../src/sdl/menu.c"
- HEAP32[(($24)>>2)]=60; //@line 149 "../../../src/sdl/menu.c"
- _set_color(200,50,50); //@line 151 "../../../src/sdl/menu.c"
- var $25=_creer_label(1360,400,68,2,2); //@line 152 "../../../src/sdl/menu.c"
- var $26=$menu; //@line 152 "../../../src/sdl/menu.c"
- var $27=(($26)|0); //@line 152 "../../../src/sdl/menu.c"
- HEAP32[(($27)>>2)]=$25; //@line 152 "../../../src/sdl/menu.c"
- $id_groupe=0; //@line 154 "../../../src/sdl/menu.c"
- $id_label=0; //@line 155 "../../../src/sdl/menu.c"
- $id_bouton=0; //@line 156 "../../../src/sdl/menu.c"
- $id_textinput=0; //@line 157 "../../../src/sdl/menu.c"
- _set_color(255,10,10); //@line 159 "../../../src/sdl/menu.c"
- var $28=_creer_bouton(1160,80,612,100,30); //@line 160 "../../../src/sdl/menu.c"
- $bouton=$28; //@line 160 "../../../src/sdl/menu.c"
- var $29=$bouton; //@line 161 "../../../src/sdl/menu.c"
- var $30=(($29+40)|0); //@line 161 "../../../src/sdl/menu.c"
- HEAP32[(($30)>>2)]=180; //@line 161 "../../../src/sdl/menu.c"
- var $31=$state; //@line 162 "../../../src/sdl/menu.c"
- var $32=$31; //@line 162 "../../../src/sdl/menu.c"
- var $33=$bouton; //@line 162 "../../../src/sdl/menu.c"
- var $34=(($33+44)|0); //@line 162 "../../../src/sdl/menu.c"
- HEAP32[(($34)>>2)]=$32; //@line 162 "../../../src/sdl/menu.c"
- var $35=$bouton; //@line 163 "../../../src/sdl/menu.c"
- var $36=$id_bouton; //@line 163 "../../../src/sdl/menu.c"
- var $37=((($36)+(1))|0); //@line 163 "../../../src/sdl/menu.c"
- $id_bouton=$37; //@line 163 "../../../src/sdl/menu.c"
- var $38=$menu; //@line 163 "../../../src/sdl/menu.c"
- var $39=(($38+36)|0); //@line 163 "../../../src/sdl/menu.c"
- var $40=(($39+($36<<2))|0); //@line 163 "../../../src/sdl/menu.c"
- HEAP32[(($40)>>2)]=$35; //@line 163 "../../../src/sdl/menu.c"
- _set_color(10,200,10); //@line 165 "../../../src/sdl/menu.c"
- var $41=_creer_bouton(768,480,475,100,30); //@line 166 "../../../src/sdl/menu.c"
- $bouton=$41; //@line 166 "../../../src/sdl/menu.c"
- var $42=$bouton; //@line 167 "../../../src/sdl/menu.c"
- var $43=(($42+40)|0); //@line 167 "../../../src/sdl/menu.c"
- HEAP32[(($43)>>2)]=4; //@line 167 "../../../src/sdl/menu.c"
- var $44=$state; //@line 168 "../../../src/sdl/menu.c"
- var $45=$44; //@line 168 "../../../src/sdl/menu.c"
- var $46=$bouton; //@line 168 "../../../src/sdl/menu.c"
- var $47=(($46+44)|0); //@line 168 "../../../src/sdl/menu.c"
- HEAP32[(($47)>>2)]=$45; //@line 168 "../../../src/sdl/menu.c"
- var $48=$bouton; //@line 169 "../../../src/sdl/menu.c"
- var $49=$id_bouton; //@line 169 "../../../src/sdl/menu.c"
- var $50=((($49)+(1))|0); //@line 169 "../../../src/sdl/menu.c"
- $id_bouton=$50; //@line 169 "../../../src/sdl/menu.c"
- var $51=$menu; //@line 169 "../../../src/sdl/menu.c"
- var $52=(($51+36)|0); //@line 169 "../../../src/sdl/menu.c"
- var $53=(($52+($49<<2))|0); //@line 169 "../../../src/sdl/menu.c"
- HEAP32[(($53)>>2)]=$48; //@line 169 "../../../src/sdl/menu.c"
- _set_color(50,50,200); //@line 171 "../../../src/sdl/menu.c"
- var $54=_creer_bouton(528,560,612,100,30); //@line 172 "../../../src/sdl/menu.c"
- $bouton=$54; //@line 172 "../../../src/sdl/menu.c"
- var $55=$bouton; //@line 173 "../../../src/sdl/menu.c"
- var $56=(($55+40)|0); //@line 173 "../../../src/sdl/menu.c"
- HEAP32[(($56)>>2)]=48; //@line 173 "../../../src/sdl/menu.c"
- var $57=$state; //@line 174 "../../../src/sdl/menu.c"
- var $58=$57; //@line 174 "../../../src/sdl/menu.c"
- var $59=$bouton; //@line 174 "../../../src/sdl/menu.c"
- var $60=(($59+44)|0); //@line 174 "../../../src/sdl/menu.c"
- HEAP32[(($60)>>2)]=$58; //@line 174 "../../../src/sdl/menu.c"
- var $61=$bouton; //@line 175 "../../../src/sdl/menu.c"
- var $62=$id_bouton; //@line 175 "../../../src/sdl/menu.c"
- var $63=((($62)+(1))|0); //@line 175 "../../../src/sdl/menu.c"
- $id_bouton=$63; //@line 175 "../../../src/sdl/menu.c"
- var $64=$menu; //@line 175 "../../../src/sdl/menu.c"
- var $65=(($64+36)|0); //@line 175 "../../../src/sdl/menu.c"
- var $66=(($65+($62<<2))|0); //@line 175 "../../../src/sdl/menu.c"
- HEAP32[(($66)>>2)]=$61; //@line 175 "../../../src/sdl/menu.c"
- _set_color(255,255,255); //@line 177 "../../../src/sdl/menu.c"
- $initx=140; //@line 179 "../../../src/sdl/menu.c"
- $y=156; //@line 180 "../../../src/sdl/menu.c"
- var $67=$initx; //@line 182 "../../../src/sdl/menu.c"
- $x=$67; //@line 182 "../../../src/sdl/menu.c"
- var $68=$x; //@line 187 "../../../src/sdl/menu.c"
- var $69=$y; //@line 187 "../../../src/sdl/menu.c"
- var $70=_creer_label(432,$68,$69,0,1); //@line 187 "../../../src/sdl/menu.c"
- var $71=$id_label; //@line 187 "../../../src/sdl/menu.c"
- var $72=$menu; //@line 187 "../../../src/sdl/menu.c"
- var $73=(($72+4)|0); //@line 187 "../../../src/sdl/menu.c"
- var $74=(($73+($71<<2))|0); //@line 187 "../../../src/sdl/menu.c"
- HEAP32[(($74)>>2)]=$70; //@line 187 "../../../src/sdl/menu.c"
- var $75=$id_label; //@line 188 "../../../src/sdl/menu.c"
- var $76=$menu; //@line 188 "../../../src/sdl/menu.c"
- var $77=(($76+4)|0); //@line 188 "../../../src/sdl/menu.c"
- var $78=(($77+($75<<2))|0); //@line 188 "../../../src/sdl/menu.c"
- var $79=HEAP32[(($78)>>2)]; //@line 188 "../../../src/sdl/menu.c"
- var $80=(($79+12)|0); //@line 188 "../../../src/sdl/menu.c"
- var $81=HEAP32[(($80)>>2)]; //@line 188 "../../../src/sdl/menu.c"
- var $82=((($81)+(50))|0); //@line 188 "../../../src/sdl/menu.c"
- var $83=$x; //@line 188 "../../../src/sdl/menu.c"
- var $84=((($83)+($82))|0); //@line 188 "../../../src/sdl/menu.c"
- $x=$84; //@line 188 "../../../src/sdl/menu.c"
- var $85=$id_label; //@line 189 "../../../src/sdl/menu.c"
- var $86=((($85)+(1))|0); //@line 189 "../../../src/sdl/menu.c"
- $id_label=$86; //@line 189 "../../../src/sdl/menu.c"
- var $87=_creer_groupe_radio(2); //@line 190 "../../../src/sdl/menu.c"
- $groupe_type_j1=$87; //@line 190 "../../../src/sdl/menu.c"
- var $88=$groupe_type_j1; //@line 191 "../../../src/sdl/menu.c"
- var $89=$x; //@line 191 "../../../src/sdl/menu.c"
- var $90=$y; //@line 191 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($88,344,$89,$90); //@line 191 "../../../src/sdl/menu.c"
- var $91=$groupe_type_j1; //@line 192 "../../../src/sdl/menu.c"
- var $92=$x; //@line 192 "../../../src/sdl/menu.c"
- var $93=((($92)+(100))|0); //@line 192 "../../../src/sdl/menu.c"
- var $94=$y; //@line 192 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($91,248,$93,$94); //@line 192 "../../../src/sdl/menu.c"
- var $95=$groupe_type_j1; //@line 193 "../../../src/sdl/menu.c"
- var $96=(($95+20)|0); //@line 193 "../../../src/sdl/menu.c"
- HEAP32[(($96)>>2)]=110; //@line 193 "../../../src/sdl/menu.c"
- var $97=$state; //@line 194 "../../../src/sdl/menu.c"
- var $98=$97; //@line 194 "../../../src/sdl/menu.c"
- var $99=$groupe_type_j1; //@line 194 "../../../src/sdl/menu.c"
- var $100=(($99+24)|0); //@line 194 "../../../src/sdl/menu.c"
- HEAP32[(($100)>>2)]=$98; //@line 194 "../../../src/sdl/menu.c"
- var $101=$groupe_type_j1; //@line 195 "../../../src/sdl/menu.c"
- var $102=$id_groupe; //@line 195 "../../../src/sdl/menu.c"
- var $103=((($102)+(1))|0); //@line 195 "../../../src/sdl/menu.c"
- $id_groupe=$103; //@line 195 "../../../src/sdl/menu.c"
- var $104=$menu; //@line 195 "../../../src/sdl/menu.c"
- var $105=(($104+48)|0); //@line 195 "../../../src/sdl/menu.c"
- var $106=(($105+($102<<2))|0); //@line 195 "../../../src/sdl/menu.c"
- HEAP32[(($106)>>2)]=$101; //@line 195 "../../../src/sdl/menu.c"
- var $107=$initx; //@line 197 "../../../src/sdl/menu.c"
- $x=$107; //@line 197 "../../../src/sdl/menu.c"
- var $108=$y; //@line 198 "../../../src/sdl/menu.c"
- var $109=((($108)+(30))|0); //@line 198 "../../../src/sdl/menu.c"
- $y=$109; //@line 198 "../../../src/sdl/menu.c"
- var $110=$x; //@line 199 "../../../src/sdl/menu.c"
- var $111=$y; //@line 199 "../../../src/sdl/menu.c"
- var $112=_creer_label(192,$110,$111,0,1); //@line 199 "../../../src/sdl/menu.c"
- var $113=$id_label; //@line 199 "../../../src/sdl/menu.c"
- var $114=((($113)+(1))|0); //@line 199 "../../../src/sdl/menu.c"
- $id_label=$114; //@line 199 "../../../src/sdl/menu.c"
- var $115=$menu; //@line 199 "../../../src/sdl/menu.c"
- var $116=(($115+4)|0); //@line 199 "../../../src/sdl/menu.c"
- var $117=(($116+($113<<2))|0); //@line 199 "../../../src/sdl/menu.c"
- HEAP32[(($117)>>2)]=$112; //@line 199 "../../../src/sdl/menu.c"
- _set_color(150,150,150); //@line 200 "../../../src/sdl/menu.c"
- var $118=$x; //@line 201 "../../../src/sdl/menu.c"
- var $119=((($118)+(80))|0); //@line 201 "../../../src/sdl/menu.c"
- var $120=$y; //@line 201 "../../../src/sdl/menu.c"
- var $121=_creer_textinput($119,$120,300,20,12); //@line 201 "../../../src/sdl/menu.c"
- var $122=$id_textinput; //@line 201 "../../../src/sdl/menu.c"
- var $123=$menu; //@line 201 "../../../src/sdl/menu.c"
- var $124=(($123+68)|0); //@line 201 "../../../src/sdl/menu.c"
- var $125=(($124+($122<<2))|0); //@line 201 "../../../src/sdl/menu.c"
- HEAP32[(($125)>>2)]=$121; //@line 201 "../../../src/sdl/menu.c"
- var $126=$id_textinput; //@line 202 "../../../src/sdl/menu.c"
- var $127=((($126)+(1))|0); //@line 202 "../../../src/sdl/menu.c"
- $id_textinput=$127; //@line 202 "../../../src/sdl/menu.c"
- _set_color(255,255,255); //@line 203 "../../../src/sdl/menu.c"
- var $128=$y; //@line 206 "../../../src/sdl/menu.c"
- var $129=((($128)+(30))|0); //@line 206 "../../../src/sdl/menu.c"
- $y=$129; //@line 206 "../../../src/sdl/menu.c"
- var $130=$x; //@line 207 "../../../src/sdl/menu.c"
- var $131=$y; //@line 207 "../../../src/sdl/menu.c"
- var $132=_creer_label(136,$130,$131,0,1); //@line 207 "../../../src/sdl/menu.c"
- var $133=$id_label; //@line 207 "../../../src/sdl/menu.c"
- var $134=$menu; //@line 207 "../../../src/sdl/menu.c"
- var $135=(($134+4)|0); //@line 207 "../../../src/sdl/menu.c"
- var $136=(($135+($133<<2))|0); //@line 207 "../../../src/sdl/menu.c"
- HEAP32[(($136)>>2)]=$132; //@line 207 "../../../src/sdl/menu.c"
- var $137=$id_label; //@line 208 "../../../src/sdl/menu.c"
- var $138=$menu; //@line 208 "../../../src/sdl/menu.c"
- var $139=(($138+4)|0); //@line 208 "../../../src/sdl/menu.c"
- var $140=(($139+($137<<2))|0); //@line 208 "../../../src/sdl/menu.c"
- var $141=HEAP32[(($140)>>2)]; //@line 208 "../../../src/sdl/menu.c"
- var $142=(($141+28)|0); //@line 208 "../../../src/sdl/menu.c"
- HEAP8[($142)]=0; //@line 208 "../../../src/sdl/menu.c"
- var $143=$id_label; //@line 209 "../../../src/sdl/menu.c"
- var $144=$menu; //@line 209 "../../../src/sdl/menu.c"
- var $145=(($144+4)|0); //@line 209 "../../../src/sdl/menu.c"
- var $146=(($145+($143<<2))|0); //@line 209 "../../../src/sdl/menu.c"
- var $147=HEAP32[(($146)>>2)]; //@line 209 "../../../src/sdl/menu.c"
- var $148=(($147+12)|0); //@line 209 "../../../src/sdl/menu.c"
- var $149=HEAP32[(($148)>>2)]; //@line 209 "../../../src/sdl/menu.c"
- var $150=((($149)+(50))|0); //@line 209 "../../../src/sdl/menu.c"
- var $151=$x; //@line 209 "../../../src/sdl/menu.c"
- var $152=((($151)+($150))|0); //@line 209 "../../../src/sdl/menu.c"
- $x=$152; //@line 209 "../../../src/sdl/menu.c"
- var $153=$id_label; //@line 210 "../../../src/sdl/menu.c"
- var $154=((($153)+(1))|0); //@line 210 "../../../src/sdl/menu.c"
- $id_label=$154; //@line 210 "../../../src/sdl/menu.c"
- var $155=_creer_groupe_radio(1); //@line 216 "../../../src/sdl/menu.c"
- $groupe_programme_j1=$155; //@line 216 "../../../src/sdl/menu.c"
- var $156=$groupe_programme_j1; //@line 217 "../../../src/sdl/menu.c"
- var $157=$x; //@line 217 "../../../src/sdl/menu.c"
- var $158=((($157)+(100))|0); //@line 217 "../../../src/sdl/menu.c"
- var $159=$y; //@line 217 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($156,88,$158,$159); //@line 217 "../../../src/sdl/menu.c"
- var $160=$groupe_programme_j1; //@line 219 "../../../src/sdl/menu.c"
- var $161=(($160+16)|0); //@line 219 "../../../src/sdl/menu.c"
- HEAP8[($161)]=0; //@line 219 "../../../src/sdl/menu.c"
- var $162=$groupe_programme_j1; //@line 220 "../../../src/sdl/menu.c"
- var $163=$id_groupe; //@line 220 "../../../src/sdl/menu.c"
- var $164=((($163)+(1))|0); //@line 220 "../../../src/sdl/menu.c"
- $id_groupe=$164; //@line 220 "../../../src/sdl/menu.c"
- var $165=$menu; //@line 220 "../../../src/sdl/menu.c"
- var $166=(($165+48)|0); //@line 220 "../../../src/sdl/menu.c"
- var $167=(($166+($163<<2))|0); //@line 220 "../../../src/sdl/menu.c"
- HEAP32[(($167)>>2)]=$162; //@line 220 "../../../src/sdl/menu.c"
- var $168=$initx; //@line 222 "../../../src/sdl/menu.c"
- $x=$168; //@line 222 "../../../src/sdl/menu.c"
- var $169=$y; //@line 223 "../../../src/sdl/menu.c"
- var $170=((($169)+(60))|0); //@line 223 "../../../src/sdl/menu.c"
- $y=$170; //@line 223 "../../../src/sdl/menu.c"
- var $171=$x; //@line 229 "../../../src/sdl/menu.c"
- var $172=$y; //@line 229 "../../../src/sdl/menu.c"
- var $173=_creer_label(1344,$171,$172,0,1); //@line 229 "../../../src/sdl/menu.c"
- var $174=$id_label; //@line 229 "../../../src/sdl/menu.c"
- var $175=$menu; //@line 229 "../../../src/sdl/menu.c"
- var $176=(($175+4)|0); //@line 229 "../../../src/sdl/menu.c"
- var $177=(($176+($174<<2))|0); //@line 229 "../../../src/sdl/menu.c"
- HEAP32[(($177)>>2)]=$173; //@line 229 "../../../src/sdl/menu.c"
- var $178=$id_label; //@line 230 "../../../src/sdl/menu.c"
- var $179=$menu; //@line 230 "../../../src/sdl/menu.c"
- var $180=(($179+4)|0); //@line 230 "../../../src/sdl/menu.c"
- var $181=(($180+($178<<2))|0); //@line 230 "../../../src/sdl/menu.c"
- var $182=HEAP32[(($181)>>2)]; //@line 230 "../../../src/sdl/menu.c"
- var $183=(($182+12)|0); //@line 230 "../../../src/sdl/menu.c"
- var $184=HEAP32[(($183)>>2)]; //@line 230 "../../../src/sdl/menu.c"
- var $185=((($184)+(50))|0); //@line 230 "../../../src/sdl/menu.c"
- var $186=$x; //@line 230 "../../../src/sdl/menu.c"
- var $187=((($186)+($185))|0); //@line 230 "../../../src/sdl/menu.c"
- $x=$187; //@line 230 "../../../src/sdl/menu.c"
- var $188=$id_label; //@line 231 "../../../src/sdl/menu.c"
- var $189=((($188)+(1))|0); //@line 231 "../../../src/sdl/menu.c"
- $id_label=$189; //@line 231 "../../../src/sdl/menu.c"
- var $190=_creer_groupe_radio(2); //@line 232 "../../../src/sdl/menu.c"
- $groupe_type_j2=$190; //@line 232 "../../../src/sdl/menu.c"
- var $191=$groupe_type_j2; //@line 233 "../../../src/sdl/menu.c"
- var $192=$x; //@line 233 "../../../src/sdl/menu.c"
- var $193=$y; //@line 233 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($191,344,$192,$193); //@line 233 "../../../src/sdl/menu.c"
- var $194=$groupe_type_j2; //@line 234 "../../../src/sdl/menu.c"
- var $195=$x; //@line 234 "../../../src/sdl/menu.c"
- var $196=((($195)+(100))|0); //@line 234 "../../../src/sdl/menu.c"
- var $197=$y; //@line 234 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($194,248,$196,$197); //@line 234 "../../../src/sdl/menu.c"
- var $198=$groupe_type_j2; //@line 235 "../../../src/sdl/menu.c"
- var $199=(($198+20)|0); //@line 235 "../../../src/sdl/menu.c"
- HEAP32[(($199)>>2)]=110; //@line 235 "../../../src/sdl/menu.c"
- var $200=$state; //@line 236 "../../../src/sdl/menu.c"
- var $201=$200; //@line 236 "../../../src/sdl/menu.c"
- var $202=$groupe_type_j2; //@line 236 "../../../src/sdl/menu.c"
- var $203=(($202+24)|0); //@line 236 "../../../src/sdl/menu.c"
- HEAP32[(($203)>>2)]=$201; //@line 236 "../../../src/sdl/menu.c"
- var $204=$groupe_type_j2; //@line 237 "../../../src/sdl/menu.c"
- var $205=$id_groupe; //@line 237 "../../../src/sdl/menu.c"
- var $206=((($205)+(1))|0); //@line 237 "../../../src/sdl/menu.c"
- $id_groupe=$206; //@line 237 "../../../src/sdl/menu.c"
- var $207=$menu; //@line 237 "../../../src/sdl/menu.c"
- var $208=(($207+48)|0); //@line 237 "../../../src/sdl/menu.c"
- var $209=(($208+($205<<2))|0); //@line 237 "../../../src/sdl/menu.c"
- HEAP32[(($209)>>2)]=$204; //@line 237 "../../../src/sdl/menu.c"
- var $210=$initx; //@line 239 "../../../src/sdl/menu.c"
- $x=$210; //@line 239 "../../../src/sdl/menu.c"
- var $211=$y; //@line 240 "../../../src/sdl/menu.c"
- var $212=((($211)+(30))|0); //@line 240 "../../../src/sdl/menu.c"
- $y=$212; //@line 240 "../../../src/sdl/menu.c"
- var $213=$x; //@line 241 "../../../src/sdl/menu.c"
- var $214=$y; //@line 241 "../../../src/sdl/menu.c"
- var $215=_creer_label(192,$213,$214,0,1); //@line 241 "../../../src/sdl/menu.c"
- var $216=$id_label; //@line 241 "../../../src/sdl/menu.c"
- var $217=((($216)+(1))|0); //@line 241 "../../../src/sdl/menu.c"
- $id_label=$217; //@line 241 "../../../src/sdl/menu.c"
- var $218=$menu; //@line 241 "../../../src/sdl/menu.c"
- var $219=(($218+4)|0); //@line 241 "../../../src/sdl/menu.c"
- var $220=(($219+($216<<2))|0); //@line 241 "../../../src/sdl/menu.c"
- HEAP32[(($220)>>2)]=$215; //@line 241 "../../../src/sdl/menu.c"
- _set_color(150,150,150); //@line 242 "../../../src/sdl/menu.c"
- var $221=$x; //@line 243 "../../../src/sdl/menu.c"
- var $222=((($221)+(80))|0); //@line 243 "../../../src/sdl/menu.c"
- var $223=$y; //@line 243 "../../../src/sdl/menu.c"
- var $224=_creer_textinput($222,$223,300,20,12); //@line 243 "../../../src/sdl/menu.c"
- var $225=$id_textinput; //@line 243 "../../../src/sdl/menu.c"
- var $226=$menu; //@line 243 "../../../src/sdl/menu.c"
- var $227=(($226+68)|0); //@line 243 "../../../src/sdl/menu.c"
- var $228=(($227+($225<<2))|0); //@line 243 "../../../src/sdl/menu.c"
- HEAP32[(($228)>>2)]=$224; //@line 243 "../../../src/sdl/menu.c"
- var $229=$id_textinput; //@line 244 "../../../src/sdl/menu.c"
- var $230=((($229)+(1))|0); //@line 244 "../../../src/sdl/menu.c"
- $id_textinput=$230; //@line 244 "../../../src/sdl/menu.c"
- _set_color(255,255,255); //@line 245 "../../../src/sdl/menu.c"
- var $231=$y; //@line 248 "../../../src/sdl/menu.c"
- var $232=((($231)+(30))|0); //@line 248 "../../../src/sdl/menu.c"
- $y=$232; //@line 248 "../../../src/sdl/menu.c"
- var $233=$x; //@line 249 "../../../src/sdl/menu.c"
- var $234=$y; //@line 249 "../../../src/sdl/menu.c"
- var $235=_creer_label(136,$233,$234,0,1); //@line 249 "../../../src/sdl/menu.c"
- var $236=$id_label; //@line 249 "../../../src/sdl/menu.c"
- var $237=$menu; //@line 249 "../../../src/sdl/menu.c"
- var $238=(($237+4)|0); //@line 249 "../../../src/sdl/menu.c"
- var $239=(($238+($236<<2))|0); //@line 249 "../../../src/sdl/menu.c"
- HEAP32[(($239)>>2)]=$235; //@line 249 "../../../src/sdl/menu.c"
- var $240=$id_label; //@line 250 "../../../src/sdl/menu.c"
- var $241=$menu; //@line 250 "../../../src/sdl/menu.c"
- var $242=(($241+4)|0); //@line 250 "../../../src/sdl/menu.c"
- var $243=(($242+($240<<2))|0); //@line 250 "../../../src/sdl/menu.c"
- var $244=HEAP32[(($243)>>2)]; //@line 250 "../../../src/sdl/menu.c"
- var $245=(($244+28)|0); //@line 250 "../../../src/sdl/menu.c"
- HEAP8[($245)]=0; //@line 250 "../../../src/sdl/menu.c"
- var $246=$id_label; //@line 251 "../../../src/sdl/menu.c"
- var $247=$menu; //@line 251 "../../../src/sdl/menu.c"
- var $248=(($247+4)|0); //@line 251 "../../../src/sdl/menu.c"
- var $249=(($248+($246<<2))|0); //@line 251 "../../../src/sdl/menu.c"
- var $250=HEAP32[(($249)>>2)]; //@line 251 "../../../src/sdl/menu.c"
- var $251=(($250+12)|0); //@line 251 "../../../src/sdl/menu.c"
- var $252=HEAP32[(($251)>>2)]; //@line 251 "../../../src/sdl/menu.c"
- var $253=((($252)+(50))|0); //@line 251 "../../../src/sdl/menu.c"
- var $254=$x; //@line 251 "../../../src/sdl/menu.c"
- var $255=((($254)+($253))|0); //@line 251 "../../../src/sdl/menu.c"
- $x=$255; //@line 251 "../../../src/sdl/menu.c"
- var $256=$id_label; //@line 252 "../../../src/sdl/menu.c"
- var $257=((($256)+(1))|0); //@line 252 "../../../src/sdl/menu.c"
- $id_label=$257; //@line 252 "../../../src/sdl/menu.c"
- var $258=_creer_groupe_radio(1); //@line 258 "../../../src/sdl/menu.c"
- $groupe_programme_j2=$258; //@line 258 "../../../src/sdl/menu.c"
- var $259=$groupe_programme_j2; //@line 259 "../../../src/sdl/menu.c"
- var $260=$x; //@line 259 "../../../src/sdl/menu.c"
- var $261=((($260)+(100))|0); //@line 259 "../../../src/sdl/menu.c"
- var $262=$y; //@line 259 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($259,88,$261,$262); //@line 259 "../../../src/sdl/menu.c"
- var $263=$groupe_programme_j2; //@line 261 "../../../src/sdl/menu.c"
- var $264=(($263+16)|0); //@line 261 "../../../src/sdl/menu.c"
- HEAP8[($264)]=0; //@line 261 "../../../src/sdl/menu.c"
- var $265=$groupe_programme_j2; //@line 262 "../../../src/sdl/menu.c"
- var $266=$id_groupe; //@line 262 "../../../src/sdl/menu.c"
- var $267=((($266)+(1))|0); //@line 262 "../../../src/sdl/menu.c"
- $id_groupe=$267; //@line 262 "../../../src/sdl/menu.c"
- var $268=$menu; //@line 262 "../../../src/sdl/menu.c"
- var $269=(($268+48)|0); //@line 262 "../../../src/sdl/menu.c"
- var $270=(($269+($266<<2))|0); //@line 262 "../../../src/sdl/menu.c"
- HEAP32[(($270)>>2)]=$265; //@line 262 "../../../src/sdl/menu.c"
- var $271=$initx; //@line 264 "../../../src/sdl/menu.c"
- $x=$271; //@line 264 "../../../src/sdl/menu.c"
- var $272=$y; //@line 265 "../../../src/sdl/menu.c"
- var $273=((($272)+(60))|0); //@line 265 "../../../src/sdl/menu.c"
- $y=$273; //@line 265 "../../../src/sdl/menu.c"
- var $274=$x; //@line 268 "../../../src/sdl/menu.c"
- var $275=$y; //@line 268 "../../../src/sdl/menu.c"
- var $276=_creer_label(1328,$274,$275,0,1); //@line 268 "../../../src/sdl/menu.c"
- var $277=$id_label; //@line 268 "../../../src/sdl/menu.c"
- var $278=$menu; //@line 268 "../../../src/sdl/menu.c"
- var $279=(($278+4)|0); //@line 268 "../../../src/sdl/menu.c"
- var $280=(($279+($277<<2))|0); //@line 268 "../../../src/sdl/menu.c"
- HEAP32[(($280)>>2)]=$276; //@line 268 "../../../src/sdl/menu.c"
- var $281=$id_label; //@line 269 "../../../src/sdl/menu.c"
- var $282=$menu; //@line 269 "../../../src/sdl/menu.c"
- var $283=(($282+4)|0); //@line 269 "../../../src/sdl/menu.c"
- var $284=(($283+($281<<2))|0); //@line 269 "../../../src/sdl/menu.c"
- var $285=HEAP32[(($284)>>2)]; //@line 269 "../../../src/sdl/menu.c"
- var $286=(($285+12)|0); //@line 269 "../../../src/sdl/menu.c"
- var $287=HEAP32[(($286)>>2)]; //@line 269 "../../../src/sdl/menu.c"
- var $288=((($287)+(50))|0); //@line 269 "../../../src/sdl/menu.c"
- var $289=$x; //@line 269 "../../../src/sdl/menu.c"
- var $290=((($289)+($288))|0); //@line 269 "../../../src/sdl/menu.c"
- $x=$290; //@line 269 "../../../src/sdl/menu.c"
- var $291=$id_label; //@line 270 "../../../src/sdl/menu.c"
- var $292=((($291)+(1))|0); //@line 270 "../../../src/sdl/menu.c"
- $id_label=$292; //@line 270 "../../../src/sdl/menu.c"
- var $293=_creer_groupe_radio(3); //@line 271 "../../../src/sdl/menu.c"
- $groupe_taille=$293; //@line 271 "../../../src/sdl/menu.c"
- var $294=$groupe_taille; //@line 272 "../../../src/sdl/menu.c"
- var $295=$x; //@line 272 "../../../src/sdl/menu.c"
- var $296=$y; //@line 272 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($294,1152,$295,$296); //@line 272 "../../../src/sdl/menu.c"
- var $297=$groupe_taille; //@line 273 "../../../src/sdl/menu.c"
- var $298=$x; //@line 273 "../../../src/sdl/menu.c"
- var $299=((($298)+(100))|0); //@line 273 "../../../src/sdl/menu.c"
- var $300=$y; //@line 273 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($297,1112,$299,$300); //@line 273 "../../../src/sdl/menu.c"
- var $301=$groupe_taille; //@line 274 "../../../src/sdl/menu.c"
- var $302=$x; //@line 274 "../../../src/sdl/menu.c"
- var $303=((($302)+(200))|0); //@line 274 "../../../src/sdl/menu.c"
- var $304=$y; //@line 274 "../../../src/sdl/menu.c"
- _groupe_radio_ajouter($301,1072,$303,$304); //@line 274 "../../../src/sdl/menu.c"
- var $305=$groupe_taille; //@line 275 "../../../src/sdl/menu.c"
- var $306=$id_groupe; //@line 275 "../../../src/sdl/menu.c"
- var $307=((($306)+(1))|0); //@line 275 "../../../src/sdl/menu.c"
- $id_groupe=$307; //@line 275 "../../../src/sdl/menu.c"
- var $308=$menu; //@line 275 "../../../src/sdl/menu.c"
- var $309=(($308+48)|0); //@line 275 "../../../src/sdl/menu.c"
- var $310=(($309+($306<<2))|0); //@line 275 "../../../src/sdl/menu.c"
- HEAP32[(($310)>>2)]=$305; //@line 275 "../../../src/sdl/menu.c"
- var $311=$initx; //@line 277 "../../../src/sdl/menu.c"
- $x=$311; //@line 277 "../../../src/sdl/menu.c"
- var $312=$y; //@line 278 "../../../src/sdl/menu.c"
- var $313=((($312)+(30))|0); //@line 278 "../../../src/sdl/menu.c"
- $y=$313; //@line 278 "../../../src/sdl/menu.c"
- var $314=$x; //@line 281 "../../../src/sdl/menu.c"
- var $315=$y; //@line 281 "../../../src/sdl/menu.c"
- var $316=_creer_label(1032,$314,$315,0,1); //@line 281 "../../../src/sdl/menu.c"
- var $317=$id_label; //@line 281 "../../../src/sdl/menu.c"
- var $318=$menu; //@line 281 "../../../src/sdl/menu.c"
- var $319=(($318+4)|0); //@line 281 "../../../src/sdl/menu.c"
- var $320=(($319+($317<<2))|0); //@line 281 "../../../src/sdl/menu.c"
- HEAP32[(($320)>>2)]=$316; //@line 281 "../../../src/sdl/menu.c"
- var $321=$id_label; //@line 282 "../../../src/sdl/menu.c"
- var $322=$menu; //@line 282 "../../../src/sdl/menu.c"
- var $323=(($322+4)|0); //@line 282 "../../../src/sdl/menu.c"
- var $324=(($323+($321<<2))|0); //@line 282 "../../../src/sdl/menu.c"
- var $325=HEAP32[(($324)>>2)]; //@line 282 "../../../src/sdl/menu.c"
- var $326=(($325+12)|0); //@line 282 "../../../src/sdl/menu.c"
- var $327=HEAP32[(($326)>>2)]; //@line 282 "../../../src/sdl/menu.c"
- var $328=((($327)+(20))|0); //@line 282 "../../../src/sdl/menu.c"
- var $329=$x; //@line 282 "../../../src/sdl/menu.c"
- var $330=((($329)+($328))|0); //@line 282 "../../../src/sdl/menu.c"
- $x=$330; //@line 282 "../../../src/sdl/menu.c"
- var $331=$id_label; //@line 283 "../../../src/sdl/menu.c"
- var $332=((($331)+(1))|0); //@line 283 "../../../src/sdl/menu.c"
- $id_label=$332; //@line 283 "../../../src/sdl/menu.c"
- _set_color(150,150,150); //@line 284 "../../../src/sdl/menu.c"
- var $333=$x; //@line 285 "../../../src/sdl/menu.c"
- var $334=$y; //@line 285 "../../../src/sdl/menu.c"
- var $335=_creer_textinput($333,$334,60,20,3); //@line 285 "../../../src/sdl/menu.c"
- var $336=$id_textinput; //@line 285 "../../../src/sdl/menu.c"
- var $337=$menu; //@line 285 "../../../src/sdl/menu.c"
- var $338=(($337+68)|0); //@line 285 "../../../src/sdl/menu.c"
- var $339=(($338+($336<<2))|0); //@line 285 "../../../src/sdl/menu.c"
- HEAP32[(($339)>>2)]=$335; //@line 285 "../../../src/sdl/menu.c"
- var $340=$id_textinput; //@line 286 "../../../src/sdl/menu.c"
- var $341=((($340)+(1))|0); //@line 286 "../../../src/sdl/menu.c"
- $id_textinput=$341; //@line 286 "../../../src/sdl/menu.c"
- var $342=$id_label; //@line 288 "../../../src/sdl/menu.c"
- var $343=($342|0)==8; //@line 288 "../../../src/sdl/menu.c"
-  //@line 288 "../../../src/sdl/menu.c"
- if ($343) {
-  var $347=0;
+ var $1=_gosh_alloc_size(36); //@line 144 "../../../src/sdl/menu.c"
+ var $2=$1; //@line 144 "../../../src/sdl/menu.c"
+ $state=$2; //@line 144 "../../../src/sdl/menu.c"
+ var $3=_gosh_alloc_size(84); //@line 145 "../../../src/sdl/menu.c"
+ var $4=$3; //@line 145 "../../../src/sdl/menu.c"
+ $menu=$4; //@line 145 "../../../src/sdl/menu.c"
+ var $5=$menu; //@line 146 "../../../src/sdl/menu.c"
+ var $6=$5; //@line 146 "../../../src/sdl/menu.c"
+ var $7=$state; //@line 146 "../../../src/sdl/menu.c"
+ var $8=(($7+28)|0); //@line 146 "../../../src/sdl/menu.c"
+ HEAP32[(($8)>>2)]=$6; //@line 146 "../../../src/sdl/menu.c"
+ var $9=$state; //@line 147 "../../../src/sdl/menu.c"
+ var $10=(($9)|0); //@line 147 "../../../src/sdl/menu.c"
+ HEAP8[($10)]=0; //@line 147 "../../../src/sdl/menu.c"
+ var $11=$state; //@line 148 "../../../src/sdl/menu.c"
+ var $12=(($11+4)|0); //@line 148 "../../../src/sdl/menu.c"
+ HEAP32[(($12)>>2)]=50; //@line 148 "../../../src/sdl/menu.c"
+ var $13=$state; //@line 149 "../../../src/sdl/menu.c"
+ var $14=(($13+12)|0); //@line 149 "../../../src/sdl/menu.c"
+ HEAP32[(($14)>>2)]=214; //@line 149 "../../../src/sdl/menu.c"
+ var $15=$state; //@line 150 "../../../src/sdl/menu.c"
+ var $16=(($15+16)|0); //@line 150 "../../../src/sdl/menu.c"
+ HEAP32[(($16)>>2)]=214; //@line 150 "../../../src/sdl/menu.c"
+ var $17=$state; //@line 151 "../../../src/sdl/menu.c"
+ var $18=(($17+20)|0); //@line 151 "../../../src/sdl/menu.c"
+ HEAP32[(($18)>>2)]=214; //@line 151 "../../../src/sdl/menu.c"
+ var $19=$state; //@line 152 "../../../src/sdl/menu.c"
+ var $20=(($19+8)|0); //@line 152 "../../../src/sdl/menu.c"
+ HEAP32[(($20)>>2)]=214; //@line 152 "../../../src/sdl/menu.c"
+ var $21=$state; //@line 153 "../../../src/sdl/menu.c"
+ var $22=(($21+24)|0); //@line 153 "../../../src/sdl/menu.c"
+ HEAP32[(($22)>>2)]=142; //@line 153 "../../../src/sdl/menu.c"
+ var $23=$state; //@line 154 "../../../src/sdl/menu.c"
+ var $24=(($23+32)|0); //@line 154 "../../../src/sdl/menu.c"
+ HEAP32[(($24)>>2)]=66; //@line 154 "../../../src/sdl/menu.c"
+ _set_color(200,50,50); //@line 156 "../../../src/sdl/menu.c"
+ var $25=_creer_label(768,400,68,2,2); //@line 157 "../../../src/sdl/menu.c"
+ var $26=$menu; //@line 157 "../../../src/sdl/menu.c"
+ var $27=(($26)|0); //@line 157 "../../../src/sdl/menu.c"
+ HEAP32[(($27)>>2)]=$25; //@line 157 "../../../src/sdl/menu.c"
+ $id_groupe=0; //@line 159 "../../../src/sdl/menu.c"
+ $id_label=0; //@line 160 "../../../src/sdl/menu.c"
+ $id_bouton=0; //@line 161 "../../../src/sdl/menu.c"
+ $id_textinput=0; //@line 162 "../../../src/sdl/menu.c"
+ _set_color(255,10,10); //@line 164 "../../../src/sdl/menu.c"
+ var $28=_creer_bouton(2952,80,612,100,30); //@line 165 "../../../src/sdl/menu.c"
+ $bouton=$28; //@line 165 "../../../src/sdl/menu.c"
+ var $29=$bouton; //@line 166 "../../../src/sdl/menu.c"
+ var $30=(($29+40)|0); //@line 166 "../../../src/sdl/menu.c"
+ HEAP32[(($30)>>2)]=192; //@line 166 "../../../src/sdl/menu.c"
+ var $31=$state; //@line 167 "../../../src/sdl/menu.c"
+ var $32=$31; //@line 167 "../../../src/sdl/menu.c"
+ var $33=$bouton; //@line 167 "../../../src/sdl/menu.c"
+ var $34=(($33+44)|0); //@line 167 "../../../src/sdl/menu.c"
+ HEAP32[(($34)>>2)]=$32; //@line 167 "../../../src/sdl/menu.c"
+ var $35=$bouton; //@line 168 "../../../src/sdl/menu.c"
+ var $36=$id_bouton; //@line 168 "../../../src/sdl/menu.c"
+ var $37=((($36)+(1))|0); //@line 168 "../../../src/sdl/menu.c"
+ $id_bouton=$37; //@line 168 "../../../src/sdl/menu.c"
+ var $38=$menu; //@line 168 "../../../src/sdl/menu.c"
+ var $39=(($38+36)|0); //@line 168 "../../../src/sdl/menu.c"
+ var $40=(($39+($36<<2))|0); //@line 168 "../../../src/sdl/menu.c"
+ HEAP32[(($40)>>2)]=$35; //@line 168 "../../../src/sdl/menu.c"
+ _set_color(10,200,10); //@line 170 "../../../src/sdl/menu.c"
+ var $41=_creer_bouton(2144,480,475,100,30); //@line 171 "../../../src/sdl/menu.c"
+ $bouton=$41; //@line 171 "../../../src/sdl/menu.c"
+ var $42=$bouton; //@line 172 "../../../src/sdl/menu.c"
+ var $43=(($42+40)|0); //@line 172 "../../../src/sdl/menu.c"
+ HEAP32[(($43)>>2)]=4; //@line 172 "../../../src/sdl/menu.c"
+ var $44=$state; //@line 173 "../../../src/sdl/menu.c"
+ var $45=$44; //@line 173 "../../../src/sdl/menu.c"
+ var $46=$bouton; //@line 173 "../../../src/sdl/menu.c"
+ var $47=(($46+44)|0); //@line 173 "../../../src/sdl/menu.c"
+ HEAP32[(($47)>>2)]=$45; //@line 173 "../../../src/sdl/menu.c"
+ var $48=$bouton; //@line 174 "../../../src/sdl/menu.c"
+ var $49=$id_bouton; //@line 174 "../../../src/sdl/menu.c"
+ var $50=((($49)+(1))|0); //@line 174 "../../../src/sdl/menu.c"
+ $id_bouton=$50; //@line 174 "../../../src/sdl/menu.c"
+ var $51=$menu; //@line 174 "../../../src/sdl/menu.c"
+ var $52=(($51+36)|0); //@line 174 "../../../src/sdl/menu.c"
+ var $53=(($52+($49<<2))|0); //@line 174 "../../../src/sdl/menu.c"
+ HEAP32[(($53)>>2)]=$48; //@line 174 "../../../src/sdl/menu.c"
+ _set_color(50,50,200); //@line 176 "../../../src/sdl/menu.c"
+ var $54=_creer_bouton(1704,560,612,100,30); //@line 177 "../../../src/sdl/menu.c"
+ $bouton=$54; //@line 177 "../../../src/sdl/menu.c"
+ var $55=$bouton; //@line 178 "../../../src/sdl/menu.c"
+ var $56=(($55+40)|0); //@line 178 "../../../src/sdl/menu.c"
+ HEAP32[(($56)>>2)]=54; //@line 178 "../../../src/sdl/menu.c"
+ var $57=$state; //@line 179 "../../../src/sdl/menu.c"
+ var $58=$57; //@line 179 "../../../src/sdl/menu.c"
+ var $59=$bouton; //@line 179 "../../../src/sdl/menu.c"
+ var $60=(($59+44)|0); //@line 179 "../../../src/sdl/menu.c"
+ HEAP32[(($60)>>2)]=$58; //@line 179 "../../../src/sdl/menu.c"
+ var $61=$bouton; //@line 180 "../../../src/sdl/menu.c"
+ var $62=$id_bouton; //@line 180 "../../../src/sdl/menu.c"
+ var $63=((($62)+(1))|0); //@line 180 "../../../src/sdl/menu.c"
+ $id_bouton=$63; //@line 180 "../../../src/sdl/menu.c"
+ var $64=$menu; //@line 180 "../../../src/sdl/menu.c"
+ var $65=(($64+36)|0); //@line 180 "../../../src/sdl/menu.c"
+ var $66=(($65+($62<<2))|0); //@line 180 "../../../src/sdl/menu.c"
+ HEAP32[(($66)>>2)]=$61; //@line 180 "../../../src/sdl/menu.c"
+ _set_color(50,200,200); //@line 182 "../../../src/sdl/menu.c"
+ var $67=_creer_bouton(1248,400,612,100,30); //@line 183 "../../../src/sdl/menu.c"
+ $bouton=$67; //@line 183 "../../../src/sdl/menu.c"
+ var $68=$bouton; //@line 184 "../../../src/sdl/menu.c"
+ var $69=(($68+40)|0); //@line 184 "../../../src/sdl/menu.c"
+ HEAP32[(($69)>>2)]=306; //@line 184 "../../../src/sdl/menu.c"
+ var $70=$state; //@line 185 "../../../src/sdl/menu.c"
+ var $71=$70; //@line 185 "../../../src/sdl/menu.c"
+ var $72=$bouton; //@line 185 "../../../src/sdl/menu.c"
+ var $73=(($72+44)|0); //@line 185 "../../../src/sdl/menu.c"
+ HEAP32[(($73)>>2)]=$71; //@line 185 "../../../src/sdl/menu.c"
+ var $74=$bouton; //@line 186 "../../../src/sdl/menu.c"
+ var $75=$id_bouton; //@line 186 "../../../src/sdl/menu.c"
+ var $76=((($75)+(1))|0); //@line 186 "../../../src/sdl/menu.c"
+ $id_bouton=$76; //@line 186 "../../../src/sdl/menu.c"
+ var $77=$menu; //@line 186 "../../../src/sdl/menu.c"
+ var $78=(($77+36)|0); //@line 186 "../../../src/sdl/menu.c"
+ var $79=(($78+($75<<2))|0); //@line 186 "../../../src/sdl/menu.c"
+ HEAP32[(($79)>>2)]=$74; //@line 186 "../../../src/sdl/menu.c"
+ _set_color(255,255,255); //@line 188 "../../../src/sdl/menu.c"
+ $initx=140; //@line 190 "../../../src/sdl/menu.c"
+ $y=156; //@line 191 "../../../src/sdl/menu.c"
+ var $80=$initx; //@line 193 "../../../src/sdl/menu.c"
+ $x=$80; //@line 193 "../../../src/sdl/menu.c"
+ var $81=$x; //@line 198 "../../../src/sdl/menu.c"
+ var $82=$y; //@line 198 "../../../src/sdl/menu.c"
+ var $83=_creer_label(840,$81,$82,0,1); //@line 198 "../../../src/sdl/menu.c"
+ var $84=$id_label; //@line 198 "../../../src/sdl/menu.c"
+ var $85=$menu; //@line 198 "../../../src/sdl/menu.c"
+ var $86=(($85+4)|0); //@line 198 "../../../src/sdl/menu.c"
+ var $87=(($86+($84<<2))|0); //@line 198 "../../../src/sdl/menu.c"
+ HEAP32[(($87)>>2)]=$83; //@line 198 "../../../src/sdl/menu.c"
+ var $88=$id_label; //@line 199 "../../../src/sdl/menu.c"
+ var $89=$menu; //@line 199 "../../../src/sdl/menu.c"
+ var $90=(($89+4)|0); //@line 199 "../../../src/sdl/menu.c"
+ var $91=(($90+($88<<2))|0); //@line 199 "../../../src/sdl/menu.c"
+ var $92=HEAP32[(($91)>>2)]; //@line 199 "../../../src/sdl/menu.c"
+ var $93=(($92+12)|0); //@line 199 "../../../src/sdl/menu.c"
+ var $94=HEAP32[(($93)>>2)]; //@line 199 "../../../src/sdl/menu.c"
+ var $95=((($94)+(50))|0); //@line 199 "../../../src/sdl/menu.c"
+ var $96=$x; //@line 199 "../../../src/sdl/menu.c"
+ var $97=((($96)+($95))|0); //@line 199 "../../../src/sdl/menu.c"
+ $x=$97; //@line 199 "../../../src/sdl/menu.c"
+ var $98=$id_label; //@line 200 "../../../src/sdl/menu.c"
+ var $99=((($98)+(1))|0); //@line 200 "../../../src/sdl/menu.c"
+ $id_label=$99; //@line 200 "../../../src/sdl/menu.c"
+ var $100=_creer_groupe_radio(2); //@line 201 "../../../src/sdl/menu.c"
+ $groupe_type_j1=$100; //@line 201 "../../../src/sdl/menu.c"
+ var $101=$groupe_type_j1; //@line 202 "../../../src/sdl/menu.c"
+ var $102=$x; //@line 202 "../../../src/sdl/menu.c"
+ var $103=$y; //@line 202 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($101,672,$102,$103); //@line 202 "../../../src/sdl/menu.c"
+ var $104=$groupe_type_j1; //@line 203 "../../../src/sdl/menu.c"
+ var $105=$x; //@line 203 "../../../src/sdl/menu.c"
+ var $106=((($105)+(100))|0); //@line 203 "../../../src/sdl/menu.c"
+ var $107=$y; //@line 203 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($104,584,$106,$107); //@line 203 "../../../src/sdl/menu.c"
+ var $108=$groupe_type_j1; //@line 204 "../../../src/sdl/menu.c"
+ var $109=(($108+20)|0); //@line 204 "../../../src/sdl/menu.c"
+ HEAP32[(($109)>>2)]=116; //@line 204 "../../../src/sdl/menu.c"
+ var $110=$state; //@line 205 "../../../src/sdl/menu.c"
+ var $111=$110; //@line 205 "../../../src/sdl/menu.c"
+ var $112=$groupe_type_j1; //@line 205 "../../../src/sdl/menu.c"
+ var $113=(($112+24)|0); //@line 205 "../../../src/sdl/menu.c"
+ HEAP32[(($113)>>2)]=$111; //@line 205 "../../../src/sdl/menu.c"
+ var $114=$groupe_type_j1; //@line 206 "../../../src/sdl/menu.c"
+ var $115=$id_groupe; //@line 206 "../../../src/sdl/menu.c"
+ var $116=((($115)+(1))|0); //@line 206 "../../../src/sdl/menu.c"
+ $id_groupe=$116; //@line 206 "../../../src/sdl/menu.c"
+ var $117=$menu; //@line 206 "../../../src/sdl/menu.c"
+ var $118=(($117+52)|0); //@line 206 "../../../src/sdl/menu.c"
+ var $119=(($118+($115<<2))|0); //@line 206 "../../../src/sdl/menu.c"
+ HEAP32[(($119)>>2)]=$114; //@line 206 "../../../src/sdl/menu.c"
+ var $120=$initx; //@line 208 "../../../src/sdl/menu.c"
+ $x=$120; //@line 208 "../../../src/sdl/menu.c"
+ var $121=$y; //@line 209 "../../../src/sdl/menu.c"
+ var $122=((($121)+(30))|0); //@line 209 "../../../src/sdl/menu.c"
+ $y=$122; //@line 209 "../../../src/sdl/menu.c"
+ var $123=$x; //@line 210 "../../../src/sdl/menu.c"
+ var $124=$y; //@line 210 "../../../src/sdl/menu.c"
+ var $125=_creer_label(536,$123,$124,0,1); //@line 210 "../../../src/sdl/menu.c"
+ var $126=$id_label; //@line 210 "../../../src/sdl/menu.c"
+ var $127=((($126)+(1))|0); //@line 210 "../../../src/sdl/menu.c"
+ $id_label=$127; //@line 210 "../../../src/sdl/menu.c"
+ var $128=$menu; //@line 210 "../../../src/sdl/menu.c"
+ var $129=(($128+4)|0); //@line 210 "../../../src/sdl/menu.c"
+ var $130=(($129+($126<<2))|0); //@line 210 "../../../src/sdl/menu.c"
+ HEAP32[(($130)>>2)]=$125; //@line 210 "../../../src/sdl/menu.c"
+ _set_color(150,150,150); //@line 211 "../../../src/sdl/menu.c"
+ var $131=$x; //@line 212 "../../../src/sdl/menu.c"
+ var $132=((($131)+(80))|0); //@line 212 "../../../src/sdl/menu.c"
+ var $133=$y; //@line 212 "../../../src/sdl/menu.c"
+ var $134=_creer_textinput($132,$133,300,20,12); //@line 212 "../../../src/sdl/menu.c"
+ var $135=$id_textinput; //@line 212 "../../../src/sdl/menu.c"
+ var $136=$menu; //@line 212 "../../../src/sdl/menu.c"
+ var $137=(($136+72)|0); //@line 212 "../../../src/sdl/menu.c"
+ var $138=(($137+($135<<2))|0); //@line 212 "../../../src/sdl/menu.c"
+ HEAP32[(($138)>>2)]=$134; //@line 212 "../../../src/sdl/menu.c"
+ var $139=$id_textinput; //@line 213 "../../../src/sdl/menu.c"
+ var $140=((($139)+(1))|0); //@line 213 "../../../src/sdl/menu.c"
+ $id_textinput=$140; //@line 213 "../../../src/sdl/menu.c"
+ _set_color(255,255,255); //@line 214 "../../../src/sdl/menu.c"
+ var $141=$y; //@line 217 "../../../src/sdl/menu.c"
+ var $142=((($141)+(30))|0); //@line 217 "../../../src/sdl/menu.c"
+ $y=$142; //@line 217 "../../../src/sdl/menu.c"
+ var $143=$x; //@line 218 "../../../src/sdl/menu.c"
+ var $144=$y; //@line 218 "../../../src/sdl/menu.c"
+ var $145=_creer_label(448,$143,$144,0,1); //@line 218 "../../../src/sdl/menu.c"
+ var $146=$id_label; //@line 218 "../../../src/sdl/menu.c"
+ var $147=$menu; //@line 218 "../../../src/sdl/menu.c"
+ var $148=(($147+4)|0); //@line 218 "../../../src/sdl/menu.c"
+ var $149=(($148+($146<<2))|0); //@line 218 "../../../src/sdl/menu.c"
+ HEAP32[(($149)>>2)]=$145; //@line 218 "../../../src/sdl/menu.c"
+ var $150=$id_label; //@line 219 "../../../src/sdl/menu.c"
+ var $151=$menu; //@line 219 "../../../src/sdl/menu.c"
+ var $152=(($151+4)|0); //@line 219 "../../../src/sdl/menu.c"
+ var $153=(($152+($150<<2))|0); //@line 219 "../../../src/sdl/menu.c"
+ var $154=HEAP32[(($153)>>2)]; //@line 219 "../../../src/sdl/menu.c"
+ var $155=(($154+28)|0); //@line 219 "../../../src/sdl/menu.c"
+ HEAP8[($155)]=0; //@line 219 "../../../src/sdl/menu.c"
+ var $156=$id_label; //@line 220 "../../../src/sdl/menu.c"
+ var $157=$menu; //@line 220 "../../../src/sdl/menu.c"
+ var $158=(($157+4)|0); //@line 220 "../../../src/sdl/menu.c"
+ var $159=(($158+($156<<2))|0); //@line 220 "../../../src/sdl/menu.c"
+ var $160=HEAP32[(($159)>>2)]; //@line 220 "../../../src/sdl/menu.c"
+ var $161=(($160+12)|0); //@line 220 "../../../src/sdl/menu.c"
+ var $162=HEAP32[(($161)>>2)]; //@line 220 "../../../src/sdl/menu.c"
+ var $163=((($162)+(50))|0); //@line 220 "../../../src/sdl/menu.c"
+ var $164=$x; //@line 220 "../../../src/sdl/menu.c"
+ var $165=((($164)+($163))|0); //@line 220 "../../../src/sdl/menu.c"
+ $x=$165; //@line 220 "../../../src/sdl/menu.c"
+ var $166=$id_label; //@line 221 "../../../src/sdl/menu.c"
+ var $167=((($166)+(1))|0); //@line 221 "../../../src/sdl/menu.c"
+ $id_label=$167; //@line 221 "../../../src/sdl/menu.c"
+ var $168=_creer_groupe_radio(1); //@line 227 "../../../src/sdl/menu.c"
+ $groupe_programme_j1=$168; //@line 227 "../../../src/sdl/menu.c"
+ var $169=$groupe_programme_j1; //@line 228 "../../../src/sdl/menu.c"
+ var $170=$x; //@line 228 "../../../src/sdl/menu.c"
+ var $171=((($170)+(100))|0); //@line 228 "../../../src/sdl/menu.c"
+ var $172=$y; //@line 228 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($169,3512,$171,$172); //@line 228 "../../../src/sdl/menu.c"
+ var $173=$groupe_programme_j1; //@line 230 "../../../src/sdl/menu.c"
+ var $174=(($173+16)|0); //@line 230 "../../../src/sdl/menu.c"
+ HEAP8[($174)]=0; //@line 230 "../../../src/sdl/menu.c"
+ var $175=$groupe_programme_j1; //@line 231 "../../../src/sdl/menu.c"
+ var $176=$id_groupe; //@line 231 "../../../src/sdl/menu.c"
+ var $177=((($176)+(1))|0); //@line 231 "../../../src/sdl/menu.c"
+ $id_groupe=$177; //@line 231 "../../../src/sdl/menu.c"
+ var $178=$menu; //@line 231 "../../../src/sdl/menu.c"
+ var $179=(($178+52)|0); //@line 231 "../../../src/sdl/menu.c"
+ var $180=(($179+($176<<2))|0); //@line 231 "../../../src/sdl/menu.c"
+ HEAP32[(($180)>>2)]=$175; //@line 231 "../../../src/sdl/menu.c"
+ var $181=$initx; //@line 233 "../../../src/sdl/menu.c"
+ $x=$181; //@line 233 "../../../src/sdl/menu.c"
+ var $182=$y; //@line 234 "../../../src/sdl/menu.c"
+ var $183=((($182)+(60))|0); //@line 234 "../../../src/sdl/menu.c"
+ $y=$183; //@line 234 "../../../src/sdl/menu.c"
+ var $184=$x; //@line 240 "../../../src/sdl/menu.c"
+ var $185=$y; //@line 240 "../../../src/sdl/menu.c"
+ var $186=_creer_label(3352,$184,$185,0,1); //@line 240 "../../../src/sdl/menu.c"
+ var $187=$id_label; //@line 240 "../../../src/sdl/menu.c"
+ var $188=$menu; //@line 240 "../../../src/sdl/menu.c"
+ var $189=(($188+4)|0); //@line 240 "../../../src/sdl/menu.c"
+ var $190=(($189+($187<<2))|0); //@line 240 "../../../src/sdl/menu.c"
+ HEAP32[(($190)>>2)]=$186; //@line 240 "../../../src/sdl/menu.c"
+ var $191=$id_label; //@line 241 "../../../src/sdl/menu.c"
+ var $192=$menu; //@line 241 "../../../src/sdl/menu.c"
+ var $193=(($192+4)|0); //@line 241 "../../../src/sdl/menu.c"
+ var $194=(($193+($191<<2))|0); //@line 241 "../../../src/sdl/menu.c"
+ var $195=HEAP32[(($194)>>2)]; //@line 241 "../../../src/sdl/menu.c"
+ var $196=(($195+12)|0); //@line 241 "../../../src/sdl/menu.c"
+ var $197=HEAP32[(($196)>>2)]; //@line 241 "../../../src/sdl/menu.c"
+ var $198=((($197)+(50))|0); //@line 241 "../../../src/sdl/menu.c"
+ var $199=$x; //@line 241 "../../../src/sdl/menu.c"
+ var $200=((($199)+($198))|0); //@line 241 "../../../src/sdl/menu.c"
+ $x=$200; //@line 241 "../../../src/sdl/menu.c"
+ var $201=$id_label; //@line 242 "../../../src/sdl/menu.c"
+ var $202=((($201)+(1))|0); //@line 242 "../../../src/sdl/menu.c"
+ $id_label=$202; //@line 242 "../../../src/sdl/menu.c"
+ var $203=_creer_groupe_radio(2); //@line 243 "../../../src/sdl/menu.c"
+ $groupe_type_j2=$203; //@line 243 "../../../src/sdl/menu.c"
+ var $204=$groupe_type_j2; //@line 244 "../../../src/sdl/menu.c"
+ var $205=$x; //@line 244 "../../../src/sdl/menu.c"
+ var $206=$y; //@line 244 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($204,672,$205,$206); //@line 244 "../../../src/sdl/menu.c"
+ var $207=$groupe_type_j2; //@line 245 "../../../src/sdl/menu.c"
+ var $208=$x; //@line 245 "../../../src/sdl/menu.c"
+ var $209=((($208)+(100))|0); //@line 245 "../../../src/sdl/menu.c"
+ var $210=$y; //@line 245 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($207,584,$209,$210); //@line 245 "../../../src/sdl/menu.c"
+ var $211=$groupe_type_j2; //@line 246 "../../../src/sdl/menu.c"
+ var $212=(($211+20)|0); //@line 246 "../../../src/sdl/menu.c"
+ HEAP32[(($212)>>2)]=116; //@line 246 "../../../src/sdl/menu.c"
+ var $213=$state; //@line 247 "../../../src/sdl/menu.c"
+ var $214=$213; //@line 247 "../../../src/sdl/menu.c"
+ var $215=$groupe_type_j2; //@line 247 "../../../src/sdl/menu.c"
+ var $216=(($215+24)|0); //@line 247 "../../../src/sdl/menu.c"
+ HEAP32[(($216)>>2)]=$214; //@line 247 "../../../src/sdl/menu.c"
+ var $217=$groupe_type_j2; //@line 248 "../../../src/sdl/menu.c"
+ var $218=$id_groupe; //@line 248 "../../../src/sdl/menu.c"
+ var $219=((($218)+(1))|0); //@line 248 "../../../src/sdl/menu.c"
+ $id_groupe=$219; //@line 248 "../../../src/sdl/menu.c"
+ var $220=$menu; //@line 248 "../../../src/sdl/menu.c"
+ var $221=(($220+52)|0); //@line 248 "../../../src/sdl/menu.c"
+ var $222=(($221+($218<<2))|0); //@line 248 "../../../src/sdl/menu.c"
+ HEAP32[(($222)>>2)]=$217; //@line 248 "../../../src/sdl/menu.c"
+ var $223=$initx; //@line 250 "../../../src/sdl/menu.c"
+ $x=$223; //@line 250 "../../../src/sdl/menu.c"
+ var $224=$y; //@line 251 "../../../src/sdl/menu.c"
+ var $225=((($224)+(30))|0); //@line 251 "../../../src/sdl/menu.c"
+ $y=$225; //@line 251 "../../../src/sdl/menu.c"
+ var $226=$x; //@line 252 "../../../src/sdl/menu.c"
+ var $227=$y; //@line 252 "../../../src/sdl/menu.c"
+ var $228=_creer_label(536,$226,$227,0,1); //@line 252 "../../../src/sdl/menu.c"
+ var $229=$id_label; //@line 252 "../../../src/sdl/menu.c"
+ var $230=((($229)+(1))|0); //@line 252 "../../../src/sdl/menu.c"
+ $id_label=$230; //@line 252 "../../../src/sdl/menu.c"
+ var $231=$menu; //@line 252 "../../../src/sdl/menu.c"
+ var $232=(($231+4)|0); //@line 252 "../../../src/sdl/menu.c"
+ var $233=(($232+($229<<2))|0); //@line 252 "../../../src/sdl/menu.c"
+ HEAP32[(($233)>>2)]=$228; //@line 252 "../../../src/sdl/menu.c"
+ _set_color(150,150,150); //@line 253 "../../../src/sdl/menu.c"
+ var $234=$x; //@line 254 "../../../src/sdl/menu.c"
+ var $235=((($234)+(80))|0); //@line 254 "../../../src/sdl/menu.c"
+ var $236=$y; //@line 254 "../../../src/sdl/menu.c"
+ var $237=_creer_textinput($235,$236,300,20,12); //@line 254 "../../../src/sdl/menu.c"
+ var $238=$id_textinput; //@line 254 "../../../src/sdl/menu.c"
+ var $239=$menu; //@line 254 "../../../src/sdl/menu.c"
+ var $240=(($239+72)|0); //@line 254 "../../../src/sdl/menu.c"
+ var $241=(($240+($238<<2))|0); //@line 254 "../../../src/sdl/menu.c"
+ HEAP32[(($241)>>2)]=$237; //@line 254 "../../../src/sdl/menu.c"
+ var $242=$id_textinput; //@line 255 "../../../src/sdl/menu.c"
+ var $243=((($242)+(1))|0); //@line 255 "../../../src/sdl/menu.c"
+ $id_textinput=$243; //@line 255 "../../../src/sdl/menu.c"
+ _set_color(255,255,255); //@line 256 "../../../src/sdl/menu.c"
+ var $244=$y; //@line 259 "../../../src/sdl/menu.c"
+ var $245=((($244)+(30))|0); //@line 259 "../../../src/sdl/menu.c"
+ $y=$245; //@line 259 "../../../src/sdl/menu.c"
+ var $246=$x; //@line 260 "../../../src/sdl/menu.c"
+ var $247=$y; //@line 260 "../../../src/sdl/menu.c"
+ var $248=_creer_label(448,$246,$247,0,1); //@line 260 "../../../src/sdl/menu.c"
+ var $249=$id_label; //@line 260 "../../../src/sdl/menu.c"
+ var $250=$menu; //@line 260 "../../../src/sdl/menu.c"
+ var $251=(($250+4)|0); //@line 260 "../../../src/sdl/menu.c"
+ var $252=(($251+($249<<2))|0); //@line 260 "../../../src/sdl/menu.c"
+ HEAP32[(($252)>>2)]=$248; //@line 260 "../../../src/sdl/menu.c"
+ var $253=$id_label; //@line 261 "../../../src/sdl/menu.c"
+ var $254=$menu; //@line 261 "../../../src/sdl/menu.c"
+ var $255=(($254+4)|0); //@line 261 "../../../src/sdl/menu.c"
+ var $256=(($255+($253<<2))|0); //@line 261 "../../../src/sdl/menu.c"
+ var $257=HEAP32[(($256)>>2)]; //@line 261 "../../../src/sdl/menu.c"
+ var $258=(($257+28)|0); //@line 261 "../../../src/sdl/menu.c"
+ HEAP8[($258)]=0; //@line 261 "../../../src/sdl/menu.c"
+ var $259=$id_label; //@line 262 "../../../src/sdl/menu.c"
+ var $260=$menu; //@line 262 "../../../src/sdl/menu.c"
+ var $261=(($260+4)|0); //@line 262 "../../../src/sdl/menu.c"
+ var $262=(($261+($259<<2))|0); //@line 262 "../../../src/sdl/menu.c"
+ var $263=HEAP32[(($262)>>2)]; //@line 262 "../../../src/sdl/menu.c"
+ var $264=(($263+12)|0); //@line 262 "../../../src/sdl/menu.c"
+ var $265=HEAP32[(($264)>>2)]; //@line 262 "../../../src/sdl/menu.c"
+ var $266=((($265)+(50))|0); //@line 262 "../../../src/sdl/menu.c"
+ var $267=$x; //@line 262 "../../../src/sdl/menu.c"
+ var $268=((($267)+($266))|0); //@line 262 "../../../src/sdl/menu.c"
+ $x=$268; //@line 262 "../../../src/sdl/menu.c"
+ var $269=$id_label; //@line 263 "../../../src/sdl/menu.c"
+ var $270=((($269)+(1))|0); //@line 263 "../../../src/sdl/menu.c"
+ $id_label=$270; //@line 263 "../../../src/sdl/menu.c"
+ var $271=_creer_groupe_radio(1); //@line 269 "../../../src/sdl/menu.c"
+ $groupe_programme_j2=$271; //@line 269 "../../../src/sdl/menu.c"
+ var $272=$groupe_programme_j2; //@line 270 "../../../src/sdl/menu.c"
+ var $273=$x; //@line 270 "../../../src/sdl/menu.c"
+ var $274=((($273)+(100))|0); //@line 270 "../../../src/sdl/menu.c"
+ var $275=$y; //@line 270 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($272,3512,$274,$275); //@line 270 "../../../src/sdl/menu.c"
+ var $276=$groupe_programme_j2; //@line 272 "../../../src/sdl/menu.c"
+ var $277=(($276+16)|0); //@line 272 "../../../src/sdl/menu.c"
+ HEAP8[($277)]=0; //@line 272 "../../../src/sdl/menu.c"
+ var $278=$groupe_programme_j2; //@line 273 "../../../src/sdl/menu.c"
+ var $279=$id_groupe; //@line 273 "../../../src/sdl/menu.c"
+ var $280=((($279)+(1))|0); //@line 273 "../../../src/sdl/menu.c"
+ $id_groupe=$280; //@line 273 "../../../src/sdl/menu.c"
+ var $281=$menu; //@line 273 "../../../src/sdl/menu.c"
+ var $282=(($281+52)|0); //@line 273 "../../../src/sdl/menu.c"
+ var $283=(($282+($279<<2))|0); //@line 273 "../../../src/sdl/menu.c"
+ HEAP32[(($283)>>2)]=$278; //@line 273 "../../../src/sdl/menu.c"
+ var $284=$initx; //@line 275 "../../../src/sdl/menu.c"
+ $x=$284; //@line 275 "../../../src/sdl/menu.c"
+ var $285=$y; //@line 276 "../../../src/sdl/menu.c"
+ var $286=((($285)+(60))|0); //@line 276 "../../../src/sdl/menu.c"
+ $y=$286; //@line 276 "../../../src/sdl/menu.c"
+ var $287=$x; //@line 279 "../../../src/sdl/menu.c"
+ var $288=$y; //@line 279 "../../../src/sdl/menu.c"
+ var $289=_creer_label(3144,$287,$288,0,1); //@line 279 "../../../src/sdl/menu.c"
+ var $290=$id_label; //@line 279 "../../../src/sdl/menu.c"
+ var $291=$menu; //@line 279 "../../../src/sdl/menu.c"
+ var $292=(($291+4)|0); //@line 279 "../../../src/sdl/menu.c"
+ var $293=(($292+($290<<2))|0); //@line 279 "../../../src/sdl/menu.c"
+ HEAP32[(($293)>>2)]=$289; //@line 279 "../../../src/sdl/menu.c"
+ var $294=$id_label; //@line 280 "../../../src/sdl/menu.c"
+ var $295=$menu; //@line 280 "../../../src/sdl/menu.c"
+ var $296=(($295+4)|0); //@line 280 "../../../src/sdl/menu.c"
+ var $297=(($296+($294<<2))|0); //@line 280 "../../../src/sdl/menu.c"
+ var $298=HEAP32[(($297)>>2)]; //@line 280 "../../../src/sdl/menu.c"
+ var $299=(($298+12)|0); //@line 280 "../../../src/sdl/menu.c"
+ var $300=HEAP32[(($299)>>2)]; //@line 280 "../../../src/sdl/menu.c"
+ var $301=((($300)+(50))|0); //@line 280 "../../../src/sdl/menu.c"
+ var $302=$x; //@line 280 "../../../src/sdl/menu.c"
+ var $303=((($302)+($301))|0); //@line 280 "../../../src/sdl/menu.c"
+ $x=$303; //@line 280 "../../../src/sdl/menu.c"
+ var $304=$id_label; //@line 281 "../../../src/sdl/menu.c"
+ var $305=((($304)+(1))|0); //@line 281 "../../../src/sdl/menu.c"
+ $id_label=$305; //@line 281 "../../../src/sdl/menu.c"
+ var $306=_creer_groupe_radio(3); //@line 282 "../../../src/sdl/menu.c"
+ $groupe_taille=$306; //@line 282 "../../../src/sdl/menu.c"
+ var $307=$groupe_taille; //@line 283 "../../../src/sdl/menu.c"
+ var $308=$x; //@line 283 "../../../src/sdl/menu.c"
+ var $309=$y; //@line 283 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($307,3120,$308,$309); //@line 283 "../../../src/sdl/menu.c"
+ var $310=$groupe_taille; //@line 284 "../../../src/sdl/menu.c"
+ var $311=$x; //@line 284 "../../../src/sdl/menu.c"
+ var $312=((($311)+(100))|0); //@line 284 "../../../src/sdl/menu.c"
+ var $313=$y; //@line 284 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($310,3064,$312,$313); //@line 284 "../../../src/sdl/menu.c"
+ var $314=$groupe_taille; //@line 285 "../../../src/sdl/menu.c"
+ var $315=$x; //@line 285 "../../../src/sdl/menu.c"
+ var $316=((($315)+(200))|0); //@line 285 "../../../src/sdl/menu.c"
+ var $317=$y; //@line 285 "../../../src/sdl/menu.c"
+ _groupe_radio_ajouter($314,2992,$316,$317); //@line 285 "../../../src/sdl/menu.c"
+ var $318=$groupe_taille; //@line 286 "../../../src/sdl/menu.c"
+ var $319=$id_groupe; //@line 286 "../../../src/sdl/menu.c"
+ var $320=((($319)+(1))|0); //@line 286 "../../../src/sdl/menu.c"
+ $id_groupe=$320; //@line 286 "../../../src/sdl/menu.c"
+ var $321=$menu; //@line 286 "../../../src/sdl/menu.c"
+ var $322=(($321+52)|0); //@line 286 "../../../src/sdl/menu.c"
+ var $323=(($322+($319<<2))|0); //@line 286 "../../../src/sdl/menu.c"
+ HEAP32[(($323)>>2)]=$318; //@line 286 "../../../src/sdl/menu.c"
+ var $324=$initx; //@line 288 "../../../src/sdl/menu.c"
+ $x=$324; //@line 288 "../../../src/sdl/menu.c"
+ var $325=$y; //@line 289 "../../../src/sdl/menu.c"
+ var $326=((($325)+(30))|0); //@line 289 "../../../src/sdl/menu.c"
+ $y=$326; //@line 289 "../../../src/sdl/menu.c"
+ var $327=$x; //@line 292 "../../../src/sdl/menu.c"
+ var $328=$y; //@line 292 "../../../src/sdl/menu.c"
+ var $329=_creer_label(2904,$327,$328,0,1); //@line 292 "../../../src/sdl/menu.c"
+ var $330=$id_label; //@line 292 "../../../src/sdl/menu.c"
+ var $331=$menu; //@line 292 "../../../src/sdl/menu.c"
+ var $332=(($331+4)|0); //@line 292 "../../../src/sdl/menu.c"
+ var $333=(($332+($330<<2))|0); //@line 292 "../../../src/sdl/menu.c"
+ HEAP32[(($333)>>2)]=$329; //@line 292 "../../../src/sdl/menu.c"
+ var $334=$id_label; //@line 293 "../../../src/sdl/menu.c"
+ var $335=$menu; //@line 293 "../../../src/sdl/menu.c"
+ var $336=(($335+4)|0); //@line 293 "../../../src/sdl/menu.c"
+ var $337=(($336+($334<<2))|0); //@line 293 "../../../src/sdl/menu.c"
+ var $338=HEAP32[(($337)>>2)]; //@line 293 "../../../src/sdl/menu.c"
+ var $339=(($338+12)|0); //@line 293 "../../../src/sdl/menu.c"
+ var $340=HEAP32[(($339)>>2)]; //@line 293 "../../../src/sdl/menu.c"
+ var $341=((($340)+(20))|0); //@line 293 "../../../src/sdl/menu.c"
+ var $342=$x; //@line 293 "../../../src/sdl/menu.c"
+ var $343=((($342)+($341))|0); //@line 293 "../../../src/sdl/menu.c"
+ $x=$343; //@line 293 "../../../src/sdl/menu.c"
+ var $344=$id_label; //@line 294 "../../../src/sdl/menu.c"
+ var $345=((($344)+(1))|0); //@line 294 "../../../src/sdl/menu.c"
+ $id_label=$345; //@line 294 "../../../src/sdl/menu.c"
+ _set_color(150,150,150); //@line 295 "../../../src/sdl/menu.c"
+ var $346=$x; //@line 296 "../../../src/sdl/menu.c"
+ var $347=$y; //@line 296 "../../../src/sdl/menu.c"
+ var $348=_creer_textinput($346,$347,60,20,3); //@line 296 "../../../src/sdl/menu.c"
+ var $349=$id_textinput; //@line 296 "../../../src/sdl/menu.c"
+ var $350=$menu; //@line 296 "../../../src/sdl/menu.c"
+ var $351=(($350+72)|0); //@line 296 "../../../src/sdl/menu.c"
+ var $352=(($351+($349<<2))|0); //@line 296 "../../../src/sdl/menu.c"
+ HEAP32[(($352)>>2)]=$348; //@line 296 "../../../src/sdl/menu.c"
+ var $353=$id_textinput; //@line 297 "../../../src/sdl/menu.c"
+ var $354=((($353)+(1))|0); //@line 297 "../../../src/sdl/menu.c"
+ $id_textinput=$354; //@line 297 "../../../src/sdl/menu.c"
+ var $355=$id_label; //@line 299 "../../../src/sdl/menu.c"
+ var $356=($355|0)==8; //@line 299 "../../../src/sdl/menu.c"
+  //@line 299 "../../../src/sdl/menu.c"
+ if ($356) {
+  var $360=0;
  } else {
-  ___assert_fail(1000,968,288,1488); //@line 288 "../../../src/sdl/menu.c"
-  throw "Reached an unreachable!"; //@line 288 "../../../src/sdl/menu.c"
-   //@line 288 "../../../src/sdl/menu.c"
+  ___assert_fail(2848,2752,299,3704); //@line 299 "../../../src/sdl/menu.c"
+  throw "Reached an unreachable!"; //@line 299 "../../../src/sdl/menu.c"
+   //@line 299 "../../../src/sdl/menu.c"
  }
- var $347;
- var $348=($347&1); //@line 288 "../../../src/sdl/menu.c"
- var $349=$id_bouton; //@line 289 "../../../src/sdl/menu.c"
- var $350=($349|0)==3; //@line 289 "../../../src/sdl/menu.c"
-  //@line 289 "../../../src/sdl/menu.c"
- if ($350) {
-  var $354=1;
+ var $360;
+ var $361=($360&1); //@line 299 "../../../src/sdl/menu.c"
+ var $362=$id_bouton; //@line 300 "../../../src/sdl/menu.c"
+ var $363=($362|0)==4; //@line 300 "../../../src/sdl/menu.c"
+  //@line 300 "../../../src/sdl/menu.c"
+ if ($363) {
+  var $367=1;
  } else {
-  ___assert_fail(896,968,289,1488); //@line 289 "../../../src/sdl/menu.c"
-  throw "Reached an unreachable!"; //@line 289 "../../../src/sdl/menu.c"
-   //@line 289 "../../../src/sdl/menu.c"
+  ___assert_fail(2672,2752,300,3704); //@line 300 "../../../src/sdl/menu.c"
+  throw "Reached an unreachable!"; //@line 300 "../../../src/sdl/menu.c"
+   //@line 300 "../../../src/sdl/menu.c"
  }
- var $354;
- var $355=($354&1); //@line 289 "../../../src/sdl/menu.c"
- var $356=$id_groupe; //@line 290 "../../../src/sdl/menu.c"
- var $357=($356|0)==5; //@line 290 "../../../src/sdl/menu.c"
-  //@line 290 "../../../src/sdl/menu.c"
- if ($357) {
-  var $361=1;
+ var $367;
+ var $368=($367&1); //@line 300 "../../../src/sdl/menu.c"
+ var $369=$id_groupe; //@line 301 "../../../src/sdl/menu.c"
+ var $370=($369|0)==5; //@line 301 "../../../src/sdl/menu.c"
+  //@line 301 "../../../src/sdl/menu.c"
+ if ($370) {
+  var $374=1;
  } else {
-  ___assert_fail(808,968,290,1488); //@line 290 "../../../src/sdl/menu.c"
-  throw "Reached an unreachable!"; //@line 290 "../../../src/sdl/menu.c"
-   //@line 290 "../../../src/sdl/menu.c"
+  ___assert_fail(2584,2752,301,3704); //@line 301 "../../../src/sdl/menu.c"
+  throw "Reached an unreachable!"; //@line 301 "../../../src/sdl/menu.c"
+   //@line 301 "../../../src/sdl/menu.c"
  }
- var $361;
- var $362=($361&1); //@line 290 "../../../src/sdl/menu.c"
- var $363=$id_textinput; //@line 291 "../../../src/sdl/menu.c"
- var $364=($363|0)==3; //@line 291 "../../../src/sdl/menu.c"
-  //@line 291 "../../../src/sdl/menu.c"
- if ($364) {
-  var $368=1;
-  var $368;
-  var $369=($368&1); //@line 291 "../../../src/sdl/menu.c"
-  var $370=$state; //@line 292 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return $370; //@line 292 "../../../src/sdl/menu.c"
+ var $374;
+ var $375=($374&1); //@line 301 "../../../src/sdl/menu.c"
+ var $376=$id_textinput; //@line 302 "../../../src/sdl/menu.c"
+ var $377=($376|0)==3; //@line 302 "../../../src/sdl/menu.c"
+  //@line 302 "../../../src/sdl/menu.c"
+ if ($377) {
+  var $381=1;
+  var $381;
+  var $382=($381&1); //@line 302 "../../../src/sdl/menu.c"
+  var $383=$state; //@line 303 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return $383; //@line 303 "../../../src/sdl/menu.c"
  }
- ___assert_fail(736,968,291,1488); //@line 291 "../../../src/sdl/menu.c"
- throw "Reached an unreachable!"; //@line 291 "../../../src/sdl/menu.c"
-  //@line 291 "../../../src/sdl/menu.c"
- var $368;
- var $369=($368&1); //@line 291 "../../../src/sdl/menu.c"
- var $370=$state; //@line 292 "../../../src/sdl/menu.c"
- STACKTOP=sp;return $370; //@line 292 "../../../src/sdl/menu.c"
+ ___assert_fail(2424,2752,302,3704); //@line 302 "../../../src/sdl/menu.c"
+ throw "Reached an unreachable!"; //@line 302 "../../../src/sdl/menu.c"
+  //@line 302 "../../../src/sdl/menu.c"
+ var $381;
+ var $382=($381&1); //@line 302 "../../../src/sdl/menu.c"
+ var $383=$state; //@line 303 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return $383; //@line 303 "../../../src/sdl/menu.c"
 }
 
 
@@ -9710,116 +10849,116 @@ function _afficher_menu($state,$surface){
  var $ti;
  $1=$state;
  $2=$surface;
- var $3=$1; //@line 321 "../../../src/sdl/menu.c"
- var $4=(($3+28)|0); //@line 321 "../../../src/sdl/menu.c"
- var $5=HEAP32[(($4)>>2)]; //@line 321 "../../../src/sdl/menu.c"
- var $6=$5; //@line 321 "../../../src/sdl/menu.c"
- $menu=$6; //@line 321 "../../../src/sdl/menu.c"
- var $7=$2; //@line 322 "../../../src/sdl/menu.c"
- var $8=$menu; //@line 322 "../../../src/sdl/menu.c"
- var $9=(($8)|0); //@line 322 "../../../src/sdl/menu.c"
- var $10=HEAP32[(($9)>>2)]; //@line 322 "../../../src/sdl/menu.c"
- _afficher_label($7,$10); //@line 322 "../../../src/sdl/menu.c"
- _set_color(50,50,50); //@line 323 "../../../src/sdl/menu.c"
- var $11=$2; //@line 324 "../../../src/sdl/menu.c"
- _draw_rect($11,120,136,560,408); //@line 324 "../../../src/sdl/menu.c"
- $i=0; //@line 325 "../../../src/sdl/menu.c"
-  //@line 325 "../../../src/sdl/menu.c"
+ var $3=$1; //@line 332 "../../../src/sdl/menu.c"
+ var $4=(($3+28)|0); //@line 332 "../../../src/sdl/menu.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 332 "../../../src/sdl/menu.c"
+ var $6=$5; //@line 332 "../../../src/sdl/menu.c"
+ $menu=$6; //@line 332 "../../../src/sdl/menu.c"
+ var $7=$2; //@line 333 "../../../src/sdl/menu.c"
+ var $8=$menu; //@line 333 "../../../src/sdl/menu.c"
+ var $9=(($8)|0); //@line 333 "../../../src/sdl/menu.c"
+ var $10=HEAP32[(($9)>>2)]; //@line 333 "../../../src/sdl/menu.c"
+ _afficher_label($7,$10); //@line 333 "../../../src/sdl/menu.c"
+ _set_color(50,50,50); //@line 334 "../../../src/sdl/menu.c"
+ var $11=$2; //@line 335 "../../../src/sdl/menu.c"
+ _draw_rect($11,120,136,560,408); //@line 335 "../../../src/sdl/menu.c"
+ $i=0; //@line 336 "../../../src/sdl/menu.c"
+  //@line 336 "../../../src/sdl/menu.c"
  while(1) {
-  var $13=$i; //@line 325 "../../../src/sdl/menu.c"
-  var $14=($13|0)<8; //@line 325 "../../../src/sdl/menu.c"
-   //@line 325 "../../../src/sdl/menu.c"
+  var $13=$i; //@line 336 "../../../src/sdl/menu.c"
+  var $14=($13|0)<8; //@line 336 "../../../src/sdl/menu.c"
+   //@line 336 "../../../src/sdl/menu.c"
   if (!($14)) {
    break;
   }
-  var $16=$i; //@line 326 "../../../src/sdl/menu.c"
-  var $17=$menu; //@line 326 "../../../src/sdl/menu.c"
-  var $18=(($17+4)|0); //@line 326 "../../../src/sdl/menu.c"
-  var $19=(($18+($16<<2))|0); //@line 326 "../../../src/sdl/menu.c"
-  var $20=HEAP32[(($19)>>2)]; //@line 326 "../../../src/sdl/menu.c"
-  $l=$20; //@line 326 "../../../src/sdl/menu.c"
-  var $21=$2; //@line 327 "../../../src/sdl/menu.c"
-  var $22=$l; //@line 327 "../../../src/sdl/menu.c"
-  _afficher_label($21,$22); //@line 327 "../../../src/sdl/menu.c"
-   //@line 328 "../../../src/sdl/menu.c"
-  var $24=$i; //@line 325 "../../../src/sdl/menu.c"
-  var $25=((($24)+(1))|0); //@line 325 "../../../src/sdl/menu.c"
-  $i=$25; //@line 325 "../../../src/sdl/menu.c"
-   //@line 325 "../../../src/sdl/menu.c"
+  var $16=$i; //@line 337 "../../../src/sdl/menu.c"
+  var $17=$menu; //@line 337 "../../../src/sdl/menu.c"
+  var $18=(($17+4)|0); //@line 337 "../../../src/sdl/menu.c"
+  var $19=(($18+($16<<2))|0); //@line 337 "../../../src/sdl/menu.c"
+  var $20=HEAP32[(($19)>>2)]; //@line 337 "../../../src/sdl/menu.c"
+  $l=$20; //@line 337 "../../../src/sdl/menu.c"
+  var $21=$2; //@line 338 "../../../src/sdl/menu.c"
+  var $22=$l; //@line 338 "../../../src/sdl/menu.c"
+  _afficher_label($21,$22); //@line 338 "../../../src/sdl/menu.c"
+   //@line 339 "../../../src/sdl/menu.c"
+  var $24=$i; //@line 336 "../../../src/sdl/menu.c"
+  var $25=((($24)+(1))|0); //@line 336 "../../../src/sdl/menu.c"
+  $i=$25; //@line 336 "../../../src/sdl/menu.c"
+   //@line 336 "../../../src/sdl/menu.c"
  }
- $i1=0; //@line 329 "../../../src/sdl/menu.c"
-  //@line 329 "../../../src/sdl/menu.c"
+ $i1=0; //@line 340 "../../../src/sdl/menu.c"
+  //@line 340 "../../../src/sdl/menu.c"
  while(1) {
-  var $28=$i1; //@line 329 "../../../src/sdl/menu.c"
-  var $29=($28|0)<3; //@line 329 "../../../src/sdl/menu.c"
-   //@line 329 "../../../src/sdl/menu.c"
+  var $28=$i1; //@line 340 "../../../src/sdl/menu.c"
+  var $29=($28|0)<4; //@line 340 "../../../src/sdl/menu.c"
+   //@line 340 "../../../src/sdl/menu.c"
   if (!($29)) {
    break;
   }
-  var $31=$i1; //@line 330 "../../../src/sdl/menu.c"
-  var $32=$menu; //@line 330 "../../../src/sdl/menu.c"
-  var $33=(($32+36)|0); //@line 330 "../../../src/sdl/menu.c"
-  var $34=(($33+($31<<2))|0); //@line 330 "../../../src/sdl/menu.c"
-  var $35=HEAP32[(($34)>>2)]; //@line 330 "../../../src/sdl/menu.c"
-  $b=$35; //@line 330 "../../../src/sdl/menu.c"
-  var $36=$2; //@line 331 "../../../src/sdl/menu.c"
-  var $37=$b; //@line 331 "../../../src/sdl/menu.c"
-  _afficher_bouton($36,$37); //@line 331 "../../../src/sdl/menu.c"
-   //@line 332 "../../../src/sdl/menu.c"
-  var $39=$i1; //@line 329 "../../../src/sdl/menu.c"
-  var $40=((($39)+(1))|0); //@line 329 "../../../src/sdl/menu.c"
-  $i1=$40; //@line 329 "../../../src/sdl/menu.c"
-   //@line 329 "../../../src/sdl/menu.c"
+  var $31=$i1; //@line 341 "../../../src/sdl/menu.c"
+  var $32=$menu; //@line 341 "../../../src/sdl/menu.c"
+  var $33=(($32+36)|0); //@line 341 "../../../src/sdl/menu.c"
+  var $34=(($33+($31<<2))|0); //@line 341 "../../../src/sdl/menu.c"
+  var $35=HEAP32[(($34)>>2)]; //@line 341 "../../../src/sdl/menu.c"
+  $b=$35; //@line 341 "../../../src/sdl/menu.c"
+  var $36=$2; //@line 342 "../../../src/sdl/menu.c"
+  var $37=$b; //@line 342 "../../../src/sdl/menu.c"
+  _afficher_bouton($36,$37); //@line 342 "../../../src/sdl/menu.c"
+   //@line 343 "../../../src/sdl/menu.c"
+  var $39=$i1; //@line 340 "../../../src/sdl/menu.c"
+  var $40=((($39)+(1))|0); //@line 340 "../../../src/sdl/menu.c"
+  $i1=$40; //@line 340 "../../../src/sdl/menu.c"
+   //@line 340 "../../../src/sdl/menu.c"
  }
- $i2=0; //@line 333 "../../../src/sdl/menu.c"
-  //@line 333 "../../../src/sdl/menu.c"
+ $i2=0; //@line 344 "../../../src/sdl/menu.c"
+  //@line 344 "../../../src/sdl/menu.c"
  while(1) {
-  var $43=$i2; //@line 333 "../../../src/sdl/menu.c"
-  var $44=($43|0)<5; //@line 333 "../../../src/sdl/menu.c"
-   //@line 333 "../../../src/sdl/menu.c"
+  var $43=$i2; //@line 344 "../../../src/sdl/menu.c"
+  var $44=($43|0)<5; //@line 344 "../../../src/sdl/menu.c"
+   //@line 344 "../../../src/sdl/menu.c"
   if (!($44)) {
    break;
   }
-  var $46=$i2; //@line 334 "../../../src/sdl/menu.c"
-  var $47=$menu; //@line 334 "../../../src/sdl/menu.c"
-  var $48=(($47+48)|0); //@line 334 "../../../src/sdl/menu.c"
-  var $49=(($48+($46<<2))|0); //@line 334 "../../../src/sdl/menu.c"
-  var $50=HEAP32[(($49)>>2)]; //@line 334 "../../../src/sdl/menu.c"
-  $g=$50; //@line 334 "../../../src/sdl/menu.c"
-  var $51=$2; //@line 335 "../../../src/sdl/menu.c"
-  var $52=$g; //@line 335 "../../../src/sdl/menu.c"
-  _afficher_groupe_radio($51,$52); //@line 335 "../../../src/sdl/menu.c"
-   //@line 336 "../../../src/sdl/menu.c"
-  var $54=$i2; //@line 333 "../../../src/sdl/menu.c"
-  var $55=((($54)+(1))|0); //@line 333 "../../../src/sdl/menu.c"
-  $i2=$55; //@line 333 "../../../src/sdl/menu.c"
-   //@line 333 "../../../src/sdl/menu.c"
+  var $46=$i2; //@line 345 "../../../src/sdl/menu.c"
+  var $47=$menu; //@line 345 "../../../src/sdl/menu.c"
+  var $48=(($47+52)|0); //@line 345 "../../../src/sdl/menu.c"
+  var $49=(($48+($46<<2))|0); //@line 345 "../../../src/sdl/menu.c"
+  var $50=HEAP32[(($49)>>2)]; //@line 345 "../../../src/sdl/menu.c"
+  $g=$50; //@line 345 "../../../src/sdl/menu.c"
+  var $51=$2; //@line 346 "../../../src/sdl/menu.c"
+  var $52=$g; //@line 346 "../../../src/sdl/menu.c"
+  _afficher_groupe_radio($51,$52); //@line 346 "../../../src/sdl/menu.c"
+   //@line 347 "../../../src/sdl/menu.c"
+  var $54=$i2; //@line 344 "../../../src/sdl/menu.c"
+  var $55=((($54)+(1))|0); //@line 344 "../../../src/sdl/menu.c"
+  $i2=$55; //@line 344 "../../../src/sdl/menu.c"
+   //@line 344 "../../../src/sdl/menu.c"
  }
- $i3=0; //@line 337 "../../../src/sdl/menu.c"
-  //@line 337 "../../../src/sdl/menu.c"
+ $i3=0; //@line 348 "../../../src/sdl/menu.c"
+  //@line 348 "../../../src/sdl/menu.c"
  while(1) {
-  var $58=$i3; //@line 337 "../../../src/sdl/menu.c"
-  var $59=($58|0)<3; //@line 337 "../../../src/sdl/menu.c"
-   //@line 337 "../../../src/sdl/menu.c"
+  var $58=$i3; //@line 348 "../../../src/sdl/menu.c"
+  var $59=($58|0)<3; //@line 348 "../../../src/sdl/menu.c"
+   //@line 348 "../../../src/sdl/menu.c"
   if (!($59)) {
    break;
   }
-  var $61=$i3; //@line 338 "../../../src/sdl/menu.c"
-  var $62=$menu; //@line 338 "../../../src/sdl/menu.c"
-  var $63=(($62+68)|0); //@line 338 "../../../src/sdl/menu.c"
-  var $64=(($63+($61<<2))|0); //@line 338 "../../../src/sdl/menu.c"
-  var $65=HEAP32[(($64)>>2)]; //@line 338 "../../../src/sdl/menu.c"
-  $ti=$65; //@line 338 "../../../src/sdl/menu.c"
-  var $66=$2; //@line 339 "../../../src/sdl/menu.c"
-  var $67=$ti; //@line 339 "../../../src/sdl/menu.c"
-  _afficher_textinput($66,$67); //@line 339 "../../../src/sdl/menu.c"
-   //@line 340 "../../../src/sdl/menu.c"
-  var $69=$i3; //@line 337 "../../../src/sdl/menu.c"
-  var $70=((($69)+(1))|0); //@line 337 "../../../src/sdl/menu.c"
-  $i3=$70; //@line 337 "../../../src/sdl/menu.c"
-   //@line 337 "../../../src/sdl/menu.c"
+  var $61=$i3; //@line 349 "../../../src/sdl/menu.c"
+  var $62=$menu; //@line 349 "../../../src/sdl/menu.c"
+  var $63=(($62+72)|0); //@line 349 "../../../src/sdl/menu.c"
+  var $64=(($63+($61<<2))|0); //@line 349 "../../../src/sdl/menu.c"
+  var $65=HEAP32[(($64)>>2)]; //@line 349 "../../../src/sdl/menu.c"
+  $ti=$65; //@line 349 "../../../src/sdl/menu.c"
+  var $66=$2; //@line 350 "../../../src/sdl/menu.c"
+  var $67=$ti; //@line 350 "../../../src/sdl/menu.c"
+  _afficher_textinput($66,$67); //@line 350 "../../../src/sdl/menu.c"
+   //@line 351 "../../../src/sdl/menu.c"
+  var $69=$i3; //@line 348 "../../../src/sdl/menu.c"
+  var $70=((($69)+(1))|0); //@line 348 "../../../src/sdl/menu.c"
+  $i3=$70; //@line 348 "../../../src/sdl/menu.c"
+   //@line 348 "../../../src/sdl/menu.c"
  }
- STACKTOP=sp;return; //@line 341 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 352 "../../../src/sdl/menu.c"
 }
 
 
@@ -9836,81 +10975,81 @@ function _event_menu($state,$event){
  var $i2;
  var $ti;
  $1=$state;
- var $2=$1; //@line 345 "../../../src/sdl/menu.c"
- var $3=(($2+28)|0); //@line 345 "../../../src/sdl/menu.c"
- var $4=HEAP32[(($3)>>2)]; //@line 345 "../../../src/sdl/menu.c"
- var $5=$4; //@line 345 "../../../src/sdl/menu.c"
- $menu=$5; //@line 345 "../../../src/sdl/menu.c"
- $i=0; //@line 346 "../../../src/sdl/menu.c"
-  //@line 346 "../../../src/sdl/menu.c"
+ var $2=$1; //@line 356 "../../../src/sdl/menu.c"
+ var $3=(($2+28)|0); //@line 356 "../../../src/sdl/menu.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 356 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 356 "../../../src/sdl/menu.c"
+ $menu=$5; //@line 356 "../../../src/sdl/menu.c"
+ $i=0; //@line 357 "../../../src/sdl/menu.c"
+  //@line 357 "../../../src/sdl/menu.c"
  while(1) {
-  var $7=$i; //@line 346 "../../../src/sdl/menu.c"
-  var $8=($7|0)<3; //@line 346 "../../../src/sdl/menu.c"
-   //@line 346 "../../../src/sdl/menu.c"
+  var $7=$i; //@line 357 "../../../src/sdl/menu.c"
+  var $8=($7|0)<4; //@line 357 "../../../src/sdl/menu.c"
+   //@line 357 "../../../src/sdl/menu.c"
   if (!($8)) {
    break;
   }
-  var $10=$i; //@line 347 "../../../src/sdl/menu.c"
-  var $11=$menu; //@line 347 "../../../src/sdl/menu.c"
-  var $12=(($11+36)|0); //@line 347 "../../../src/sdl/menu.c"
-  var $13=(($12+($10<<2))|0); //@line 347 "../../../src/sdl/menu.c"
-  var $14=HEAP32[(($13)>>2)]; //@line 347 "../../../src/sdl/menu.c"
-  $b=$14; //@line 347 "../../../src/sdl/menu.c"
-  var $15=$b; //@line 348 "../../../src/sdl/menu.c"
-  _utiliser_event_bouton($15,$event); //@line 348 "../../../src/sdl/menu.c"
-   //@line 349 "../../../src/sdl/menu.c"
-  var $17=$i; //@line 346 "../../../src/sdl/menu.c"
-  var $18=((($17)+(1))|0); //@line 346 "../../../src/sdl/menu.c"
-  $i=$18; //@line 346 "../../../src/sdl/menu.c"
-   //@line 346 "../../../src/sdl/menu.c"
+  var $10=$i; //@line 358 "../../../src/sdl/menu.c"
+  var $11=$menu; //@line 358 "../../../src/sdl/menu.c"
+  var $12=(($11+36)|0); //@line 358 "../../../src/sdl/menu.c"
+  var $13=(($12+($10<<2))|0); //@line 358 "../../../src/sdl/menu.c"
+  var $14=HEAP32[(($13)>>2)]; //@line 358 "../../../src/sdl/menu.c"
+  $b=$14; //@line 358 "../../../src/sdl/menu.c"
+  var $15=$b; //@line 359 "../../../src/sdl/menu.c"
+  _utiliser_event_bouton($15,$event); //@line 359 "../../../src/sdl/menu.c"
+   //@line 360 "../../../src/sdl/menu.c"
+  var $17=$i; //@line 357 "../../../src/sdl/menu.c"
+  var $18=((($17)+(1))|0); //@line 357 "../../../src/sdl/menu.c"
+  $i=$18; //@line 357 "../../../src/sdl/menu.c"
+   //@line 357 "../../../src/sdl/menu.c"
  }
- $i1=0; //@line 350 "../../../src/sdl/menu.c"
-  //@line 350 "../../../src/sdl/menu.c"
+ $i1=0; //@line 361 "../../../src/sdl/menu.c"
+  //@line 361 "../../../src/sdl/menu.c"
  while(1) {
-  var $21=$i1; //@line 350 "../../../src/sdl/menu.c"
-  var $22=($21|0)<5; //@line 350 "../../../src/sdl/menu.c"
-   //@line 350 "../../../src/sdl/menu.c"
+  var $21=$i1; //@line 361 "../../../src/sdl/menu.c"
+  var $22=($21|0)<5; //@line 361 "../../../src/sdl/menu.c"
+   //@line 361 "../../../src/sdl/menu.c"
   if (!($22)) {
    break;
   }
-  var $24=$i1; //@line 351 "../../../src/sdl/menu.c"
-  var $25=$menu; //@line 351 "../../../src/sdl/menu.c"
-  var $26=(($25+48)|0); //@line 351 "../../../src/sdl/menu.c"
-  var $27=(($26+($24<<2))|0); //@line 351 "../../../src/sdl/menu.c"
-  var $28=HEAP32[(($27)>>2)]; //@line 351 "../../../src/sdl/menu.c"
-  $g=$28; //@line 351 "../../../src/sdl/menu.c"
-  var $29=$g; //@line 352 "../../../src/sdl/menu.c"
-  _utiliser_event_groupe_radio($29,$event); //@line 352 "../../../src/sdl/menu.c"
-   //@line 353 "../../../src/sdl/menu.c"
-  var $31=$i1; //@line 350 "../../../src/sdl/menu.c"
-  var $32=((($31)+(1))|0); //@line 350 "../../../src/sdl/menu.c"
-  $i1=$32; //@line 350 "../../../src/sdl/menu.c"
-   //@line 350 "../../../src/sdl/menu.c"
+  var $24=$i1; //@line 362 "../../../src/sdl/menu.c"
+  var $25=$menu; //@line 362 "../../../src/sdl/menu.c"
+  var $26=(($25+52)|0); //@line 362 "../../../src/sdl/menu.c"
+  var $27=(($26+($24<<2))|0); //@line 362 "../../../src/sdl/menu.c"
+  var $28=HEAP32[(($27)>>2)]; //@line 362 "../../../src/sdl/menu.c"
+  $g=$28; //@line 362 "../../../src/sdl/menu.c"
+  var $29=$g; //@line 363 "../../../src/sdl/menu.c"
+  _utiliser_event_groupe_radio($29,$event); //@line 363 "../../../src/sdl/menu.c"
+   //@line 364 "../../../src/sdl/menu.c"
+  var $31=$i1; //@line 361 "../../../src/sdl/menu.c"
+  var $32=((($31)+(1))|0); //@line 361 "../../../src/sdl/menu.c"
+  $i1=$32; //@line 361 "../../../src/sdl/menu.c"
+   //@line 361 "../../../src/sdl/menu.c"
  }
- $i2=0; //@line 354 "../../../src/sdl/menu.c"
-  //@line 354 "../../../src/sdl/menu.c"
+ $i2=0; //@line 365 "../../../src/sdl/menu.c"
+  //@line 365 "../../../src/sdl/menu.c"
  while(1) {
-  var $35=$i2; //@line 354 "../../../src/sdl/menu.c"
-  var $36=($35|0)<3; //@line 354 "../../../src/sdl/menu.c"
-   //@line 354 "../../../src/sdl/menu.c"
+  var $35=$i2; //@line 365 "../../../src/sdl/menu.c"
+  var $36=($35|0)<3; //@line 365 "../../../src/sdl/menu.c"
+   //@line 365 "../../../src/sdl/menu.c"
   if (!($36)) {
    break;
   }
-  var $38=$i2; //@line 355 "../../../src/sdl/menu.c"
-  var $39=$menu; //@line 355 "../../../src/sdl/menu.c"
-  var $40=(($39+68)|0); //@line 355 "../../../src/sdl/menu.c"
-  var $41=(($40+($38<<2))|0); //@line 355 "../../../src/sdl/menu.c"
-  var $42=HEAP32[(($41)>>2)]; //@line 355 "../../../src/sdl/menu.c"
-  $ti=$42; //@line 355 "../../../src/sdl/menu.c"
-  var $43=$ti; //@line 356 "../../../src/sdl/menu.c"
-  _utiliser_event_textinput($43,$event); //@line 356 "../../../src/sdl/menu.c"
-   //@line 357 "../../../src/sdl/menu.c"
-  var $45=$i2; //@line 354 "../../../src/sdl/menu.c"
-  var $46=((($45)+(1))|0); //@line 354 "../../../src/sdl/menu.c"
-  $i2=$46; //@line 354 "../../../src/sdl/menu.c"
-   //@line 354 "../../../src/sdl/menu.c"
+  var $38=$i2; //@line 366 "../../../src/sdl/menu.c"
+  var $39=$menu; //@line 366 "../../../src/sdl/menu.c"
+  var $40=(($39+72)|0); //@line 366 "../../../src/sdl/menu.c"
+  var $41=(($40+($38<<2))|0); //@line 366 "../../../src/sdl/menu.c"
+  var $42=HEAP32[(($41)>>2)]; //@line 366 "../../../src/sdl/menu.c"
+  $ti=$42; //@line 366 "../../../src/sdl/menu.c"
+  var $43=$ti; //@line 367 "../../../src/sdl/menu.c"
+  _utiliser_event_textinput($43,$event); //@line 367 "../../../src/sdl/menu.c"
+   //@line 368 "../../../src/sdl/menu.c"
+  var $45=$i2; //@line 365 "../../../src/sdl/menu.c"
+  var $46=((($45)+(1))|0); //@line 365 "../../../src/sdl/menu.c"
+  $i2=$46; //@line 365 "../../../src/sdl/menu.c"
+   //@line 365 "../../../src/sdl/menu.c"
  }
- STACKTOP=sp;return; //@line 358 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 369 "../../../src/sdl/menu.c"
 }
 
 
@@ -9926,60 +11065,60 @@ function _mise_a_jour_menu($state,$dt){
  var $ti;
  $1=$state;
  $2=$dt;
- var $3=$1; //@line 362 "../../../src/sdl/menu.c"
- var $4=(($3+28)|0); //@line 362 "../../../src/sdl/menu.c"
- var $5=HEAP32[(($4)>>2)]; //@line 362 "../../../src/sdl/menu.c"
- var $6=$5; //@line 362 "../../../src/sdl/menu.c"
- $menu=$6; //@line 362 "../../../src/sdl/menu.c"
- $i=0; //@line 363 "../../../src/sdl/menu.c"
-  //@line 363 "../../../src/sdl/menu.c"
+ var $3=$1; //@line 373 "../../../src/sdl/menu.c"
+ var $4=(($3+28)|0); //@line 373 "../../../src/sdl/menu.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 373 "../../../src/sdl/menu.c"
+ var $6=$5; //@line 373 "../../../src/sdl/menu.c"
+ $menu=$6; //@line 373 "../../../src/sdl/menu.c"
+ $i=0; //@line 374 "../../../src/sdl/menu.c"
+  //@line 374 "../../../src/sdl/menu.c"
  while(1) {
-  var $8=$i; //@line 363 "../../../src/sdl/menu.c"
-  var $9=($8|0)<3; //@line 363 "../../../src/sdl/menu.c"
-   //@line 363 "../../../src/sdl/menu.c"
+  var $8=$i; //@line 374 "../../../src/sdl/menu.c"
+  var $9=($8|0)<4; //@line 374 "../../../src/sdl/menu.c"
+   //@line 374 "../../../src/sdl/menu.c"
   if (!($9)) {
    break;
   }
-  var $11=$i; //@line 364 "../../../src/sdl/menu.c"
-  var $12=$menu; //@line 364 "../../../src/sdl/menu.c"
-  var $13=(($12+36)|0); //@line 364 "../../../src/sdl/menu.c"
-  var $14=(($13+($11<<2))|0); //@line 364 "../../../src/sdl/menu.c"
-  var $15=HEAP32[(($14)>>2)]; //@line 364 "../../../src/sdl/menu.c"
-  $b=$15; //@line 364 "../../../src/sdl/menu.c"
-  var $16=$b; //@line 365 "../../../src/sdl/menu.c"
-  var $17=$2; //@line 365 "../../../src/sdl/menu.c"
-  _mise_a_jour_bouton($16,$17); //@line 365 "../../../src/sdl/menu.c"
-   //@line 366 "../../../src/sdl/menu.c"
-  var $19=$i; //@line 363 "../../../src/sdl/menu.c"
-  var $20=((($19)+(1))|0); //@line 363 "../../../src/sdl/menu.c"
-  $i=$20; //@line 363 "../../../src/sdl/menu.c"
-   //@line 363 "../../../src/sdl/menu.c"
+  var $11=$i; //@line 375 "../../../src/sdl/menu.c"
+  var $12=$menu; //@line 375 "../../../src/sdl/menu.c"
+  var $13=(($12+36)|0); //@line 375 "../../../src/sdl/menu.c"
+  var $14=(($13+($11<<2))|0); //@line 375 "../../../src/sdl/menu.c"
+  var $15=HEAP32[(($14)>>2)]; //@line 375 "../../../src/sdl/menu.c"
+  $b=$15; //@line 375 "../../../src/sdl/menu.c"
+  var $16=$b; //@line 376 "../../../src/sdl/menu.c"
+  var $17=$2; //@line 376 "../../../src/sdl/menu.c"
+  _mise_a_jour_bouton($16,$17); //@line 376 "../../../src/sdl/menu.c"
+   //@line 377 "../../../src/sdl/menu.c"
+  var $19=$i; //@line 374 "../../../src/sdl/menu.c"
+  var $20=((($19)+(1))|0); //@line 374 "../../../src/sdl/menu.c"
+  $i=$20; //@line 374 "../../../src/sdl/menu.c"
+   //@line 374 "../../../src/sdl/menu.c"
  }
- $i1=0; //@line 367 "../../../src/sdl/menu.c"
-  //@line 367 "../../../src/sdl/menu.c"
+ $i1=0; //@line 378 "../../../src/sdl/menu.c"
+  //@line 378 "../../../src/sdl/menu.c"
  while(1) {
-  var $23=$i1; //@line 367 "../../../src/sdl/menu.c"
-  var $24=($23|0)<3; //@line 367 "../../../src/sdl/menu.c"
-   //@line 367 "../../../src/sdl/menu.c"
+  var $23=$i1; //@line 378 "../../../src/sdl/menu.c"
+  var $24=($23|0)<3; //@line 378 "../../../src/sdl/menu.c"
+   //@line 378 "../../../src/sdl/menu.c"
   if (!($24)) {
    break;
   }
-  var $26=$i1; //@line 368 "../../../src/sdl/menu.c"
-  var $27=$menu; //@line 368 "../../../src/sdl/menu.c"
-  var $28=(($27+68)|0); //@line 368 "../../../src/sdl/menu.c"
-  var $29=(($28+($26<<2))|0); //@line 368 "../../../src/sdl/menu.c"
-  var $30=HEAP32[(($29)>>2)]; //@line 368 "../../../src/sdl/menu.c"
-  $ti=$30; //@line 368 "../../../src/sdl/menu.c"
-  var $31=$ti; //@line 369 "../../../src/sdl/menu.c"
-  var $32=$2; //@line 369 "../../../src/sdl/menu.c"
-  _mise_a_jour_textinput($31,$32); //@line 369 "../../../src/sdl/menu.c"
-   //@line 370 "../../../src/sdl/menu.c"
-  var $34=$i1; //@line 367 "../../../src/sdl/menu.c"
-  var $35=((($34)+(1))|0); //@line 367 "../../../src/sdl/menu.c"
-  $i1=$35; //@line 367 "../../../src/sdl/menu.c"
-   //@line 367 "../../../src/sdl/menu.c"
+  var $26=$i1; //@line 379 "../../../src/sdl/menu.c"
+  var $27=$menu; //@line 379 "../../../src/sdl/menu.c"
+  var $28=(($27+72)|0); //@line 379 "../../../src/sdl/menu.c"
+  var $29=(($28+($26<<2))|0); //@line 379 "../../../src/sdl/menu.c"
+  var $30=HEAP32[(($29)>>2)]; //@line 379 "../../../src/sdl/menu.c"
+  $ti=$30; //@line 379 "../../../src/sdl/menu.c"
+  var $31=$ti; //@line 380 "../../../src/sdl/menu.c"
+  var $32=$2; //@line 380 "../../../src/sdl/menu.c"
+  _mise_a_jour_textinput($31,$32); //@line 380 "../../../src/sdl/menu.c"
+   //@line 381 "../../../src/sdl/menu.c"
+  var $34=$i1; //@line 378 "../../../src/sdl/menu.c"
+  var $35=((($34)+(1))|0); //@line 378 "../../../src/sdl/menu.c"
+  $i1=$35; //@line 378 "../../../src/sdl/menu.c"
+   //@line 378 "../../../src/sdl/menu.c"
  }
- STACKTOP=sp;return; //@line 371 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 382 "../../../src/sdl/menu.c"
 }
 
 
@@ -9997,114 +11136,114 @@ function _detruire_menu($state){
  var $i3;
  var $ti;
  $1=$state;
- var $2=$1; //@line 297 "../../../src/sdl/menu.c"
- var $3=(($2+28)|0); //@line 297 "../../../src/sdl/menu.c"
- var $4=HEAP32[(($3)>>2)]; //@line 297 "../../../src/sdl/menu.c"
- var $5=$4; //@line 297 "../../../src/sdl/menu.c"
- $menu=$5; //@line 297 "../../../src/sdl/menu.c"
- var $6=$menu; //@line 298 "../../../src/sdl/menu.c"
- var $7=(($6)|0); //@line 298 "../../../src/sdl/menu.c"
- var $8=HEAP32[(($7)>>2)]; //@line 298 "../../../src/sdl/menu.c"
- _detruire_label($8); //@line 298 "../../../src/sdl/menu.c"
- $i=0; //@line 299 "../../../src/sdl/menu.c"
-  //@line 299 "../../../src/sdl/menu.c"
+ var $2=$1; //@line 308 "../../../src/sdl/menu.c"
+ var $3=(($2+28)|0); //@line 308 "../../../src/sdl/menu.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 308 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 308 "../../../src/sdl/menu.c"
+ $menu=$5; //@line 308 "../../../src/sdl/menu.c"
+ var $6=$menu; //@line 309 "../../../src/sdl/menu.c"
+ var $7=(($6)|0); //@line 309 "../../../src/sdl/menu.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 309 "../../../src/sdl/menu.c"
+ _detruire_label($8); //@line 309 "../../../src/sdl/menu.c"
+ $i=0; //@line 310 "../../../src/sdl/menu.c"
+  //@line 310 "../../../src/sdl/menu.c"
  while(1) {
-  var $10=$i; //@line 299 "../../../src/sdl/menu.c"
-  var $11=($10|0)<8; //@line 299 "../../../src/sdl/menu.c"
-   //@line 299 "../../../src/sdl/menu.c"
+  var $10=$i; //@line 310 "../../../src/sdl/menu.c"
+  var $11=($10|0)<8; //@line 310 "../../../src/sdl/menu.c"
+   //@line 310 "../../../src/sdl/menu.c"
   if (!($11)) {
    break;
   }
-  var $13=$i; //@line 300 "../../../src/sdl/menu.c"
-  var $14=$menu; //@line 300 "../../../src/sdl/menu.c"
-  var $15=(($14+4)|0); //@line 300 "../../../src/sdl/menu.c"
-  var $16=(($15+($13<<2))|0); //@line 300 "../../../src/sdl/menu.c"
-  var $17=HEAP32[(($16)>>2)]; //@line 300 "../../../src/sdl/menu.c"
-  $l=$17; //@line 300 "../../../src/sdl/menu.c"
-  var $18=$l; //@line 301 "../../../src/sdl/menu.c"
-  _detruire_label($18); //@line 301 "../../../src/sdl/menu.c"
-   //@line 302 "../../../src/sdl/menu.c"
-  var $20=$i; //@line 299 "../../../src/sdl/menu.c"
-  var $21=((($20)+(1))|0); //@line 299 "../../../src/sdl/menu.c"
-  $i=$21; //@line 299 "../../../src/sdl/menu.c"
-   //@line 299 "../../../src/sdl/menu.c"
+  var $13=$i; //@line 311 "../../../src/sdl/menu.c"
+  var $14=$menu; //@line 311 "../../../src/sdl/menu.c"
+  var $15=(($14+4)|0); //@line 311 "../../../src/sdl/menu.c"
+  var $16=(($15+($13<<2))|0); //@line 311 "../../../src/sdl/menu.c"
+  var $17=HEAP32[(($16)>>2)]; //@line 311 "../../../src/sdl/menu.c"
+  $l=$17; //@line 311 "../../../src/sdl/menu.c"
+  var $18=$l; //@line 312 "../../../src/sdl/menu.c"
+  _detruire_label($18); //@line 312 "../../../src/sdl/menu.c"
+   //@line 313 "../../../src/sdl/menu.c"
+  var $20=$i; //@line 310 "../../../src/sdl/menu.c"
+  var $21=((($20)+(1))|0); //@line 310 "../../../src/sdl/menu.c"
+  $i=$21; //@line 310 "../../../src/sdl/menu.c"
+   //@line 310 "../../../src/sdl/menu.c"
  }
- $i1=0; //@line 303 "../../../src/sdl/menu.c"
-  //@line 303 "../../../src/sdl/menu.c"
+ $i1=0; //@line 314 "../../../src/sdl/menu.c"
+  //@line 314 "../../../src/sdl/menu.c"
  while(1) {
-  var $24=$i1; //@line 303 "../../../src/sdl/menu.c"
-  var $25=($24|0)<3; //@line 303 "../../../src/sdl/menu.c"
-   //@line 303 "../../../src/sdl/menu.c"
+  var $24=$i1; //@line 314 "../../../src/sdl/menu.c"
+  var $25=($24|0)<4; //@line 314 "../../../src/sdl/menu.c"
+   //@line 314 "../../../src/sdl/menu.c"
   if (!($25)) {
    break;
   }
-  var $27=$i1; //@line 304 "../../../src/sdl/menu.c"
-  var $28=$menu; //@line 304 "../../../src/sdl/menu.c"
-  var $29=(($28+36)|0); //@line 304 "../../../src/sdl/menu.c"
-  var $30=(($29+($27<<2))|0); //@line 304 "../../../src/sdl/menu.c"
-  var $31=HEAP32[(($30)>>2)]; //@line 304 "../../../src/sdl/menu.c"
-  $b=$31; //@line 304 "../../../src/sdl/menu.c"
-  var $32=$b; //@line 305 "../../../src/sdl/menu.c"
-  _detruire_bouton($32); //@line 305 "../../../src/sdl/menu.c"
-   //@line 306 "../../../src/sdl/menu.c"
-  var $34=$i1; //@line 303 "../../../src/sdl/menu.c"
-  var $35=((($34)+(1))|0); //@line 303 "../../../src/sdl/menu.c"
-  $i1=$35; //@line 303 "../../../src/sdl/menu.c"
-   //@line 303 "../../../src/sdl/menu.c"
+  var $27=$i1; //@line 315 "../../../src/sdl/menu.c"
+  var $28=$menu; //@line 315 "../../../src/sdl/menu.c"
+  var $29=(($28+36)|0); //@line 315 "../../../src/sdl/menu.c"
+  var $30=(($29+($27<<2))|0); //@line 315 "../../../src/sdl/menu.c"
+  var $31=HEAP32[(($30)>>2)]; //@line 315 "../../../src/sdl/menu.c"
+  $b=$31; //@line 315 "../../../src/sdl/menu.c"
+  var $32=$b; //@line 316 "../../../src/sdl/menu.c"
+  _detruire_bouton($32); //@line 316 "../../../src/sdl/menu.c"
+   //@line 317 "../../../src/sdl/menu.c"
+  var $34=$i1; //@line 314 "../../../src/sdl/menu.c"
+  var $35=((($34)+(1))|0); //@line 314 "../../../src/sdl/menu.c"
+  $i1=$35; //@line 314 "../../../src/sdl/menu.c"
+   //@line 314 "../../../src/sdl/menu.c"
  }
- $i2=0; //@line 307 "../../../src/sdl/menu.c"
-  //@line 307 "../../../src/sdl/menu.c"
+ $i2=0; //@line 318 "../../../src/sdl/menu.c"
+  //@line 318 "../../../src/sdl/menu.c"
  while(1) {
-  var $38=$i2; //@line 307 "../../../src/sdl/menu.c"
-  var $39=($38|0)<5; //@line 307 "../../../src/sdl/menu.c"
-   //@line 307 "../../../src/sdl/menu.c"
+  var $38=$i2; //@line 318 "../../../src/sdl/menu.c"
+  var $39=($38|0)<5; //@line 318 "../../../src/sdl/menu.c"
+   //@line 318 "../../../src/sdl/menu.c"
   if (!($39)) {
    break;
   }
-  var $41=$i2; //@line 308 "../../../src/sdl/menu.c"
-  var $42=$menu; //@line 308 "../../../src/sdl/menu.c"
-  var $43=(($42+48)|0); //@line 308 "../../../src/sdl/menu.c"
-  var $44=(($43+($41<<2))|0); //@line 308 "../../../src/sdl/menu.c"
-  var $45=HEAP32[(($44)>>2)]; //@line 308 "../../../src/sdl/menu.c"
-  $g=$45; //@line 308 "../../../src/sdl/menu.c"
-  var $46=$g; //@line 309 "../../../src/sdl/menu.c"
-  _detruire_groupe_radio($46); //@line 309 "../../../src/sdl/menu.c"
-   //@line 310 "../../../src/sdl/menu.c"
-  var $48=$i2; //@line 307 "../../../src/sdl/menu.c"
-  var $49=((($48)+(1))|0); //@line 307 "../../../src/sdl/menu.c"
-  $i2=$49; //@line 307 "../../../src/sdl/menu.c"
-   //@line 307 "../../../src/sdl/menu.c"
+  var $41=$i2; //@line 319 "../../../src/sdl/menu.c"
+  var $42=$menu; //@line 319 "../../../src/sdl/menu.c"
+  var $43=(($42+52)|0); //@line 319 "../../../src/sdl/menu.c"
+  var $44=(($43+($41<<2))|0); //@line 319 "../../../src/sdl/menu.c"
+  var $45=HEAP32[(($44)>>2)]; //@line 319 "../../../src/sdl/menu.c"
+  $g=$45; //@line 319 "../../../src/sdl/menu.c"
+  var $46=$g; //@line 320 "../../../src/sdl/menu.c"
+  _detruire_groupe_radio($46); //@line 320 "../../../src/sdl/menu.c"
+   //@line 321 "../../../src/sdl/menu.c"
+  var $48=$i2; //@line 318 "../../../src/sdl/menu.c"
+  var $49=((($48)+(1))|0); //@line 318 "../../../src/sdl/menu.c"
+  $i2=$49; //@line 318 "../../../src/sdl/menu.c"
+   //@line 318 "../../../src/sdl/menu.c"
  }
- $i3=0; //@line 311 "../../../src/sdl/menu.c"
-  //@line 311 "../../../src/sdl/menu.c"
+ $i3=0; //@line 322 "../../../src/sdl/menu.c"
+  //@line 322 "../../../src/sdl/menu.c"
  while(1) {
-  var $52=$i3; //@line 311 "../../../src/sdl/menu.c"
-  var $53=($52|0)<3; //@line 311 "../../../src/sdl/menu.c"
-   //@line 311 "../../../src/sdl/menu.c"
+  var $52=$i3; //@line 322 "../../../src/sdl/menu.c"
+  var $53=($52|0)<3; //@line 322 "../../../src/sdl/menu.c"
+   //@line 322 "../../../src/sdl/menu.c"
   if (!($53)) {
    break;
   }
-  var $55=$i3; //@line 312 "../../../src/sdl/menu.c"
-  var $56=$menu; //@line 312 "../../../src/sdl/menu.c"
-  var $57=(($56+68)|0); //@line 312 "../../../src/sdl/menu.c"
-  var $58=(($57+($55<<2))|0); //@line 312 "../../../src/sdl/menu.c"
-  var $59=HEAP32[(($58)>>2)]; //@line 312 "../../../src/sdl/menu.c"
-  $ti=$59; //@line 312 "../../../src/sdl/menu.c"
-  var $60=$ti; //@line 313 "../../../src/sdl/menu.c"
-  _detruire_textinput($60); //@line 313 "../../../src/sdl/menu.c"
-   //@line 314 "../../../src/sdl/menu.c"
-  var $62=$i3; //@line 311 "../../../src/sdl/menu.c"
-  var $63=((($62)+(1))|0); //@line 311 "../../../src/sdl/menu.c"
-  $i3=$63; //@line 311 "../../../src/sdl/menu.c"
-   //@line 311 "../../../src/sdl/menu.c"
+  var $55=$i3; //@line 323 "../../../src/sdl/menu.c"
+  var $56=$menu; //@line 323 "../../../src/sdl/menu.c"
+  var $57=(($56+72)|0); //@line 323 "../../../src/sdl/menu.c"
+  var $58=(($57+($55<<2))|0); //@line 323 "../../../src/sdl/menu.c"
+  var $59=HEAP32[(($58)>>2)]; //@line 323 "../../../src/sdl/menu.c"
+  $ti=$59; //@line 323 "../../../src/sdl/menu.c"
+  var $60=$ti; //@line 324 "../../../src/sdl/menu.c"
+  _detruire_textinput($60); //@line 324 "../../../src/sdl/menu.c"
+   //@line 325 "../../../src/sdl/menu.c"
+  var $62=$i3; //@line 322 "../../../src/sdl/menu.c"
+  var $63=((($62)+(1))|0); //@line 322 "../../../src/sdl/menu.c"
+  $i3=$63; //@line 322 "../../../src/sdl/menu.c"
+   //@line 322 "../../../src/sdl/menu.c"
  }
- var $65=$menu; //@line 315 "../../../src/sdl/menu.c"
- var $66=$65; //@line 315 "../../../src/sdl/menu.c"
- _gosh_free($66); //@line 315 "../../../src/sdl/menu.c"
- var $67=$1; //@line 316 "../../../src/sdl/menu.c"
- var $68=$67; //@line 316 "../../../src/sdl/menu.c"
- _gosh_free($68); //@line 316 "../../../src/sdl/menu.c"
- STACKTOP=sp;return; //@line 317 "../../../src/sdl/menu.c"
+ var $65=$menu; //@line 326 "../../../src/sdl/menu.c"
+ var $66=$65; //@line 326 "../../../src/sdl/menu.c"
+ _gosh_free($66); //@line 326 "../../../src/sdl/menu.c"
+ var $67=$1; //@line 327 "../../../src/sdl/menu.c"
+ var $68=$67; //@line 327 "../../../src/sdl/menu.c"
+ _gosh_free($68); //@line 327 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 328 "../../../src/sdl/menu.c"
 }
 
 
@@ -10116,14 +11255,14 @@ function _menu_bouton_quitter($bouton,$data){
  var $state;
  $1=$bouton;
  $2=$data;
- var $3=$1; //@line 375 "../../../src/sdl/menu.c"
- var $4=$2; //@line 376 "../../../src/sdl/menu.c"
- var $5=$4; //@line 376 "../../../src/sdl/menu.c"
- $state=$5; //@line 376 "../../../src/sdl/menu.c"
- var $6=$state; //@line 377 "../../../src/sdl/menu.c"
- var $7=(($6)|0); //@line 377 "../../../src/sdl/menu.c"
- HEAP8[($7)]=1; //@line 377 "../../../src/sdl/menu.c"
- STACKTOP=sp;return; //@line 378 "../../../src/sdl/menu.c"
+ var $3=$1; //@line 386 "../../../src/sdl/menu.c"
+ var $4=$2; //@line 387 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 387 "../../../src/sdl/menu.c"
+ $state=$5; //@line 387 "../../../src/sdl/menu.c"
+ var $6=$state; //@line 388 "../../../src/sdl/menu.c"
+ var $7=(($6)|0); //@line 388 "../../../src/sdl/menu.c"
+ HEAP8[($7)]=1; //@line 388 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 389 "../../../src/sdl/menu.c"
 }
 
 
@@ -10138,28 +11277,28 @@ function _menu_bouton_jouer($bouton,$data){
  var $new_state;
  $1=$bouton;
  $2=$data;
- var $3=$1; //@line 424 "../../../src/sdl/menu.c"
- var $4=$2; //@line 425 "../../../src/sdl/menu.c"
- var $5=$4; //@line 425 "../../../src/sdl/menu.c"
- $state=$5; //@line 425 "../../../src/sdl/menu.c"
- var $6=$state; //@line 426 "../../../src/sdl/menu.c"
- var $7=(($6+28)|0); //@line 426 "../../../src/sdl/menu.c"
- var $8=HEAP32[(($7)>>2)]; //@line 426 "../../../src/sdl/menu.c"
- var $9=$8; //@line 426 "../../../src/sdl/menu.c"
- $menu=$9; //@line 426 "../../../src/sdl/menu.c"
- var $10=_creer_partie(); //@line 428 "../../../src/sdl/menu.c"
- $partie=$10; //@line 428 "../../../src/sdl/menu.c"
- var $11=$partie; //@line 429 "../../../src/sdl/menu.c"
- var $12=$menu; //@line 429 "../../../src/sdl/menu.c"
- var $13=$12; //@line 429 "../../../src/sdl/menu.c"
- _initialisation_partie($11,258,$13); //@line 429 "../../../src/sdl/menu.c"
- var $14=$state; //@line 431 "../../../src/sdl/menu.c"
- var $15=$partie; //@line 431 "../../../src/sdl/menu.c"
- var $16=_creer_jouer($14,$15); //@line 431 "../../../src/sdl/menu.c"
- $new_state=$16; //@line 431 "../../../src/sdl/menu.c"
- var $17=$new_state; //@line 432 "../../../src/sdl/menu.c"
- _set_state($17); //@line 432 "../../../src/sdl/menu.c"
- STACKTOP=sp;return; //@line 433 "../../../src/sdl/menu.c"
+ var $3=$1; //@line 435 "../../../src/sdl/menu.c"
+ var $4=$2; //@line 436 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 436 "../../../src/sdl/menu.c"
+ $state=$5; //@line 436 "../../../src/sdl/menu.c"
+ var $6=$state; //@line 437 "../../../src/sdl/menu.c"
+ var $7=(($6+28)|0); //@line 437 "../../../src/sdl/menu.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 437 "../../../src/sdl/menu.c"
+ var $9=$8; //@line 437 "../../../src/sdl/menu.c"
+ $menu=$9; //@line 437 "../../../src/sdl/menu.c"
+ var $10=_creer_partie(); //@line 439 "../../../src/sdl/menu.c"
+ $partie=$10; //@line 439 "../../../src/sdl/menu.c"
+ var $11=$partie; //@line 440 "../../../src/sdl/menu.c"
+ var $12=$menu; //@line 440 "../../../src/sdl/menu.c"
+ var $13=$12; //@line 440 "../../../src/sdl/menu.c"
+ _initialisation_partie($11,272,$13); //@line 440 "../../../src/sdl/menu.c"
+ var $14=$state; //@line 442 "../../../src/sdl/menu.c"
+ var $15=$partie; //@line 442 "../../../src/sdl/menu.c"
+ var $16=_creer_jouer($14,$15); //@line 442 "../../../src/sdl/menu.c"
+ $new_state=$16; //@line 442 "../../../src/sdl/menu.c"
+ var $17=$new_state; //@line 443 "../../../src/sdl/menu.c"
+ _set_state($17); //@line 443 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 444 "../../../src/sdl/menu.c"
 }
 
 
@@ -10172,16 +11311,38 @@ function _menu_bouton_charger($bouton,$data){
  var $new_state;
  $1=$bouton;
  $2=$data;
- var $3=$1; //@line 437 "../../../src/sdl/menu.c"
- var $4=$2; //@line 438 "../../../src/sdl/menu.c"
- var $5=$4; //@line 438 "../../../src/sdl/menu.c"
- $state=$5; //@line 438 "../../../src/sdl/menu.c"
- var $6=$state; //@line 439 "../../../src/sdl/menu.c"
- var $7=_creer_charger($6); //@line 439 "../../../src/sdl/menu.c"
- $new_state=$7; //@line 439 "../../../src/sdl/menu.c"
- var $8=$new_state; //@line 440 "../../../src/sdl/menu.c"
- _set_state($8); //@line 440 "../../../src/sdl/menu.c"
- STACKTOP=sp;return; //@line 441 "../../../src/sdl/menu.c"
+ var $3=$1; //@line 448 "../../../src/sdl/menu.c"
+ var $4=$2; //@line 449 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 449 "../../../src/sdl/menu.c"
+ $state=$5; //@line 449 "../../../src/sdl/menu.c"
+ var $6=$state; //@line 450 "../../../src/sdl/menu.c"
+ var $7=_creer_charger($6); //@line 450 "../../../src/sdl/menu.c"
+ $new_state=$7; //@line 450 "../../../src/sdl/menu.c"
+ var $8=$new_state; //@line 451 "../../../src/sdl/menu.c"
+ _set_state($8); //@line 451 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 452 "../../../src/sdl/menu.c"
+}
+
+
+function _menu_bouton_tutoriel($bouton,$data){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ var $2;
+ var $state;
+ var $new_state;
+ $1=$bouton;
+ $2=$data;
+ var $3=$1; //@line 456 "../../../src/sdl/menu.c"
+ var $4=$2; //@line 457 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 457 "../../../src/sdl/menu.c"
+ $state=$5; //@line 457 "../../../src/sdl/menu.c"
+ var $6=$state; //@line 458 "../../../src/sdl/menu.c"
+ var $7=_creer_tutoriel($6); //@line 458 "../../../src/sdl/menu.c"
+ $new_state=$7; //@line 458 "../../../src/sdl/menu.c"
+ var $8=$new_state; //@line 459 "../../../src/sdl/menu.c"
+ _set_state($8); //@line 459 "../../../src/sdl/menu.c"
+ STACKTOP=sp;return; //@line 460 "../../../src/sdl/menu.c"
 }
 
 
@@ -10196,67 +11357,67 @@ function _menu_radio_type_joueur($groupe,$data){
  var $label;
  $1=$groupe;
  $2=$data;
- var $3=$2; //@line 445 "../../../src/sdl/menu.c"
- var $4=$3; //@line 445 "../../../src/sdl/menu.c"
- $state=$4; //@line 445 "../../../src/sdl/menu.c"
- var $5=$state; //@line 446 "../../../src/sdl/menu.c"
- var $6=(($5+28)|0); //@line 446 "../../../src/sdl/menu.c"
- var $7=HEAP32[(($6)>>2)]; //@line 446 "../../../src/sdl/menu.c"
- var $8=$7; //@line 446 "../../../src/sdl/menu.c"
- $menu=$8; //@line 446 "../../../src/sdl/menu.c"
- var $9=$1; //@line 449 "../../../src/sdl/menu.c"
- var $10=$menu; //@line 449 "../../../src/sdl/menu.c"
- var $11=(($10+48)|0); //@line 449 "../../../src/sdl/menu.c"
- var $12=(($11)|0); //@line 449 "../../../src/sdl/menu.c"
- var $13=HEAP32[(($12)>>2)]; //@line 449 "../../../src/sdl/menu.c"
- var $14=($9|0)==($13|0); //@line 449 "../../../src/sdl/menu.c"
-  //@line 449 "../../../src/sdl/menu.c"
+ var $3=$2; //@line 464 "../../../src/sdl/menu.c"
+ var $4=$3; //@line 464 "../../../src/sdl/menu.c"
+ $state=$4; //@line 464 "../../../src/sdl/menu.c"
+ var $5=$state; //@line 465 "../../../src/sdl/menu.c"
+ var $6=(($5+28)|0); //@line 465 "../../../src/sdl/menu.c"
+ var $7=HEAP32[(($6)>>2)]; //@line 465 "../../../src/sdl/menu.c"
+ var $8=$7; //@line 465 "../../../src/sdl/menu.c"
+ $menu=$8; //@line 465 "../../../src/sdl/menu.c"
+ var $9=$1; //@line 468 "../../../src/sdl/menu.c"
+ var $10=$menu; //@line 468 "../../../src/sdl/menu.c"
+ var $11=(($10+52)|0); //@line 468 "../../../src/sdl/menu.c"
+ var $12=(($11)|0); //@line 468 "../../../src/sdl/menu.c"
+ var $13=HEAP32[(($12)>>2)]; //@line 468 "../../../src/sdl/menu.c"
+ var $14=($9|0)==($13|0); //@line 468 "../../../src/sdl/menu.c"
+  //@line 468 "../../../src/sdl/menu.c"
  if ($14) {
-  $groupe_prog=1; //@line 450 "../../../src/sdl/menu.c"
-  $label=2; //@line 451 "../../../src/sdl/menu.c"
-   //@line 452 "../../../src/sdl/menu.c"
+  $groupe_prog=1; //@line 469 "../../../src/sdl/menu.c"
+  $label=2; //@line 470 "../../../src/sdl/menu.c"
+   //@line 471 "../../../src/sdl/menu.c"
  } else {
-  $groupe_prog=3; //@line 453 "../../../src/sdl/menu.c"
-  $label=5; //@line 454 "../../../src/sdl/menu.c"
+  $groupe_prog=3; //@line 472 "../../../src/sdl/menu.c"
+  $label=5; //@line 473 "../../../src/sdl/menu.c"
  }
- var $18=$1; //@line 456 "../../../src/sdl/menu.c"
- var $19=(($18+12)|0); //@line 456 "../../../src/sdl/menu.c"
- var $20=HEAP32[(($19)>>2)]; //@line 456 "../../../src/sdl/menu.c"
- var $21=($20|0)==0; //@line 456 "../../../src/sdl/menu.c"
-  //@line 456 "../../../src/sdl/menu.c"
+ var $18=$1; //@line 475 "../../../src/sdl/menu.c"
+ var $19=(($18+12)|0); //@line 475 "../../../src/sdl/menu.c"
+ var $20=HEAP32[(($19)>>2)]; //@line 475 "../../../src/sdl/menu.c"
+ var $21=($20|0)==0; //@line 475 "../../../src/sdl/menu.c"
+  //@line 475 "../../../src/sdl/menu.c"
  if ($21) {
-  var $23=$groupe_prog; //@line 457 "../../../src/sdl/menu.c"
-  var $24=$menu; //@line 457 "../../../src/sdl/menu.c"
-  var $25=(($24+48)|0); //@line 457 "../../../src/sdl/menu.c"
-  var $26=(($25+($23<<2))|0); //@line 457 "../../../src/sdl/menu.c"
-  var $27=HEAP32[(($26)>>2)]; //@line 457 "../../../src/sdl/menu.c"
-  var $28=(($27+16)|0); //@line 457 "../../../src/sdl/menu.c"
-  HEAP8[($28)]=0; //@line 457 "../../../src/sdl/menu.c"
-  var $29=$label; //@line 458 "../../../src/sdl/menu.c"
-  var $30=$menu; //@line 458 "../../../src/sdl/menu.c"
-  var $31=(($30+4)|0); //@line 458 "../../../src/sdl/menu.c"
-  var $32=(($31+($29<<2))|0); //@line 458 "../../../src/sdl/menu.c"
-  var $33=HEAP32[(($32)>>2)]; //@line 458 "../../../src/sdl/menu.c"
-  var $34=(($33+28)|0); //@line 458 "../../../src/sdl/menu.c"
-  HEAP8[($34)]=0; //@line 458 "../../../src/sdl/menu.c"
-   //@line 459 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return; //@line 463 "../../../src/sdl/menu.c"
+  var $23=$groupe_prog; //@line 476 "../../../src/sdl/menu.c"
+  var $24=$menu; //@line 476 "../../../src/sdl/menu.c"
+  var $25=(($24+52)|0); //@line 476 "../../../src/sdl/menu.c"
+  var $26=(($25+($23<<2))|0); //@line 476 "../../../src/sdl/menu.c"
+  var $27=HEAP32[(($26)>>2)]; //@line 476 "../../../src/sdl/menu.c"
+  var $28=(($27+16)|0); //@line 476 "../../../src/sdl/menu.c"
+  HEAP8[($28)]=0; //@line 476 "../../../src/sdl/menu.c"
+  var $29=$label; //@line 477 "../../../src/sdl/menu.c"
+  var $30=$menu; //@line 477 "../../../src/sdl/menu.c"
+  var $31=(($30+4)|0); //@line 477 "../../../src/sdl/menu.c"
+  var $32=(($31+($29<<2))|0); //@line 477 "../../../src/sdl/menu.c"
+  var $33=HEAP32[(($32)>>2)]; //@line 477 "../../../src/sdl/menu.c"
+  var $34=(($33+28)|0); //@line 477 "../../../src/sdl/menu.c"
+  HEAP8[($34)]=0; //@line 477 "../../../src/sdl/menu.c"
+   //@line 478 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return; //@line 482 "../../../src/sdl/menu.c"
  } else {
-  var $36=$groupe_prog; //@line 460 "../../../src/sdl/menu.c"
-  var $37=$menu; //@line 460 "../../../src/sdl/menu.c"
-  var $38=(($37+48)|0); //@line 460 "../../../src/sdl/menu.c"
-  var $39=(($38+($36<<2))|0); //@line 460 "../../../src/sdl/menu.c"
-  var $40=HEAP32[(($39)>>2)]; //@line 460 "../../../src/sdl/menu.c"
-  var $41=(($40+16)|0); //@line 460 "../../../src/sdl/menu.c"
-  HEAP8[($41)]=1; //@line 460 "../../../src/sdl/menu.c"
-  var $42=$label; //@line 461 "../../../src/sdl/menu.c"
-  var $43=$menu; //@line 461 "../../../src/sdl/menu.c"
-  var $44=(($43+4)|0); //@line 461 "../../../src/sdl/menu.c"
-  var $45=(($44+($42<<2))|0); //@line 461 "../../../src/sdl/menu.c"
-  var $46=HEAP32[(($45)>>2)]; //@line 461 "../../../src/sdl/menu.c"
-  var $47=(($46+28)|0); //@line 461 "../../../src/sdl/menu.c"
-  HEAP8[($47)]=1; //@line 461 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return; //@line 463 "../../../src/sdl/menu.c"
+  var $36=$groupe_prog; //@line 479 "../../../src/sdl/menu.c"
+  var $37=$menu; //@line 479 "../../../src/sdl/menu.c"
+  var $38=(($37+52)|0); //@line 479 "../../../src/sdl/menu.c"
+  var $39=(($38+($36<<2))|0); //@line 479 "../../../src/sdl/menu.c"
+  var $40=HEAP32[(($39)>>2)]; //@line 479 "../../../src/sdl/menu.c"
+  var $41=(($40+16)|0); //@line 479 "../../../src/sdl/menu.c"
+  HEAP8[($41)]=1; //@line 479 "../../../src/sdl/menu.c"
+  var $42=$label; //@line 480 "../../../src/sdl/menu.c"
+  var $43=$menu; //@line 480 "../../../src/sdl/menu.c"
+  var $44=(($43+4)|0); //@line 480 "../../../src/sdl/menu.c"
+  var $45=(($44+($42<<2))|0); //@line 480 "../../../src/sdl/menu.c"
+  var $46=HEAP32[(($45)>>2)]; //@line 480 "../../../src/sdl/menu.c"
+  var $47=(($46+28)|0); //@line 480 "../../../src/sdl/menu.c"
+  HEAP8[($47)]=1; //@line 480 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return; //@line 482 "../../../src/sdl/menu.c"
  }
 }
 
@@ -10274,171 +11435,171 @@ function _construction_function($question,$partie,$userdata){
  $1=$question;
  $2=$partie;
  $3=$userdata;
- var $4=$3; //@line 382 "../../../src/sdl/menu.c"
- var $5=$4; //@line 382 "../../../src/sdl/menu.c"
- $menu=$5; //@line 382 "../../../src/sdl/menu.c"
- var $6=$1; //@line 383 "../../../src/sdl/menu.c"
+ var $4=$3; //@line 393 "../../../src/sdl/menu.c"
+ var $5=$4; //@line 393 "../../../src/sdl/menu.c"
+ $menu=$5; //@line 393 "../../../src/sdl/menu.c"
+ var $6=$1; //@line 394 "../../../src/sdl/menu.c"
  switch (($6|0)) {
- case 3: {
-  var $8=$menu; //@line 385 "../../../src/sdl/menu.c"
-  var $9=(($8+48)|0); //@line 385 "../../../src/sdl/menu.c"
-  var $10=(($9+8)|0); //@line 385 "../../../src/sdl/menu.c"
-  var $11=HEAP32[(($10)>>2)]; //@line 385 "../../../src/sdl/menu.c"
-  var $12=(($11+12)|0); //@line 385 "../../../src/sdl/menu.c"
-  var $13=HEAP32[(($12)>>2)]; //@line 385 "../../../src/sdl/menu.c"
-  var $14=($13|0)==0; //@line 385 "../../../src/sdl/menu.c"
-  var $15=($14?0:1); //@line 385 "../../../src/sdl/menu.c"
-  var $16=$2; //@line 385 "../../../src/sdl/menu.c"
-  var $17=(($16+4)|0); //@line 385 "../../../src/sdl/menu.c"
-  var $18=(($17)|0); //@line 385 "../../../src/sdl/menu.c"
-  var $19=(($18)|0); //@line 385 "../../../src/sdl/menu.c"
-  HEAP32[(($19)>>2)]=$15; //@line 385 "../../../src/sdl/menu.c"
-   //@line 386 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
-  break;
- }
  case 4: {
-  var $21=$2; //@line 388 "../../../src/sdl/menu.c"
-  var $22=(($21+4)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $23=(($22)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $24=(($23+4)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $25=(($24)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $26=$menu; //@line 388 "../../../src/sdl/menu.c"
-  var $27=(($26+68)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $28=(($27+4)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $29=HEAP32[(($28)>>2)]; //@line 388 "../../../src/sdl/menu.c"
-  var $30=(($29+12)|0); //@line 388 "../../../src/sdl/menu.c"
-  var $31=HEAP32[(($30)>>2)]; //@line 388 "../../../src/sdl/menu.c"
-  var $32=_strcpy($25,$31); //@line 388 "../../../src/sdl/menu.c"
-   //@line 389 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
-  break;
- }
- case 0: {
-  var $48=$menu; //@line 396 "../../../src/sdl/menu.c"
-  var $49=(($48+48)|0); //@line 396 "../../../src/sdl/menu.c"
-  var $50=(($49)|0); //@line 396 "../../../src/sdl/menu.c"
-  var $51=HEAP32[(($50)>>2)]; //@line 396 "../../../src/sdl/menu.c"
-  var $52=(($51+12)|0); //@line 396 "../../../src/sdl/menu.c"
-  var $53=HEAP32[(($52)>>2)]; //@line 396 "../../../src/sdl/menu.c"
-  var $54=($53|0)==0; //@line 396 "../../../src/sdl/menu.c"
-  var $55=($54?0:1); //@line 396 "../../../src/sdl/menu.c"
-  var $56=$2; //@line 396 "../../../src/sdl/menu.c"
-  var $57=(($56+4)|0); //@line 396 "../../../src/sdl/menu.c"
-  var $58=(($57+20)|0); //@line 396 "../../../src/sdl/menu.c"
-  var $59=(($58)|0); //@line 396 "../../../src/sdl/menu.c"
-  HEAP32[(($59)>>2)]=$55; //@line 396 "../../../src/sdl/menu.c"
-   //@line 397 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
-  break;
- }
- case 1: {
-  var $61=$2; //@line 399 "../../../src/sdl/menu.c"
-  var $62=(($61+4)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $63=(($62+20)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $64=(($63+4)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $65=(($64)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $66=$menu; //@line 399 "../../../src/sdl/menu.c"
-  var $67=(($66+68)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $68=(($67)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $69=HEAP32[(($68)>>2)]; //@line 399 "../../../src/sdl/menu.c"
-  var $70=(($69+12)|0); //@line 399 "../../../src/sdl/menu.c"
-  var $71=HEAP32[(($70)>>2)]; //@line 399 "../../../src/sdl/menu.c"
-  var $72=_strcpy($65,$71); //@line 399 "../../../src/sdl/menu.c"
+  var $21=$2; //@line 399 "../../../src/sdl/menu.c"
+  var $22=(($21+4)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $23=(($22)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $24=(($23+4)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $25=(($24)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $26=$menu; //@line 399 "../../../src/sdl/menu.c"
+  var $27=(($26+72)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $28=(($27+4)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $29=HEAP32[(($28)>>2)]; //@line 399 "../../../src/sdl/menu.c"
+  var $30=(($29+12)|0); //@line 399 "../../../src/sdl/menu.c"
+  var $31=HEAP32[(($30)>>2)]; //@line 399 "../../../src/sdl/menu.c"
+  var $32=_strcpy($25,$31); //@line 399 "../../../src/sdl/menu.c"
    //@line 400 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
-  break;
- }
- case 2: {
-  var $74=$menu; //@line 402 "../../../src/sdl/menu.c"
-  var $75=(($74+48)|0); //@line 402 "../../../src/sdl/menu.c"
-  var $76=(($75+4)|0); //@line 402 "../../../src/sdl/menu.c"
-  var $77=HEAP32[(($76)>>2)]; //@line 402 "../../../src/sdl/menu.c"
-  var $78=(($77+12)|0); //@line 402 "../../../src/sdl/menu.c"
-  var $79=HEAP32[(($78)>>2)]; //@line 402 "../../../src/sdl/menu.c"
-  var $80=($79|0)==0; //@line 402 "../../../src/sdl/menu.c"
-  var $81=($80?728:712); //@line 402 "../../../src/sdl/menu.c"
-  var $82=_charger_ordinateur($81); //@line 402 "../../../src/sdl/menu.c"
-  var $83=$2; //@line 402 "../../../src/sdl/menu.c"
-  var $84=(($83+4)|0); //@line 402 "../../../src/sdl/menu.c"
-  var $85=(($84+20)|0); //@line 402 "../../../src/sdl/menu.c"
-  var $86=(($85+16)|0); //@line 402 "../../../src/sdl/menu.c"
-  HEAP32[(($86)>>2)]=$82; //@line 402 "../../../src/sdl/menu.c"
-   //@line 404 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
-  break;
- }
- case 6: {
-  var $88=$menu; //@line 407 "../../../src/sdl/menu.c"
-  var $89=(($88+48)|0); //@line 407 "../../../src/sdl/menu.c"
-  var $90=(($89+16)|0); //@line 407 "../../../src/sdl/menu.c"
-  var $91=HEAP32[(($90)>>2)]; //@line 407 "../../../src/sdl/menu.c"
-  var $92=(($91+12)|0); //@line 407 "../../../src/sdl/menu.c"
-  var $93=HEAP32[(($92)>>2)]; //@line 407 "../../../src/sdl/menu.c"
-  $id=$93; //@line 407 "../../../src/sdl/menu.c"
-  var $94=$id; //@line 408 "../../../src/sdl/menu.c"
-  var $95=($94|0)==0; //@line 408 "../../../src/sdl/menu.c"
-   //@line 408 "../../../src/sdl/menu.c"
-  if ($95) {
-    //@line 408 "../../../src/sdl/menu.c"
-   var $102=9;
-  } else {
-   var $98=$id; //@line 408 "../../../src/sdl/menu.c"
-   var $99=($98|0)==1; //@line 408 "../../../src/sdl/menu.c"
-   var $100=($99?13:19); //@line 408 "../../../src/sdl/menu.c"
-    //@line 408 "../../../src/sdl/menu.c"
-   var $102=$100;
-  }
-  var $102; //@line 408 "../../../src/sdl/menu.c"
-  $taille=$102; //@line 408 "../../../src/sdl/menu.c"
-  var $103=$taille; //@line 409 "../../../src/sdl/menu.c"
-  var $104=_creer_plateau($103); //@line 409 "../../../src/sdl/menu.c"
-  var $105=$2; //@line 409 "../../../src/sdl/menu.c"
-  var $106=(($105)|0); //@line 409 "../../../src/sdl/menu.c"
-  HEAP32[(($106)>>2)]=$104; //@line 409 "../../../src/sdl/menu.c"
-   //@line 410 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
   break;
  }
  case 5: {
-  var $34=$menu; //@line 391 "../../../src/sdl/menu.c"
-  var $35=(($34+48)|0); //@line 391 "../../../src/sdl/menu.c"
-  var $36=(($35+12)|0); //@line 391 "../../../src/sdl/menu.c"
-  var $37=HEAP32[(($36)>>2)]; //@line 391 "../../../src/sdl/menu.c"
-  var $38=(($37+12)|0); //@line 391 "../../../src/sdl/menu.c"
-  var $39=HEAP32[(($38)>>2)]; //@line 391 "../../../src/sdl/menu.c"
-  var $40=($39|0)==0; //@line 391 "../../../src/sdl/menu.c"
-  var $41=($40?728:712); //@line 391 "../../../src/sdl/menu.c"
-  var $42=_charger_ordinateur($41); //@line 391 "../../../src/sdl/menu.c"
-  var $43=$2; //@line 391 "../../../src/sdl/menu.c"
-  var $44=(($43+4)|0); //@line 391 "../../../src/sdl/menu.c"
-  var $45=(($44)|0); //@line 391 "../../../src/sdl/menu.c"
-  var $46=(($45+16)|0); //@line 391 "../../../src/sdl/menu.c"
-  HEAP32[(($46)>>2)]=$42; //@line 391 "../../../src/sdl/menu.c"
-   //@line 393 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
+  var $34=$menu; //@line 402 "../../../src/sdl/menu.c"
+  var $35=(($34+52)|0); //@line 402 "../../../src/sdl/menu.c"
+  var $36=(($35+12)|0); //@line 402 "../../../src/sdl/menu.c"
+  var $37=HEAP32[(($36)>>2)]; //@line 402 "../../../src/sdl/menu.c"
+  var $38=(($37+12)|0); //@line 402 "../../../src/sdl/menu.c"
+  var $39=HEAP32[(($38)>>2)]; //@line 402 "../../../src/sdl/menu.c"
+  var $40=($39|0)==0; //@line 402 "../../../src/sdl/menu.c"
+  var $41=($40?2360:2296); //@line 402 "../../../src/sdl/menu.c"
+  var $42=_charger_ordinateur($41); //@line 402 "../../../src/sdl/menu.c"
+  var $43=$2; //@line 402 "../../../src/sdl/menu.c"
+  var $44=(($43+4)|0); //@line 402 "../../../src/sdl/menu.c"
+  var $45=(($44)|0); //@line 402 "../../../src/sdl/menu.c"
+  var $46=(($45+16)|0); //@line 402 "../../../src/sdl/menu.c"
+  HEAP32[(($46)>>2)]=$42; //@line 402 "../../../src/sdl/menu.c"
+   //@line 404 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
+  break;
+ }
+ case 0: {
+  var $48=$menu; //@line 407 "../../../src/sdl/menu.c"
+  var $49=(($48+52)|0); //@line 407 "../../../src/sdl/menu.c"
+  var $50=(($49)|0); //@line 407 "../../../src/sdl/menu.c"
+  var $51=HEAP32[(($50)>>2)]; //@line 407 "../../../src/sdl/menu.c"
+  var $52=(($51+12)|0); //@line 407 "../../../src/sdl/menu.c"
+  var $53=HEAP32[(($52)>>2)]; //@line 407 "../../../src/sdl/menu.c"
+  var $54=($53|0)==0; //@line 407 "../../../src/sdl/menu.c"
+  var $55=($54?0:1); //@line 407 "../../../src/sdl/menu.c"
+  var $56=$2; //@line 407 "../../../src/sdl/menu.c"
+  var $57=(($56+4)|0); //@line 407 "../../../src/sdl/menu.c"
+  var $58=(($57+20)|0); //@line 407 "../../../src/sdl/menu.c"
+  var $59=(($58)|0); //@line 407 "../../../src/sdl/menu.c"
+  HEAP32[(($59)>>2)]=$55; //@line 407 "../../../src/sdl/menu.c"
+   //@line 408 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
+  break;
+ }
+ case 1: {
+  var $61=$2; //@line 410 "../../../src/sdl/menu.c"
+  var $62=(($61+4)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $63=(($62+20)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $64=(($63+4)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $65=(($64)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $66=$menu; //@line 410 "../../../src/sdl/menu.c"
+  var $67=(($66+72)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $68=(($67)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $69=HEAP32[(($68)>>2)]; //@line 410 "../../../src/sdl/menu.c"
+  var $70=(($69+12)|0); //@line 410 "../../../src/sdl/menu.c"
+  var $71=HEAP32[(($70)>>2)]; //@line 410 "../../../src/sdl/menu.c"
+  var $72=_strcpy($65,$71); //@line 410 "../../../src/sdl/menu.c"
+   //@line 411 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
+  break;
+ }
+ case 2: {
+  var $74=$menu; //@line 413 "../../../src/sdl/menu.c"
+  var $75=(($74+52)|0); //@line 413 "../../../src/sdl/menu.c"
+  var $76=(($75+4)|0); //@line 413 "../../../src/sdl/menu.c"
+  var $77=HEAP32[(($76)>>2)]; //@line 413 "../../../src/sdl/menu.c"
+  var $78=(($77+12)|0); //@line 413 "../../../src/sdl/menu.c"
+  var $79=HEAP32[(($78)>>2)]; //@line 413 "../../../src/sdl/menu.c"
+  var $80=($79|0)==0; //@line 413 "../../../src/sdl/menu.c"
+  var $81=($80?2360:2296); //@line 413 "../../../src/sdl/menu.c"
+  var $82=_charger_ordinateur($81); //@line 413 "../../../src/sdl/menu.c"
+  var $83=$2; //@line 413 "../../../src/sdl/menu.c"
+  var $84=(($83+4)|0); //@line 413 "../../../src/sdl/menu.c"
+  var $85=(($84+20)|0); //@line 413 "../../../src/sdl/menu.c"
+  var $86=(($85+16)|0); //@line 413 "../../../src/sdl/menu.c"
+  HEAP32[(($86)>>2)]=$82; //@line 413 "../../../src/sdl/menu.c"
+   //@line 415 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
+  break;
+ }
+ case 3: {
+  var $8=$menu; //@line 396 "../../../src/sdl/menu.c"
+  var $9=(($8+52)|0); //@line 396 "../../../src/sdl/menu.c"
+  var $10=(($9+8)|0); //@line 396 "../../../src/sdl/menu.c"
+  var $11=HEAP32[(($10)>>2)]; //@line 396 "../../../src/sdl/menu.c"
+  var $12=(($11+12)|0); //@line 396 "../../../src/sdl/menu.c"
+  var $13=HEAP32[(($12)>>2)]; //@line 396 "../../../src/sdl/menu.c"
+  var $14=($13|0)==0; //@line 396 "../../../src/sdl/menu.c"
+  var $15=($14?0:1); //@line 396 "../../../src/sdl/menu.c"
+  var $16=$2; //@line 396 "../../../src/sdl/menu.c"
+  var $17=(($16+4)|0); //@line 396 "../../../src/sdl/menu.c"
+  var $18=(($17)|0); //@line 396 "../../../src/sdl/menu.c"
+  var $19=(($18)|0); //@line 396 "../../../src/sdl/menu.c"
+  HEAP32[(($19)>>2)]=$15; //@line 396 "../../../src/sdl/menu.c"
+   //@line 397 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
+  break;
+ }
+ case 6: {
+  var $88=$menu; //@line 418 "../../../src/sdl/menu.c"
+  var $89=(($88+52)|0); //@line 418 "../../../src/sdl/menu.c"
+  var $90=(($89+16)|0); //@line 418 "../../../src/sdl/menu.c"
+  var $91=HEAP32[(($90)>>2)]; //@line 418 "../../../src/sdl/menu.c"
+  var $92=(($91+12)|0); //@line 418 "../../../src/sdl/menu.c"
+  var $93=HEAP32[(($92)>>2)]; //@line 418 "../../../src/sdl/menu.c"
+  $id=$93; //@line 418 "../../../src/sdl/menu.c"
+  var $94=$id; //@line 419 "../../../src/sdl/menu.c"
+  var $95=($94|0)==0; //@line 419 "../../../src/sdl/menu.c"
+   //@line 419 "../../../src/sdl/menu.c"
+  if ($95) {
+    //@line 419 "../../../src/sdl/menu.c"
+   var $102=9;
+  } else {
+   var $98=$id; //@line 419 "../../../src/sdl/menu.c"
+   var $99=($98|0)==1; //@line 419 "../../../src/sdl/menu.c"
+   var $100=($99?13:19); //@line 419 "../../../src/sdl/menu.c"
+    //@line 419 "../../../src/sdl/menu.c"
+   var $102=$100;
+  }
+  var $102; //@line 419 "../../../src/sdl/menu.c"
+  $taille=$102; //@line 419 "../../../src/sdl/menu.c"
+  var $103=$taille; //@line 420 "../../../src/sdl/menu.c"
+  var $104=_creer_plateau($103); //@line 420 "../../../src/sdl/menu.c"
+  var $105=$2; //@line 420 "../../../src/sdl/menu.c"
+  var $106=(($105)|0); //@line 420 "../../../src/sdl/menu.c"
+  HEAP32[(($106)>>2)]=$104; //@line 420 "../../../src/sdl/menu.c"
+   //@line 421 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
   break;
  }
  case 7: {
-  var $108=$menu; //@line 413 "../../../src/sdl/menu.c"
-  var $109=(($108+68)|0); //@line 413 "../../../src/sdl/menu.c"
-  var $110=(($109+8)|0); //@line 413 "../../../src/sdl/menu.c"
-  var $111=HEAP32[(($110)>>2)]; //@line 413 "../../../src/sdl/menu.c"
-  var $112=(($111+12)|0); //@line 413 "../../../src/sdl/menu.c"
-  var $113=HEAP32[(($112)>>2)]; //@line 413 "../../../src/sdl/menu.c"
-  var $114=_atoi($113); //@line 413 "../../../src/sdl/menu.c"
-  $handicap=$114; //@line 413 "../../../src/sdl/menu.c"
-  var $115=$handicap; //@line 414 "../../../src/sdl/menu.c"
-  var $116=$2; //@line 414 "../../../src/sdl/menu.c"
-  var $117=(($116+44)|0); //@line 414 "../../../src/sdl/menu.c"
-  HEAP32[(($117)>>2)]=$115; //@line 414 "../../../src/sdl/menu.c"
-   //@line 415 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
+  var $108=$menu; //@line 424 "../../../src/sdl/menu.c"
+  var $109=(($108+72)|0); //@line 424 "../../../src/sdl/menu.c"
+  var $110=(($109+8)|0); //@line 424 "../../../src/sdl/menu.c"
+  var $111=HEAP32[(($110)>>2)]; //@line 424 "../../../src/sdl/menu.c"
+  var $112=(($111+12)|0); //@line 424 "../../../src/sdl/menu.c"
+  var $113=HEAP32[(($112)>>2)]; //@line 424 "../../../src/sdl/menu.c"
+  var $114=_atoi($113); //@line 424 "../../../src/sdl/menu.c"
+  $handicap=$114; //@line 424 "../../../src/sdl/menu.c"
+  var $115=$handicap; //@line 425 "../../../src/sdl/menu.c"
+  var $116=$2; //@line 425 "../../../src/sdl/menu.c"
+  var $117=(($116+44)|0); //@line 425 "../../../src/sdl/menu.c"
+  HEAP32[(($117)>>2)]=$115; //@line 425 "../../../src/sdl/menu.c"
+   //@line 426 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
   break;
  }
  default: {
-   //@line 417 "../../../src/sdl/menu.c"
-  STACKTOP=sp;return 1; //@line 420 "../../../src/sdl/menu.c"
+   //@line 428 "../../../src/sdl/menu.c"
+  STACKTOP=sp;return 1; //@line 431 "../../../src/sdl/menu.c"
  }
  }
 }
@@ -10469,22 +11630,22 @@ function _creer_charger($parent){
  HEAP8[($11)]=0; //@line 108 "../../../src/sdl/charger.c"
  var $12=$state; //@line 109 "../../../src/sdl/charger.c"
  var $13=(($12+4)|0); //@line 109 "../../../src/sdl/charger.c"
- HEAP32[(($13)>>2)]=170; //@line 109 "../../../src/sdl/charger.c"
+ HEAP32[(($13)>>2)]=180; //@line 109 "../../../src/sdl/charger.c"
  var $14=$state; //@line 110 "../../../src/sdl/charger.c"
  var $15=(($14+24)|0); //@line 110 "../../../src/sdl/charger.c"
- HEAP32[(($15)>>2)]=24; //@line 110 "../../../src/sdl/charger.c"
+ HEAP32[(($15)>>2)]=28; //@line 110 "../../../src/sdl/charger.c"
  var $16=$state; //@line 111 "../../../src/sdl/charger.c"
  var $17=(($16+12)|0); //@line 111 "../../../src/sdl/charger.c"
- HEAP32[(($17)>>2)]=12; //@line 111 "../../../src/sdl/charger.c"
+ HEAP32[(($17)>>2)]=14; //@line 111 "../../../src/sdl/charger.c"
  var $18=$state; //@line 112 "../../../src/sdl/charger.c"
  var $19=(($18+16)|0); //@line 112 "../../../src/sdl/charger.c"
- HEAP32[(($19)>>2)]=12; //@line 112 "../../../src/sdl/charger.c"
+ HEAP32[(($19)>>2)]=14; //@line 112 "../../../src/sdl/charger.c"
  var $20=$state; //@line 113 "../../../src/sdl/charger.c"
  var $21=(($20+20)|0); //@line 113 "../../../src/sdl/charger.c"
- HEAP32[(($21)>>2)]=12; //@line 113 "../../../src/sdl/charger.c"
+ HEAP32[(($21)>>2)]=14; //@line 113 "../../../src/sdl/charger.c"
  var $22=$state; //@line 114 "../../../src/sdl/charger.c"
  var $23=(($22+8)|0); //@line 114 "../../../src/sdl/charger.c"
- HEAP32[(($23)>>2)]=12; //@line 114 "../../../src/sdl/charger.c"
+ HEAP32[(($23)>>2)]=14; //@line 114 "../../../src/sdl/charger.c"
  var $24=$1; //@line 115 "../../../src/sdl/charger.c"
  var $25=$charger; //@line 115 "../../../src/sdl/charger.c"
  var $26=(($25)|0); //@line 115 "../../../src/sdl/charger.c"
@@ -10494,9 +11655,9 @@ function _creer_charger($parent){
  HEAP8[($28)]=0; //@line 116 "../../../src/sdl/charger.c"
  var $29=$state; //@line 117 "../../../src/sdl/charger.c"
  var $30=(($29+32)|0); //@line 117 "../../../src/sdl/charger.c"
- HEAP32[(($30)>>2)]=324; //@line 117 "../../../src/sdl/charger.c"
+ HEAP32[(($30)>>2)]=344; //@line 117 "../../../src/sdl/charger.c"
  _set_color(50,50,150); //@line 119 "../../../src/sdl/charger.c"
- var $31=_creer_label(664,400,68,2,2); //@line 120 "../../../src/sdl/charger.c"
+ var $31=_creer_label(544,400,68,2,2); //@line 120 "../../../src/sdl/charger.c"
  var $32=$charger; //@line 120 "../../../src/sdl/charger.c"
  var $33=(($32+4)|0); //@line 120 "../../../src/sdl/charger.c"
  HEAP32[(($33)>>2)]=$31; //@line 120 "../../../src/sdl/charger.c"
@@ -10504,12 +11665,12 @@ function _creer_charger($parent){
  $x=120; //@line 122 "../../../src/sdl/charger.c"
  var $34=$x; //@line 123 "../../../src/sdl/charger.c"
  var $35=((($34)+(10))|0); //@line 123 "../../../src/sdl/charger.c"
- var $36=_creer_label(1120,$35,204,0,1); //@line 123 "../../../src/sdl/charger.c"
+ var $36=_creer_label(2776,$35,204,0,1); //@line 123 "../../../src/sdl/charger.c"
  var $37=$charger; //@line 123 "../../../src/sdl/charger.c"
  var $38=(($37+8)|0); //@line 123 "../../../src/sdl/charger.c"
  HEAP32[(($38)>>2)]=$36; //@line 123 "../../../src/sdl/charger.c"
  _set_color(250,20,20); //@line 125 "../../../src/sdl/charger.c"
- var $39=_creer_label(672,400,340,2,1); //@line 126 "../../../src/sdl/charger.c"
+ var $39=_creer_label(2064,400,340,2,1); //@line 126 "../../../src/sdl/charger.c"
  var $40=$charger; //@line 126 "../../../src/sdl/charger.c"
  var $41=(($40+12)|0); //@line 126 "../../../src/sdl/charger.c"
  HEAP32[(($41)>>2)]=$39; //@line 126 "../../../src/sdl/charger.c"
@@ -10526,11 +11687,11 @@ function _creer_charger($parent){
  var $50=(($49+16)|0); //@line 130 "../../../src/sdl/charger.c"
  HEAP32[(($50)>>2)]=$48; //@line 130 "../../../src/sdl/charger.c"
  _set_color(50,250,50); //@line 134 "../../../src/sdl/charger.c"
- var $51=_creer_bouton(664,480,475,100,30); //@line 135 "../../../src/sdl/charger.c"
+ var $51=_creer_bouton(544,480,475,100,30); //@line 135 "../../../src/sdl/charger.c"
  $bouton=$51; //@line 135 "../../../src/sdl/charger.c"
  var $52=$bouton; //@line 136 "../../../src/sdl/charger.c"
  var $53=(($52+40)|0); //@line 136 "../../../src/sdl/charger.c"
- HEAP32[(($53)>>2)]=252; //@line 136 "../../../src/sdl/charger.c"
+ HEAP32[(($53)>>2)]=266; //@line 136 "../../../src/sdl/charger.c"
  var $54=$state; //@line 137 "../../../src/sdl/charger.c"
  var $55=$54; //@line 137 "../../../src/sdl/charger.c"
  var $56=$bouton; //@line 137 "../../../src/sdl/charger.c"
@@ -10542,11 +11703,11 @@ function _creer_charger($parent){
  var $61=(($60)|0); //@line 138 "../../../src/sdl/charger.c"
  HEAP32[(($61)>>2)]=$58; //@line 138 "../../../src/sdl/charger.c"
  _set_color(155,50,50); //@line 140 "../../../src/sdl/charger.c"
- var $62=_creer_bouton(488,80,612,100,30); //@line 141 "../../../src/sdl/charger.c"
+ var $62=_creer_bouton(1632,80,612,100,30); //@line 141 "../../../src/sdl/charger.c"
  $bouton=$62; //@line 141 "../../../src/sdl/charger.c"
  var $63=$bouton; //@line 142 "../../../src/sdl/charger.c"
  var $64=(($63+40)|0); //@line 142 "../../../src/sdl/charger.c"
- HEAP32[(($64)>>2)]=268; //@line 142 "../../../src/sdl/charger.c"
+ HEAP32[(($64)>>2)]=282; //@line 142 "../../../src/sdl/charger.c"
  var $65=$state; //@line 143 "../../../src/sdl/charger.c"
  var $66=$65; //@line 143 "../../../src/sdl/charger.c"
  var $67=$bouton; //@line 143 "../../../src/sdl/charger.c"
@@ -10963,13 +12124,13 @@ function _set_color($r,$g,$b){
  $3=$b;
  var $4=$1; //@line 62 "../../../src/sdl/tools.c"
  var $5=(($4)&255); //@line 62 "../../../src/sdl/tools.c"
- HEAP8[(40)]=$5; //@line 62 "../../../src/sdl/tools.c"
+ HEAP8[(440)]=$5; //@line 62 "../../../src/sdl/tools.c"
  var $6=$2; //@line 63 "../../../src/sdl/tools.c"
  var $7=(($6)&255); //@line 63 "../../../src/sdl/tools.c"
- HEAP8[(41)]=$7; //@line 63 "../../../src/sdl/tools.c"
+ HEAP8[(441)]=$7; //@line 63 "../../../src/sdl/tools.c"
  var $8=$3; //@line 64 "../../../src/sdl/tools.c"
  var $9=(($8)&255); //@line 64 "../../../src/sdl/tools.c"
- HEAP8[(42)]=$9; //@line 64 "../../../src/sdl/tools.c"
+ HEAP8[(442)]=$9; //@line 64 "../../../src/sdl/tools.c"
  STACKTOP=sp;return; //@line 65 "../../../src/sdl/tools.c"
 }
 
@@ -10978,7 +12139,7 @@ function _get_color($agg_result){
  var label=0;
 
  var $1=$agg_result; //@line 69 "../../../src/sdl/tools.c"
- assert(4 % 1 === 0);HEAP8[($1)]=HEAP8[(40)];HEAP8[((($1)+(1))|0)]=HEAP8[(41)];HEAP8[((($1)+(2))|0)]=HEAP8[(42)];HEAP8[((($1)+(3))|0)]=HEAP8[(43)]; //@line 69 "../../../src/sdl/tools.c"
+ assert(4 % 1 === 0);HEAP8[($1)]=HEAP8[(440)];HEAP8[((($1)+(1))|0)]=HEAP8[(441)];HEAP8[((($1)+(2))|0)]=HEAP8[(442)];HEAP8[((($1)+(3))|0)]=HEAP8[(443)]; //@line 69 "../../../src/sdl/tools.c"
  return; //@line 69 "../../../src/sdl/tools.c"
 }
 
@@ -11013,9 +12174,9 @@ function _draw_rect($surface,$x,$y,$w,$h){
  var $14=$1; //@line 75 "../../../src/sdl/tools.c"
  var $15=(($14+4)|0); //@line 75 "../../../src/sdl/tools.c"
  var $16=HEAP32[(($15)>>2)]; //@line 75 "../../../src/sdl/tools.c"
- var $17=HEAP8[(40)]; //@line 75 "../../../src/sdl/tools.c"
- var $18=HEAP8[(41)]; //@line 75 "../../../src/sdl/tools.c"
- var $19=HEAP8[(42)]; //@line 75 "../../../src/sdl/tools.c"
+ var $17=HEAP8[(440)]; //@line 75 "../../../src/sdl/tools.c"
+ var $18=HEAP8[(441)]; //@line 75 "../../../src/sdl/tools.c"
+ var $19=HEAP8[(442)]; //@line 75 "../../../src/sdl/tools.c"
  var $20=_SDL_MapRGB($16,$17,$18,$19); //@line 75 "../../../src/sdl/tools.c"
  $c=$20; //@line 75 "../../../src/sdl/tools.c"
  var $21=$1; //@line 76 "../../../src/sdl/tools.c"
@@ -11039,7 +12200,7 @@ function _text_surface($text,$size){
  $font=$4; //@line 81 "../../../src/sdl/tools.c"
  var $5=$font; //@line 83 "../../../src/sdl/tools.c"
  var $6=$1; //@line 83 "../../../src/sdl/tools.c"
- var $7=_TTF_RenderText_Solid($5,$6,40); //@line 83 "../../../src/sdl/tools.c"
+ var $7=_TTF_RenderText_Solid($5,$6,440); //@line 83 "../../../src/sdl/tools.c"
  $surface=$7; //@line 83 "../../../src/sdl/tools.c"
  var $8=$surface; //@line 87 "../../../src/sdl/tools.c"
  STACKTOP=sp;return $8; //@line 87 "../../../src/sdl/tools.c"
@@ -11056,13 +12217,13 @@ function _get_font($size){
  var $2=$1; //@line 108 "../../../src/sdl/tools.c"
  $i=$2; //@line 108 "../../../src/sdl/tools.c"
  var $3=$i; //@line 109 "../../../src/sdl/tools.c"
- var $4=((1576+($3<<2))|0); //@line 109 "../../../src/sdl/tools.c"
+ var $4=((3792+($3<<2))|0); //@line 109 "../../../src/sdl/tools.c"
  var $5=HEAP32[(($4)>>2)]; //@line 109 "../../../src/sdl/tools.c"
  var $6=($5|0)!=0; //@line 109 "../../../src/sdl/tools.c"
   //@line 109 "../../../src/sdl/tools.c"
  if ($6) {
   var $41=$i; //@line 117 "../../../src/sdl/tools.c"
-  var $42=((1576+($41<<2))|0); //@line 117 "../../../src/sdl/tools.c"
+  var $42=((3792+($41<<2))|0); //@line 117 "../../../src/sdl/tools.c"
   var $43=HEAP32[(($42)>>2)]; //@line 117 "../../../src/sdl/tools.c"
   STACKTOP=sp;return $43; //@line 117 "../../../src/sdl/tools.c"
  }
@@ -11070,7 +12231,7 @@ function _get_font($size){
   //@line 111 "../../../src/sdl/tools.c"
  while(1) {
   var $9=$i; //@line 111 "../../../src/sdl/tools.c"
-  var $10=((1576+($9<<2))|0); //@line 111 "../../../src/sdl/tools.c"
+  var $10=((3792+($9<<2))|0); //@line 111 "../../../src/sdl/tools.c"
   var $11=HEAP32[(($10)>>2)]; //@line 111 "../../../src/sdl/tools.c"
   var $12=($11|0)!=0; //@line 111 "../../../src/sdl/tools.c"
    //@line 111 "../../../src/sdl/tools.c"
@@ -11086,14 +12247,14 @@ function _get_font($size){
    break;
   }
   var $19=$p; //@line 112 "../../../src/sdl/tools.c"
-  var $20=((1512+($19<<2))|0); //@line 112 "../../../src/sdl/tools.c"
+  var $20=((3728+($19<<2))|0); //@line 112 "../../../src/sdl/tools.c"
   var $21=HEAP32[(($20)>>2)]; //@line 112 "../../../src/sdl/tools.c"
   var $22=$i; //@line 112 "../../../src/sdl/tools.c"
   var $23=((24+($22<<2))|0); //@line 112 "../../../src/sdl/tools.c"
   var $24=HEAP32[(($23)>>2)]; //@line 112 "../../../src/sdl/tools.c"
   var $25=_TTF_OpenFont($21,$24); //@line 112 "../../../src/sdl/tools.c"
   var $26=$i; //@line 112 "../../../src/sdl/tools.c"
-  var $27=((1576+($26<<2))|0); //@line 112 "../../../src/sdl/tools.c"
+  var $27=((3792+($26<<2))|0); //@line 112 "../../../src/sdl/tools.c"
   HEAP32[(($27)>>2)]=$25; //@line 112 "../../../src/sdl/tools.c"
   var $28=$p; //@line 113 "../../../src/sdl/tools.c"
   var $29=((($28)+(1))|0); //@line 113 "../../../src/sdl/tools.c"
@@ -11102,7 +12263,7 @@ function _get_font($size){
  }
   //@line 115 "../../../src/sdl/tools.c"
  var $32=$i; //@line 115 "../../../src/sdl/tools.c"
- var $33=((1576+($32<<2))|0); //@line 115 "../../../src/sdl/tools.c"
+ var $33=((3792+($32<<2))|0); //@line 115 "../../../src/sdl/tools.c"
  var $34=HEAP32[(($33)>>2)]; //@line 115 "../../../src/sdl/tools.c"
  var $35=($34|0)!=0; //@line 115 "../../../src/sdl/tools.c"
   //@line 115 "../../../src/sdl/tools.c"
@@ -11115,7 +12276,7 @@ function _get_font($size){
   //@line 115 "../../../src/sdl/tools.c"
   //@line 116 "../../../src/sdl/tools.c"
  var $41=$i; //@line 117 "../../../src/sdl/tools.c"
- var $42=((1576+($41<<2))|0); //@line 117 "../../../src/sdl/tools.c"
+ var $42=((3792+($41<<2))|0); //@line 117 "../../../src/sdl/tools.c"
  var $43=HEAP32[(($42)>>2)]; //@line 117 "../../../src/sdl/tools.c"
  STACKTOP=sp;return $43; //@line 117 "../../../src/sdl/tools.c"
 }
@@ -11220,7 +12381,7 @@ function _liberer_polices(){
    break;
   }
   var $5=$i; //@line 124 "../../../src/sdl/tools.c"
-  var $6=((1576+($5<<2))|0); //@line 124 "../../../src/sdl/tools.c"
+  var $6=((3792+($5<<2))|0); //@line 124 "../../../src/sdl/tools.c"
   var $7=HEAP32[(($6)>>2)]; //@line 124 "../../../src/sdl/tools.c"
   _TTF_CloseFont($7); //@line 124 "../../../src/sdl/tools.c"
    //@line 125 "../../../src/sdl/tools.c"
@@ -11250,7 +12411,7 @@ function _creer_jouer($parent,$partie){
  $state=$4; //@line 118 "../../../src/sdl/jouer.c"
  var $5=$state; //@line 119 "../../../src/sdl/jouer.c"
  var $6=(($5+4)|0); //@line 119 "../../../src/sdl/jouer.c"
- HEAP32[(($6)>>2)]=46; //@line 119 "../../../src/sdl/jouer.c"
+ HEAP32[(($6)>>2)]=52; //@line 119 "../../../src/sdl/jouer.c"
  var $7=_gosh_alloc_size(52); //@line 120 "../../../src/sdl/jouer.c"
  var $8=$7; //@line 120 "../../../src/sdl/jouer.c"
  $jouer=$8; //@line 120 "../../../src/sdl/jouer.c"
@@ -11276,22 +12437,22 @@ function _creer_jouer($parent,$partie){
  HEAP32[(($24)>>2)]=$22; //@line 124 "../../../src/sdl/jouer.c"
  var $25=$state; //@line 125 "../../../src/sdl/jouer.c"
  var $26=(($25+24)|0); //@line 125 "../../../src/sdl/jouer.c"
- HEAP32[(($26)>>2)]=206; //@line 125 "../../../src/sdl/jouer.c"
+ HEAP32[(($26)>>2)]=218; //@line 125 "../../../src/sdl/jouer.c"
  var $27=$state; //@line 126 "../../../src/sdl/jouer.c"
  var $28=(($27+12)|0); //@line 126 "../../../src/sdl/jouer.c"
- HEAP32[(($28)>>2)]=210; //@line 126 "../../../src/sdl/jouer.c"
+ HEAP32[(($28)>>2)]=222; //@line 126 "../../../src/sdl/jouer.c"
  var $29=$state; //@line 127 "../../../src/sdl/jouer.c"
  var $30=(($29+16)|0); //@line 127 "../../../src/sdl/jouer.c"
- HEAP32[(($30)>>2)]=210; //@line 127 "../../../src/sdl/jouer.c"
+ HEAP32[(($30)>>2)]=222; //@line 127 "../../../src/sdl/jouer.c"
  var $31=$state; //@line 128 "../../../src/sdl/jouer.c"
  var $32=(($31+20)|0); //@line 128 "../../../src/sdl/jouer.c"
- HEAP32[(($32)>>2)]=210; //@line 128 "../../../src/sdl/jouer.c"
+ HEAP32[(($32)>>2)]=222; //@line 128 "../../../src/sdl/jouer.c"
  var $33=$state; //@line 129 "../../../src/sdl/jouer.c"
  var $34=(($33+8)|0); //@line 129 "../../../src/sdl/jouer.c"
- HEAP32[(($34)>>2)]=210; //@line 129 "../../../src/sdl/jouer.c"
+ HEAP32[(($34)>>2)]=222; //@line 129 "../../../src/sdl/jouer.c"
  var $35=$state; //@line 130 "../../../src/sdl/jouer.c"
  var $36=(($35+32)|0); //@line 130 "../../../src/sdl/jouer.c"
- HEAP32[(($36)>>2)]=324; //@line 130 "../../../src/sdl/jouer.c"
+ HEAP32[(($36)>>2)]=344; //@line 130 "../../../src/sdl/jouer.c"
  _set_color(230,200,150); //@line 134 "../../../src/sdl/jouer.c"
  var $37=(($buf)|0); //@line 135 "../../../src/sdl/jouer.c"
  var $38=$2; //@line 135 "../../../src/sdl/jouer.c"
@@ -11299,7 +12460,7 @@ function _creer_jouer($parent,$partie){
  var $40=(($39+20)|0); //@line 135 "../../../src/sdl/jouer.c"
  var $41=(($40+4)|0); //@line 135 "../../../src/sdl/jouer.c"
  var $42=(($41)|0); //@line 135 "../../../src/sdl/jouer.c"
- var $43=_snprintf($37,76,384,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$42,tempVarArgs)); STACKTOP=tempVarArgs; //@line 135 "../../../src/sdl/jouer.c"
+ var $43=_snprintf($37,76,3528,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$42,tempVarArgs)); STACKTOP=tempVarArgs; //@line 135 "../../../src/sdl/jouer.c"
  var $44=(($buf)|0); //@line 136 "../../../src/sdl/jouer.c"
  var $45=_creer_label($44,400,68,2,2); //@line 136 "../../../src/sdl/jouer.c"
  var $46=$jouer; //@line 136 "../../../src/sdl/jouer.c"
@@ -11312,27 +12473,27 @@ function _creer_jouer($parent,$partie){
  var $52=(($51)|0); //@line 137 "../../../src/sdl/jouer.c"
  var $53=(($52+4)|0); //@line 137 "../../../src/sdl/jouer.c"
  var $54=(($53)|0); //@line 137 "../../../src/sdl/jouer.c"
- var $55=_snprintf($49,76,384,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$54,tempVarArgs)); STACKTOP=tempVarArgs; //@line 137 "../../../src/sdl/jouer.c"
+ var $55=_snprintf($49,76,3528,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$54,tempVarArgs)); STACKTOP=tempVarArgs; //@line 137 "../../../src/sdl/jouer.c"
  var $56=(($buf)|0); //@line 138 "../../../src/sdl/jouer.c"
  var $57=_creer_label($56,400,68,2,2); //@line 138 "../../../src/sdl/jouer.c"
  var $58=$jouer; //@line 138 "../../../src/sdl/jouer.c"
  var $59=(($58+12)|0); //@line 138 "../../../src/sdl/jouer.c"
  var $60=(($59)|0); //@line 138 "../../../src/sdl/jouer.c"
  HEAP32[(($60)>>2)]=$57; //@line 138 "../../../src/sdl/jouer.c"
- var $61=_creer_label(1048,400,68,2,2); //@line 139 "../../../src/sdl/jouer.c"
+ var $61=_creer_label(3448,400,68,2,2); //@line 139 "../../../src/sdl/jouer.c"
  var $62=$jouer; //@line 139 "../../../src/sdl/jouer.c"
  var $63=(($62+20)|0); //@line 139 "../../../src/sdl/jouer.c"
  HEAP32[(($63)>>2)]=$61; //@line 139 "../../../src/sdl/jouer.c"
- var $64=_creer_label(640,400,68,2,2); //@line 140 "../../../src/sdl/jouer.c"
+ var $64=_creer_label(2512,400,68,2,2); //@line 140 "../../../src/sdl/jouer.c"
  var $65=$jouer; //@line 140 "../../../src/sdl/jouer.c"
  var $66=(($65+24)|0); //@line 140 "../../../src/sdl/jouer.c"
  HEAP32[(($66)>>2)]=$64; //@line 140 "../../../src/sdl/jouer.c"
  _set_color(155,50,50); //@line 142 "../../../src/sdl/jouer.c"
- var $67=_creer_bouton(472,10,550,140,30); //@line 143 "../../../src/sdl/jouer.c"
+ var $67=_creer_bouton(1904,10,550,140,30); //@line 143 "../../../src/sdl/jouer.c"
  $bouton=$67; //@line 143 "../../../src/sdl/jouer.c"
  var $68=$bouton; //@line 144 "../../../src/sdl/jouer.c"
  var $69=(($68+40)|0); //@line 144 "../../../src/sdl/jouer.c"
- HEAP32[(($69)>>2)]=128; //@line 144 "../../../src/sdl/jouer.c"
+ HEAP32[(($69)>>2)]=136; //@line 144 "../../../src/sdl/jouer.c"
  var $70=$state; //@line 145 "../../../src/sdl/jouer.c"
  var $71=$70; //@line 145 "../../../src/sdl/jouer.c"
  var $72=$bouton; //@line 145 "../../../src/sdl/jouer.c"
@@ -11343,11 +12504,11 @@ function _creer_jouer($parent,$partie){
  var $76=(($75+36)|0); //@line 146 "../../../src/sdl/jouer.c"
  HEAP32[(($76)>>2)]=$74; //@line 146 "../../../src/sdl/jouer.c"
  _set_color(255,255,255); //@line 148 "../../../src/sdl/jouer.c"
- var $77=_creer_bouton(368,600,102,150,30); //@line 149 "../../../src/sdl/jouer.c"
+ var $77=_creer_bouton(1488,600,102,150,30); //@line 149 "../../../src/sdl/jouer.c"
  $bouton=$77; //@line 149 "../../../src/sdl/jouer.c"
  var $78=$bouton; //@line 150 "../../../src/sdl/jouer.c"
  var $79=(($78+40)|0); //@line 150 "../../../src/sdl/jouer.c"
- HEAP32[(($79)>>2)]=38; //@line 150 "../../../src/sdl/jouer.c"
+ HEAP32[(($79)>>2)]=44; //@line 150 "../../../src/sdl/jouer.c"
  var $80=$state; //@line 151 "../../../src/sdl/jouer.c"
  var $81=$80; //@line 151 "../../../src/sdl/jouer.c"
  var $82=$bouton; //@line 151 "../../../src/sdl/jouer.c"
@@ -11358,11 +12519,11 @@ function _creer_jouer($parent,$partie){
  var $86=(($85+32)|0); //@line 152 "../../../src/sdl/jouer.c"
  HEAP32[(($86)>>2)]=$84; //@line 152 "../../../src/sdl/jouer.c"
  _set_color(255,255,255); //@line 154 "../../../src/sdl/jouer.c"
- var $87=_creer_bouton(320,600,632,150,30); //@line 155 "../../../src/sdl/jouer.c"
+ var $87=_creer_bouton(1056,600,632,150,30); //@line 155 "../../../src/sdl/jouer.c"
  $bouton=$87; //@line 155 "../../../src/sdl/jouer.c"
  var $88=$bouton; //@line 156 "../../../src/sdl/jouer.c"
  var $89=(($88+40)|0); //@line 156 "../../../src/sdl/jouer.c"
- HEAP32[(($89)>>2)]=174; //@line 156 "../../../src/sdl/jouer.c"
+ HEAP32[(($89)>>2)]=184; //@line 156 "../../../src/sdl/jouer.c"
  var $90=$state; //@line 157 "../../../src/sdl/jouer.c"
  var $91=$90; //@line 157 "../../../src/sdl/jouer.c"
  var $92=$bouton; //@line 157 "../../../src/sdl/jouer.c"
@@ -11383,7 +12544,7 @@ function _creer_jouer($parent,$partie){
  var $102=$jouer; //@line 164 "../../../src/sdl/jouer.c"
  var $103=(($102+48)|0); //@line 164 "../../../src/sdl/jouer.c"
  var $104=$103; //@line 164 "../../../src/sdl/jouer.c"
- assert(4 % 1 === 0);HEAP8[($104)]=HEAP8[(1504)];HEAP8[((($104)+(1))|0)]=HEAP8[(1505)];HEAP8[((($104)+(2))|0)]=HEAP8[(1506)];HEAP8[((($104)+(3))|0)]=HEAP8[(1507)]; //@line 164 "../../../src/sdl/jouer.c"
+ assert(4 % 1 === 0);HEAP8[($104)]=HEAP8[(3720)];HEAP8[((($104)+(1))|0)]=HEAP8[(3721)];HEAP8[((($104)+(2))|0)]=HEAP8[(3722)];HEAP8[((($104)+(3))|0)]=HEAP8[(3723)]; //@line 164 "../../../src/sdl/jouer.c"
  var $105=$state; //@line 166 "../../../src/sdl/jouer.c"
  STACKTOP=sp;return $105; //@line 166 "../../../src/sdl/jouer.c"
 }
@@ -11425,597 +12586,606 @@ function _afficher_jouer($state,$surface){
  var $sy7=(sp)+(56);
  $1=$state;
  $2=$surface;
- var $3=$1; //@line 271 "../../../src/sdl/jouer.c"
- var $4=(($3+28)|0); //@line 271 "../../../src/sdl/jouer.c"
- var $5=HEAP32[(($4)>>2)]; //@line 271 "../../../src/sdl/jouer.c"
- var $6=$5; //@line 271 "../../../src/sdl/jouer.c"
- $jouer=$6; //@line 271 "../../../src/sdl/jouer.c"
- var $7=$jouer; //@line 272 "../../../src/sdl/jouer.c"
- var $8=(($7+4)|0); //@line 272 "../../../src/sdl/jouer.c"
- var $9=HEAP32[(($8)>>2)]; //@line 272 "../../../src/sdl/jouer.c"
- $partie=$9; //@line 272 "../../../src/sdl/jouer.c"
- var $10=$jouer; //@line 273 "../../../src/sdl/jouer.c"
- var $11=(($10+8)|0); //@line 273 "../../../src/sdl/jouer.c"
- var $12=HEAP32[(($11)>>2)]; //@line 273 "../../../src/sdl/jouer.c"
- $taille=$12; //@line 273 "../../../src/sdl/jouer.c"
- $x1=160; //@line 275 "../../../src/sdl/jouer.c"
- $y1=136; //@line 276 "../../../src/sdl/jouer.c"
- var $13=$x1; //@line 277 "../../../src/sdl/jouer.c"
- var $14=($13|0); //@line 277 "../../../src/sdl/jouer.c"
- var $15=(640)-($14); //@line 277 "../../../src/sdl/jouer.c"
- var $16=$y1; //@line 277 "../../../src/sdl/jouer.c"
- var $17=($16|0); //@line 277 "../../../src/sdl/jouer.c"
- var $18=(544)-($17); //@line 277 "../../../src/sdl/jouer.c"
- var $19=$15>$18; //@line 277 "../../../src/sdl/jouer.c"
-  //@line 277 "../../../src/sdl/jouer.c"
+ var $3=$1; //@line 267 "../../../src/sdl/jouer.c"
+ var $4=(($3+28)|0); //@line 267 "../../../src/sdl/jouer.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 267 "../../../src/sdl/jouer.c"
+ var $6=$5; //@line 267 "../../../src/sdl/jouer.c"
+ $jouer=$6; //@line 267 "../../../src/sdl/jouer.c"
+ var $7=$jouer; //@line 268 "../../../src/sdl/jouer.c"
+ var $8=(($7+4)|0); //@line 268 "../../../src/sdl/jouer.c"
+ var $9=HEAP32[(($8)>>2)]; //@line 268 "../../../src/sdl/jouer.c"
+ $partie=$9; //@line 268 "../../../src/sdl/jouer.c"
+ var $10=$jouer; //@line 269 "../../../src/sdl/jouer.c"
+ var $11=(($10+8)|0); //@line 269 "../../../src/sdl/jouer.c"
+ var $12=HEAP32[(($11)>>2)]; //@line 269 "../../../src/sdl/jouer.c"
+ $taille=$12; //@line 269 "../../../src/sdl/jouer.c"
+ $x1=160; //@line 271 "../../../src/sdl/jouer.c"
+ $y1=136; //@line 272 "../../../src/sdl/jouer.c"
+ var $13=$x1; //@line 273 "../../../src/sdl/jouer.c"
+ var $14=($13|0); //@line 273 "../../../src/sdl/jouer.c"
+ var $15=(640)-($14); //@line 273 "../../../src/sdl/jouer.c"
+ var $16=$y1; //@line 273 "../../../src/sdl/jouer.c"
+ var $17=($16|0); //@line 273 "../../../src/sdl/jouer.c"
+ var $18=(544)-($17); //@line 273 "../../../src/sdl/jouer.c"
+ var $19=$15>$18; //@line 273 "../../../src/sdl/jouer.c"
+  //@line 273 "../../../src/sdl/jouer.c"
  if ($19) {
-  var $21=$x1; //@line 277 "../../../src/sdl/jouer.c"
-  var $22=($21|0); //@line 277 "../../../src/sdl/jouer.c"
-  var $23=(640)-($22); //@line 277 "../../../src/sdl/jouer.c"
-   //@line 277 "../../../src/sdl/jouer.c"
+  var $21=$x1; //@line 273 "../../../src/sdl/jouer.c"
+  var $22=($21|0); //@line 273 "../../../src/sdl/jouer.c"
+  var $23=(640)-($22); //@line 273 "../../../src/sdl/jouer.c"
+   //@line 273 "../../../src/sdl/jouer.c"
   var $29=$23;
  } else {
-  var $25=$y1; //@line 277 "../../../src/sdl/jouer.c"
-  var $26=($25|0); //@line 277 "../../../src/sdl/jouer.c"
-  var $27=(544)-($26); //@line 277 "../../../src/sdl/jouer.c"
-   //@line 277 "../../../src/sdl/jouer.c"
+  var $25=$y1; //@line 273 "../../../src/sdl/jouer.c"
+  var $26=($25|0); //@line 273 "../../../src/sdl/jouer.c"
+  var $27=(544)-($26); //@line 273 "../../../src/sdl/jouer.c"
+   //@line 273 "../../../src/sdl/jouer.c"
   var $29=$27;
  }
- var $29; //@line 277 "../../../src/sdl/jouer.c"
- var $30=(($29)&-1); //@line 277 "../../../src/sdl/jouer.c"
- $w=$30; //@line 277 "../../../src/sdl/jouer.c"
- var $31=$w; //@line 278 "../../../src/sdl/jouer.c"
- var $32=$taille; //@line 278 "../../../src/sdl/jouer.c"
- var $33=(((($31|0))%(($32|0)))&-1); //@line 278 "../../../src/sdl/jouer.c"
- var $34=$w; //@line 278 "../../../src/sdl/jouer.c"
- var $35=((($34)-($33))|0); //@line 278 "../../../src/sdl/jouer.c"
- $w=$35; //@line 278 "../../../src/sdl/jouer.c"
- var $36=$w; //@line 279 "../../../src/sdl/jouer.c"
- var $37=$taille; //@line 279 "../../../src/sdl/jouer.c"
- var $38=(((($36|0))/(($37|0)))&-1); //@line 279 "../../../src/sdl/jouer.c"
- $pixel_par_case=$38; //@line 279 "../../../src/sdl/jouer.c"
- $interbordure=2; //@line 280 "../../../src/sdl/jouer.c"
- var $39=$w; //@line 281 "../../../src/sdl/jouer.c"
- var $40=$pixel_par_case; //@line 281 "../../../src/sdl/jouer.c"
- var $41=$taille; //@line 281 "../../../src/sdl/jouer.c"
- var $42=((($41)-(1))|0); //@line 281 "../../../src/sdl/jouer.c"
- var $43=(Math_imul($40,$42)|0); //@line 281 "../../../src/sdl/jouer.c"
- var $44=((($39)-($43))|0); //@line 281 "../../../src/sdl/jouer.c"
- var $45=(((($44|0))/(2))&-1); //@line 281 "../../../src/sdl/jouer.c"
- $bordure=$45; //@line 281 "../../../src/sdl/jouer.c"
- _set_color(240,174,95); //@line 284 "../../../src/sdl/jouer.c"
- var $46=$2; //@line 285 "../../../src/sdl/jouer.c"
- var $47=$x1; //@line 285 "../../../src/sdl/jouer.c"
- var $48=$y1; //@line 285 "../../../src/sdl/jouer.c"
- var $49=$w; //@line 285 "../../../src/sdl/jouer.c"
- var $50=$w; //@line 285 "../../../src/sdl/jouer.c"
- _draw_rect($46,$47,$48,$49,$50); //@line 285 "../../../src/sdl/jouer.c"
- _set_color(30,30,30); //@line 288 "../../../src/sdl/jouer.c"
- $x=0; //@line 289 "../../../src/sdl/jouer.c"
-  //@line 289 "../../../src/sdl/jouer.c"
+ var $29; //@line 273 "../../../src/sdl/jouer.c"
+ var $30=(($29)&-1); //@line 273 "../../../src/sdl/jouer.c"
+ $w=$30; //@line 273 "../../../src/sdl/jouer.c"
+ var $31=$w; //@line 274 "../../../src/sdl/jouer.c"
+ var $32=$taille; //@line 274 "../../../src/sdl/jouer.c"
+ var $33=(((($31|0))%(($32|0)))&-1); //@line 274 "../../../src/sdl/jouer.c"
+ var $34=$w; //@line 274 "../../../src/sdl/jouer.c"
+ var $35=((($34)-($33))|0); //@line 274 "../../../src/sdl/jouer.c"
+ $w=$35; //@line 274 "../../../src/sdl/jouer.c"
+ var $36=$w; //@line 275 "../../../src/sdl/jouer.c"
+ var $37=$taille; //@line 275 "../../../src/sdl/jouer.c"
+ var $38=(((($36|0))/(($37|0)))&-1); //@line 275 "../../../src/sdl/jouer.c"
+ $pixel_par_case=$38; //@line 275 "../../../src/sdl/jouer.c"
+ $interbordure=2; //@line 276 "../../../src/sdl/jouer.c"
+ var $39=$w; //@line 277 "../../../src/sdl/jouer.c"
+ var $40=$pixel_par_case; //@line 277 "../../../src/sdl/jouer.c"
+ var $41=$taille; //@line 277 "../../../src/sdl/jouer.c"
+ var $42=((($41)-(1))|0); //@line 277 "../../../src/sdl/jouer.c"
+ var $43=(Math_imul($40,$42)|0); //@line 277 "../../../src/sdl/jouer.c"
+ var $44=((($39)-($43))|0); //@line 277 "../../../src/sdl/jouer.c"
+ var $45=(((($44|0))/(2))&-1); //@line 277 "../../../src/sdl/jouer.c"
+ $bordure=$45; //@line 277 "../../../src/sdl/jouer.c"
+ _set_color(240,174,95); //@line 280 "../../../src/sdl/jouer.c"
+ var $46=$2; //@line 281 "../../../src/sdl/jouer.c"
+ var $47=$x1; //@line 281 "../../../src/sdl/jouer.c"
+ var $48=$y1; //@line 281 "../../../src/sdl/jouer.c"
+ var $49=$w; //@line 281 "../../../src/sdl/jouer.c"
+ var $50=$w; //@line 281 "../../../src/sdl/jouer.c"
+ _draw_rect($46,$47,$48,$49,$50); //@line 281 "../../../src/sdl/jouer.c"
+ _set_color(30,30,30); //@line 284 "../../../src/sdl/jouer.c"
+ $x=0; //@line 285 "../../../src/sdl/jouer.c"
+  //@line 285 "../../../src/sdl/jouer.c"
  while(1) {
-  var $52=$x; //@line 289 "../../../src/sdl/jouer.c"
-  var $53=$taille; //@line 289 "../../../src/sdl/jouer.c"
-  var $54=($52|0)<($53|0); //@line 289 "../../../src/sdl/jouer.c"
-   //@line 289 "../../../src/sdl/jouer.c"
+  var $52=$x; //@line 285 "../../../src/sdl/jouer.c"
+  var $53=$taille; //@line 285 "../../../src/sdl/jouer.c"
+  var $54=($52|0)<($53|0); //@line 285 "../../../src/sdl/jouer.c"
+   //@line 285 "../../../src/sdl/jouer.c"
   if (!($54)) {
    break;
   }
-  var $56=$2; //@line 290 "../../../src/sdl/jouer.c"
-  var $57=$x1; //@line 290 "../../../src/sdl/jouer.c"
-  var $58=$bordure; //@line 290 "../../../src/sdl/jouer.c"
-  var $59=((($57)+($58))|0); //@line 290 "../../../src/sdl/jouer.c"
-  var $60=$x; //@line 290 "../../../src/sdl/jouer.c"
-  var $61=$pixel_par_case; //@line 290 "../../../src/sdl/jouer.c"
-  var $62=(Math_imul($60,$61)|0); //@line 290 "../../../src/sdl/jouer.c"
-  var $63=((($59)+($62))|0); //@line 290 "../../../src/sdl/jouer.c"
-  var $64=$interbordure; //@line 290 "../../../src/sdl/jouer.c"
-  var $65=(((($64|0))/(2))&-1); //@line 290 "../../../src/sdl/jouer.c"
-  var $66=((($63)-($65))|0); //@line 290 "../../../src/sdl/jouer.c"
-  var $67=$y1; //@line 290 "../../../src/sdl/jouer.c"
-  var $68=$bordure; //@line 290 "../../../src/sdl/jouer.c"
-  var $69=((($67)+($68))|0); //@line 290 "../../../src/sdl/jouer.c"
-  var $70=$interbordure; //@line 290 "../../../src/sdl/jouer.c"
-  var $71=$pixel_par_case; //@line 290 "../../../src/sdl/jouer.c"
-  var $72=$taille; //@line 290 "../../../src/sdl/jouer.c"
-  var $73=((($72)-(1))|0); //@line 290 "../../../src/sdl/jouer.c"
-  var $74=(Math_imul($71,$73)|0); //@line 290 "../../../src/sdl/jouer.c"
-  _draw_rect($56,$66,$69,$70,$74); //@line 290 "../../../src/sdl/jouer.c"
-   //@line 294 "../../../src/sdl/jouer.c"
-  var $76=$x; //@line 289 "../../../src/sdl/jouer.c"
-  var $77=((($76)+(1))|0); //@line 289 "../../../src/sdl/jouer.c"
-  $x=$77; //@line 289 "../../../src/sdl/jouer.c"
-   //@line 289 "../../../src/sdl/jouer.c"
+  var $56=$2; //@line 286 "../../../src/sdl/jouer.c"
+  var $57=$x1; //@line 286 "../../../src/sdl/jouer.c"
+  var $58=$bordure; //@line 286 "../../../src/sdl/jouer.c"
+  var $59=((($57)+($58))|0); //@line 286 "../../../src/sdl/jouer.c"
+  var $60=$x; //@line 286 "../../../src/sdl/jouer.c"
+  var $61=$pixel_par_case; //@line 286 "../../../src/sdl/jouer.c"
+  var $62=(Math_imul($60,$61)|0); //@line 286 "../../../src/sdl/jouer.c"
+  var $63=((($59)+($62))|0); //@line 286 "../../../src/sdl/jouer.c"
+  var $64=$interbordure; //@line 286 "../../../src/sdl/jouer.c"
+  var $65=(((($64|0))/(2))&-1); //@line 286 "../../../src/sdl/jouer.c"
+  var $66=((($63)-($65))|0); //@line 286 "../../../src/sdl/jouer.c"
+  var $67=$y1; //@line 286 "../../../src/sdl/jouer.c"
+  var $68=$bordure; //@line 286 "../../../src/sdl/jouer.c"
+  var $69=((($67)+($68))|0); //@line 286 "../../../src/sdl/jouer.c"
+  var $70=$interbordure; //@line 286 "../../../src/sdl/jouer.c"
+  var $71=$pixel_par_case; //@line 286 "../../../src/sdl/jouer.c"
+  var $72=$taille; //@line 286 "../../../src/sdl/jouer.c"
+  var $73=((($72)-(1))|0); //@line 286 "../../../src/sdl/jouer.c"
+  var $74=(Math_imul($71,$73)|0); //@line 286 "../../../src/sdl/jouer.c"
+  _draw_rect($56,$66,$69,$70,$74); //@line 286 "../../../src/sdl/jouer.c"
+   //@line 290 "../../../src/sdl/jouer.c"
+  var $76=$x; //@line 285 "../../../src/sdl/jouer.c"
+  var $77=((($76)+(1))|0); //@line 285 "../../../src/sdl/jouer.c"
+  $x=$77; //@line 285 "../../../src/sdl/jouer.c"
+   //@line 285 "../../../src/sdl/jouer.c"
  }
- $y=0; //@line 295 "../../../src/sdl/jouer.c"
-  //@line 295 "../../../src/sdl/jouer.c"
+ $y=0; //@line 291 "../../../src/sdl/jouer.c"
+  //@line 291 "../../../src/sdl/jouer.c"
  while(1) {
-  var $80=$y; //@line 295 "../../../src/sdl/jouer.c"
-  var $81=$taille; //@line 295 "../../../src/sdl/jouer.c"
-  var $82=($80|0)<($81|0); //@line 295 "../../../src/sdl/jouer.c"
-   //@line 295 "../../../src/sdl/jouer.c"
+  var $80=$y; //@line 291 "../../../src/sdl/jouer.c"
+  var $81=$taille; //@line 291 "../../../src/sdl/jouer.c"
+  var $82=($80|0)<($81|0); //@line 291 "../../../src/sdl/jouer.c"
+   //@line 291 "../../../src/sdl/jouer.c"
   if (!($82)) {
    break;
   }
-  var $84=$2; //@line 296 "../../../src/sdl/jouer.c"
-  var $85=$x1; //@line 296 "../../../src/sdl/jouer.c"
-  var $86=$bordure; //@line 296 "../../../src/sdl/jouer.c"
-  var $87=((($85)+($86))|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $88=$y1; //@line 296 "../../../src/sdl/jouer.c"
-  var $89=$bordure; //@line 296 "../../../src/sdl/jouer.c"
-  var $90=((($88)+($89))|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $91=$y; //@line 296 "../../../src/sdl/jouer.c"
-  var $92=$pixel_par_case; //@line 296 "../../../src/sdl/jouer.c"
-  var $93=(Math_imul($91,$92)|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $94=((($90)+($93))|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $95=$interbordure; //@line 296 "../../../src/sdl/jouer.c"
-  var $96=(((($95|0))/(2))&-1); //@line 296 "../../../src/sdl/jouer.c"
-  var $97=((($94)-($96))|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $98=$pixel_par_case; //@line 296 "../../../src/sdl/jouer.c"
-  var $99=$taille; //@line 296 "../../../src/sdl/jouer.c"
-  var $100=((($99)-(1))|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $101=(Math_imul($98,$100)|0); //@line 296 "../../../src/sdl/jouer.c"
-  var $102=$interbordure; //@line 296 "../../../src/sdl/jouer.c"
-  _draw_rect($84,$87,$97,$101,$102); //@line 296 "../../../src/sdl/jouer.c"
-   //@line 300 "../../../src/sdl/jouer.c"
-  var $104=$y; //@line 295 "../../../src/sdl/jouer.c"
-  var $105=((($104)+(1))|0); //@line 295 "../../../src/sdl/jouer.c"
-  $y=$105; //@line 295 "../../../src/sdl/jouer.c"
-   //@line 295 "../../../src/sdl/jouer.c"
+  var $84=$2; //@line 292 "../../../src/sdl/jouer.c"
+  var $85=$x1; //@line 292 "../../../src/sdl/jouer.c"
+  var $86=$bordure; //@line 292 "../../../src/sdl/jouer.c"
+  var $87=((($85)+($86))|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $88=$y1; //@line 292 "../../../src/sdl/jouer.c"
+  var $89=$bordure; //@line 292 "../../../src/sdl/jouer.c"
+  var $90=((($88)+($89))|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $91=$y; //@line 292 "../../../src/sdl/jouer.c"
+  var $92=$pixel_par_case; //@line 292 "../../../src/sdl/jouer.c"
+  var $93=(Math_imul($91,$92)|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $94=((($90)+($93))|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $95=$interbordure; //@line 292 "../../../src/sdl/jouer.c"
+  var $96=(((($95|0))/(2))&-1); //@line 292 "../../../src/sdl/jouer.c"
+  var $97=((($94)-($96))|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $98=$pixel_par_case; //@line 292 "../../../src/sdl/jouer.c"
+  var $99=$taille; //@line 292 "../../../src/sdl/jouer.c"
+  var $100=((($99)-(1))|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $101=(Math_imul($98,$100)|0); //@line 292 "../../../src/sdl/jouer.c"
+  var $102=$interbordure; //@line 292 "../../../src/sdl/jouer.c"
+  _draw_rect($84,$87,$97,$101,$102); //@line 292 "../../../src/sdl/jouer.c"
+   //@line 296 "../../../src/sdl/jouer.c"
+  var $104=$y; //@line 291 "../../../src/sdl/jouer.c"
+  var $105=((($104)+(1))|0); //@line 291 "../../../src/sdl/jouer.c"
+  $y=$105; //@line 291 "../../../src/sdl/jouer.c"
+   //@line 291 "../../../src/sdl/jouer.c"
  }
- var $107=$taille; //@line 302 "../../../src/sdl/jouer.c"
- var $108=($107|0)==9; //@line 302 "../../../src/sdl/jouer.c"
-  //@line 302 "../../../src/sdl/jouer.c"
+ var $107=$taille; //@line 298 "../../../src/sdl/jouer.c"
+ var $108=($107|0)==9; //@line 298 "../../../src/sdl/jouer.c"
+  //@line 298 "../../../src/sdl/jouer.c"
  if ($108) {
-   //@line 302 "../../../src/sdl/jouer.c"
+   //@line 298 "../../../src/sdl/jouer.c"
   var $115=30;
  } else {
-  var $111=$taille; //@line 302 "../../../src/sdl/jouer.c"
-  var $112=($111|0)==13; //@line 302 "../../../src/sdl/jouer.c"
-  var $113=($112?24:16); //@line 302 "../../../src/sdl/jouer.c"
-   //@line 302 "../../../src/sdl/jouer.c"
+  var $111=$taille; //@line 298 "../../../src/sdl/jouer.c"
+  var $112=($111|0)==13; //@line 298 "../../../src/sdl/jouer.c"
+  var $113=($112?24:16); //@line 298 "../../../src/sdl/jouer.c"
+   //@line 298 "../../../src/sdl/jouer.c"
   var $115=$113;
  }
- var $115; //@line 302 "../../../src/sdl/jouer.c"
- $taille_stone=$115; //@line 302 "../../../src/sdl/jouer.c"
- var $116=$taille_stone; //@line 303 "../../../src/sdl/jouer.c"
- var $117=(((($116|0))/(4))&-1); //@line 303 "../../../src/sdl/jouer.c"
- $taille_stone2=$117; //@line 303 "../../../src/sdl/jouer.c"
- var $118=$jouer; //@line 304 "../../../src/sdl/jouer.c"
- var $119=(($118+48)|0); //@line 304 "../../../src/sdl/jouer.c"
- var $120=$hov; //@line 304 "../../../src/sdl/jouer.c"
- var $121=$119; //@line 304 "../../../src/sdl/jouer.c"
- assert(4 % 1 === 0);HEAP8[($120)]=HEAP8[($121)];HEAP8[((($120)+(1))|0)]=HEAP8[((($121)+(1))|0)];HEAP8[((($120)+(2))|0)]=HEAP8[((($121)+(2))|0)];HEAP8[((($120)+(3))|0)]=HEAP8[((($121)+(3))|0)]; //@line 304 "../../../src/sdl/jouer.c"
- var $122=_position_est_valide($hov); //@line 305 "../../../src/sdl/jouer.c"
-  //@line 305 "../../../src/sdl/jouer.c"
+ var $115; //@line 298 "../../../src/sdl/jouer.c"
+ $taille_stone=$115; //@line 298 "../../../src/sdl/jouer.c"
+ var $116=$taille_stone; //@line 299 "../../../src/sdl/jouer.c"
+ var $117=(((($116|0))/(4))&-1); //@line 299 "../../../src/sdl/jouer.c"
+ $taille_stone2=$117; //@line 299 "../../../src/sdl/jouer.c"
+ var $118=$jouer; //@line 300 "../../../src/sdl/jouer.c"
+ var $119=(($118+48)|0); //@line 300 "../../../src/sdl/jouer.c"
+ var $120=$hov; //@line 300 "../../../src/sdl/jouer.c"
+ var $121=$119; //@line 300 "../../../src/sdl/jouer.c"
+ assert(4 % 1 === 0);HEAP8[($120)]=HEAP8[($121)];HEAP8[((($120)+(1))|0)]=HEAP8[((($121)+(1))|0)];HEAP8[((($120)+(2))|0)]=HEAP8[((($121)+(2))|0)];HEAP8[((($120)+(3))|0)]=HEAP8[((($121)+(3))|0)]; //@line 300 "../../../src/sdl/jouer.c"
+ var $122=_position_est_valide($hov); //@line 301 "../../../src/sdl/jouer.c"
+  //@line 301 "../../../src/sdl/jouer.c"
  if ($122) {
-  var $124=$partie; //@line 306 "../../../src/sdl/jouer.c"
-  var $125=(($124)|0); //@line 306 "../../../src/sdl/jouer.c"
-  var $126=HEAP32[(($125)>>2)]; //@line 306 "../../../src/sdl/jouer.c"
-  var $127=_plateau_determiner_chaine($126,$hov); //@line 306 "../../../src/sdl/jouer.c"
-   //@line 306 "../../../src/sdl/jouer.c"
+  var $124=$partie; //@line 302 "../../../src/sdl/jouer.c"
+  var $125=(($124)|0); //@line 302 "../../../src/sdl/jouer.c"
+  var $126=HEAP32[(($125)>>2)]; //@line 302 "../../../src/sdl/jouer.c"
+  var $127=_plateau_determiner_chaine($126,$hov); //@line 302 "../../../src/sdl/jouer.c"
+   //@line 302 "../../../src/sdl/jouer.c"
   var $130=$127;
  } else {
-   //@line 306 "../../../src/sdl/jouer.c"
+   //@line 302 "../../../src/sdl/jouer.c"
   var $130=0;
  }
- var $130; //@line 306 "../../../src/sdl/jouer.c"
- $chaine=$130; //@line 306 "../../../src/sdl/jouer.c"
- var $131=$chaine; //@line 307 "../../../src/sdl/jouer.c"
- var $132=($131|0)!=0; //@line 307 "../../../src/sdl/jouer.c"
-  //@line 307 "../../../src/sdl/jouer.c"
+ var $130; //@line 302 "../../../src/sdl/jouer.c"
+ $chaine=$130; //@line 302 "../../../src/sdl/jouer.c"
+ var $131=$chaine; //@line 303 "../../../src/sdl/jouer.c"
+ var $132=($131|0)!=0; //@line 303 "../../../src/sdl/jouer.c"
+  //@line 303 "../../../src/sdl/jouer.c"
  if ($132) {
-  var $134=$partie; //@line 307 "../../../src/sdl/jouer.c"
-  var $135=(($134)|0); //@line 307 "../../../src/sdl/jouer.c"
-  var $136=HEAP32[(($135)>>2)]; //@line 307 "../../../src/sdl/jouer.c"
-  var $137=$chaine; //@line 307 "../../../src/sdl/jouer.c"
-  var $138=_determiner_libertes($136,$137); //@line 307 "../../../src/sdl/jouer.c"
-   //@line 307 "../../../src/sdl/jouer.c"
+  var $134=$partie; //@line 303 "../../../src/sdl/jouer.c"
+  var $135=(($134)|0); //@line 303 "../../../src/sdl/jouer.c"
+  var $136=HEAP32[(($135)>>2)]; //@line 303 "../../../src/sdl/jouer.c"
+  var $137=$chaine; //@line 303 "../../../src/sdl/jouer.c"
+  var $138=_determiner_libertes($136,$137); //@line 303 "../../../src/sdl/jouer.c"
+   //@line 303 "../../../src/sdl/jouer.c"
   var $141=$138;
  } else {
-   //@line 307 "../../../src/sdl/jouer.c"
+   //@line 303 "../../../src/sdl/jouer.c"
   var $141=0;
  }
- var $141; //@line 307 "../../../src/sdl/jouer.c"
- $libertes=$141; //@line 307 "../../../src/sdl/jouer.c"
- var $142=$chaine; //@line 308 "../../../src/sdl/jouer.c"
- var $143=($142|0)!=0; //@line 308 "../../../src/sdl/jouer.c"
-  //@line 308 "../../../src/sdl/jouer.c"
+ var $141; //@line 303 "../../../src/sdl/jouer.c"
+ $libertes=$141; //@line 303 "../../../src/sdl/jouer.c"
+ var $142=$chaine; //@line 304 "../../../src/sdl/jouer.c"
+ var $143=($142|0)!=0; //@line 304 "../../../src/sdl/jouer.c"
+  //@line 304 "../../../src/sdl/jouer.c"
  if ($143) {
-  var $145=$chaine; //@line 308 "../../../src/sdl/jouer.c"
-  var $146=$partie; //@line 308 "../../../src/sdl/jouer.c"
-  var $147=(($146)|0); //@line 308 "../../../src/sdl/jouer.c"
-  var $148=HEAP32[(($147)>>2)]; //@line 308 "../../../src/sdl/jouer.c"
-  var $149=_lesYeuxDeLaChaine($145,$148); //@line 308 "../../../src/sdl/jouer.c"
-   //@line 308 "../../../src/sdl/jouer.c"
+  var $145=$chaine; //@line 304 "../../../src/sdl/jouer.c"
+  var $146=$partie; //@line 304 "../../../src/sdl/jouer.c"
+  var $147=(($146)|0); //@line 304 "../../../src/sdl/jouer.c"
+  var $148=HEAP32[(($147)>>2)]; //@line 304 "../../../src/sdl/jouer.c"
+  var $149=_lesYeuxDeLaChaine($145,$148); //@line 304 "../../../src/sdl/jouer.c"
+   //@line 304 "../../../src/sdl/jouer.c"
   var $152=$149;
  } else {
-   //@line 308 "../../../src/sdl/jouer.c"
+   //@line 304 "../../../src/sdl/jouer.c"
   var $152=0;
  }
- var $152; //@line 308 "../../../src/sdl/jouer.c"
- $yeux=$152; //@line 308 "../../../src/sdl/jouer.c"
- $x2=0; //@line 309 "../../../src/sdl/jouer.c"
-  //@line 309 "../../../src/sdl/jouer.c"
+ var $152; //@line 304 "../../../src/sdl/jouer.c"
+ $yeux=$152; //@line 304 "../../../src/sdl/jouer.c"
+ $x2=0; //@line 305 "../../../src/sdl/jouer.c"
+  //@line 305 "../../../src/sdl/jouer.c"
  while(1) {
-  var $154=$x2; //@line 309 "../../../src/sdl/jouer.c"
-  var $155=$taille; //@line 309 "../../../src/sdl/jouer.c"
-  var $156=($154|0)<($155|0); //@line 309 "../../../src/sdl/jouer.c"
-   //@line 309 "../../../src/sdl/jouer.c"
+  var $154=$x2; //@line 305 "../../../src/sdl/jouer.c"
+  var $155=$taille; //@line 305 "../../../src/sdl/jouer.c"
+  var $156=($154|0)<($155|0); //@line 305 "../../../src/sdl/jouer.c"
+   //@line 305 "../../../src/sdl/jouer.c"
   if (!($156)) {
    break;
   }
-  $y3=0; //@line 310 "../../../src/sdl/jouer.c"
-   //@line 310 "../../../src/sdl/jouer.c"
+  $y3=0; //@line 306 "../../../src/sdl/jouer.c"
+   //@line 306 "../../../src/sdl/jouer.c"
   while(1) {
-   var $159=$y3; //@line 310 "../../../src/sdl/jouer.c"
-   var $160=$taille; //@line 310 "../../../src/sdl/jouer.c"
-   var $161=($159|0)<($160|0); //@line 310 "../../../src/sdl/jouer.c"
-    //@line 310 "../../../src/sdl/jouer.c"
+   var $159=$y3; //@line 306 "../../../src/sdl/jouer.c"
+   var $160=$taille; //@line 306 "../../../src/sdl/jouer.c"
+   var $161=($159|0)<($160|0); //@line 306 "../../../src/sdl/jouer.c"
+    //@line 306 "../../../src/sdl/jouer.c"
    if (!($161)) {
     break;
    }
-   var $163=$x2; //@line 311 "../../../src/sdl/jouer.c"
-   var $164=$y3; //@line 311 "../../../src/sdl/jouer.c"
-   var $165=$taille; //@line 311 "../../../src/sdl/jouer.c"
-   _position($pos,$163,$164,$165); //@line 311 "../../../src/sdl/jouer.c"
-   var $166=$partie; //@line 312 "../../../src/sdl/jouer.c"
-   var $167=(($166)|0); //@line 312 "../../../src/sdl/jouer.c"
-   var $168=HEAP32[(($167)>>2)]; //@line 312 "../../../src/sdl/jouer.c"
-   var $169=$x2; //@line 312 "../../../src/sdl/jouer.c"
-   var $170=$y3; //@line 312 "../../../src/sdl/jouer.c"
-   var $171=_plateau_get($168,$169,$170); //@line 312 "../../../src/sdl/jouer.c"
-   $c=$171; //@line 312 "../../../src/sdl/jouer.c"
-   $draw=0; //@line 313 "../../../src/sdl/jouer.c"
-   var $172=$c; //@line 314 "../../../src/sdl/jouer.c"
-   var $173=($172|0)!=0; //@line 314 "../../../src/sdl/jouer.c"
-    //@line 314 "../../../src/sdl/jouer.c"
+   var $163=$x2; //@line 307 "../../../src/sdl/jouer.c"
+   var $164=$y3; //@line 307 "../../../src/sdl/jouer.c"
+   var $165=$taille; //@line 307 "../../../src/sdl/jouer.c"
+   _position($pos,$163,$164,$165); //@line 307 "../../../src/sdl/jouer.c"
+   var $166=$partie; //@line 308 "../../../src/sdl/jouer.c"
+   var $167=(($166)|0); //@line 308 "../../../src/sdl/jouer.c"
+   var $168=HEAP32[(($167)>>2)]; //@line 308 "../../../src/sdl/jouer.c"
+   var $169=$x2; //@line 308 "../../../src/sdl/jouer.c"
+   var $170=$y3; //@line 308 "../../../src/sdl/jouer.c"
+   var $171=_plateau_get($168,$169,$170); //@line 308 "../../../src/sdl/jouer.c"
+   $c=$171; //@line 308 "../../../src/sdl/jouer.c"
+   $draw=0; //@line 309 "../../../src/sdl/jouer.c"
+   var $172=$c; //@line 310 "../../../src/sdl/jouer.c"
+   var $173=($172|0)!=0; //@line 310 "../../../src/sdl/jouer.c"
+    //@line 310 "../../../src/sdl/jouer.c"
    if ($173) {
-    var $175=$c; //@line 315 "../../../src/sdl/jouer.c"
-    var $176=($175|0)==1; //@line 315 "../../../src/sdl/jouer.c"
-     //@line 315 "../../../src/sdl/jouer.c"
+    var $175=$c; //@line 311 "../../../src/sdl/jouer.c"
+    var $176=($175|0)==1; //@line 311 "../../../src/sdl/jouer.c"
+     //@line 311 "../../../src/sdl/jouer.c"
     if ($176) {
-     _set_color(210,210,210); //@line 316 "../../../src/sdl/jouer.c"
-      //@line 317 "../../../src/sdl/jouer.c"
+     _set_color(210,210,210); //@line 312 "../../../src/sdl/jouer.c"
+      //@line 313 "../../../src/sdl/jouer.c"
     } else {
-     _set_color(40,40,40); //@line 318 "../../../src/sdl/jouer.c"
+     _set_color(40,40,40); //@line 314 "../../../src/sdl/jouer.c"
     }
-    $draw=1; //@line 320 "../../../src/sdl/jouer.c"
-     //@line 321 "../../../src/sdl/jouer.c"
+    $draw=1; //@line 316 "../../../src/sdl/jouer.c"
+     //@line 317 "../../../src/sdl/jouer.c"
    } else {
-    var $181=_position_est_valide($hov); //@line 321 "../../../src/sdl/jouer.c"
-     //@line 321 "../../../src/sdl/jouer.c"
+    var $181=_position_est_valide($hov); //@line 317 "../../../src/sdl/jouer.c"
+     //@line 317 "../../../src/sdl/jouer.c"
     do {
      if ($181) {
-      var $183=(($hov)|0); //@line 321 "../../../src/sdl/jouer.c"
-      var $184=HEAP8[($183)]; //@line 321 "../../../src/sdl/jouer.c"
-      var $185=(($184<<24)>>24); //@line 321 "../../../src/sdl/jouer.c"
-      var $186=$x2; //@line 321 "../../../src/sdl/jouer.c"
-      var $187=($185|0)==($186|0); //@line 321 "../../../src/sdl/jouer.c"
-       //@line 321 "../../../src/sdl/jouer.c"
+      var $183=(($hov)|0); //@line 317 "../../../src/sdl/jouer.c"
+      var $184=HEAP8[($183)]; //@line 317 "../../../src/sdl/jouer.c"
+      var $185=(($184<<24)>>24); //@line 317 "../../../src/sdl/jouer.c"
+      var $186=$x2; //@line 317 "../../../src/sdl/jouer.c"
+      var $187=($185|0)==($186|0); //@line 317 "../../../src/sdl/jouer.c"
+       //@line 317 "../../../src/sdl/jouer.c"
       if (!($187)) {
        break;
       }
-      var $189=(($hov+1)|0); //@line 321 "../../../src/sdl/jouer.c"
-      var $190=HEAP8[($189)]; //@line 321 "../../../src/sdl/jouer.c"
-      var $191=(($190<<24)>>24); //@line 321 "../../../src/sdl/jouer.c"
-      var $192=$y3; //@line 321 "../../../src/sdl/jouer.c"
-      var $193=($191|0)==($192|0); //@line 321 "../../../src/sdl/jouer.c"
-       //@line 321 "../../../src/sdl/jouer.c"
+      var $189=(($hov+1)|0); //@line 317 "../../../src/sdl/jouer.c"
+      var $190=HEAP8[($189)]; //@line 317 "../../../src/sdl/jouer.c"
+      var $191=(($190<<24)>>24); //@line 317 "../../../src/sdl/jouer.c"
+      var $192=$y3; //@line 317 "../../../src/sdl/jouer.c"
+      var $193=($191|0)==($192|0); //@line 317 "../../../src/sdl/jouer.c"
+       //@line 317 "../../../src/sdl/jouer.c"
       if (!($193)) {
        break;
       }
-      var $195=$partie; //@line 322 "../../../src/sdl/jouer.c"
-      var $196=(($195+52)|0); //@line 322 "../../../src/sdl/jouer.c"
-      var $197=HEAP32[(($196)>>2)]; //@line 322 "../../../src/sdl/jouer.c"
-      var $198=($197|0)==0; //@line 322 "../../../src/sdl/jouer.c"
-       //@line 322 "../../../src/sdl/jouer.c"
+      var $195=$partie; //@line 318 "../../../src/sdl/jouer.c"
+      var $196=(($195+52)|0); //@line 318 "../../../src/sdl/jouer.c"
+      var $197=HEAP32[(($196)>>2)]; //@line 318 "../../../src/sdl/jouer.c"
+      var $198=($197|0)==0; //@line 318 "../../../src/sdl/jouer.c"
+       //@line 318 "../../../src/sdl/jouer.c"
       if ($198) {
-       _set_color(240,240,240); //@line 323 "../../../src/sdl/jouer.c"
-        //@line 324 "../../../src/sdl/jouer.c"
+       _set_color(240,240,240); //@line 319 "../../../src/sdl/jouer.c"
+        //@line 320 "../../../src/sdl/jouer.c"
       } else {
-       _set_color(20,20,20); //@line 325 "../../../src/sdl/jouer.c"
+       _set_color(20,20,20); //@line 321 "../../../src/sdl/jouer.c"
       }
-      $draw=1; //@line 327 "../../../src/sdl/jouer.c"
-       //@line 328 "../../../src/sdl/jouer.c"
+      $draw=1; //@line 323 "../../../src/sdl/jouer.c"
+       //@line 324 "../../../src/sdl/jouer.c"
      }
     } while(0);
    }
-   var $204=$taille; //@line 329 "../../../src/sdl/jouer.c"
-   var $205=($204|0)==9; //@line 329 "../../../src/sdl/jouer.c"
-   var $206=($205?2:3); //@line 329 "../../../src/sdl/jouer.c"
-   $marge=$206; //@line 329 "../../../src/sdl/jouer.c"
-   var $207=$draw; //@line 330 "../../../src/sdl/jouer.c"
-   var $208=(($207)&1); //@line 330 "../../../src/sdl/jouer.c"
-    //@line 330 "../../../src/sdl/jouer.c"
+   var $204=$taille; //@line 325 "../../../src/sdl/jouer.c"
+   var $205=($204|0)==9; //@line 325 "../../../src/sdl/jouer.c"
+   var $206=($205?2:3); //@line 325 "../../../src/sdl/jouer.c"
+   $marge=$206; //@line 325 "../../../src/sdl/jouer.c"
+   var $207=$draw; //@line 326 "../../../src/sdl/jouer.c"
+   var $208=(($207)&1); //@line 326 "../../../src/sdl/jouer.c"
+    //@line 326 "../../../src/sdl/jouer.c"
    if ($208) {
-    var $210=$jouer; //@line 333 "../../../src/sdl/jouer.c"
-    var $211=$x2; //@line 333 "../../../src/sdl/jouer.c"
-    var $212=$y3; //@line 333 "../../../src/sdl/jouer.c"
-    _get_position_vers_ecran($210,$211,$212,$sx,$sy); //@line 333 "../../../src/sdl/jouer.c"
-    var $213=$taille_stone; //@line 334 "../../../src/sdl/jouer.c"
-    var $214=(((($213|0))/(2))&-1); //@line 334 "../../../src/sdl/jouer.c"
-    var $215=HEAP32[(($sx)>>2)]; //@line 334 "../../../src/sdl/jouer.c"
-    var $216=((($215)-($214))|0); //@line 334 "../../../src/sdl/jouer.c"
-    HEAP32[(($sx)>>2)]=$216; //@line 334 "../../../src/sdl/jouer.c"
-    var $217=$taille_stone; //@line 335 "../../../src/sdl/jouer.c"
-    var $218=(((($217|0))/(2))&-1); //@line 335 "../../../src/sdl/jouer.c"
-    var $219=HEAP32[(($sy)>>2)]; //@line 335 "../../../src/sdl/jouer.c"
-    var $220=((($219)-($218))|0); //@line 335 "../../../src/sdl/jouer.c"
-    HEAP32[(($sy)>>2)]=$220; //@line 335 "../../../src/sdl/jouer.c"
-    var $221=$2; //@line 336 "../../../src/sdl/jouer.c"
-    var $222=HEAP32[(($sx)>>2)]; //@line 336 "../../../src/sdl/jouer.c"
-    var $223=HEAP32[(($sy)>>2)]; //@line 336 "../../../src/sdl/jouer.c"
-    var $224=$taille_stone; //@line 336 "../../../src/sdl/jouer.c"
-    var $225=$taille_stone; //@line 336 "../../../src/sdl/jouer.c"
-    _draw_rect($221,$222,$223,$224,$225); //@line 336 "../../../src/sdl/jouer.c"
-     //@line 337 "../../../src/sdl/jouer.c"
+    var $210=$taille; //@line 329 "../../../src/sdl/jouer.c"
+    var $211=$x2; //@line 329 "../../../src/sdl/jouer.c"
+    var $212=$y3; //@line 329 "../../../src/sdl/jouer.c"
+    var $213=$x1; //@line 329 "../../../src/sdl/jouer.c"
+    var $214=$y1; //@line 329 "../../../src/sdl/jouer.c"
+    var $215=$w; //@line 329 "../../../src/sdl/jouer.c"
+    _get_position_vers_ecran($210,$211,$212,$sx,$sy,$213,$214,$215); //@line 329 "../../../src/sdl/jouer.c"
+    var $216=$taille_stone; //@line 330 "../../../src/sdl/jouer.c"
+    var $217=(((($216|0))/(2))&-1); //@line 330 "../../../src/sdl/jouer.c"
+    var $218=HEAP32[(($sx)>>2)]; //@line 330 "../../../src/sdl/jouer.c"
+    var $219=((($218)-($217))|0); //@line 330 "../../../src/sdl/jouer.c"
+    HEAP32[(($sx)>>2)]=$219; //@line 330 "../../../src/sdl/jouer.c"
+    var $220=$taille_stone; //@line 331 "../../../src/sdl/jouer.c"
+    var $221=(((($220|0))/(2))&-1); //@line 331 "../../../src/sdl/jouer.c"
+    var $222=HEAP32[(($sy)>>2)]; //@line 331 "../../../src/sdl/jouer.c"
+    var $223=((($222)-($221))|0); //@line 331 "../../../src/sdl/jouer.c"
+    HEAP32[(($sy)>>2)]=$223; //@line 331 "../../../src/sdl/jouer.c"
+    var $224=$2; //@line 332 "../../../src/sdl/jouer.c"
+    var $225=HEAP32[(($sx)>>2)]; //@line 332 "../../../src/sdl/jouer.c"
+    var $226=HEAP32[(($sy)>>2)]; //@line 332 "../../../src/sdl/jouer.c"
+    var $227=$taille_stone; //@line 332 "../../../src/sdl/jouer.c"
+    var $228=$taille_stone; //@line 332 "../../../src/sdl/jouer.c"
+    _draw_rect($224,$225,$226,$227,$228); //@line 332 "../../../src/sdl/jouer.c"
+     //@line 333 "../../../src/sdl/jouer.c"
    } else {
-    var $227=$x2; //@line 337 "../../../src/sdl/jouer.c"
-    var $228=$taille; //@line 337 "../../../src/sdl/jouer.c"
-    var $229=_get_marge($227,$228); //@line 337 "../../../src/sdl/jouer.c"
-    var $230=$marge; //@line 337 "../../../src/sdl/jouer.c"
-    var $231=($229|0)==($230|0); //@line 337 "../../../src/sdl/jouer.c"
-     //@line 337 "../../../src/sdl/jouer.c"
-    if ($231) {
+    var $230=$x2; //@line 333 "../../../src/sdl/jouer.c"
+    var $231=$taille; //@line 333 "../../../src/sdl/jouer.c"
+    var $232=_get_marge($230,$231); //@line 333 "../../../src/sdl/jouer.c"
+    var $233=$marge; //@line 333 "../../../src/sdl/jouer.c"
+    var $234=($232|0)==($233|0); //@line 333 "../../../src/sdl/jouer.c"
+     //@line 333 "../../../src/sdl/jouer.c"
+    if ($234) {
      label = 45;
     } else {
-     var $233=$x2; //@line 337 "../../../src/sdl/jouer.c"
-     var $234=$taille; //@line 337 "../../../src/sdl/jouer.c"
-     var $235=(((($234|0))/(2))&-1); //@line 337 "../../../src/sdl/jouer.c"
-     var $236=($233|0)==($235|0); //@line 337 "../../../src/sdl/jouer.c"
-      //@line 337 "../../../src/sdl/jouer.c"
-     if ($236) {
+     var $236=$x2; //@line 333 "../../../src/sdl/jouer.c"
+     var $237=$taille; //@line 333 "../../../src/sdl/jouer.c"
+     var $238=(((($237|0))/(2))&-1); //@line 333 "../../../src/sdl/jouer.c"
+     var $239=($236|0)==($238|0); //@line 333 "../../../src/sdl/jouer.c"
+      //@line 333 "../../../src/sdl/jouer.c"
+     if ($239) {
       label = 45;
      }
     }
     do {
      if (label == 45) {
       label = 0;
-      var $238=$y3; //@line 338 "../../../src/sdl/jouer.c"
-      var $239=$taille; //@line 338 "../../../src/sdl/jouer.c"
-      var $240=_get_marge($238,$239); //@line 338 "../../../src/sdl/jouer.c"
-      var $241=$marge; //@line 338 "../../../src/sdl/jouer.c"
-      var $242=($240|0)==($241|0); //@line 338 "../../../src/sdl/jouer.c"
-       //@line 338 "../../../src/sdl/jouer.c"
-      if (!($242)) {
-       var $244=$y3; //@line 338 "../../../src/sdl/jouer.c"
-       var $245=$taille; //@line 338 "../../../src/sdl/jouer.c"
-       var $246=(((($245|0))/(2))&-1); //@line 338 "../../../src/sdl/jouer.c"
-       var $247=($244|0)==($246|0); //@line 338 "../../../src/sdl/jouer.c"
-        //@line 338 "../../../src/sdl/jouer.c"
-       if (!($247)) {
+      var $241=$y3; //@line 334 "../../../src/sdl/jouer.c"
+      var $242=$taille; //@line 334 "../../../src/sdl/jouer.c"
+      var $243=_get_marge($241,$242); //@line 334 "../../../src/sdl/jouer.c"
+      var $244=$marge; //@line 334 "../../../src/sdl/jouer.c"
+      var $245=($243|0)==($244|0); //@line 334 "../../../src/sdl/jouer.c"
+       //@line 334 "../../../src/sdl/jouer.c"
+      if (!($245)) {
+       var $247=$y3; //@line 334 "../../../src/sdl/jouer.c"
+       var $248=$taille; //@line 334 "../../../src/sdl/jouer.c"
+       var $249=(((($248|0))/(2))&-1); //@line 334 "../../../src/sdl/jouer.c"
+       var $250=($247|0)==($249|0); //@line 334 "../../../src/sdl/jouer.c"
+        //@line 334 "../../../src/sdl/jouer.c"
+       if (!($250)) {
         break;
        }
       }
-      var $249=$jouer; //@line 341 "../../../src/sdl/jouer.c"
-      var $250=$x2; //@line 341 "../../../src/sdl/jouer.c"
-      var $251=$y3; //@line 341 "../../../src/sdl/jouer.c"
-      _get_position_vers_ecran($249,$250,$251,$sx4,$sy5); //@line 341 "../../../src/sdl/jouer.c"
-      _set_color(0,0,0); //@line 342 "../../../src/sdl/jouer.c"
-      var $252=$2; //@line 343 "../../../src/sdl/jouer.c"
-      var $253=HEAP32[(($sx4)>>2)]; //@line 343 "../../../src/sdl/jouer.c"
-      var $254=((($253)-(3))|0); //@line 343 "../../../src/sdl/jouer.c"
-      var $255=HEAP32[(($sy5)>>2)]; //@line 343 "../../../src/sdl/jouer.c"
-      var $256=((($255)-(3))|0); //@line 343 "../../../src/sdl/jouer.c"
-      _draw_rect($252,$254,$256,6,6); //@line 343 "../../../src/sdl/jouer.c"
-       //@line 344 "../../../src/sdl/jouer.c"
+      var $252=$taille; //@line 337 "../../../src/sdl/jouer.c"
+      var $253=$x2; //@line 337 "../../../src/sdl/jouer.c"
+      var $254=$y3; //@line 337 "../../../src/sdl/jouer.c"
+      var $255=$x1; //@line 337 "../../../src/sdl/jouer.c"
+      var $256=$y1; //@line 337 "../../../src/sdl/jouer.c"
+      var $257=$w; //@line 337 "../../../src/sdl/jouer.c"
+      _get_position_vers_ecran($252,$253,$254,$sx4,$sy5,$255,$256,$257); //@line 337 "../../../src/sdl/jouer.c"
+      _set_color(0,0,0); //@line 338 "../../../src/sdl/jouer.c"
+      var $258=$2; //@line 339 "../../../src/sdl/jouer.c"
+      var $259=HEAP32[(($sx4)>>2)]; //@line 339 "../../../src/sdl/jouer.c"
+      var $260=((($259)-(3))|0); //@line 339 "../../../src/sdl/jouer.c"
+      var $261=HEAP32[(($sy5)>>2)]; //@line 339 "../../../src/sdl/jouer.c"
+      var $262=((($261)-(3))|0); //@line 339 "../../../src/sdl/jouer.c"
+      _draw_rect($258,$260,$262,6,6); //@line 339 "../../../src/sdl/jouer.c"
+       //@line 340 "../../../src/sdl/jouer.c"
      }
     } while(0);
    }
-   $draw=0; //@line 347 "../../../src/sdl/jouer.c"
-   var $259=$chaine; //@line 348 "../../../src/sdl/jouer.c"
-   var $260=($259|0)!=0; //@line 348 "../../../src/sdl/jouer.c"
-    //@line 348 "../../../src/sdl/jouer.c"
+   $draw=0; //@line 343 "../../../src/sdl/jouer.c"
+   var $265=$chaine; //@line 344 "../../../src/sdl/jouer.c"
+   var $266=($265|0)!=0; //@line 344 "../../../src/sdl/jouer.c"
+    //@line 344 "../../../src/sdl/jouer.c"
    do {
-    if ($260) {
-     var $262=$chaine; //@line 348 "../../../src/sdl/jouer.c"
-     var $263=(($262+16)|0); //@line 348 "../../../src/sdl/jouer.c"
-     var $264=HEAP32[(($263)>>2)]; //@line 348 "../../../src/sdl/jouer.c"
-     var $265=$chaine; //@line 348 "../../../src/sdl/jouer.c"
-     var $266=FUNCTION_TABLE[$264]($265,$pos); //@line 348 "../../../src/sdl/jouer.c"
-      //@line 348 "../../../src/sdl/jouer.c"
-     if (!($266)) {
+    if ($266) {
+     var $268=$chaine; //@line 344 "../../../src/sdl/jouer.c"
+     var $269=(($268+16)|0); //@line 344 "../../../src/sdl/jouer.c"
+     var $270=HEAP32[(($269)>>2)]; //@line 344 "../../../src/sdl/jouer.c"
+     var $271=$chaine; //@line 344 "../../../src/sdl/jouer.c"
+     var $272=FUNCTION_TABLE[$270]($271,$pos); //@line 344 "../../../src/sdl/jouer.c"
+      //@line 344 "../../../src/sdl/jouer.c"
+     if (!($272)) {
       label = 52;
       break;
      }
-     _set_color(120,120,120); //@line 349 "../../../src/sdl/jouer.c"
-     $draw=1; //@line 350 "../../../src/sdl/jouer.c"
-      //@line 351 "../../../src/sdl/jouer.c"
+     _set_color(120,120,120); //@line 345 "../../../src/sdl/jouer.c"
+     $draw=1; //@line 346 "../../../src/sdl/jouer.c"
+      //@line 347 "../../../src/sdl/jouer.c"
     } else {
      label = 52;
     }
    } while(0);
    if (label == 52) {
     label = 0;
-    var $269=$yeux; //@line 351 "../../../src/sdl/jouer.c"
-    var $270=($269|0)!=0; //@line 351 "../../../src/sdl/jouer.c"
-     //@line 351 "../../../src/sdl/jouer.c"
+    var $275=$yeux; //@line 347 "../../../src/sdl/jouer.c"
+    var $276=($275|0)!=0; //@line 347 "../../../src/sdl/jouer.c"
+     //@line 347 "../../../src/sdl/jouer.c"
     do {
-     if ($270) {
-      var $272=$yeux; //@line 351 "../../../src/sdl/jouer.c"
-      var $273=(($272+16)|0); //@line 351 "../../../src/sdl/jouer.c"
-      var $274=HEAP32[(($273)>>2)]; //@line 351 "../../../src/sdl/jouer.c"
-      var $275=$yeux; //@line 351 "../../../src/sdl/jouer.c"
-      var $276=FUNCTION_TABLE[$274]($275,$pos); //@line 351 "../../../src/sdl/jouer.c"
-       //@line 351 "../../../src/sdl/jouer.c"
-      if (!($276)) {
+     if ($276) {
+      var $278=$yeux; //@line 347 "../../../src/sdl/jouer.c"
+      var $279=(($278+16)|0); //@line 347 "../../../src/sdl/jouer.c"
+      var $280=HEAP32[(($279)>>2)]; //@line 347 "../../../src/sdl/jouer.c"
+      var $281=$yeux; //@line 347 "../../../src/sdl/jouer.c"
+      var $282=FUNCTION_TABLE[$280]($281,$pos); //@line 347 "../../../src/sdl/jouer.c"
+       //@line 347 "../../../src/sdl/jouer.c"
+      if (!($282)) {
        label = 55;
        break;
       }
-      _set_color(255,130,130); //@line 352 "../../../src/sdl/jouer.c"
-      $draw=1; //@line 353 "../../../src/sdl/jouer.c"
-       //@line 354 "../../../src/sdl/jouer.c"
+      _set_color(255,130,130); //@line 348 "../../../src/sdl/jouer.c"
+      $draw=1; //@line 349 "../../../src/sdl/jouer.c"
+       //@line 350 "../../../src/sdl/jouer.c"
      } else {
       label = 55;
      }
     } while(0);
     if (label == 55) {
      label = 0;
-     var $279=$libertes; //@line 354 "../../../src/sdl/jouer.c"
-     var $280=($279|0)!=0; //@line 354 "../../../src/sdl/jouer.c"
-      //@line 354 "../../../src/sdl/jouer.c"
+     var $285=$libertes; //@line 350 "../../../src/sdl/jouer.c"
+     var $286=($285|0)!=0; //@line 350 "../../../src/sdl/jouer.c"
+      //@line 350 "../../../src/sdl/jouer.c"
      do {
-      if ($280) {
-       var $282=$libertes; //@line 354 "../../../src/sdl/jouer.c"
-       var $283=(($282+16)|0); //@line 354 "../../../src/sdl/jouer.c"
-       var $284=HEAP32[(($283)>>2)]; //@line 354 "../../../src/sdl/jouer.c"
-       var $285=$libertes; //@line 354 "../../../src/sdl/jouer.c"
-       var $286=FUNCTION_TABLE[$284]($285,$pos); //@line 354 "../../../src/sdl/jouer.c"
-        //@line 354 "../../../src/sdl/jouer.c"
-       if (!($286)) {
+      if ($286) {
+       var $288=$libertes; //@line 350 "../../../src/sdl/jouer.c"
+       var $289=(($288+16)|0); //@line 350 "../../../src/sdl/jouer.c"
+       var $290=HEAP32[(($289)>>2)]; //@line 350 "../../../src/sdl/jouer.c"
+       var $291=$libertes; //@line 350 "../../../src/sdl/jouer.c"
+       var $292=FUNCTION_TABLE[$290]($291,$pos); //@line 350 "../../../src/sdl/jouer.c"
+        //@line 350 "../../../src/sdl/jouer.c"
+       if (!($292)) {
         break;
        }
-       _set_color(200,40,40); //@line 355 "../../../src/sdl/jouer.c"
-       $draw=1; //@line 356 "../../../src/sdl/jouer.c"
-        //@line 357 "../../../src/sdl/jouer.c"
+       _set_color(200,40,40); //@line 351 "../../../src/sdl/jouer.c"
+       $draw=1; //@line 352 "../../../src/sdl/jouer.c"
+        //@line 353 "../../../src/sdl/jouer.c"
       }
      } while(0);
     }
    }
-   var $291=$draw; //@line 358 "../../../src/sdl/jouer.c"
-   var $292=(($291)&1); //@line 358 "../../../src/sdl/jouer.c"
-    //@line 358 "../../../src/sdl/jouer.c"
-   if ($292) {
-    var $294=$jouer; //@line 360 "../../../src/sdl/jouer.c"
-    var $295=$x2; //@line 360 "../../../src/sdl/jouer.c"
-    var $296=$y3; //@line 360 "../../../src/sdl/jouer.c"
-    _get_position_vers_ecran($294,$295,$296,$sx6,$sy7); //@line 360 "../../../src/sdl/jouer.c"
-    var $297=$taille_stone2; //@line 361 "../../../src/sdl/jouer.c"
-    var $298=(((($297|0))/(2))&-1); //@line 361 "../../../src/sdl/jouer.c"
-    var $299=HEAP32[(($sx6)>>2)]; //@line 361 "../../../src/sdl/jouer.c"
-    var $300=((($299)-($298))|0); //@line 361 "../../../src/sdl/jouer.c"
-    HEAP32[(($sx6)>>2)]=$300; //@line 361 "../../../src/sdl/jouer.c"
-    var $301=$taille_stone2; //@line 362 "../../../src/sdl/jouer.c"
-    var $302=(((($301|0))/(2))&-1); //@line 362 "../../../src/sdl/jouer.c"
-    var $303=HEAP32[(($sy7)>>2)]; //@line 362 "../../../src/sdl/jouer.c"
-    var $304=((($303)-($302))|0); //@line 362 "../../../src/sdl/jouer.c"
-    HEAP32[(($sy7)>>2)]=$304; //@line 362 "../../../src/sdl/jouer.c"
-    var $305=$2; //@line 363 "../../../src/sdl/jouer.c"
-    var $306=HEAP32[(($sx6)>>2)]; //@line 363 "../../../src/sdl/jouer.c"
-    var $307=HEAP32[(($sy7)>>2)]; //@line 363 "../../../src/sdl/jouer.c"
-    var $308=$taille_stone2; //@line 363 "../../../src/sdl/jouer.c"
-    var $309=$taille_stone2; //@line 363 "../../../src/sdl/jouer.c"
-    _draw_rect($305,$306,$307,$308,$309); //@line 363 "../../../src/sdl/jouer.c"
-     //@line 364 "../../../src/sdl/jouer.c"
+   var $297=$draw; //@line 354 "../../../src/sdl/jouer.c"
+   var $298=(($297)&1); //@line 354 "../../../src/sdl/jouer.c"
+    //@line 354 "../../../src/sdl/jouer.c"
+   if ($298) {
+    var $300=$taille; //@line 356 "../../../src/sdl/jouer.c"
+    var $301=$x2; //@line 356 "../../../src/sdl/jouer.c"
+    var $302=$y3; //@line 356 "../../../src/sdl/jouer.c"
+    var $303=$x1; //@line 356 "../../../src/sdl/jouer.c"
+    var $304=$y1; //@line 356 "../../../src/sdl/jouer.c"
+    var $305=$w; //@line 356 "../../../src/sdl/jouer.c"
+    _get_position_vers_ecran($300,$301,$302,$sx6,$sy7,$303,$304,$305); //@line 356 "../../../src/sdl/jouer.c"
+    var $306=$taille_stone2; //@line 357 "../../../src/sdl/jouer.c"
+    var $307=(((($306|0))/(2))&-1); //@line 357 "../../../src/sdl/jouer.c"
+    var $308=HEAP32[(($sx6)>>2)]; //@line 357 "../../../src/sdl/jouer.c"
+    var $309=((($308)-($307))|0); //@line 357 "../../../src/sdl/jouer.c"
+    HEAP32[(($sx6)>>2)]=$309; //@line 357 "../../../src/sdl/jouer.c"
+    var $310=$taille_stone2; //@line 358 "../../../src/sdl/jouer.c"
+    var $311=(((($310|0))/(2))&-1); //@line 358 "../../../src/sdl/jouer.c"
+    var $312=HEAP32[(($sy7)>>2)]; //@line 358 "../../../src/sdl/jouer.c"
+    var $313=((($312)-($311))|0); //@line 358 "../../../src/sdl/jouer.c"
+    HEAP32[(($sy7)>>2)]=$313; //@line 358 "../../../src/sdl/jouer.c"
+    var $314=$2; //@line 359 "../../../src/sdl/jouer.c"
+    var $315=HEAP32[(($sx6)>>2)]; //@line 359 "../../../src/sdl/jouer.c"
+    var $316=HEAP32[(($sy7)>>2)]; //@line 359 "../../../src/sdl/jouer.c"
+    var $317=$taille_stone2; //@line 359 "../../../src/sdl/jouer.c"
+    var $318=$taille_stone2; //@line 359 "../../../src/sdl/jouer.c"
+    _draw_rect($314,$315,$316,$317,$318); //@line 359 "../../../src/sdl/jouer.c"
+     //@line 360 "../../../src/sdl/jouer.c"
    }
-    //@line 365 "../../../src/sdl/jouer.c"
-   var $312=$y3; //@line 310 "../../../src/sdl/jouer.c"
-   var $313=((($312)+(1))|0); //@line 310 "../../../src/sdl/jouer.c"
-   $y3=$313; //@line 310 "../../../src/sdl/jouer.c"
-    //@line 310 "../../../src/sdl/jouer.c"
+    //@line 361 "../../../src/sdl/jouer.c"
+   var $321=$y3; //@line 306 "../../../src/sdl/jouer.c"
+   var $322=((($321)+(1))|0); //@line 306 "../../../src/sdl/jouer.c"
+   $y3=$322; //@line 306 "../../../src/sdl/jouer.c"
+    //@line 306 "../../../src/sdl/jouer.c"
   }
-   //@line 366 "../../../src/sdl/jouer.c"
-  var $316=$x2; //@line 309 "../../../src/sdl/jouer.c"
-  var $317=((($316)+(1))|0); //@line 309 "../../../src/sdl/jouer.c"
-  $x2=$317; //@line 309 "../../../src/sdl/jouer.c"
-   //@line 309 "../../../src/sdl/jouer.c"
+   //@line 362 "../../../src/sdl/jouer.c"
+  var $325=$x2; //@line 305 "../../../src/sdl/jouer.c"
+  var $326=((($325)+(1))|0); //@line 305 "../../../src/sdl/jouer.c"
+  $x2=$326; //@line 305 "../../../src/sdl/jouer.c"
+   //@line 305 "../../../src/sdl/jouer.c"
  }
- var $319=$chaine; //@line 367 "../../../src/sdl/jouer.c"
- var $320=($319|0)!=0; //@line 367 "../../../src/sdl/jouer.c"
+ var $328=$chaine; //@line 363 "../../../src/sdl/jouer.c"
+ var $329=($328|0)!=0; //@line 363 "../../../src/sdl/jouer.c"
+  //@line 363 "../../../src/sdl/jouer.c"
+ if ($329) {
+  var $331=$chaine; //@line 364 "../../../src/sdl/jouer.c"
+  _detruire_ensemble_colore($331); //@line 364 "../../../src/sdl/jouer.c"
+   //@line 364 "../../../src/sdl/jouer.c"
+ }
+ var $333=$libertes; //@line 365 "../../../src/sdl/jouer.c"
+ var $334=($333|0)!=0; //@line 365 "../../../src/sdl/jouer.c"
+  //@line 365 "../../../src/sdl/jouer.c"
+ if ($334) {
+  var $336=$libertes; //@line 366 "../../../src/sdl/jouer.c"
+  _detruire_ensemble_position($336); //@line 366 "../../../src/sdl/jouer.c"
+   //@line 366 "../../../src/sdl/jouer.c"
+ }
+ var $338=$yeux; //@line 367 "../../../src/sdl/jouer.c"
+ var $339=($338|0)!=0; //@line 367 "../../../src/sdl/jouer.c"
   //@line 367 "../../../src/sdl/jouer.c"
- if ($320) {
-  var $322=$chaine; //@line 368 "../../../src/sdl/jouer.c"
-  _detruire_ensemble_colore($322); //@line 368 "../../../src/sdl/jouer.c"
+ if ($339) {
+  var $341=$yeux; //@line 368 "../../../src/sdl/jouer.c"
+  _detruire_ensemble_position($341); //@line 368 "../../../src/sdl/jouer.c"
    //@line 368 "../../../src/sdl/jouer.c"
  }
- var $324=$libertes; //@line 369 "../../../src/sdl/jouer.c"
- var $325=($324|0)!=0; //@line 369 "../../../src/sdl/jouer.c"
-  //@line 369 "../../../src/sdl/jouer.c"
- if ($325) {
-  var $327=$libertes; //@line 370 "../../../src/sdl/jouer.c"
-  _detruire_ensemble_position($327); //@line 370 "../../../src/sdl/jouer.c"
-   //@line 370 "../../../src/sdl/jouer.c"
+ var $343=$partie; //@line 370 "../../../src/sdl/jouer.c"
+ var $344=(($343+49)|0); //@line 370 "../../../src/sdl/jouer.c"
+ var $345=HEAP8[($344)]; //@line 370 "../../../src/sdl/jouer.c"
+ var $346=(($345)&1); //@line 370 "../../../src/sdl/jouer.c"
+  //@line 370 "../../../src/sdl/jouer.c"
+ if ($346) {
+  var $366=$2; //@line 377 "../../../src/sdl/jouer.c"
+  var $367=$jouer; //@line 377 "../../../src/sdl/jouer.c"
+  var $368=(($367+24)|0); //@line 377 "../../../src/sdl/jouer.c"
+  var $369=HEAP32[(($368)>>2)]; //@line 377 "../../../src/sdl/jouer.c"
+  _afficher_label($366,$369); //@line 377 "../../../src/sdl/jouer.c"
+  var $370=$2; //@line 378 "../../../src/sdl/jouer.c"
+  var $371=$jouer; //@line 378 "../../../src/sdl/jouer.c"
+  var $372=(($371+28)|0); //@line 378 "../../../src/sdl/jouer.c"
+  var $373=HEAP32[(($372)>>2)]; //@line 378 "../../../src/sdl/jouer.c"
+  _afficher_label($370,$373); //@line 378 "../../../src/sdl/jouer.c"
+  var $375=$2; //@line 380 "../../../src/sdl/jouer.c"
+  var $376=$jouer; //@line 380 "../../../src/sdl/jouer.c"
+  var $377=(($376+36)|0); //@line 380 "../../../src/sdl/jouer.c"
+  var $378=HEAP32[(($377)>>2)]; //@line 380 "../../../src/sdl/jouer.c"
+  _afficher_bouton($375,$378); //@line 380 "../../../src/sdl/jouer.c"
+  var $379=$2; //@line 381 "../../../src/sdl/jouer.c"
+  var $380=$jouer; //@line 381 "../../../src/sdl/jouer.c"
+  var $381=(($380+32)|0); //@line 381 "../../../src/sdl/jouer.c"
+  var $382=HEAP32[(($381)>>2)]; //@line 381 "../../../src/sdl/jouer.c"
+  _afficher_bouton($379,$382); //@line 381 "../../../src/sdl/jouer.c"
+  var $383=$2; //@line 382 "../../../src/sdl/jouer.c"
+  var $384=$jouer; //@line 382 "../../../src/sdl/jouer.c"
+  var $385=(($384+40)|0); //@line 382 "../../../src/sdl/jouer.c"
+  var $386=HEAP32[(($385)>>2)]; //@line 382 "../../../src/sdl/jouer.c"
+  _afficher_textinput($383,$386); //@line 382 "../../../src/sdl/jouer.c"
+  var $387=$2; //@line 383 "../../../src/sdl/jouer.c"
+  var $388=$jouer; //@line 383 "../../../src/sdl/jouer.c"
+  var $389=(($388+44)|0); //@line 383 "../../../src/sdl/jouer.c"
+  var $390=HEAP32[(($389)>>2)]; //@line 383 "../../../src/sdl/jouer.c"
+  _afficher_bouton($387,$390); //@line 383 "../../../src/sdl/jouer.c"
+  STACKTOP=sp;return; //@line 384 "../../../src/sdl/jouer.c"
  }
- var $329=$yeux; //@line 371 "../../../src/sdl/jouer.c"
- var $330=($329|0)!=0; //@line 371 "../../../src/sdl/jouer.c"
+ var $348=$partie; //@line 371 "../../../src/sdl/jouer.c"
+ var $349=_partie_en_cours_de_handicap($348); //@line 371 "../../../src/sdl/jouer.c"
   //@line 371 "../../../src/sdl/jouer.c"
- if ($330) {
-  var $332=$yeux; //@line 372 "../../../src/sdl/jouer.c"
-  _detruire_ensemble_position($332); //@line 372 "../../../src/sdl/jouer.c"
-   //@line 372 "../../../src/sdl/jouer.c"
- }
- var $334=$partie; //@line 374 "../../../src/sdl/jouer.c"
- var $335=(($334+49)|0); //@line 374 "../../../src/sdl/jouer.c"
- var $336=HEAP8[($335)]; //@line 374 "../../../src/sdl/jouer.c"
- var $337=(($336)&1); //@line 374 "../../../src/sdl/jouer.c"
-  //@line 374 "../../../src/sdl/jouer.c"
- if ($337) {
-  var $357=$2; //@line 381 "../../../src/sdl/jouer.c"
-  var $358=$jouer; //@line 381 "../../../src/sdl/jouer.c"
-  var $359=(($358+24)|0); //@line 381 "../../../src/sdl/jouer.c"
-  var $360=HEAP32[(($359)>>2)]; //@line 381 "../../../src/sdl/jouer.c"
-  _afficher_label($357,$360); //@line 381 "../../../src/sdl/jouer.c"
-  var $361=$2; //@line 382 "../../../src/sdl/jouer.c"
-  var $362=$jouer; //@line 382 "../../../src/sdl/jouer.c"
-  var $363=(($362+28)|0); //@line 382 "../../../src/sdl/jouer.c"
-  var $364=HEAP32[(($363)>>2)]; //@line 382 "../../../src/sdl/jouer.c"
-  _afficher_label($361,$364); //@line 382 "../../../src/sdl/jouer.c"
-  var $366=$2; //@line 384 "../../../src/sdl/jouer.c"
-  var $367=$jouer; //@line 384 "../../../src/sdl/jouer.c"
-  var $368=(($367+36)|0); //@line 384 "../../../src/sdl/jouer.c"
-  var $369=HEAP32[(($368)>>2)]; //@line 384 "../../../src/sdl/jouer.c"
-  _afficher_bouton($366,$369); //@line 384 "../../../src/sdl/jouer.c"
-  var $370=$2; //@line 385 "../../../src/sdl/jouer.c"
-  var $371=$jouer; //@line 385 "../../../src/sdl/jouer.c"
-  var $372=(($371+32)|0); //@line 385 "../../../src/sdl/jouer.c"
-  var $373=HEAP32[(($372)>>2)]; //@line 385 "../../../src/sdl/jouer.c"
-  _afficher_bouton($370,$373); //@line 385 "../../../src/sdl/jouer.c"
-  var $374=$2; //@line 386 "../../../src/sdl/jouer.c"
-  var $375=$jouer; //@line 386 "../../../src/sdl/jouer.c"
-  var $376=(($375+40)|0); //@line 386 "../../../src/sdl/jouer.c"
-  var $377=HEAP32[(($376)>>2)]; //@line 386 "../../../src/sdl/jouer.c"
-  _afficher_textinput($374,$377); //@line 386 "../../../src/sdl/jouer.c"
-  var $378=$2; //@line 387 "../../../src/sdl/jouer.c"
-  var $379=$jouer; //@line 387 "../../../src/sdl/jouer.c"
-  var $380=(($379+44)|0); //@line 387 "../../../src/sdl/jouer.c"
-  var $381=HEAP32[(($380)>>2)]; //@line 387 "../../../src/sdl/jouer.c"
-  _afficher_bouton($378,$381); //@line 387 "../../../src/sdl/jouer.c"
-  STACKTOP=sp;return; //@line 388 "../../../src/sdl/jouer.c"
- }
- var $339=$partie; //@line 375 "../../../src/sdl/jouer.c"
- var $340=_partie_en_cours_de_handicap($339); //@line 375 "../../../src/sdl/jouer.c"
-  //@line 375 "../../../src/sdl/jouer.c"
- if ($340) {
-  var $342=$2; //@line 376 "../../../src/sdl/jouer.c"
-  var $343=$jouer; //@line 376 "../../../src/sdl/jouer.c"
-  var $344=(($343+20)|0); //@line 376 "../../../src/sdl/jouer.c"
-  var $345=HEAP32[(($344)>>2)]; //@line 376 "../../../src/sdl/jouer.c"
-  _afficher_label($342,$345); //@line 376 "../../../src/sdl/jouer.c"
-   //@line 377 "../../../src/sdl/jouer.c"
+ if ($349) {
+  var $351=$2; //@line 372 "../../../src/sdl/jouer.c"
+  var $352=$jouer; //@line 372 "../../../src/sdl/jouer.c"
+  var $353=(($352+20)|0); //@line 372 "../../../src/sdl/jouer.c"
+  var $354=HEAP32[(($353)>>2)]; //@line 372 "../../../src/sdl/jouer.c"
+  _afficher_label($351,$354); //@line 372 "../../../src/sdl/jouer.c"
+   //@line 373 "../../../src/sdl/jouer.c"
  } else {
-  var $347=$2; //@line 378 "../../../src/sdl/jouer.c"
-  var $348=$partie; //@line 378 "../../../src/sdl/jouer.c"
-  var $349=(($348+52)|0); //@line 378 "../../../src/sdl/jouer.c"
-  var $350=HEAP32[(($349)>>2)]; //@line 378 "../../../src/sdl/jouer.c"
-  var $351=$jouer; //@line 378 "../../../src/sdl/jouer.c"
-  var $352=(($351+12)|0); //@line 378 "../../../src/sdl/jouer.c"
-  var $353=(($352+($350<<2))|0); //@line 378 "../../../src/sdl/jouer.c"
-  var $354=HEAP32[(($353)>>2)]; //@line 378 "../../../src/sdl/jouer.c"
-  _afficher_label($347,$354); //@line 378 "../../../src/sdl/jouer.c"
+  var $356=$2; //@line 374 "../../../src/sdl/jouer.c"
+  var $357=$partie; //@line 374 "../../../src/sdl/jouer.c"
+  var $358=(($357+52)|0); //@line 374 "../../../src/sdl/jouer.c"
+  var $359=HEAP32[(($358)>>2)]; //@line 374 "../../../src/sdl/jouer.c"
+  var $360=$jouer; //@line 374 "../../../src/sdl/jouer.c"
+  var $361=(($360+12)|0); //@line 374 "../../../src/sdl/jouer.c"
+  var $362=(($361+($359<<2))|0); //@line 374 "../../../src/sdl/jouer.c"
+  var $363=HEAP32[(($362)>>2)]; //@line 374 "../../../src/sdl/jouer.c"
+  _afficher_label($356,$363); //@line 374 "../../../src/sdl/jouer.c"
  }
-  //@line 380 "../../../src/sdl/jouer.c"
- var $366=$2; //@line 384 "../../../src/sdl/jouer.c"
- var $367=$jouer; //@line 384 "../../../src/sdl/jouer.c"
- var $368=(($367+36)|0); //@line 384 "../../../src/sdl/jouer.c"
- var $369=HEAP32[(($368)>>2)]; //@line 384 "../../../src/sdl/jouer.c"
- _afficher_bouton($366,$369); //@line 384 "../../../src/sdl/jouer.c"
- var $370=$2; //@line 385 "../../../src/sdl/jouer.c"
- var $371=$jouer; //@line 385 "../../../src/sdl/jouer.c"
- var $372=(($371+32)|0); //@line 385 "../../../src/sdl/jouer.c"
- var $373=HEAP32[(($372)>>2)]; //@line 385 "../../../src/sdl/jouer.c"
- _afficher_bouton($370,$373); //@line 385 "../../../src/sdl/jouer.c"
- var $374=$2; //@line 386 "../../../src/sdl/jouer.c"
- var $375=$jouer; //@line 386 "../../../src/sdl/jouer.c"
- var $376=(($375+40)|0); //@line 386 "../../../src/sdl/jouer.c"
- var $377=HEAP32[(($376)>>2)]; //@line 386 "../../../src/sdl/jouer.c"
- _afficher_textinput($374,$377); //@line 386 "../../../src/sdl/jouer.c"
- var $378=$2; //@line 387 "../../../src/sdl/jouer.c"
- var $379=$jouer; //@line 387 "../../../src/sdl/jouer.c"
- var $380=(($379+44)|0); //@line 387 "../../../src/sdl/jouer.c"
- var $381=HEAP32[(($380)>>2)]; //@line 387 "../../../src/sdl/jouer.c"
- _afficher_bouton($378,$381); //@line 387 "../../../src/sdl/jouer.c"
- STACKTOP=sp;return; //@line 388 "../../../src/sdl/jouer.c"
+  //@line 376 "../../../src/sdl/jouer.c"
+ var $375=$2; //@line 380 "../../../src/sdl/jouer.c"
+ var $376=$jouer; //@line 380 "../../../src/sdl/jouer.c"
+ var $377=(($376+36)|0); //@line 380 "../../../src/sdl/jouer.c"
+ var $378=HEAP32[(($377)>>2)]; //@line 380 "../../../src/sdl/jouer.c"
+ _afficher_bouton($375,$378); //@line 380 "../../../src/sdl/jouer.c"
+ var $379=$2; //@line 381 "../../../src/sdl/jouer.c"
+ var $380=$jouer; //@line 381 "../../../src/sdl/jouer.c"
+ var $381=(($380+32)|0); //@line 381 "../../../src/sdl/jouer.c"
+ var $382=HEAP32[(($381)>>2)]; //@line 381 "../../../src/sdl/jouer.c"
+ _afficher_bouton($379,$382); //@line 381 "../../../src/sdl/jouer.c"
+ var $383=$2; //@line 382 "../../../src/sdl/jouer.c"
+ var $384=$jouer; //@line 382 "../../../src/sdl/jouer.c"
+ var $385=(($384+40)|0); //@line 382 "../../../src/sdl/jouer.c"
+ var $386=HEAP32[(($385)>>2)]; //@line 382 "../../../src/sdl/jouer.c"
+ _afficher_textinput($383,$386); //@line 382 "../../../src/sdl/jouer.c"
+ var $387=$2; //@line 383 "../../../src/sdl/jouer.c"
+ var $388=$jouer; //@line 383 "../../../src/sdl/jouer.c"
+ var $389=(($388+44)|0); //@line 383 "../../../src/sdl/jouer.c"
+ var $390=HEAP32[(($389)>>2)]; //@line 383 "../../../src/sdl/jouer.c"
+ _afficher_bouton($387,$390); //@line 383 "../../../src/sdl/jouer.c"
+ STACKTOP=sp;return; //@line 384 "../../../src/sdl/jouer.c"
 }
 
 
@@ -12101,14 +13271,14 @@ function _mise_a_jour_jouer($state,$dt){
    var $56=(($55)|0); //@line 204 "../../../src/sdl/jouer.c"
    var $57=$gagnant; //@line 204 "../../../src/sdl/jouer.c"
    var $58=($57|0)==1; //@line 204 "../../../src/sdl/jouer.c"
-   var $59=($58?128:48); //@line 204 "../../../src/sdl/jouer.c"
+   var $59=($58?552:464); //@line 204 "../../../src/sdl/jouer.c"
    var $60=(($scores+4)|0); //@line 204 "../../../src/sdl/jouer.c"
    var $61=HEAPF32[(($60)>>2)]; //@line 204 "../../../src/sdl/jouer.c"
    var $62=$61; //@line 204 "../../../src/sdl/jouer.c"
    var $63=(($scores)|0); //@line 204 "../../../src/sdl/jouer.c"
    var $64=HEAPF32[(($63)>>2)]; //@line 204 "../../../src/sdl/jouer.c"
    var $65=$64; //@line 204 "../../../src/sdl/jouer.c"
-   var $66=_snprintf($50,256,152,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 32)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$56,HEAP32[(((tempVarArgs)+(8))>>2)]=$59,HEAPF64[(((tempVarArgs)+(16))>>3)]=$62,HEAPF64[(((tempVarArgs)+(24))>>3)]=$65,tempVarArgs)); STACKTOP=tempVarArgs; //@line 204 "../../../src/sdl/jouer.c"
+   var $66=_snprintf($50,256,600,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 32)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$56,HEAP32[(((tempVarArgs)+(8))>>2)]=$59,HEAPF64[(((tempVarArgs)+(16))>>3)]=$62,HEAPF64[(((tempVarArgs)+(24))>>3)]=$65,tempVarArgs)); STACKTOP=tempVarArgs; //@line 204 "../../../src/sdl/jouer.c"
    _set_color(200,200,200); //@line 208 "../../../src/sdl/jouer.c"
    var $67=(($buffer)|0); //@line 209 "../../../src/sdl/jouer.c"
    var $68=_creer_label($67,240,646,2,1); //@line 209 "../../../src/sdl/jouer.c"
@@ -12191,204 +13361,204 @@ function _event_jouer($state,$event){
  var $coup1=(sp)+(24);
  var $coup2=(sp)+(32);
  $1=$state;
- var $3=$1; //@line 397 "../../../src/sdl/jouer.c"
- var $4=(($3+28)|0); //@line 397 "../../../src/sdl/jouer.c"
- var $5=HEAP32[(($4)>>2)]; //@line 397 "../../../src/sdl/jouer.c"
- var $6=$5; //@line 397 "../../../src/sdl/jouer.c"
- $jouer=$6; //@line 397 "../../../src/sdl/jouer.c"
- var $7=$jouer; //@line 398 "../../../src/sdl/jouer.c"
- var $8=(($7+40)|0); //@line 398 "../../../src/sdl/jouer.c"
- var $9=HEAP32[(($8)>>2)]; //@line 398 "../../../src/sdl/jouer.c"
- _utiliser_event_textinput($9,$event); //@line 398 "../../../src/sdl/jouer.c"
- var $10=$jouer; //@line 399 "../../../src/sdl/jouer.c"
- var $11=(($10+40)|0); //@line 399 "../../../src/sdl/jouer.c"
- var $12=HEAP32[(($11)>>2)]; //@line 399 "../../../src/sdl/jouer.c"
- var $13=(($12+37)|0); //@line 399 "../../../src/sdl/jouer.c"
- var $14=HEAP8[($13)]; //@line 399 "../../../src/sdl/jouer.c"
- var $15=(($14)&1); //@line 399 "../../../src/sdl/jouer.c"
-  //@line 399 "../../../src/sdl/jouer.c"
+ var $3=$1; //@line 393 "../../../src/sdl/jouer.c"
+ var $4=(($3+28)|0); //@line 393 "../../../src/sdl/jouer.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 393 "../../../src/sdl/jouer.c"
+ var $6=$5; //@line 393 "../../../src/sdl/jouer.c"
+ $jouer=$6; //@line 393 "../../../src/sdl/jouer.c"
+ var $7=$jouer; //@line 394 "../../../src/sdl/jouer.c"
+ var $8=(($7+40)|0); //@line 394 "../../../src/sdl/jouer.c"
+ var $9=HEAP32[(($8)>>2)]; //@line 394 "../../../src/sdl/jouer.c"
+ _utiliser_event_textinput($9,$event); //@line 394 "../../../src/sdl/jouer.c"
+ var $10=$jouer; //@line 395 "../../../src/sdl/jouer.c"
+ var $11=(($10+40)|0); //@line 395 "../../../src/sdl/jouer.c"
+ var $12=HEAP32[(($11)>>2)]; //@line 395 "../../../src/sdl/jouer.c"
+ var $13=(($12+37)|0); //@line 395 "../../../src/sdl/jouer.c"
+ var $14=HEAP8[($13)]; //@line 395 "../../../src/sdl/jouer.c"
+ var $15=(($14)&1); //@line 395 "../../../src/sdl/jouer.c"
+  //@line 395 "../../../src/sdl/jouer.c"
  if ($15) {
-  var $17=$jouer; //@line 400 "../../../src/sdl/jouer.c"
-  _afficher_sauvegarder($17); //@line 400 "../../../src/sdl/jouer.c"
-   //@line 401 "../../../src/sdl/jouer.c"
-  STACKTOP=sp;return; //@line 442 "../../../src/sdl/jouer.c"
+  var $17=$jouer; //@line 396 "../../../src/sdl/jouer.c"
+  _afficher_sauvegarder($17); //@line 396 "../../../src/sdl/jouer.c"
+   //@line 397 "../../../src/sdl/jouer.c"
+  STACKTOP=sp;return; //@line 438 "../../../src/sdl/jouer.c"
  }
- var $19=$event; //@line 403 "../../../src/sdl/jouer.c"
- var $20=HEAP32[(($19)>>2)]; //@line 403 "../../../src/sdl/jouer.c"
- var $21=($20|0)==1024; //@line 403 "../../../src/sdl/jouer.c"
-  //@line 403 "../../../src/sdl/jouer.c"
+ var $19=$event; //@line 399 "../../../src/sdl/jouer.c"
+ var $20=HEAP32[(($19)>>2)]; //@line 399 "../../../src/sdl/jouer.c"
+ var $21=($20|0)==1024; //@line 399 "../../../src/sdl/jouer.c"
+  //@line 399 "../../../src/sdl/jouer.c"
  if ($21) {
-  var $23=$jouer; //@line 404 "../../../src/sdl/jouer.c"
-  var $24=(($23+48)|0); //@line 404 "../../../src/sdl/jouer.c"
-  var $25=$jouer; //@line 404 "../../../src/sdl/jouer.c"
-  var $26=$event; //@line 404 "../../../src/sdl/jouer.c"
-  var $27=(($26+12)|0); //@line 404 "../../../src/sdl/jouer.c"
-  var $28=HEAP32[(($27)>>2)]; //@line 404 "../../../src/sdl/jouer.c"
-  var $29=$event; //@line 404 "../../../src/sdl/jouer.c"
-  var $30=(($29+16)|0); //@line 404 "../../../src/sdl/jouer.c"
-  var $31=HEAP32[(($30)>>2)]; //@line 404 "../../../src/sdl/jouer.c"
-  _get_position_depuis_ecran($2,$25,$28,$31); //@line 404 "../../../src/sdl/jouer.c"
-  var $32=$24; //@line 404 "../../../src/sdl/jouer.c"
-  var $33=$2; //@line 404 "../../../src/sdl/jouer.c"
-  assert(4 % 1 === 0);HEAP8[($32)]=HEAP8[($33)];HEAP8[((($32)+(1))|0)]=HEAP8[((($33)+(1))|0)];HEAP8[((($32)+(2))|0)]=HEAP8[((($33)+(2))|0)];HEAP8[((($32)+(3))|0)]=HEAP8[((($33)+(3))|0)]; //@line 404 "../../../src/sdl/jouer.c"
-   //@line 405 "../../../src/sdl/jouer.c"
+  var $23=$jouer; //@line 400 "../../../src/sdl/jouer.c"
+  var $24=(($23+48)|0); //@line 400 "../../../src/sdl/jouer.c"
+  var $25=$jouer; //@line 400 "../../../src/sdl/jouer.c"
+  var $26=$event; //@line 400 "../../../src/sdl/jouer.c"
+  var $27=(($26+12)|0); //@line 400 "../../../src/sdl/jouer.c"
+  var $28=HEAP32[(($27)>>2)]; //@line 400 "../../../src/sdl/jouer.c"
+  var $29=$event; //@line 400 "../../../src/sdl/jouer.c"
+  var $30=(($29+16)|0); //@line 400 "../../../src/sdl/jouer.c"
+  var $31=HEAP32[(($30)>>2)]; //@line 400 "../../../src/sdl/jouer.c"
+  _get_position_depuis_ecran($2,$25,$28,$31); //@line 400 "../../../src/sdl/jouer.c"
+  var $32=$24; //@line 400 "../../../src/sdl/jouer.c"
+  var $33=$2; //@line 400 "../../../src/sdl/jouer.c"
+  assert(4 % 1 === 0);HEAP8[($32)]=HEAP8[($33)];HEAP8[((($32)+(1))|0)]=HEAP8[((($33)+(1))|0)];HEAP8[((($32)+(2))|0)]=HEAP8[((($33)+(2))|0)];HEAP8[((($32)+(3))|0)]=HEAP8[((($33)+(3))|0)]; //@line 400 "../../../src/sdl/jouer.c"
+   //@line 401 "../../../src/sdl/jouer.c"
  } else {
-  var $35=$event; //@line 405 "../../../src/sdl/jouer.c"
-  var $36=HEAP32[(($35)>>2)]; //@line 405 "../../../src/sdl/jouer.c"
-  var $37=($36|0)==1026; //@line 405 "../../../src/sdl/jouer.c"
-   //@line 405 "../../../src/sdl/jouer.c"
+  var $35=$event; //@line 401 "../../../src/sdl/jouer.c"
+  var $36=HEAP32[(($35)>>2)]; //@line 401 "../../../src/sdl/jouer.c"
+  var $37=($36|0)==1026; //@line 401 "../../../src/sdl/jouer.c"
+   //@line 401 "../../../src/sdl/jouer.c"
   if ($37) {
-   var $39=$event; //@line 406 "../../../src/sdl/jouer.c"
-   var $40=(($39+8)|0); //@line 406 "../../../src/sdl/jouer.c"
-   var $41=HEAP8[($40)]; //@line 406 "../../../src/sdl/jouer.c"
-   var $42=($41&255); //@line 406 "../../../src/sdl/jouer.c"
-   $b=$42; //@line 406 "../../../src/sdl/jouer.c"
-   var $43=$b; //@line 407 "../../../src/sdl/jouer.c"
-   var $44=($43|0)==1; //@line 407 "../../../src/sdl/jouer.c"
-    //@line 407 "../../../src/sdl/jouer.c"
+   var $39=$event; //@line 402 "../../../src/sdl/jouer.c"
+   var $40=(($39+8)|0); //@line 402 "../../../src/sdl/jouer.c"
+   var $41=HEAP8[($40)]; //@line 402 "../../../src/sdl/jouer.c"
+   var $42=($41&255); //@line 402 "../../../src/sdl/jouer.c"
+   $b=$42; //@line 402 "../../../src/sdl/jouer.c"
+   var $43=$b; //@line 403 "../../../src/sdl/jouer.c"
+   var $44=($43|0)==1; //@line 403 "../../../src/sdl/jouer.c"
+    //@line 403 "../../../src/sdl/jouer.c"
    if ($44) {
-    var $46=$jouer; //@line 408 "../../../src/sdl/jouer.c"
-    var $47=$event; //@line 408 "../../../src/sdl/jouer.c"
-    var $48=(($47+12)|0); //@line 408 "../../../src/sdl/jouer.c"
-    var $49=HEAP32[(($48)>>2)]; //@line 408 "../../../src/sdl/jouer.c"
-    var $50=$event; //@line 408 "../../../src/sdl/jouer.c"
-    var $51=(($50+16)|0); //@line 408 "../../../src/sdl/jouer.c"
-    var $52=HEAP32[(($51)>>2)]; //@line 408 "../../../src/sdl/jouer.c"
-    _get_position_depuis_ecran($pos,$46,$49,$52); //@line 408 "../../../src/sdl/jouer.c"
-    var $53=_position_est_valide($pos); //@line 409 "../../../src/sdl/jouer.c"
-     //@line 409 "../../../src/sdl/jouer.c"
+    var $46=$jouer; //@line 404 "../../../src/sdl/jouer.c"
+    var $47=$event; //@line 404 "../../../src/sdl/jouer.c"
+    var $48=(($47+12)|0); //@line 404 "../../../src/sdl/jouer.c"
+    var $49=HEAP32[(($48)>>2)]; //@line 404 "../../../src/sdl/jouer.c"
+    var $50=$event; //@line 404 "../../../src/sdl/jouer.c"
+    var $51=(($50+16)|0); //@line 404 "../../../src/sdl/jouer.c"
+    var $52=HEAP32[(($51)>>2)]; //@line 404 "../../../src/sdl/jouer.c"
+    _get_position_depuis_ecran($pos,$46,$49,$52); //@line 404 "../../../src/sdl/jouer.c"
+    var $53=_position_est_valide($pos); //@line 405 "../../../src/sdl/jouer.c"
+     //@line 405 "../../../src/sdl/jouer.c"
     if ($53) {
-     var $55=(($coup)|0); //@line 410 "../../../src/sdl/jouer.c"
-     var $56=$55; //@line 410 "../../../src/sdl/jouer.c"
-     var $57=$pos; //@line 410 "../../../src/sdl/jouer.c"
-     assert(4 % 1 === 0);HEAP8[($56)]=HEAP8[($57)];HEAP8[((($56)+(1))|0)]=HEAP8[((($57)+(1))|0)];HEAP8[((($56)+(2))|0)]=HEAP8[((($57)+(2))|0)];HEAP8[((($56)+(3))|0)]=HEAP8[((($57)+(3))|0)]; //@line 410 "../../../src/sdl/jouer.c"
-     var $58=$jouer; //@line 411 "../../../src/sdl/jouer.c"
-     var $59=(($58+4)|0); //@line 411 "../../../src/sdl/jouer.c"
-     var $60=HEAP32[(($59)>>2)]; //@line 411 "../../../src/sdl/jouer.c"
-     var $61=_partie_jouer_coup($60,$coup); //@line 411 "../../../src/sdl/jouer.c"
-     var $62=$jouer; //@line 412 "../../../src/sdl/jouer.c"
-     _afficher_sauvegarder($62); //@line 412 "../../../src/sdl/jouer.c"
-      //@line 413 "../../../src/sdl/jouer.c"
+     var $55=(($coup)|0); //@line 406 "../../../src/sdl/jouer.c"
+     var $56=$55; //@line 406 "../../../src/sdl/jouer.c"
+     var $57=$pos; //@line 406 "../../../src/sdl/jouer.c"
+     assert(4 % 1 === 0);HEAP8[($56)]=HEAP8[($57)];HEAP8[((($56)+(1))|0)]=HEAP8[((($57)+(1))|0)];HEAP8[((($56)+(2))|0)]=HEAP8[((($57)+(2))|0)];HEAP8[((($56)+(3))|0)]=HEAP8[((($57)+(3))|0)]; //@line 406 "../../../src/sdl/jouer.c"
+     var $58=$jouer; //@line 407 "../../../src/sdl/jouer.c"
+     var $59=(($58+4)|0); //@line 407 "../../../src/sdl/jouer.c"
+     var $60=HEAP32[(($59)>>2)]; //@line 407 "../../../src/sdl/jouer.c"
+     var $61=_partie_jouer_coup($60,$coup); //@line 407 "../../../src/sdl/jouer.c"
+     var $62=$jouer; //@line 408 "../../../src/sdl/jouer.c"
+     _afficher_sauvegarder($62); //@line 408 "../../../src/sdl/jouer.c"
+      //@line 409 "../../../src/sdl/jouer.c"
     }
-     //@line 414 "../../../src/sdl/jouer.c"
+     //@line 410 "../../../src/sdl/jouer.c"
    } else {
-    var $65=$b; //@line 414 "../../../src/sdl/jouer.c"
-    var $66=($65|0)==2; //@line 414 "../../../src/sdl/jouer.c"
-     //@line 414 "../../../src/sdl/jouer.c"
+    var $65=$b; //@line 410 "../../../src/sdl/jouer.c"
+    var $66=($65|0)==2; //@line 410 "../../../src/sdl/jouer.c"
+     //@line 410 "../../../src/sdl/jouer.c"
     if ($66) {
-     var $68=(($coup1)|0); //@line 416 "../../../src/sdl/jouer.c"
-     var $69=$68; //@line 416 "../../../src/sdl/jouer.c"
-     assert(4 % 1 === 0);HEAP8[($69)]=HEAP8[(1504)];HEAP8[((($69)+(1))|0)]=HEAP8[(1505)];HEAP8[((($69)+(2))|0)]=HEAP8[(1506)];HEAP8[((($69)+(3))|0)]=HEAP8[(1507)]; //@line 416 "../../../src/sdl/jouer.c"
-     var $70=$jouer; //@line 417 "../../../src/sdl/jouer.c"
-     var $71=(($70+4)|0); //@line 417 "../../../src/sdl/jouer.c"
-     var $72=HEAP32[(($71)>>2)]; //@line 417 "../../../src/sdl/jouer.c"
-     var $73=_partie_jouer_coup($72,$coup1); //@line 417 "../../../src/sdl/jouer.c"
-     var $74=$jouer; //@line 418 "../../../src/sdl/jouer.c"
-     _afficher_sauvegarder($74); //@line 418 "../../../src/sdl/jouer.c"
-      //@line 419 "../../../src/sdl/jouer.c"
+     var $68=(($coup1)|0); //@line 412 "../../../src/sdl/jouer.c"
+     var $69=$68; //@line 412 "../../../src/sdl/jouer.c"
+     assert(4 % 1 === 0);HEAP8[($69)]=HEAP8[(3720)];HEAP8[((($69)+(1))|0)]=HEAP8[(3721)];HEAP8[((($69)+(2))|0)]=HEAP8[(3722)];HEAP8[((($69)+(3))|0)]=HEAP8[(3723)]; //@line 412 "../../../src/sdl/jouer.c"
+     var $70=$jouer; //@line 413 "../../../src/sdl/jouer.c"
+     var $71=(($70+4)|0); //@line 413 "../../../src/sdl/jouer.c"
+     var $72=HEAP32[(($71)>>2)]; //@line 413 "../../../src/sdl/jouer.c"
+     var $73=_partie_jouer_coup($72,$coup1); //@line 413 "../../../src/sdl/jouer.c"
+     var $74=$jouer; //@line 414 "../../../src/sdl/jouer.c"
+     _afficher_sauvegarder($74); //@line 414 "../../../src/sdl/jouer.c"
+      //@line 415 "../../../src/sdl/jouer.c"
     } else {
-     var $76=$b; //@line 419 "../../../src/sdl/jouer.c"
-     var $77=($76|0)==4; //@line 419 "../../../src/sdl/jouer.c"
-      //@line 419 "../../../src/sdl/jouer.c"
+     var $76=$b; //@line 415 "../../../src/sdl/jouer.c"
+     var $77=($76|0)==4; //@line 415 "../../../src/sdl/jouer.c"
+      //@line 415 "../../../src/sdl/jouer.c"
      if ($77) {
-      var $79=$jouer; //@line 420 "../../../src/sdl/jouer.c"
-      var $80=(($79+4)|0); //@line 420 "../../../src/sdl/jouer.c"
-      var $81=HEAP32[(($80)>>2)]; //@line 420 "../../../src/sdl/jouer.c"
-      var $82=_partie_annuler_coup($81); //@line 420 "../../../src/sdl/jouer.c"
-      var $83=$jouer; //@line 421 "../../../src/sdl/jouer.c"
-      _afficher_sauvegarder($83); //@line 421 "../../../src/sdl/jouer.c"
-       //@line 422 "../../../src/sdl/jouer.c"
+      var $79=$jouer; //@line 416 "../../../src/sdl/jouer.c"
+      var $80=(($79+4)|0); //@line 416 "../../../src/sdl/jouer.c"
+      var $81=HEAP32[(($80)>>2)]; //@line 416 "../../../src/sdl/jouer.c"
+      var $82=_partie_annuler_coup($81); //@line 416 "../../../src/sdl/jouer.c"
+      var $83=$jouer; //@line 417 "../../../src/sdl/jouer.c"
+      _afficher_sauvegarder($83); //@line 417 "../../../src/sdl/jouer.c"
+       //@line 418 "../../../src/sdl/jouer.c"
      } else {
-      var $85=$b; //@line 422 "../../../src/sdl/jouer.c"
-      var $86=($85|0)==5; //@line 422 "../../../src/sdl/jouer.c"
-       //@line 422 "../../../src/sdl/jouer.c"
+      var $85=$b; //@line 418 "../../../src/sdl/jouer.c"
+      var $86=($85|0)==5; //@line 418 "../../../src/sdl/jouer.c"
+       //@line 418 "../../../src/sdl/jouer.c"
       if ($86) {
-       var $88=$jouer; //@line 423 "../../../src/sdl/jouer.c"
-       var $89=(($88+4)|0); //@line 423 "../../../src/sdl/jouer.c"
-       var $90=HEAP32[(($89)>>2)]; //@line 423 "../../../src/sdl/jouer.c"
-       var $91=_partie_rejouer_coup($90); //@line 423 "../../../src/sdl/jouer.c"
-       var $92=$jouer; //@line 424 "../../../src/sdl/jouer.c"
-       _afficher_sauvegarder($92); //@line 424 "../../../src/sdl/jouer.c"
-        //@line 425 "../../../src/sdl/jouer.c"
+       var $88=$jouer; //@line 419 "../../../src/sdl/jouer.c"
+       var $89=(($88+4)|0); //@line 419 "../../../src/sdl/jouer.c"
+       var $90=HEAP32[(($89)>>2)]; //@line 419 "../../../src/sdl/jouer.c"
+       var $91=_partie_rejouer_coup($90); //@line 419 "../../../src/sdl/jouer.c"
+       var $92=$jouer; //@line 420 "../../../src/sdl/jouer.c"
+       _afficher_sauvegarder($92); //@line 420 "../../../src/sdl/jouer.c"
+        //@line 421 "../../../src/sdl/jouer.c"
       }
      }
     }
    }
-    //@line 426 "../../../src/sdl/jouer.c"
+    //@line 422 "../../../src/sdl/jouer.c"
   } else {
-   var $98=$event; //@line 426 "../../../src/sdl/jouer.c"
-   var $99=HEAP32[(($98)>>2)]; //@line 426 "../../../src/sdl/jouer.c"
-   var $100=($99|0)==768; //@line 426 "../../../src/sdl/jouer.c"
-    //@line 426 "../../../src/sdl/jouer.c"
+   var $98=$event; //@line 422 "../../../src/sdl/jouer.c"
+   var $99=HEAP32[(($98)>>2)]; //@line 422 "../../../src/sdl/jouer.c"
+   var $100=($99|0)==768; //@line 422 "../../../src/sdl/jouer.c"
+    //@line 422 "../../../src/sdl/jouer.c"
    if ($100) {
-    var $102=$event; //@line 427 "../../../src/sdl/jouer.c"
-    var $103=(($102+12)|0); //@line 427 "../../../src/sdl/jouer.c"
-    var $104=(($103+4)|0); //@line 427 "../../../src/sdl/jouer.c"
-    var $105=HEAP32[(($104)>>2)]; //@line 427 "../../../src/sdl/jouer.c"
-    var $106=($105|0)==112; //@line 427 "../../../src/sdl/jouer.c"
-     //@line 427 "../../../src/sdl/jouer.c"
+    var $102=$event; //@line 423 "../../../src/sdl/jouer.c"
+    var $103=(($102+12)|0); //@line 423 "../../../src/sdl/jouer.c"
+    var $104=(($103+4)|0); //@line 423 "../../../src/sdl/jouer.c"
+    var $105=HEAP32[(($104)>>2)]; //@line 423 "../../../src/sdl/jouer.c"
+    var $106=($105|0)==112; //@line 423 "../../../src/sdl/jouer.c"
+     //@line 423 "../../../src/sdl/jouer.c"
     if ($106) {
-     var $108=(($coup2)|0); //@line 428 "../../../src/sdl/jouer.c"
-     var $109=$108; //@line 428 "../../../src/sdl/jouer.c"
-     assert(4 % 1 === 0);HEAP8[($109)]=HEAP8[(1504)];HEAP8[((($109)+(1))|0)]=HEAP8[(1505)];HEAP8[((($109)+(2))|0)]=HEAP8[(1506)];HEAP8[((($109)+(3))|0)]=HEAP8[(1507)]; //@line 428 "../../../src/sdl/jouer.c"
-     var $110=$jouer; //@line 429 "../../../src/sdl/jouer.c"
-     var $111=(($110+4)|0); //@line 429 "../../../src/sdl/jouer.c"
-     var $112=HEAP32[(($111)>>2)]; //@line 429 "../../../src/sdl/jouer.c"
-     var $113=_partie_jouer_coup($112,$coup2); //@line 429 "../../../src/sdl/jouer.c"
-     var $114=$jouer; //@line 430 "../../../src/sdl/jouer.c"
-     _afficher_sauvegarder($114); //@line 430 "../../../src/sdl/jouer.c"
-      //@line 431 "../../../src/sdl/jouer.c"
+     var $108=(($coup2)|0); //@line 424 "../../../src/sdl/jouer.c"
+     var $109=$108; //@line 424 "../../../src/sdl/jouer.c"
+     assert(4 % 1 === 0);HEAP8[($109)]=HEAP8[(3720)];HEAP8[((($109)+(1))|0)]=HEAP8[(3721)];HEAP8[((($109)+(2))|0)]=HEAP8[(3722)];HEAP8[((($109)+(3))|0)]=HEAP8[(3723)]; //@line 424 "../../../src/sdl/jouer.c"
+     var $110=$jouer; //@line 425 "../../../src/sdl/jouer.c"
+     var $111=(($110+4)|0); //@line 425 "../../../src/sdl/jouer.c"
+     var $112=HEAP32[(($111)>>2)]; //@line 425 "../../../src/sdl/jouer.c"
+     var $113=_partie_jouer_coup($112,$coup2); //@line 425 "../../../src/sdl/jouer.c"
+     var $114=$jouer; //@line 426 "../../../src/sdl/jouer.c"
+     _afficher_sauvegarder($114); //@line 426 "../../../src/sdl/jouer.c"
+      //@line 427 "../../../src/sdl/jouer.c"
     } else {
-     var $116=$event; //@line 431 "../../../src/sdl/jouer.c"
-     var $117=(($116+12)|0); //@line 431 "../../../src/sdl/jouer.c"
-     var $118=(($117+4)|0); //@line 431 "../../../src/sdl/jouer.c"
-     var $119=HEAP32[(($118)>>2)]; //@line 431 "../../../src/sdl/jouer.c"
-     var $120=($119|0)==97; //@line 431 "../../../src/sdl/jouer.c"
-      //@line 431 "../../../src/sdl/jouer.c"
+     var $116=$event; //@line 427 "../../../src/sdl/jouer.c"
+     var $117=(($116+12)|0); //@line 427 "../../../src/sdl/jouer.c"
+     var $118=(($117+4)|0); //@line 427 "../../../src/sdl/jouer.c"
+     var $119=HEAP32[(($118)>>2)]; //@line 427 "../../../src/sdl/jouer.c"
+     var $120=($119|0)==97; //@line 427 "../../../src/sdl/jouer.c"
+      //@line 427 "../../../src/sdl/jouer.c"
      if ($120) {
-      var $122=$jouer; //@line 432 "../../../src/sdl/jouer.c"
-      var $123=(($122+4)|0); //@line 432 "../../../src/sdl/jouer.c"
-      var $124=HEAP32[(($123)>>2)]; //@line 432 "../../../src/sdl/jouer.c"
-      var $125=_partie_annuler_coup($124); //@line 432 "../../../src/sdl/jouer.c"
-      var $126=$jouer; //@line 433 "../../../src/sdl/jouer.c"
-      _afficher_sauvegarder($126); //@line 433 "../../../src/sdl/jouer.c"
-       //@line 434 "../../../src/sdl/jouer.c"
+      var $122=$jouer; //@line 428 "../../../src/sdl/jouer.c"
+      var $123=(($122+4)|0); //@line 428 "../../../src/sdl/jouer.c"
+      var $124=HEAP32[(($123)>>2)]; //@line 428 "../../../src/sdl/jouer.c"
+      var $125=_partie_annuler_coup($124); //@line 428 "../../../src/sdl/jouer.c"
+      var $126=$jouer; //@line 429 "../../../src/sdl/jouer.c"
+      _afficher_sauvegarder($126); //@line 429 "../../../src/sdl/jouer.c"
+       //@line 430 "../../../src/sdl/jouer.c"
      } else {
-      var $128=$event; //@line 434 "../../../src/sdl/jouer.c"
-      var $129=(($128+12)|0); //@line 434 "../../../src/sdl/jouer.c"
-      var $130=(($129+4)|0); //@line 434 "../../../src/sdl/jouer.c"
-      var $131=HEAP32[(($130)>>2)]; //@line 434 "../../../src/sdl/jouer.c"
-      var $132=($131|0)==114; //@line 434 "../../../src/sdl/jouer.c"
-       //@line 434 "../../../src/sdl/jouer.c"
+      var $128=$event; //@line 430 "../../../src/sdl/jouer.c"
+      var $129=(($128+12)|0); //@line 430 "../../../src/sdl/jouer.c"
+      var $130=(($129+4)|0); //@line 430 "../../../src/sdl/jouer.c"
+      var $131=HEAP32[(($130)>>2)]; //@line 430 "../../../src/sdl/jouer.c"
+      var $132=($131|0)==114; //@line 430 "../../../src/sdl/jouer.c"
+       //@line 430 "../../../src/sdl/jouer.c"
       if ($132) {
-       var $134=$jouer; //@line 435 "../../../src/sdl/jouer.c"
-       var $135=(($134+4)|0); //@line 435 "../../../src/sdl/jouer.c"
-       var $136=HEAP32[(($135)>>2)]; //@line 435 "../../../src/sdl/jouer.c"
-       var $137=_partie_rejouer_coup($136); //@line 435 "../../../src/sdl/jouer.c"
-       var $138=$jouer; //@line 436 "../../../src/sdl/jouer.c"
-       _afficher_sauvegarder($138); //@line 436 "../../../src/sdl/jouer.c"
-        //@line 437 "../../../src/sdl/jouer.c"
+       var $134=$jouer; //@line 431 "../../../src/sdl/jouer.c"
+       var $135=(($134+4)|0); //@line 431 "../../../src/sdl/jouer.c"
+       var $136=HEAP32[(($135)>>2)]; //@line 431 "../../../src/sdl/jouer.c"
+       var $137=_partie_rejouer_coup($136); //@line 431 "../../../src/sdl/jouer.c"
+       var $138=$jouer; //@line 432 "../../../src/sdl/jouer.c"
+       _afficher_sauvegarder($138); //@line 432 "../../../src/sdl/jouer.c"
+        //@line 433 "../../../src/sdl/jouer.c"
       }
      }
     }
-     //@line 438 "../../../src/sdl/jouer.c"
+     //@line 434 "../../../src/sdl/jouer.c"
    }
   }
  }
- var $145=$jouer; //@line 439 "../../../src/sdl/jouer.c"
- var $146=(($145+32)|0); //@line 439 "../../../src/sdl/jouer.c"
- var $147=HEAP32[(($146)>>2)]; //@line 439 "../../../src/sdl/jouer.c"
- _utiliser_event_bouton($147,$event); //@line 439 "../../../src/sdl/jouer.c"
- var $148=$jouer; //@line 440 "../../../src/sdl/jouer.c"
- var $149=(($148+44)|0); //@line 440 "../../../src/sdl/jouer.c"
- var $150=HEAP32[(($149)>>2)]; //@line 440 "../../../src/sdl/jouer.c"
- _utiliser_event_bouton($150,$event); //@line 440 "../../../src/sdl/jouer.c"
- var $151=$jouer; //@line 441 "../../../src/sdl/jouer.c"
- var $152=(($151+36)|0); //@line 441 "../../../src/sdl/jouer.c"
- var $153=HEAP32[(($152)>>2)]; //@line 441 "../../../src/sdl/jouer.c"
- _utiliser_event_bouton($153,$event); //@line 441 "../../../src/sdl/jouer.c"
-  //@line 442 "../../../src/sdl/jouer.c"
- STACKTOP=sp;return; //@line 442 "../../../src/sdl/jouer.c"
+ var $145=$jouer; //@line 435 "../../../src/sdl/jouer.c"
+ var $146=(($145+32)|0); //@line 435 "../../../src/sdl/jouer.c"
+ var $147=HEAP32[(($146)>>2)]; //@line 435 "../../../src/sdl/jouer.c"
+ _utiliser_event_bouton($147,$event); //@line 435 "../../../src/sdl/jouer.c"
+ var $148=$jouer; //@line 436 "../../../src/sdl/jouer.c"
+ var $149=(($148+44)|0); //@line 436 "../../../src/sdl/jouer.c"
+ var $150=HEAP32[(($149)>>2)]; //@line 436 "../../../src/sdl/jouer.c"
+ _utiliser_event_bouton($150,$event); //@line 436 "../../../src/sdl/jouer.c"
+ var $151=$jouer; //@line 437 "../../../src/sdl/jouer.c"
+ var $152=(($151+36)|0); //@line 437 "../../../src/sdl/jouer.c"
+ var $153=HEAP32[(($152)>>2)]; //@line 437 "../../../src/sdl/jouer.c"
+ _utiliser_event_bouton($153,$event); //@line 437 "../../../src/sdl/jouer.c"
+  //@line 438 "../../../src/sdl/jouer.c"
+ STACKTOP=sp;return; //@line 438 "../../../src/sdl/jouer.c"
 }
 
 
@@ -12468,26 +13638,26 @@ function _jouer_bouton_retour($bouton,$data){
  var $jouer;
  $1=$bouton;
  $2=$data;
- var $3=$1; //@line 446 "../../../src/sdl/jouer.c"
- var $4=$2; //@line 447 "../../../src/sdl/jouer.c"
- var $5=$4; //@line 447 "../../../src/sdl/jouer.c"
- $state=$5; //@line 447 "../../../src/sdl/jouer.c"
- var $6=$state; //@line 448 "../../../src/sdl/jouer.c"
- var $7=(($6+28)|0); //@line 448 "../../../src/sdl/jouer.c"
- var $8=HEAP32[(($7)>>2)]; //@line 448 "../../../src/sdl/jouer.c"
- var $9=$8; //@line 448 "../../../src/sdl/jouer.c"
- $jouer=$9; //@line 448 "../../../src/sdl/jouer.c"
- var $10=$jouer; //@line 449 "../../../src/sdl/jouer.c"
- var $11=(($10+4)|0); //@line 449 "../../../src/sdl/jouer.c"
- var $12=HEAP32[(($11)>>2)]; //@line 449 "../../../src/sdl/jouer.c"
- _detruire_partie($12); //@line 449 "../../../src/sdl/jouer.c"
- var $13=$jouer; //@line 450 "../../../src/sdl/jouer.c"
- var $14=(($13)|0); //@line 450 "../../../src/sdl/jouer.c"
- var $15=HEAP32[(($14)>>2)]; //@line 450 "../../../src/sdl/jouer.c"
- _set_state($15); //@line 450 "../../../src/sdl/jouer.c"
- var $16=$state; //@line 451 "../../../src/sdl/jouer.c"
- _detruire_jouer($16); //@line 451 "../../../src/sdl/jouer.c"
- STACKTOP=sp;return; //@line 452 "../../../src/sdl/jouer.c"
+ var $3=$1; //@line 442 "../../../src/sdl/jouer.c"
+ var $4=$2; //@line 443 "../../../src/sdl/jouer.c"
+ var $5=$4; //@line 443 "../../../src/sdl/jouer.c"
+ $state=$5; //@line 443 "../../../src/sdl/jouer.c"
+ var $6=$state; //@line 444 "../../../src/sdl/jouer.c"
+ var $7=(($6+28)|0); //@line 444 "../../../src/sdl/jouer.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 444 "../../../src/sdl/jouer.c"
+ var $9=$8; //@line 444 "../../../src/sdl/jouer.c"
+ $jouer=$9; //@line 444 "../../../src/sdl/jouer.c"
+ var $10=$jouer; //@line 445 "../../../src/sdl/jouer.c"
+ var $11=(($10+4)|0); //@line 445 "../../../src/sdl/jouer.c"
+ var $12=HEAP32[(($11)>>2)]; //@line 445 "../../../src/sdl/jouer.c"
+ _detruire_partie($12); //@line 445 "../../../src/sdl/jouer.c"
+ var $13=$jouer; //@line 446 "../../../src/sdl/jouer.c"
+ var $14=(($13)|0); //@line 446 "../../../src/sdl/jouer.c"
+ var $15=HEAP32[(($14)>>2)]; //@line 446 "../../../src/sdl/jouer.c"
+ _set_state($15); //@line 446 "../../../src/sdl/jouer.c"
+ var $16=$state; //@line 447 "../../../src/sdl/jouer.c"
+ _detruire_jouer($16); //@line 447 "../../../src/sdl/jouer.c"
+ STACKTOP=sp;return; //@line 448 "../../../src/sdl/jouer.c"
 }
 
 
@@ -12501,23 +13671,23 @@ function _jouer_bouton_passer($bouton,$data){
  var $coup=sp;
  $1=$bouton;
  $2=$data;
- var $3=$1; //@line 456 "../../../src/sdl/jouer.c"
- var $4=$2; //@line 457 "../../../src/sdl/jouer.c"
- var $5=$4; //@line 457 "../../../src/sdl/jouer.c"
- $state=$5; //@line 457 "../../../src/sdl/jouer.c"
- var $6=$state; //@line 458 "../../../src/sdl/jouer.c"
- var $7=(($6+28)|0); //@line 458 "../../../src/sdl/jouer.c"
- var $8=HEAP32[(($7)>>2)]; //@line 458 "../../../src/sdl/jouer.c"
- var $9=$8; //@line 458 "../../../src/sdl/jouer.c"
- $jouer=$9; //@line 458 "../../../src/sdl/jouer.c"
- var $10=(($coup)|0); //@line 460 "../../../src/sdl/jouer.c"
- var $11=$10; //@line 460 "../../../src/sdl/jouer.c"
- assert(4 % 1 === 0);HEAP8[($11)]=HEAP8[(1504)];HEAP8[((($11)+(1))|0)]=HEAP8[(1505)];HEAP8[((($11)+(2))|0)]=HEAP8[(1506)];HEAP8[((($11)+(3))|0)]=HEAP8[(1507)]; //@line 460 "../../../src/sdl/jouer.c"
- var $12=$jouer; //@line 461 "../../../src/sdl/jouer.c"
- var $13=(($12+4)|0); //@line 461 "../../../src/sdl/jouer.c"
- var $14=HEAP32[(($13)>>2)]; //@line 461 "../../../src/sdl/jouer.c"
- var $15=_partie_jouer_coup($14,$coup); //@line 461 "../../../src/sdl/jouer.c"
- STACKTOP=sp;return; //@line 462 "../../../src/sdl/jouer.c"
+ var $3=$1; //@line 452 "../../../src/sdl/jouer.c"
+ var $4=$2; //@line 453 "../../../src/sdl/jouer.c"
+ var $5=$4; //@line 453 "../../../src/sdl/jouer.c"
+ $state=$5; //@line 453 "../../../src/sdl/jouer.c"
+ var $6=$state; //@line 454 "../../../src/sdl/jouer.c"
+ var $7=(($6+28)|0); //@line 454 "../../../src/sdl/jouer.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 454 "../../../src/sdl/jouer.c"
+ var $9=$8; //@line 454 "../../../src/sdl/jouer.c"
+ $jouer=$9; //@line 454 "../../../src/sdl/jouer.c"
+ var $10=(($coup)|0); //@line 456 "../../../src/sdl/jouer.c"
+ var $11=$10; //@line 456 "../../../src/sdl/jouer.c"
+ assert(4 % 1 === 0);HEAP8[($11)]=HEAP8[(3720)];HEAP8[((($11)+(1))|0)]=HEAP8[(3721)];HEAP8[((($11)+(2))|0)]=HEAP8[(3722)];HEAP8[((($11)+(3))|0)]=HEAP8[(3723)]; //@line 456 "../../../src/sdl/jouer.c"
+ var $12=$jouer; //@line 457 "../../../src/sdl/jouer.c"
+ var $13=(($12+4)|0); //@line 457 "../../../src/sdl/jouer.c"
+ var $14=HEAP32[(($13)>>2)]; //@line 457 "../../../src/sdl/jouer.c"
+ var $15=_partie_jouer_coup($14,$coup); //@line 457 "../../../src/sdl/jouer.c"
+ STACKTOP=sp;return; //@line 458 "../../../src/sdl/jouer.c"
 }
 
 
@@ -12530,36 +13700,36 @@ function _jouer_bouton_sauvegarder($bouton,$data){
  var $jouer;
  $1=$bouton;
  $2=$data;
- var $3=$1; //@line 466 "../../../src/sdl/jouer.c"
- var $4=$2; //@line 467 "../../../src/sdl/jouer.c"
- var $5=$4; //@line 467 "../../../src/sdl/jouer.c"
- $state=$5; //@line 467 "../../../src/sdl/jouer.c"
- var $6=$state; //@line 468 "../../../src/sdl/jouer.c"
- var $7=(($6+28)|0); //@line 468 "../../../src/sdl/jouer.c"
- var $8=HEAP32[(($7)>>2)]; //@line 468 "../../../src/sdl/jouer.c"
- var $9=$8; //@line 468 "../../../src/sdl/jouer.c"
- $jouer=$9; //@line 468 "../../../src/sdl/jouer.c"
- var $10=$jouer; //@line 469 "../../../src/sdl/jouer.c"
- var $11=(($10+40)|0); //@line 469 "../../../src/sdl/jouer.c"
- var $12=HEAP32[(($11)>>2)]; //@line 469 "../../../src/sdl/jouer.c"
- var $13=(($12+12)|0); //@line 469 "../../../src/sdl/jouer.c"
- var $14=HEAP32[(($13)>>2)]; //@line 469 "../../../src/sdl/jouer.c"
- var $15=$jouer; //@line 469 "../../../src/sdl/jouer.c"
- var $16=(($15+4)|0); //@line 469 "../../../src/sdl/jouer.c"
- var $17=HEAP32[(($16)>>2)]; //@line 469 "../../../src/sdl/jouer.c"
- var $18=_sauvegarder_partie_fichier($14,$17); //@line 469 "../../../src/sdl/jouer.c"
-  //@line 469 "../../../src/sdl/jouer.c"
+ var $3=$1; //@line 462 "../../../src/sdl/jouer.c"
+ var $4=$2; //@line 463 "../../../src/sdl/jouer.c"
+ var $5=$4; //@line 463 "../../../src/sdl/jouer.c"
+ $state=$5; //@line 463 "../../../src/sdl/jouer.c"
+ var $6=$state; //@line 464 "../../../src/sdl/jouer.c"
+ var $7=(($6+28)|0); //@line 464 "../../../src/sdl/jouer.c"
+ var $8=HEAP32[(($7)>>2)]; //@line 464 "../../../src/sdl/jouer.c"
+ var $9=$8; //@line 464 "../../../src/sdl/jouer.c"
+ $jouer=$9; //@line 464 "../../../src/sdl/jouer.c"
+ var $10=$jouer; //@line 465 "../../../src/sdl/jouer.c"
+ var $11=(($10+40)|0); //@line 465 "../../../src/sdl/jouer.c"
+ var $12=HEAP32[(($11)>>2)]; //@line 465 "../../../src/sdl/jouer.c"
+ var $13=(($12+12)|0); //@line 465 "../../../src/sdl/jouer.c"
+ var $14=HEAP32[(($13)>>2)]; //@line 465 "../../../src/sdl/jouer.c"
+ var $15=$jouer; //@line 465 "../../../src/sdl/jouer.c"
+ var $16=(($15+4)|0); //@line 465 "../../../src/sdl/jouer.c"
+ var $17=HEAP32[(($16)>>2)]; //@line 465 "../../../src/sdl/jouer.c"
+ var $18=_sauvegarder_partie_fichier($14,$17); //@line 465 "../../../src/sdl/jouer.c"
+  //@line 465 "../../../src/sdl/jouer.c"
  if ($18) {
-  var $20=$jouer; //@line 470 "../../../src/sdl/jouer.c"
-  var $21=(($20+44)|0); //@line 470 "../../../src/sdl/jouer.c"
-  var $22=HEAP32[(($21)>>2)]; //@line 470 "../../../src/sdl/jouer.c"
-  var $23=(($22+36)|0); //@line 470 "../../../src/sdl/jouer.c"
-  HEAP8[($23)]=0; //@line 470 "../../../src/sdl/jouer.c"
-   //@line 471 "../../../src/sdl/jouer.c"
-  STACKTOP=sp;return; //@line 474 "../../../src/sdl/jouer.c"
+  var $20=$jouer; //@line 466 "../../../src/sdl/jouer.c"
+  var $21=(($20+44)|0); //@line 466 "../../../src/sdl/jouer.c"
+  var $22=HEAP32[(($21)>>2)]; //@line 466 "../../../src/sdl/jouer.c"
+  var $23=(($22+36)|0); //@line 466 "../../../src/sdl/jouer.c"
+  HEAP8[($23)]=0; //@line 466 "../../../src/sdl/jouer.c"
+   //@line 467 "../../../src/sdl/jouer.c"
+  STACKTOP=sp;return; //@line 470 "../../../src/sdl/jouer.c"
  } else {
-  _perror(200); //@line 472 "../../../src/sdl/jouer.c"
-  STACKTOP=sp;return; //@line 474 "../../../src/sdl/jouer.c"
+  _perror(712); //@line 468 "../../../src/sdl/jouer.c"
+  STACKTOP=sp;return; //@line 470 "../../../src/sdl/jouer.c"
  }
 }
 
@@ -12678,13 +13848,13 @@ function _get_position_depuis_ecran($agg_result,$jouer,$x,$y){
   }
  } while(0);
  var $13=$agg_result; //@line 238 "../../../src/sdl/jouer.c"
- assert(4 % 1 === 0);HEAP8[($13)]=HEAP8[(1504)];HEAP8[((($13)+(1))|0)]=HEAP8[(1505)];HEAP8[((($13)+(2))|0)]=HEAP8[(1506)];HEAP8[((($13)+(3))|0)]=HEAP8[(1507)]; //@line 238 "../../../src/sdl/jouer.c"
+ assert(4 % 1 === 0);HEAP8[($13)]=HEAP8[(3720)];HEAP8[((($13)+(1))|0)]=HEAP8[(3721)];HEAP8[((($13)+(2))|0)]=HEAP8[(3722)];HEAP8[((($13)+(3))|0)]=HEAP8[(3723)]; //@line 238 "../../../src/sdl/jouer.c"
   //@line 238 "../../../src/sdl/jouer.c"
  STACKTOP=sp;return; //@line 248 "../../../src/sdl/jouer.c"
 }
 
 
-function _get_position_vers_ecran($jouer,$x,$y,$sx,$sy){
+function _get_position_vers_ecran($taille,$x,$y,$sx,$sy,$x1,$y1,$w){
  var label=0;
  var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
  var $1;
@@ -12692,109 +13862,50 @@ function _get_position_vers_ecran($jouer,$x,$y,$sx,$sy){
  var $3;
  var $4;
  var $5;
- var $x1;
- var $y1;
- var $w;
+ var $6;
+ var $7;
+ var $8;
  var $pixel_par_case;
  var $bordure;
- $1=$jouer;
+ $1=$taille;
  $2=$x;
  $3=$y;
  $4=$sx;
  $5=$sy;
- $x1=160; //@line 251 "../../../src/sdl/jouer.c"
- $y1=136; //@line 252 "../../../src/sdl/jouer.c"
- var $6=$x1; //@line 253 "../../../src/sdl/jouer.c"
- var $7=($6|0); //@line 253 "../../../src/sdl/jouer.c"
- var $8=(640)-($7); //@line 253 "../../../src/sdl/jouer.c"
- var $9=$y1; //@line 253 "../../../src/sdl/jouer.c"
- var $10=($9|0); //@line 253 "../../../src/sdl/jouer.c"
- var $11=(544)-($10); //@line 253 "../../../src/sdl/jouer.c"
- var $12=$8>$11; //@line 253 "../../../src/sdl/jouer.c"
-  //@line 253 "../../../src/sdl/jouer.c"
- if ($12) {
-  var $14=$x1; //@line 253 "../../../src/sdl/jouer.c"
-  var $15=($14|0); //@line 253 "../../../src/sdl/jouer.c"
-  var $16=(640)-($15); //@line 253 "../../../src/sdl/jouer.c"
-   //@line 253 "../../../src/sdl/jouer.c"
-  var $22=$16;
- } else {
-  var $18=$y1; //@line 253 "../../../src/sdl/jouer.c"
-  var $19=($18|0); //@line 253 "../../../src/sdl/jouer.c"
-  var $20=(544)-($19); //@line 253 "../../../src/sdl/jouer.c"
-   //@line 253 "../../../src/sdl/jouer.c"
-  var $22=$20;
- }
- var $22; //@line 253 "../../../src/sdl/jouer.c"
- var $23=(($22)&-1); //@line 253 "../../../src/sdl/jouer.c"
- $w=$23; //@line 253 "../../../src/sdl/jouer.c"
- var $24=$w; //@line 254 "../../../src/sdl/jouer.c"
- var $25=$1; //@line 254 "../../../src/sdl/jouer.c"
- var $26=(($25+8)|0); //@line 254 "../../../src/sdl/jouer.c"
- var $27=HEAP32[(($26)>>2)]; //@line 254 "../../../src/sdl/jouer.c"
- var $28=(((($24|0))%(($27|0)))&-1); //@line 254 "../../../src/sdl/jouer.c"
- var $29=$w; //@line 254 "../../../src/sdl/jouer.c"
- var $30=((($29)-($28))|0); //@line 254 "../../../src/sdl/jouer.c"
- $w=$30; //@line 254 "../../../src/sdl/jouer.c"
- var $31=$w; //@line 255 "../../../src/sdl/jouer.c"
- var $32=$1; //@line 255 "../../../src/sdl/jouer.c"
- var $33=(($32+8)|0); //@line 255 "../../../src/sdl/jouer.c"
- var $34=HEAP32[(($33)>>2)]; //@line 255 "../../../src/sdl/jouer.c"
- var $35=(((($31|0))/(($34|0)))&-1); //@line 255 "../../../src/sdl/jouer.c"
- $pixel_par_case=$35; //@line 255 "../../../src/sdl/jouer.c"
- var $36=$w; //@line 256 "../../../src/sdl/jouer.c"
- var $37=$pixel_par_case; //@line 256 "../../../src/sdl/jouer.c"
- var $38=$1; //@line 256 "../../../src/sdl/jouer.c"
- var $39=(($38+8)|0); //@line 256 "../../../src/sdl/jouer.c"
- var $40=HEAP32[(($39)>>2)]; //@line 256 "../../../src/sdl/jouer.c"
- var $41=((($40)-(1))|0); //@line 256 "../../../src/sdl/jouer.c"
- var $42=(Math_imul($37,$41)|0); //@line 256 "../../../src/sdl/jouer.c"
- var $43=((($36)-($42))|0); //@line 256 "../../../src/sdl/jouer.c"
- var $44=(((($43|0))/(2))&-1); //@line 256 "../../../src/sdl/jouer.c"
- $bordure=$44; //@line 256 "../../../src/sdl/jouer.c"
- var $45=$x1; //@line 257 "../../../src/sdl/jouer.c"
- var $46=$bordure; //@line 257 "../../../src/sdl/jouer.c"
- var $47=((($45)+($46))|0); //@line 257 "../../../src/sdl/jouer.c"
- var $48=$2; //@line 257 "../../../src/sdl/jouer.c"
- var $49=$pixel_par_case; //@line 257 "../../../src/sdl/jouer.c"
- var $50=(Math_imul($48,$49)|0); //@line 257 "../../../src/sdl/jouer.c"
- var $51=((($47)+($50))|0); //@line 257 "../../../src/sdl/jouer.c"
- var $52=$4; //@line 257 "../../../src/sdl/jouer.c"
- HEAP32[(($52)>>2)]=$51; //@line 257 "../../../src/sdl/jouer.c"
- var $53=$y1; //@line 258 "../../../src/sdl/jouer.c"
- var $54=$bordure; //@line 258 "../../../src/sdl/jouer.c"
- var $55=((($53)+($54))|0); //@line 258 "../../../src/sdl/jouer.c"
- var $56=$3; //@line 258 "../../../src/sdl/jouer.c"
- var $57=$pixel_par_case; //@line 258 "../../../src/sdl/jouer.c"
- var $58=(Math_imul($56,$57)|0); //@line 258 "../../../src/sdl/jouer.c"
- var $59=((($55)+($58))|0); //@line 258 "../../../src/sdl/jouer.c"
- var $60=$5; //@line 258 "../../../src/sdl/jouer.c"
- HEAP32[(($60)>>2)]=$59; //@line 258 "../../../src/sdl/jouer.c"
- STACKTOP=sp;return; //@line 259 "../../../src/sdl/jouer.c"
-}
-
-
-function _afficher_sauvegarder($jouer){
- var label=0;
- var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
- var $1;
- $1=$jouer;
- var $2=$1; //@line 392 "../../../src/sdl/jouer.c"
- var $3=(($2+40)|0); //@line 392 "../../../src/sdl/jouer.c"
- var $4=HEAP32[(($3)>>2)]; //@line 392 "../../../src/sdl/jouer.c"
- var $5=(($4+12)|0); //@line 392 "../../../src/sdl/jouer.c"
- var $6=HEAP32[(($5)>>2)]; //@line 392 "../../../src/sdl/jouer.c"
- var $7=(($6)|0); //@line 392 "../../../src/sdl/jouer.c"
- var $8=HEAP8[($7)]; //@line 392 "../../../src/sdl/jouer.c"
- var $9=(($8<<24)>>24); //@line 392 "../../../src/sdl/jouer.c"
- var $10=($9|0)!=0; //@line 392 "../../../src/sdl/jouer.c"
- var $11=$1; //@line 392 "../../../src/sdl/jouer.c"
- var $12=(($11+44)|0); //@line 392 "../../../src/sdl/jouer.c"
- var $13=HEAP32[(($12)>>2)]; //@line 392 "../../../src/sdl/jouer.c"
- var $14=(($13+36)|0); //@line 392 "../../../src/sdl/jouer.c"
- var $15=($10&1); //@line 392 "../../../src/sdl/jouer.c"
- HEAP8[($14)]=$15; //@line 392 "../../../src/sdl/jouer.c"
- STACKTOP=sp;return; //@line 393 "../../../src/sdl/jouer.c"
+ $6=$x1;
+ $7=$y1;
+ $8=$w;
+ var $9=$8; //@line 251 "../../../src/sdl/jouer.c"
+ var $10=$1; //@line 251 "../../../src/sdl/jouer.c"
+ var $11=(((($9|0))/(($10|0)))&-1); //@line 251 "../../../src/sdl/jouer.c"
+ $pixel_par_case=$11; //@line 251 "../../../src/sdl/jouer.c"
+ var $12=$8; //@line 252 "../../../src/sdl/jouer.c"
+ var $13=$pixel_par_case; //@line 252 "../../../src/sdl/jouer.c"
+ var $14=$1; //@line 252 "../../../src/sdl/jouer.c"
+ var $15=((($14)-(1))|0); //@line 252 "../../../src/sdl/jouer.c"
+ var $16=(Math_imul($13,$15)|0); //@line 252 "../../../src/sdl/jouer.c"
+ var $17=((($12)-($16))|0); //@line 252 "../../../src/sdl/jouer.c"
+ var $18=(((($17|0))/(2))&-1); //@line 252 "../../../src/sdl/jouer.c"
+ $bordure=$18; //@line 252 "../../../src/sdl/jouer.c"
+ var $19=$6; //@line 253 "../../../src/sdl/jouer.c"
+ var $20=$bordure; //@line 253 "../../../src/sdl/jouer.c"
+ var $21=((($19)+($20))|0); //@line 253 "../../../src/sdl/jouer.c"
+ var $22=$2; //@line 253 "../../../src/sdl/jouer.c"
+ var $23=$pixel_par_case; //@line 253 "../../../src/sdl/jouer.c"
+ var $24=(Math_imul($22,$23)|0); //@line 253 "../../../src/sdl/jouer.c"
+ var $25=((($21)+($24))|0); //@line 253 "../../../src/sdl/jouer.c"
+ var $26=$4; //@line 253 "../../../src/sdl/jouer.c"
+ HEAP32[(($26)>>2)]=$25; //@line 253 "../../../src/sdl/jouer.c"
+ var $27=$7; //@line 254 "../../../src/sdl/jouer.c"
+ var $28=$bordure; //@line 254 "../../../src/sdl/jouer.c"
+ var $29=((($27)+($28))|0); //@line 254 "../../../src/sdl/jouer.c"
+ var $30=$3; //@line 254 "../../../src/sdl/jouer.c"
+ var $31=$pixel_par_case; //@line 254 "../../../src/sdl/jouer.c"
+ var $32=(Math_imul($30,$31)|0); //@line 254 "../../../src/sdl/jouer.c"
+ var $33=((($29)+($32))|0); //@line 254 "../../../src/sdl/jouer.c"
+ var $34=$5; //@line 254 "../../../src/sdl/jouer.c"
+ HEAP32[(($34)>>2)]=$33; //@line 254 "../../../src/sdl/jouer.c"
+ STACKTOP=sp;return; //@line 255 "../../../src/sdl/jouer.c"
 }
 
 
@@ -12806,27 +13917,51 @@ function _get_marge($i,$taille){
  var $3;
  $2=$i;
  $3=$taille;
- var $4=$2; //@line 263 "../../../src/sdl/jouer.c"
- var $5=$3; //@line 263 "../../../src/sdl/jouer.c"
- var $6=(((($5|0))/(2))&-1); //@line 263 "../../../src/sdl/jouer.c"
- var $7=($4|0)<($6|0); //@line 263 "../../../src/sdl/jouer.c"
-  //@line 263 "../../../src/sdl/jouer.c"
+ var $4=$2; //@line 259 "../../../src/sdl/jouer.c"
+ var $5=$3; //@line 259 "../../../src/sdl/jouer.c"
+ var $6=(((($5|0))/(2))&-1); //@line 259 "../../../src/sdl/jouer.c"
+ var $7=($4|0)<($6|0); //@line 259 "../../../src/sdl/jouer.c"
+  //@line 259 "../../../src/sdl/jouer.c"
  if ($7) {
-  var $9=$2; //@line 264 "../../../src/sdl/jouer.c"
-  $1=$9; //@line 264 "../../../src/sdl/jouer.c"
-   //@line 264 "../../../src/sdl/jouer.c"
-  var $16=$1; //@line 267 "../../../src/sdl/jouer.c"
-  STACKTOP=sp;return $16; //@line 267 "../../../src/sdl/jouer.c"
+  var $9=$2; //@line 260 "../../../src/sdl/jouer.c"
+  $1=$9; //@line 260 "../../../src/sdl/jouer.c"
+   //@line 260 "../../../src/sdl/jouer.c"
+  var $16=$1; //@line 263 "../../../src/sdl/jouer.c"
+  STACKTOP=sp;return $16; //@line 263 "../../../src/sdl/jouer.c"
  } else {
-  var $11=$3; //@line 266 "../../../src/sdl/jouer.c"
-  var $12=$2; //@line 266 "../../../src/sdl/jouer.c"
-  var $13=((($11)-($12))|0); //@line 266 "../../../src/sdl/jouer.c"
-  var $14=((($13)-(1))|0); //@line 266 "../../../src/sdl/jouer.c"
-  $1=$14; //@line 266 "../../../src/sdl/jouer.c"
-   //@line 266 "../../../src/sdl/jouer.c"
-  var $16=$1; //@line 267 "../../../src/sdl/jouer.c"
-  STACKTOP=sp;return $16; //@line 267 "../../../src/sdl/jouer.c"
+  var $11=$3; //@line 262 "../../../src/sdl/jouer.c"
+  var $12=$2; //@line 262 "../../../src/sdl/jouer.c"
+  var $13=((($11)-($12))|0); //@line 262 "../../../src/sdl/jouer.c"
+  var $14=((($13)-(1))|0); //@line 262 "../../../src/sdl/jouer.c"
+  $1=$14; //@line 262 "../../../src/sdl/jouer.c"
+   //@line 262 "../../../src/sdl/jouer.c"
+  var $16=$1; //@line 263 "../../../src/sdl/jouer.c"
+  STACKTOP=sp;return $16; //@line 263 "../../../src/sdl/jouer.c"
  }
+}
+
+
+function _afficher_sauvegarder($jouer){
+ var label=0;
+ var sp=STACKTOP; (assert((STACKTOP|0) < (STACK_MAX|0))|0);
+ var $1;
+ $1=$jouer;
+ var $2=$1; //@line 388 "../../../src/sdl/jouer.c"
+ var $3=(($2+40)|0); //@line 388 "../../../src/sdl/jouer.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 388 "../../../src/sdl/jouer.c"
+ var $5=(($4+12)|0); //@line 388 "../../../src/sdl/jouer.c"
+ var $6=HEAP32[(($5)>>2)]; //@line 388 "../../../src/sdl/jouer.c"
+ var $7=(($6)|0); //@line 388 "../../../src/sdl/jouer.c"
+ var $8=HEAP8[($7)]; //@line 388 "../../../src/sdl/jouer.c"
+ var $9=(($8<<24)>>24); //@line 388 "../../../src/sdl/jouer.c"
+ var $10=($9|0)!=0; //@line 388 "../../../src/sdl/jouer.c"
+ var $11=$1; //@line 388 "../../../src/sdl/jouer.c"
+ var $12=(($11+44)|0); //@line 388 "../../../src/sdl/jouer.c"
+ var $13=HEAP32[(($12)>>2)]; //@line 388 "../../../src/sdl/jouer.c"
+ var $14=(($13+36)|0); //@line 388 "../../../src/sdl/jouer.c"
+ var $15=($10&1); //@line 388 "../../../src/sdl/jouer.c"
+ HEAP8[($14)]=$15; //@line 388 "../../../src/sdl/jouer.c"
+ STACKTOP=sp;return; //@line 389 "../../../src/sdl/jouer.c"
 }
 
 
@@ -13661,22 +14796,22 @@ function _creer_ensemble_colore($couleur){
  HEAP32[(($16)>>2)]=$14; //@line 34 "../../../src/go/ensemble_colore.c"
  var $17=$ptrEnsemble; //@line 36 "../../../src/go/ensemble_colore.c"
  var $18=(($17)|0); //@line 36 "../../../src/go/ensemble_colore.c"
- HEAP32[(($18)>>2)]=14; //@line 36 "../../../src/go/ensemble_colore.c"
+ HEAP32[(($18)>>2)]=16; //@line 36 "../../../src/go/ensemble_colore.c"
  var $19=$ptrEnsemble; //@line 37 "../../../src/go/ensemble_colore.c"
  var $20=(($19+4)|0); //@line 37 "../../../src/go/ensemble_colore.c"
- HEAP32[(($20)>>2)]=6; //@line 37 "../../../src/go/ensemble_colore.c"
+ HEAP32[(($20)>>2)]=8; //@line 37 "../../../src/go/ensemble_colore.c"
  var $21=$ptrEnsemble; //@line 38 "../../../src/go/ensemble_colore.c"
  var $22=(($21+8)|0); //@line 38 "../../../src/go/ensemble_colore.c"
- HEAP32[(($22)>>2)]=98; //@line 38 "../../../src/go/ensemble_colore.c"
+ HEAP32[(($22)>>2)]=104; //@line 38 "../../../src/go/ensemble_colore.c"
  var $23=$ptrEnsemble; //@line 39 "../../../src/go/ensemble_colore.c"
  var $24=(($23+12)|0); //@line 39 "../../../src/go/ensemble_colore.c"
- HEAP32[(($24)>>2)]=172; //@line 39 "../../../src/go/ensemble_colore.c"
+ HEAP32[(($24)>>2)]=182; //@line 39 "../../../src/go/ensemble_colore.c"
  var $25=$ptrEnsemble; //@line 40 "../../../src/go/ensemble_colore.c"
  var $26=(($25+16)|0); //@line 40 "../../../src/go/ensemble_colore.c"
- HEAP32[(($26)>>2)]=334; //@line 40 "../../../src/go/ensemble_colore.c"
+ HEAP32[(($26)>>2)]=354; //@line 40 "../../../src/go/ensemble_colore.c"
  var $27=$ptrEnsemble; //@line 41 "../../../src/go/ensemble_colore.c"
  var $28=(($27+20)|0); //@line 41 "../../../src/go/ensemble_colore.c"
- HEAP32[(($28)>>2)]=118; //@line 41 "../../../src/go/ensemble_colore.c"
+ HEAP32[(($28)>>2)]=126; //@line 41 "../../../src/go/ensemble_colore.c"
  var $29=$ptrEnsemble; //@line 43 "../../../src/go/ensemble_colore.c"
  STACKTOP=sp;return $29; //@line 43 "../../../src/go/ensemble_colore.c"
 }
@@ -13982,28 +15117,28 @@ function _creer_ensemble_position(){
  var $11=$ptrContainer; //@line 69 "../../../src/gosh_ensemble.c"
  var $12=(($11)|0); //@line 69 "../../../src/gosh_ensemble.c"
  var $13=$12; //@line 69 "../../../src/gosh_ensemble.c"
- HEAP32[(($13)>>2)]=194; //@line 69 "../../../src/gosh_ensemble.c"
+ HEAP32[(($13)>>2)]=206; //@line 69 "../../../src/gosh_ensemble.c"
  var $14=$ptrContainer; //@line 70 "../../../src/gosh_ensemble.c"
  var $15=(($14+4)|0); //@line 70 "../../../src/gosh_ensemble.c"
- HEAP32[(($15)>>2)]=154; //@line 70 "../../../src/gosh_ensemble.c"
+ HEAP32[(($15)>>2)]=162; //@line 70 "../../../src/gosh_ensemble.c"
  var $16=$ptrContainer; //@line 71 "../../../src/gosh_ensemble.c"
  var $17=(($16+8)|0); //@line 71 "../../../src/gosh_ensemble.c"
- HEAP32[(($17)>>2)]=92; //@line 71 "../../../src/gosh_ensemble.c"
+ HEAP32[(($17)>>2)]=98; //@line 71 "../../../src/gosh_ensemble.c"
  var $18=$ptrContainer; //@line 72 "../../../src/gosh_ensemble.c"
  var $19=(($18+12)|0); //@line 72 "../../../src/gosh_ensemble.c"
- HEAP32[(($19)>>2)]=146; //@line 72 "../../../src/gosh_ensemble.c"
+ HEAP32[(($19)>>2)]=154; //@line 72 "../../../src/gosh_ensemble.c"
  var $20=$ptrContainer; //@line 73 "../../../src/gosh_ensemble.c"
  var $21=(($20+16)|0); //@line 73 "../../../src/gosh_ensemble.c"
- HEAP32[(($21)>>2)]=218; //@line 73 "../../../src/gosh_ensemble.c"
+ HEAP32[(($21)>>2)]=232; //@line 73 "../../../src/gosh_ensemble.c"
  var $22=$ptrContainer; //@line 74 "../../../src/gosh_ensemble.c"
  var $23=(($22+20)|0); //@line 74 "../../../src/gosh_ensemble.c"
- HEAP32[(($23)>>2)]=304; //@line 74 "../../../src/gosh_ensemble.c"
+ HEAP32[(($23)>>2)]=320; //@line 74 "../../../src/gosh_ensemble.c"
  var $24=$ptrContainer; //@line 75 "../../../src/gosh_ensemble.c"
  var $25=(($24+24)|0); //@line 75 "../../../src/gosh_ensemble.c"
- HEAP32[(($25)>>2)]=26; //@line 75 "../../../src/gosh_ensemble.c"
+ HEAP32[(($25)>>2)]=30; //@line 75 "../../../src/gosh_ensemble.c"
  var $26=$ptrContainer; //@line 76 "../../../src/gosh_ensemble.c"
  var $27=(($26+28)|0); //@line 76 "../../../src/gosh_ensemble.c"
- HEAP32[(($27)>>2)]=198; //@line 76 "../../../src/gosh_ensemble.c"
+ HEAP32[(($27)>>2)]=210; //@line 76 "../../../src/gosh_ensemble.c"
  var $28=$ptrContainer; //@line 78 "../../../src/gosh_ensemble.c"
  STACKTOP=sp;return $28; //@line 78 "../../../src/gosh_ensemble.c"
 }
@@ -14238,7 +15373,7 @@ function _ensemble_position_get($agg_result,$ptrContainer,$n){
  if ($25) {
   var $29=1;
  } else {
-  ___assert_fail(184,928,152,1416); //@line 152 "../../../src/gosh_ensemble.c"
+  ___assert_fail(3072,3416,152,3632); //@line 152 "../../../src/gosh_ensemble.c"
   throw "Reached an unreachable!"; //@line 152 "../../../src/gosh_ensemble.c"
    //@line 152 "../../../src/gosh_ensemble.c"
  }
@@ -14418,93 +15553,93 @@ function _charger_ordinateur($name){
  $dlptr=0; //@line 55 "../../../src/go/ordinateur.c"
  var $3=_dlopen(0,1); //@line 58 "../../../src/go/ordinateur.c"
  $dlptr=$3; //@line 58 "../../../src/go/ordinateur.c"
- var $4=$dlptr; //@line 84 "../../../src/go/ordinateur.c"
- var $5=_recuperer_fonction($4,104,1); //@line 84 "../../../src/go/ordinateur.c"
- var $6=$5; //@line 84 "../../../src/go/ordinateur.c"
- $initialiser=$6; //@line 84 "../../../src/go/ordinateur.c"
- var $7=$initialiser; //@line 85 "../../../src/go/ordinateur.c"
- var $8=($7|0)==0; //@line 85 "../../../src/go/ordinateur.c"
-  //@line 85 "../../../src/go/ordinateur.c"
+ var $4=$dlptr; //@line 89 "../../../src/go/ordinateur.c"
+ var $5=_recuperer_fonction($4,3000,1); //@line 89 "../../../src/go/ordinateur.c"
+ var $6=$5; //@line 89 "../../../src/go/ordinateur.c"
+ $initialiser=$6; //@line 89 "../../../src/go/ordinateur.c"
+ var $7=$initialiser; //@line 90 "../../../src/go/ordinateur.c"
+ var $8=($7|0)==0; //@line 90 "../../../src/go/ordinateur.c"
+  //@line 90 "../../../src/go/ordinateur.c"
  if ($8) {
-  $1=0; //@line 86 "../../../src/go/ordinateur.c"
-   //@line 86 "../../../src/go/ordinateur.c"
-  var $61=$1; //@line 110 "../../../src/go/ordinateur.c"
-  STACKTOP=sp;return $61; //@line 110 "../../../src/go/ordinateur.c"
+  $1=0; //@line 91 "../../../src/go/ordinateur.c"
+   //@line 91 "../../../src/go/ordinateur.c"
+  var $61=$1; //@line 115 "../../../src/go/ordinateur.c"
+  STACKTOP=sp;return $61; //@line 115 "../../../src/go/ordinateur.c"
  }
- var $11=$initialiser; //@line 88 "../../../src/go/ordinateur.c"
- var $12=$11; //@line 88 "../../../src/go/ordinateur.c"
- var $13=FUNCTION_TABLE[$12](); //@line 88 "../../../src/go/ordinateur.c"
- $ordidata=$13; //@line 88 "../../../src/go/ordinateur.c"
- var $14=$ordidata; //@line 89 "../../../src/go/ordinateur.c"
- var $15=($14|0)==0; //@line 89 "../../../src/go/ordinateur.c"
-  //@line 89 "../../../src/go/ordinateur.c"
- if ($15) {
-  $1=0; //@line 90 "../../../src/go/ordinateur.c"
-   //@line 90 "../../../src/go/ordinateur.c"
-  var $61=$1; //@line 110 "../../../src/go/ordinateur.c"
-  STACKTOP=sp;return $61; //@line 110 "../../../src/go/ordinateur.c"
- }
- var $18=$dlptr; //@line 93 "../../../src/go/ordinateur.c"
- var $19=_recuperer_fonction($18,840,1); //@line 93 "../../../src/go/ordinateur.c"
- var $20=$19; //@line 93 "../../../src/go/ordinateur.c"
- $jouer=$20; //@line 93 "../../../src/go/ordinateur.c"
- var $21=$jouer; //@line 94 "../../../src/go/ordinateur.c"
- var $22=($21|0)==0; //@line 94 "../../../src/go/ordinateur.c"
+ var $11=$initialiser; //@line 93 "../../../src/go/ordinateur.c"
+ var $12=$11; //@line 93 "../../../src/go/ordinateur.c"
+ var $13=FUNCTION_TABLE[$12](); //@line 93 "../../../src/go/ordinateur.c"
+ $ordidata=$13; //@line 93 "../../../src/go/ordinateur.c"
+ var $14=$ordidata; //@line 94 "../../../src/go/ordinateur.c"
+ var $15=($14|0)==0; //@line 94 "../../../src/go/ordinateur.c"
   //@line 94 "../../../src/go/ordinateur.c"
- if ($22) {
+ if ($15) {
   $1=0; //@line 95 "../../../src/go/ordinateur.c"
    //@line 95 "../../../src/go/ordinateur.c"
-  var $61=$1; //@line 110 "../../../src/go/ordinateur.c"
-  STACKTOP=sp;return $61; //@line 110 "../../../src/go/ordinateur.c"
+  var $61=$1; //@line 115 "../../../src/go/ordinateur.c"
+  STACKTOP=sp;return $61; //@line 115 "../../../src/go/ordinateur.c"
+ }
+ var $18=$dlptr; //@line 98 "../../../src/go/ordinateur.c"
+ var $19=_recuperer_fonction($18,3400,1); //@line 98 "../../../src/go/ordinateur.c"
+ var $20=$19; //@line 98 "../../../src/go/ordinateur.c"
+ $jouer=$20; //@line 98 "../../../src/go/ordinateur.c"
+ var $21=$jouer; //@line 99 "../../../src/go/ordinateur.c"
+ var $22=($21|0)==0; //@line 99 "../../../src/go/ordinateur.c"
+  //@line 99 "../../../src/go/ordinateur.c"
+ if ($22) {
+  $1=0; //@line 100 "../../../src/go/ordinateur.c"
+   //@line 100 "../../../src/go/ordinateur.c"
+  var $61=$1; //@line 115 "../../../src/go/ordinateur.c"
+  STACKTOP=sp;return $61; //@line 115 "../../../src/go/ordinateur.c"
  } else {
-  var $25=$dlptr; //@line 98 "../../../src/go/ordinateur.c"
-  var $26=_recuperer_fonction($25,616,0); //@line 98 "../../../src/go/ordinateur.c"
-  var $27=$26; //@line 98 "../../../src/go/ordinateur.c"
-  $remplacer_plateau=$27; //@line 98 "../../../src/go/ordinateur.c"
-  var $28=$dlptr; //@line 99 "../../../src/go/ordinateur.c"
-  var $29=_recuperer_fonction($28,448,0); //@line 99 "../../../src/go/ordinateur.c"
-  var $30=$29; //@line 99 "../../../src/go/ordinateur.c"
-  $notification_coup=$30; //@line 99 "../../../src/go/ordinateur.c"
-  var $31=_gosh_alloc_size(24); //@line 101 "../../../src/go/ordinateur.c"
-  var $32=$31; //@line 101 "../../../src/go/ordinateur.c"
-  $ordi=$32; //@line 101 "../../../src/go/ordinateur.c"
-  var $33=$dlptr; //@line 102 "../../../src/go/ordinateur.c"
-  var $34=$ordi; //@line 102 "../../../src/go/ordinateur.c"
-  var $35=(($34+4)|0); //@line 102 "../../../src/go/ordinateur.c"
-  HEAP32[(($35)>>2)]=$33; //@line 102 "../../../src/go/ordinateur.c"
-  var $36=$jouer; //@line 103 "../../../src/go/ordinateur.c"
-  var $37=$ordi; //@line 103 "../../../src/go/ordinateur.c"
-  var $38=(($37+8)|0); //@line 103 "../../../src/go/ordinateur.c"
-  HEAP32[(($38)>>2)]=$36; //@line 103 "../../../src/go/ordinateur.c"
-  var $39=$ordidata; //@line 104 "../../../src/go/ordinateur.c"
-  var $40=$ordi; //@line 104 "../../../src/go/ordinateur.c"
-  var $41=(($40+20)|0); //@line 104 "../../../src/go/ordinateur.c"
-  HEAP32[(($41)>>2)]=$39; //@line 104 "../../../src/go/ordinateur.c"
-  var $42=$remplacer_plateau; //@line 105 "../../../src/go/ordinateur.c"
-  var $43=$ordi; //@line 105 "../../../src/go/ordinateur.c"
-  var $44=(($43+12)|0); //@line 105 "../../../src/go/ordinateur.c"
-  HEAP32[(($44)>>2)]=$42; //@line 105 "../../../src/go/ordinateur.c"
-  var $45=$notification_coup; //@line 106 "../../../src/go/ordinateur.c"
-  var $46=$ordi; //@line 106 "../../../src/go/ordinateur.c"
-  var $47=(($46+16)|0); //@line 106 "../../../src/go/ordinateur.c"
-  HEAP32[(($47)>>2)]=$45; //@line 106 "../../../src/go/ordinateur.c"
-  var $48=$2; //@line 107 "../../../src/go/ordinateur.c"
-  var $49=_strlen($48); //@line 107 "../../../src/go/ordinateur.c"
-  var $50=((($49)+(1))|0); //@line 107 "../../../src/go/ordinateur.c"
-  var $51=_malloc($50); //@line 107 "../../../src/go/ordinateur.c"
-  var $52=$ordi; //@line 107 "../../../src/go/ordinateur.c"
-  var $53=(($52)|0); //@line 107 "../../../src/go/ordinateur.c"
-  HEAP32[(($53)>>2)]=$51; //@line 107 "../../../src/go/ordinateur.c"
-  var $54=$ordi; //@line 108 "../../../src/go/ordinateur.c"
-  var $55=(($54)|0); //@line 108 "../../../src/go/ordinateur.c"
-  var $56=HEAP32[(($55)>>2)]; //@line 108 "../../../src/go/ordinateur.c"
-  var $57=$2; //@line 108 "../../../src/go/ordinateur.c"
-  var $58=_strcpy($56,$57); //@line 108 "../../../src/go/ordinateur.c"
-  var $59=$ordi; //@line 109 "../../../src/go/ordinateur.c"
-  $1=$59; //@line 109 "../../../src/go/ordinateur.c"
-   //@line 109 "../../../src/go/ordinateur.c"
-  var $61=$1; //@line 110 "../../../src/go/ordinateur.c"
-  STACKTOP=sp;return $61; //@line 110 "../../../src/go/ordinateur.c"
+  var $25=$dlptr; //@line 103 "../../../src/go/ordinateur.c"
+  var $26=_recuperer_fonction($25,2488,0); //@line 103 "../../../src/go/ordinateur.c"
+  var $27=$26; //@line 103 "../../../src/go/ordinateur.c"
+  $remplacer_plateau=$27; //@line 103 "../../../src/go/ordinateur.c"
+  var $28=$dlptr; //@line 104 "../../../src/go/ordinateur.c"
+  var $29=_recuperer_fonction($28,1880,0); //@line 104 "../../../src/go/ordinateur.c"
+  var $30=$29; //@line 104 "../../../src/go/ordinateur.c"
+  $notification_coup=$30; //@line 104 "../../../src/go/ordinateur.c"
+  var $31=_gosh_alloc_size(24); //@line 106 "../../../src/go/ordinateur.c"
+  var $32=$31; //@line 106 "../../../src/go/ordinateur.c"
+  $ordi=$32; //@line 106 "../../../src/go/ordinateur.c"
+  var $33=$dlptr; //@line 107 "../../../src/go/ordinateur.c"
+  var $34=$ordi; //@line 107 "../../../src/go/ordinateur.c"
+  var $35=(($34+4)|0); //@line 107 "../../../src/go/ordinateur.c"
+  HEAP32[(($35)>>2)]=$33; //@line 107 "../../../src/go/ordinateur.c"
+  var $36=$jouer; //@line 108 "../../../src/go/ordinateur.c"
+  var $37=$ordi; //@line 108 "../../../src/go/ordinateur.c"
+  var $38=(($37+8)|0); //@line 108 "../../../src/go/ordinateur.c"
+  HEAP32[(($38)>>2)]=$36; //@line 108 "../../../src/go/ordinateur.c"
+  var $39=$ordidata; //@line 109 "../../../src/go/ordinateur.c"
+  var $40=$ordi; //@line 109 "../../../src/go/ordinateur.c"
+  var $41=(($40+20)|0); //@line 109 "../../../src/go/ordinateur.c"
+  HEAP32[(($41)>>2)]=$39; //@line 109 "../../../src/go/ordinateur.c"
+  var $42=$remplacer_plateau; //@line 110 "../../../src/go/ordinateur.c"
+  var $43=$ordi; //@line 110 "../../../src/go/ordinateur.c"
+  var $44=(($43+12)|0); //@line 110 "../../../src/go/ordinateur.c"
+  HEAP32[(($44)>>2)]=$42; //@line 110 "../../../src/go/ordinateur.c"
+  var $45=$notification_coup; //@line 111 "../../../src/go/ordinateur.c"
+  var $46=$ordi; //@line 111 "../../../src/go/ordinateur.c"
+  var $47=(($46+16)|0); //@line 111 "../../../src/go/ordinateur.c"
+  HEAP32[(($47)>>2)]=$45; //@line 111 "../../../src/go/ordinateur.c"
+  var $48=$2; //@line 112 "../../../src/go/ordinateur.c"
+  var $49=_strlen($48); //@line 112 "../../../src/go/ordinateur.c"
+  var $50=((($49)+(1))|0); //@line 112 "../../../src/go/ordinateur.c"
+  var $51=_malloc($50); //@line 112 "../../../src/go/ordinateur.c"
+  var $52=$ordi; //@line 112 "../../../src/go/ordinateur.c"
+  var $53=(($52)|0); //@line 112 "../../../src/go/ordinateur.c"
+  HEAP32[(($53)>>2)]=$51; //@line 112 "../../../src/go/ordinateur.c"
+  var $54=$ordi; //@line 113 "../../../src/go/ordinateur.c"
+  var $55=(($54)|0); //@line 113 "../../../src/go/ordinateur.c"
+  var $56=HEAP32[(($55)>>2)]; //@line 113 "../../../src/go/ordinateur.c"
+  var $57=$2; //@line 113 "../../../src/go/ordinateur.c"
+  var $58=_strcpy($56,$57); //@line 113 "../../../src/go/ordinateur.c"
+  var $59=$ordi; //@line 114 "../../../src/go/ordinateur.c"
+  $1=$59; //@line 114 "../../../src/go/ordinateur.c"
+   //@line 114 "../../../src/go/ordinateur.c"
+  var $61=$1; //@line 115 "../../../src/go/ordinateur.c"
+  STACKTOP=sp;return $61; //@line 115 "../../../src/go/ordinateur.c"
  }
 }
 
@@ -14537,7 +15672,7 @@ function _recuperer_fonction($dlptr,$nom,$importante){
     break;
    }
    var $14=$2; //@line 47 "../../../src/go/ordinateur.c"
-   var $15=_printf(264,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$14,tempVarArgs)); STACKTOP=tempVarArgs; //@line 47 "../../../src/go/ordinateur.c"
+   var $15=_printf(1000,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$14,tempVarArgs)); STACKTOP=tempVarArgs; //@line 47 "../../../src/go/ordinateur.c"
    var $16=$1; //@line 48 "../../../src/go/ordinateur.c"
    var $17=_dlclose($16); //@line 48 "../../../src/go/ordinateur.c"
     //@line 49 "../../../src/go/ordinateur.c"
@@ -14555,24 +15690,24 @@ function _ordinateur_remplacer_plateau($ordi,$plateau){
  var $2;
  $1=$ordi;
  $2=$plateau;
- var $3=$1; //@line 114 "../../../src/go/ordinateur.c"
- var $4=(($3+12)|0); //@line 114 "../../../src/go/ordinateur.c"
- var $5=HEAP32[(($4)>>2)]; //@line 114 "../../../src/go/ordinateur.c"
- var $6=($5|0)!=0; //@line 114 "../../../src/go/ordinateur.c"
-  //@line 114 "../../../src/go/ordinateur.c"
+ var $3=$1; //@line 119 "../../../src/go/ordinateur.c"
+ var $4=(($3+12)|0); //@line 119 "../../../src/go/ordinateur.c"
+ var $5=HEAP32[(($4)>>2)]; //@line 119 "../../../src/go/ordinateur.c"
+ var $6=($5|0)!=0; //@line 119 "../../../src/go/ordinateur.c"
+  //@line 119 "../../../src/go/ordinateur.c"
  if (!($6)) {
-  STACKTOP=sp;return; //@line 117 "../../../src/go/ordinateur.c"
+  STACKTOP=sp;return; //@line 122 "../../../src/go/ordinateur.c"
  }
- var $8=$1; //@line 115 "../../../src/go/ordinateur.c"
- var $9=(($8+12)|0); //@line 115 "../../../src/go/ordinateur.c"
- var $10=HEAP32[(($9)>>2)]; //@line 115 "../../../src/go/ordinateur.c"
- var $11=$1; //@line 115 "../../../src/go/ordinateur.c"
- var $12=(($11+20)|0); //@line 115 "../../../src/go/ordinateur.c"
- var $13=HEAP32[(($12)>>2)]; //@line 115 "../../../src/go/ordinateur.c"
- var $14=$2; //@line 115 "../../../src/go/ordinateur.c"
- FUNCTION_TABLE[$10]($13,$14); //@line 115 "../../../src/go/ordinateur.c"
-  //@line 116 "../../../src/go/ordinateur.c"
- STACKTOP=sp;return; //@line 117 "../../../src/go/ordinateur.c"
+ var $8=$1; //@line 120 "../../../src/go/ordinateur.c"
+ var $9=(($8+12)|0); //@line 120 "../../../src/go/ordinateur.c"
+ var $10=HEAP32[(($9)>>2)]; //@line 120 "../../../src/go/ordinateur.c"
+ var $11=$1; //@line 120 "../../../src/go/ordinateur.c"
+ var $12=(($11+20)|0); //@line 120 "../../../src/go/ordinateur.c"
+ var $13=HEAP32[(($12)>>2)]; //@line 120 "../../../src/go/ordinateur.c"
+ var $14=$2; //@line 120 "../../../src/go/ordinateur.c"
+ FUNCTION_TABLE[$10]($13,$14); //@line 120 "../../../src/go/ordinateur.c"
+  //@line 121 "../../../src/go/ordinateur.c"
+ STACKTOP=sp;return; //@line 122 "../../../src/go/ordinateur.c"
 }
 
 
@@ -14586,25 +15721,25 @@ function _ordinateur_notifier_coup($ordi,$partie,$couleur,$coup){
  $1=$ordi;
  $2=$partie;
  $3=$couleur;
- var $4=$1; //@line 121 "../../../src/go/ordinateur.c"
- var $5=(($4+16)|0); //@line 121 "../../../src/go/ordinateur.c"
- var $6=HEAP32[(($5)>>2)]; //@line 121 "../../../src/go/ordinateur.c"
- var $7=($6|0)!=0; //@line 121 "../../../src/go/ordinateur.c"
-  //@line 121 "../../../src/go/ordinateur.c"
+ var $4=$1; //@line 126 "../../../src/go/ordinateur.c"
+ var $5=(($4+16)|0); //@line 126 "../../../src/go/ordinateur.c"
+ var $6=HEAP32[(($5)>>2)]; //@line 126 "../../../src/go/ordinateur.c"
+ var $7=($6|0)!=0; //@line 126 "../../../src/go/ordinateur.c"
+  //@line 126 "../../../src/go/ordinateur.c"
  if (!($7)) {
-  STACKTOP=sp;return; //@line 124 "../../../src/go/ordinateur.c"
+  STACKTOP=sp;return; //@line 129 "../../../src/go/ordinateur.c"
  }
- var $9=$1; //@line 122 "../../../src/go/ordinateur.c"
- var $10=(($9+16)|0); //@line 122 "../../../src/go/ordinateur.c"
- var $11=HEAP32[(($10)>>2)]; //@line 122 "../../../src/go/ordinateur.c"
- var $12=$1; //@line 122 "../../../src/go/ordinateur.c"
- var $13=(($12+20)|0); //@line 122 "../../../src/go/ordinateur.c"
- var $14=HEAP32[(($13)>>2)]; //@line 122 "../../../src/go/ordinateur.c"
- var $15=$2; //@line 122 "../../../src/go/ordinateur.c"
- var $16=$3; //@line 122 "../../../src/go/ordinateur.c"
- FUNCTION_TABLE[$11]($14,$15,$16,$coup); //@line 122 "../../../src/go/ordinateur.c"
-  //@line 123 "../../../src/go/ordinateur.c"
- STACKTOP=sp;return; //@line 124 "../../../src/go/ordinateur.c"
+ var $9=$1; //@line 127 "../../../src/go/ordinateur.c"
+ var $10=(($9+16)|0); //@line 127 "../../../src/go/ordinateur.c"
+ var $11=HEAP32[(($10)>>2)]; //@line 127 "../../../src/go/ordinateur.c"
+ var $12=$1; //@line 127 "../../../src/go/ordinateur.c"
+ var $13=(($12+20)|0); //@line 127 "../../../src/go/ordinateur.c"
+ var $14=HEAP32[(($13)>>2)]; //@line 127 "../../../src/go/ordinateur.c"
+ var $15=$2; //@line 127 "../../../src/go/ordinateur.c"
+ var $16=$3; //@line 127 "../../../src/go/ordinateur.c"
+ FUNCTION_TABLE[$11]($14,$15,$16,$coup); //@line 127 "../../../src/go/ordinateur.c"
+  //@line 128 "../../../src/go/ordinateur.c"
+ STACKTOP=sp;return; //@line 129 "../../../src/go/ordinateur.c"
 }
 
 
@@ -14617,16 +15752,16 @@ function _ordinateur_jouer_coup($ordi,$partie,$couleur){
  $1=$ordi;
  $2=$partie;
  $3=$couleur;
- var $4=$1; //@line 128 "../../../src/go/ordinateur.c"
- var $5=(($4+8)|0); //@line 128 "../../../src/go/ordinateur.c"
- var $6=HEAP32[(($5)>>2)]; //@line 128 "../../../src/go/ordinateur.c"
- var $7=$1; //@line 128 "../../../src/go/ordinateur.c"
- var $8=(($7+20)|0); //@line 128 "../../../src/go/ordinateur.c"
- var $9=HEAP32[(($8)>>2)]; //@line 128 "../../../src/go/ordinateur.c"
- var $10=$2; //@line 128 "../../../src/go/ordinateur.c"
- var $11=$3; //@line 128 "../../../src/go/ordinateur.c"
- FUNCTION_TABLE[$6]($9,$10,$11); //@line 128 "../../../src/go/ordinateur.c"
- STACKTOP=sp;return; //@line 129 "../../../src/go/ordinateur.c"
+ var $4=$1; //@line 133 "../../../src/go/ordinateur.c"
+ var $5=(($4+8)|0); //@line 133 "../../../src/go/ordinateur.c"
+ var $6=HEAP32[(($5)>>2)]; //@line 133 "../../../src/go/ordinateur.c"
+ var $7=$1; //@line 133 "../../../src/go/ordinateur.c"
+ var $8=(($7+20)|0); //@line 133 "../../../src/go/ordinateur.c"
+ var $9=HEAP32[(($8)>>2)]; //@line 133 "../../../src/go/ordinateur.c"
+ var $10=$2; //@line 133 "../../../src/go/ordinateur.c"
+ var $11=$3; //@line 133 "../../../src/go/ordinateur.c"
+ FUNCTION_TABLE[$6]($9,$10,$11); //@line 133 "../../../src/go/ordinateur.c"
+ STACKTOP=sp;return; //@line 134 "../../../src/go/ordinateur.c"
 }
 
 
@@ -14636,43 +15771,43 @@ function _decharger_ordinateur($ordi){
  var $1;
  var $liberer;
  $1=$ordi;
- var $2=$1; //@line 133 "../../../src/go/ordinateur.c"
- var $3=(($2+20)|0); //@line 133 "../../../src/go/ordinateur.c"
- var $4=HEAP32[(($3)>>2)]; //@line 133 "../../../src/go/ordinateur.c"
- var $5=($4|0)!=0; //@line 133 "../../../src/go/ordinateur.c"
-  //@line 133 "../../../src/go/ordinateur.c"
+ var $2=$1; //@line 138 "../../../src/go/ordinateur.c"
+ var $3=(($2+20)|0); //@line 138 "../../../src/go/ordinateur.c"
+ var $4=HEAP32[(($3)>>2)]; //@line 138 "../../../src/go/ordinateur.c"
+ var $5=($4|0)!=0; //@line 138 "../../../src/go/ordinateur.c"
+  //@line 138 "../../../src/go/ordinateur.c"
  if ($5) {
-  var $7=$1; //@line 134 "../../../src/go/ordinateur.c"
-  var $8=(($7+4)|0); //@line 134 "../../../src/go/ordinateur.c"
-  var $9=HEAP32[(($8)>>2)]; //@line 134 "../../../src/go/ordinateur.c"
-  var $10=_recuperer_fonction($9,352,0); //@line 134 "../../../src/go/ordinateur.c"
-  var $11=$10; //@line 134 "../../../src/go/ordinateur.c"
-  $liberer=$11; //@line 134 "../../../src/go/ordinateur.c"
-  var $12=$liberer; //@line 135 "../../../src/go/ordinateur.c"
-  var $13=($12|0)!=0; //@line 135 "../../../src/go/ordinateur.c"
-   //@line 135 "../../../src/go/ordinateur.c"
+  var $7=$1; //@line 139 "../../../src/go/ordinateur.c"
+  var $8=(($7+4)|0); //@line 139 "../../../src/go/ordinateur.c"
+  var $9=HEAP32[(($8)>>2)]; //@line 139 "../../../src/go/ordinateur.c"
+  var $10=_recuperer_fonction($9,1472,0); //@line 139 "../../../src/go/ordinateur.c"
+  var $11=$10; //@line 139 "../../../src/go/ordinateur.c"
+  $liberer=$11; //@line 139 "../../../src/go/ordinateur.c"
+  var $12=$liberer; //@line 140 "../../../src/go/ordinateur.c"
+  var $13=($12|0)!=0; //@line 140 "../../../src/go/ordinateur.c"
+   //@line 140 "../../../src/go/ordinateur.c"
   if ($13) {
-   var $15=$liberer; //@line 136 "../../../src/go/ordinateur.c"
-   var $16=$1; //@line 136 "../../../src/go/ordinateur.c"
-   var $17=(($16+20)|0); //@line 136 "../../../src/go/ordinateur.c"
-   var $18=HEAP32[(($17)>>2)]; //@line 136 "../../../src/go/ordinateur.c"
-   FUNCTION_TABLE[$15]($18); //@line 136 "../../../src/go/ordinateur.c"
-    //@line 137 "../../../src/go/ordinateur.c"
+   var $15=$liberer; //@line 141 "../../../src/go/ordinateur.c"
+   var $16=$1; //@line 141 "../../../src/go/ordinateur.c"
+   var $17=(($16+20)|0); //@line 141 "../../../src/go/ordinateur.c"
+   var $18=HEAP32[(($17)>>2)]; //@line 141 "../../../src/go/ordinateur.c"
+   FUNCTION_TABLE[$15]($18); //@line 141 "../../../src/go/ordinateur.c"
+    //@line 142 "../../../src/go/ordinateur.c"
   }
-   //@line 138 "../../../src/go/ordinateur.c"
+   //@line 143 "../../../src/go/ordinateur.c"
  }
- var $21=$1; //@line 140 "../../../src/go/ordinateur.c"
- var $22=(($21+4)|0); //@line 140 "../../../src/go/ordinateur.c"
- var $23=HEAP32[(($22)>>2)]; //@line 140 "../../../src/go/ordinateur.c"
- var $24=_dlclose($23); //@line 140 "../../../src/go/ordinateur.c"
- var $25=$1; //@line 141 "../../../src/go/ordinateur.c"
- var $26=(($25)|0); //@line 141 "../../../src/go/ordinateur.c"
- var $27=HEAP32[(($26)>>2)]; //@line 141 "../../../src/go/ordinateur.c"
- _free($27); //@line 141 "../../../src/go/ordinateur.c"
- var $28=$1; //@line 142 "../../../src/go/ordinateur.c"
- var $29=$28; //@line 142 "../../../src/go/ordinateur.c"
- _gosh_free($29); //@line 142 "../../../src/go/ordinateur.c"
- STACKTOP=sp;return; //@line 143 "../../../src/go/ordinateur.c"
+ var $21=$1; //@line 145 "../../../src/go/ordinateur.c"
+ var $22=(($21+4)|0); //@line 145 "../../../src/go/ordinateur.c"
+ var $23=HEAP32[(($22)>>2)]; //@line 145 "../../../src/go/ordinateur.c"
+ var $24=_dlclose($23); //@line 145 "../../../src/go/ordinateur.c"
+ var $25=$1; //@line 146 "../../../src/go/ordinateur.c"
+ var $26=(($25)|0); //@line 146 "../../../src/go/ordinateur.c"
+ var $27=HEAP32[(($26)>>2)]; //@line 146 "../../../src/go/ordinateur.c"
+ _free($27); //@line 146 "../../../src/go/ordinateur.c"
+ var $28=$1; //@line 147 "../../../src/go/ordinateur.c"
+ var $29=$28; //@line 147 "../../../src/go/ordinateur.c"
+ _gosh_free($29); //@line 147 "../../../src/go/ordinateur.c"
+ STACKTOP=sp;return; //@line 148 "../../../src/go/ordinateur.c"
 }
 
 
@@ -15209,7 +16344,7 @@ function _partie_jouer_coup($partie,$coup){
      //@line 153 "../../../src/go/partie.c"
    }
    if (label == 13) {
-    var $71=_printf(56,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 16)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=776,HEAP32[(((tempVarArgs)+(8))>>2)]=149,tempVarArgs)); STACKTOP=tempVarArgs; //@line 149 "../../../src/go/partie.c"
+    var $71=_printf(2920,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 16)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=3368,HEAP32[(((tempVarArgs)+(8))>>2)]=149,tempVarArgs)); STACKTOP=tempVarArgs; //@line 149 "../../../src/go/partie.c"
     HEAP8[($valide)]=0; //@line 150 "../../../src/go/partie.c"
      //@line 151 "../../../src/go/partie.c"
    }
@@ -15342,7 +16477,7 @@ function _partie_jouer_coup($partie,$coup){
    }
    var $165=(($passer)|0); //@line 187 "../../../src/go/partie.c"
    var $166=$165; //@line 187 "../../../src/go/partie.c"
-   assert(4 % 1 === 0);HEAP8[($166)]=HEAP8[(1504)];HEAP8[((($166)+(1))|0)]=HEAP8[(1505)];HEAP8[((($166)+(2))|0)]=HEAP8[(1506)];HEAP8[((($166)+(3))|0)]=HEAP8[(1507)]; //@line 187 "../../../src/go/partie.c"
+   assert(4 % 1 === 0);HEAP8[($166)]=HEAP8[(3720)];HEAP8[((($166)+(1))|0)]=HEAP8[(3721)];HEAP8[((($166)+(2))|0)]=HEAP8[(3722)];HEAP8[((($166)+(3))|0)]=HEAP8[(3723)]; //@line 187 "../../../src/go/partie.c"
    var $167=$2; //@line 188 "../../../src/go/partie.c"
    var $168=_partie_jouer_coup($167,$passer); //@line 188 "../../../src/go/partie.c"
     //@line 189 "../../../src/go/partie.c"
@@ -15402,7 +16537,7 @@ function _partie_jouer_coup($partie,$coup){
      if (!($210)) {
       break;
      }
-     var $212=_printf(536,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 16)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=776,HEAP32[(((tempVarArgs)+(8))>>2)]=196,tempVarArgs)); STACKTOP=tempVarArgs; //@line 196 "../../../src/go/partie.c"
+     var $212=_printf(2456,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 16)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=3368,HEAP32[(((tempVarArgs)+(8))>>2)]=196,tempVarArgs)); STACKTOP=tempVarArgs; //@line 196 "../../../src/go/partie.c"
      var $213=$2; //@line 197 "../../../src/go/partie.c"
      var $214=(($213+49)|0); //@line 197 "../../../src/go/partie.c"
      HEAP8[($214)]=1; //@line 197 "../../../src/go/partie.c"
@@ -15843,7 +16978,7 @@ function _plateau_get($plateau,$i,$j){
  if ($5) {
   var $9=0;
  } else {
-  ___assert_fail(1272,1296,82,1400); //@line 82 "../../../src/go/plateau.c"
+  ___assert_fail(2808,3320,82,3616); //@line 82 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 82 "../../../src/go/plateau.c"
    //@line 82 "../../../src/go/plateau.c"
  }
@@ -15855,7 +16990,7 @@ function _plateau_get($plateau,$i,$j){
  if ($12) {
   var $16=1;
  } else {
-  ___assert_fail(720,1296,83,1400); //@line 83 "../../../src/go/plateau.c"
+  ___assert_fail(2416,3320,83,3616); //@line 83 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 83 "../../../src/go/plateau.c"
    //@line 83 "../../../src/go/plateau.c"
  }
@@ -15870,7 +17005,7 @@ function _plateau_get($plateau,$i,$j){
  if ($22) {
   var $26=1;
  } else {
-  ___assert_fail(504,1296,84,1400); //@line 84 "../../../src/go/plateau.c"
+  ___assert_fail(1856,3320,84,3616); //@line 84 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 84 "../../../src/go/plateau.c"
    //@line 84 "../../../src/go/plateau.c"
  }
@@ -15885,7 +17020,7 @@ function _plateau_get($plateau,$i,$j){
  if ($32) {
   var $36=1;
  } else {
-  ___assert_fail(408,1296,85,1400); //@line 85 "../../../src/go/plateau.c"
+  ___assert_fail(1448,3320,85,3616); //@line 85 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 85 "../../../src/go/plateau.c"
    //@line 85 "../../../src/go/plateau.c"
  }
@@ -15972,7 +17107,7 @@ function _plateau_set($plateau,$i,$j,$couleur){
  if ($6) {
   var $10=0;
  } else {
-  ___assert_fail(1272,1296,101,1384); //@line 101 "../../../src/go/plateau.c"
+  ___assert_fail(2808,3320,101,3600); //@line 101 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 101 "../../../src/go/plateau.c"
    //@line 101 "../../../src/go/plateau.c"
  }
@@ -15984,7 +17119,7 @@ function _plateau_set($plateau,$i,$j,$couleur){
  if ($13) {
   var $17=1;
  } else {
-  ___assert_fail(720,1296,102,1384); //@line 102 "../../../src/go/plateau.c"
+  ___assert_fail(2416,3320,102,3600); //@line 102 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 102 "../../../src/go/plateau.c"
    //@line 102 "../../../src/go/plateau.c"
  }
@@ -15999,7 +17134,7 @@ function _plateau_set($plateau,$i,$j,$couleur){
  if ($23) {
   var $27=1;
  } else {
-  ___assert_fail(504,1296,103,1384); //@line 103 "../../../src/go/plateau.c"
+  ___assert_fail(1856,3320,103,3600); //@line 103 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 103 "../../../src/go/plateau.c"
    //@line 103 "../../../src/go/plateau.c"
  }
@@ -16014,7 +17149,7 @@ function _plateau_set($plateau,$i,$j,$couleur){
  if ($33) {
   var $37=1;
  } else {
-  ___assert_fail(408,1296,104,1384); //@line 104 "../../../src/go/plateau.c"
+  ___assert_fail(1448,3320,104,3600); //@line 104 "../../../src/go/plateau.c"
   throw "Reached an unreachable!"; //@line 104 "../../../src/go/plateau.c"
    //@line 104 "../../../src/go/plateau.c"
  }
@@ -16845,7 +17980,7 @@ function _position($agg_result,$x,$y,$taille){
   }
  } while(0);
  var $18=$agg_result; //@line 23 "../../../src/go/position.c"
- assert(4 % 1 === 0);HEAP8[($18)]=HEAP8[(1504)];HEAP8[((($18)+(1))|0)]=HEAP8[(1505)];HEAP8[((($18)+(2))|0)]=HEAP8[(1506)];HEAP8[((($18)+(3))|0)]=HEAP8[(1507)]; //@line 23 "../../../src/go/position.c"
+ assert(4 % 1 === 0);HEAP8[($18)]=HEAP8[(3720)];HEAP8[((($18)+(1))|0)]=HEAP8[(3721)];HEAP8[((($18)+(2))|0)]=HEAP8[(3722)];HEAP8[((($18)+(3))|0)]=HEAP8[(3723)]; //@line 23 "../../../src/go/position.c"
   //@line 23 "../../../src/go/position.c"
  STACKTOP=sp;return; //@line 26 "../../../src/go/position.c"
 }
@@ -16870,7 +18005,7 @@ function _position_gauche($agg_result,$pos){
   //@line 35 "../../../src/go/position.c"
  if (!($1)) {
   var $3=$agg_result; //@line 36 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(1504)];HEAP8[((($3)+(1))|0)]=HEAP8[(1505)];HEAP8[((($3)+(2))|0)]=HEAP8[(1506)];HEAP8[((($3)+(3))|0)]=HEAP8[(1507)]; //@line 36 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(3720)];HEAP8[((($3)+(1))|0)]=HEAP8[(3721)];HEAP8[((($3)+(2))|0)]=HEAP8[(3722)];HEAP8[((($3)+(3))|0)]=HEAP8[(3723)]; //@line 36 "../../../src/go/position.c"
    //@line 36 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 41 "../../../src/go/position.c"
  }
@@ -16881,7 +18016,7 @@ function _position_gauche($agg_result,$pos){
   //@line 37 "../../../src/go/position.c"
  if ($8) {
   var $10=$agg_result; //@line 38 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($10)]=HEAP8[(1504)];HEAP8[((($10)+(1))|0)]=HEAP8[(1505)];HEAP8[((($10)+(2))|0)]=HEAP8[(1506)];HEAP8[((($10)+(3))|0)]=HEAP8[(1507)]; //@line 38 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($10)]=HEAP8[(3720)];HEAP8[((($10)+(1))|0)]=HEAP8[(3721)];HEAP8[((($10)+(2))|0)]=HEAP8[(3722)];HEAP8[((($10)+(3))|0)]=HEAP8[(3723)]; //@line 38 "../../../src/go/position.c"
    //@line 38 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 41 "../../../src/go/position.c"
  } else {
@@ -16908,7 +18043,7 @@ function _position_droite($agg_result,$pos){
   //@line 45 "../../../src/go/position.c"
  if (!($1)) {
   var $3=$agg_result; //@line 46 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(1504)];HEAP8[((($3)+(1))|0)]=HEAP8[(1505)];HEAP8[((($3)+(2))|0)]=HEAP8[(1506)];HEAP8[((($3)+(3))|0)]=HEAP8[(1507)]; //@line 46 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(3720)];HEAP8[((($3)+(1))|0)]=HEAP8[(3721)];HEAP8[((($3)+(2))|0)]=HEAP8[(3722)];HEAP8[((($3)+(3))|0)]=HEAP8[(3723)]; //@line 46 "../../../src/go/position.c"
    //@line 46 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 51 "../../../src/go/position.c"
  }
@@ -16923,7 +18058,7 @@ function _position_droite($agg_result,$pos){
   //@line 47 "../../../src/go/position.c"
  if ($12) {
   var $14=$agg_result; //@line 48 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($14)]=HEAP8[(1504)];HEAP8[((($14)+(1))|0)]=HEAP8[(1505)];HEAP8[((($14)+(2))|0)]=HEAP8[(1506)];HEAP8[((($14)+(3))|0)]=HEAP8[(1507)]; //@line 48 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($14)]=HEAP8[(3720)];HEAP8[((($14)+(1))|0)]=HEAP8[(3721)];HEAP8[((($14)+(2))|0)]=HEAP8[(3722)];HEAP8[((($14)+(3))|0)]=HEAP8[(3723)]; //@line 48 "../../../src/go/position.c"
    //@line 48 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 51 "../../../src/go/position.c"
  } else {
@@ -16950,7 +18085,7 @@ function _position_haut($agg_result,$pos){
   //@line 55 "../../../src/go/position.c"
  if (!($1)) {
   var $3=$agg_result; //@line 56 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(1504)];HEAP8[((($3)+(1))|0)]=HEAP8[(1505)];HEAP8[((($3)+(2))|0)]=HEAP8[(1506)];HEAP8[((($3)+(3))|0)]=HEAP8[(1507)]; //@line 56 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(3720)];HEAP8[((($3)+(1))|0)]=HEAP8[(3721)];HEAP8[((($3)+(2))|0)]=HEAP8[(3722)];HEAP8[((($3)+(3))|0)]=HEAP8[(3723)]; //@line 56 "../../../src/go/position.c"
    //@line 56 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 61 "../../../src/go/position.c"
  }
@@ -16961,7 +18096,7 @@ function _position_haut($agg_result,$pos){
   //@line 57 "../../../src/go/position.c"
  if ($8) {
   var $10=$agg_result; //@line 58 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($10)]=HEAP8[(1504)];HEAP8[((($10)+(1))|0)]=HEAP8[(1505)];HEAP8[((($10)+(2))|0)]=HEAP8[(1506)];HEAP8[((($10)+(3))|0)]=HEAP8[(1507)]; //@line 58 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($10)]=HEAP8[(3720)];HEAP8[((($10)+(1))|0)]=HEAP8[(3721)];HEAP8[((($10)+(2))|0)]=HEAP8[(3722)];HEAP8[((($10)+(3))|0)]=HEAP8[(3723)]; //@line 58 "../../../src/go/position.c"
    //@line 58 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 61 "../../../src/go/position.c"
  } else {
@@ -16988,7 +18123,7 @@ function _position_bas($agg_result,$pos){
   //@line 65 "../../../src/go/position.c"
  if (!($1)) {
   var $3=$agg_result; //@line 66 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(1504)];HEAP8[((($3)+(1))|0)]=HEAP8[(1505)];HEAP8[((($3)+(2))|0)]=HEAP8[(1506)];HEAP8[((($3)+(3))|0)]=HEAP8[(1507)]; //@line 66 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($3)]=HEAP8[(3720)];HEAP8[((($3)+(1))|0)]=HEAP8[(3721)];HEAP8[((($3)+(2))|0)]=HEAP8[(3722)];HEAP8[((($3)+(3))|0)]=HEAP8[(3723)]; //@line 66 "../../../src/go/position.c"
    //@line 66 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 71 "../../../src/go/position.c"
  }
@@ -17003,7 +18138,7 @@ function _position_bas($agg_result,$pos){
   //@line 67 "../../../src/go/position.c"
  if ($12) {
   var $14=$agg_result; //@line 68 "../../../src/go/position.c"
-  assert(4 % 1 === 0);HEAP8[($14)]=HEAP8[(1504)];HEAP8[((($14)+(1))|0)]=HEAP8[(1505)];HEAP8[((($14)+(2))|0)]=HEAP8[(1506)];HEAP8[((($14)+(3))|0)]=HEAP8[(1507)]; //@line 68 "../../../src/go/position.c"
+  assert(4 % 1 === 0);HEAP8[($14)]=HEAP8[(3720)];HEAP8[((($14)+(1))|0)]=HEAP8[(3721)];HEAP8[((($14)+(2))|0)]=HEAP8[(3722)];HEAP8[((($14)+(3))|0)]=HEAP8[(3723)]; //@line 68 "../../../src/go/position.c"
    //@line 68 "../../../src/go/position.c"
   STACKTOP=sp;return; //@line 71 "../../../src/go/position.c"
  } else {
@@ -17033,7 +18168,7 @@ function _sauvegarder_partie_fichier($filename,$partie){
  $2=$filename;
  $3=$partie;
  var $4=$2; //@line 61 "../../../src/go/sauvegarde.c"
- var $5=_fopen($4,1024); //@line 61 "../../../src/go/sauvegarde.c"
+ var $5=_fopen($4,2368); //@line 61 "../../../src/go/sauvegarde.c"
  $file=$5; //@line 61 "../../../src/go/sauvegarde.c"
  var $6=$file; //@line 62 "../../../src/go/sauvegarde.c"
  var $7=($6|0)!=0; //@line 62 "../../../src/go/sauvegarde.c"
@@ -17144,10 +18279,10 @@ function _sauvegarder_partie($partie,$file){
    var $66=$63;
   } else {
     //@line 79 "../../../src/go/sauvegarde.c"
-   var $66=1592;
+   var $66=3808;
   }
   var $66; //@line 79 "../../../src/go/sauvegarde.c"
-  var $67=_fprintf($34,1280,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 24)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$41,HEAP32[(((tempVarArgs)+(8))>>2)]=$47,HEAP32[(((tempVarArgs)+(16))>>2)]=$66,tempVarArgs)); STACKTOP=tempVarArgs; //@line 79 "../../../src/go/sauvegarde.c"
+  var $67=_fprintf($34,3296,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 24)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$41,HEAP32[(((tempVarArgs)+(8))>>2)]=$47,HEAP32[(((tempVarArgs)+(16))>>2)]=$66,tempVarArgs)); STACKTOP=tempVarArgs; //@line 79 "../../../src/go/sauvegarde.c"
    //@line 84 "../../../src/go/sauvegarde.c"
   var $69=$i; //@line 78 "../../../src/go/sauvegarde.c"
   var $70=((($69)+(1))|0); //@line 78 "../../../src/go/sauvegarde.c"
@@ -17164,7 +18299,7 @@ function _sauvegarder_partie($partie,$file){
  var $79=(($78+56)|0); //@line 87 "../../../src/go/sauvegarde.c"
  var $80=HEAP32[(($79)>>2)]; //@line 87 "../../../src/go/sauvegarde.c"
  var $81=FUNCTION_TABLE[$77]($80); //@line 87 "../../../src/go/sauvegarde.c"
- var $82=_fprintf($72,496,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$81,tempVarArgs)); STACKTOP=tempVarArgs; //@line 87 "../../../src/go/sauvegarde.c"
+ var $82=_fprintf($72,1816,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$81,tempVarArgs)); STACKTOP=tempVarArgs; //@line 87 "../../../src/go/sauvegarde.c"
  var $83=$1; //@line 88 "../../../src/go/sauvegarde.c"
  var $84=(($83+56)|0); //@line 88 "../../../src/go/sauvegarde.c"
  var $85=HEAP32[(($84)>>2)]; //@line 88 "../../../src/go/sauvegarde.c"
@@ -17202,7 +18337,7 @@ function _sauvegarder_partie($partie,$file){
  var $111=(($110+60)|0); //@line 92 "../../../src/go/sauvegarde.c"
  var $112=HEAP32[(($111)>>2)]; //@line 92 "../../../src/go/sauvegarde.c"
  var $113=FUNCTION_TABLE[$109]($112); //@line 92 "../../../src/go/sauvegarde.c"
- var $114=_fprintf($104,496,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$113,tempVarArgs)); STACKTOP=tempVarArgs; //@line 92 "../../../src/go/sauvegarde.c"
+ var $114=_fprintf($104,1816,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$113,tempVarArgs)); STACKTOP=tempVarArgs; //@line 92 "../../../src/go/sauvegarde.c"
  var $115=$1; //@line 93 "../../../src/go/sauvegarde.c"
  var $116=(($115+60)|0); //@line 93 "../../../src/go/sauvegarde.c"
  var $117=HEAP32[(($116)>>2)]; //@line 93 "../../../src/go/sauvegarde.c"
@@ -17350,7 +18485,7 @@ function _charger_partie_fichier($filename){
  var $partie;
  $2=$filename;
  var $3=$2; //@line 102 "../../../src/go/sauvegarde.c"
- var $4=_fopen($3,400); //@line 102 "../../../src/go/sauvegarde.c"
+ var $4=_fopen($3,1400); //@line 102 "../../../src/go/sauvegarde.c"
  $file=$4; //@line 102 "../../../src/go/sauvegarde.c"
  var $5=$file; //@line 103 "../../../src/go/sauvegarde.c"
  var $6=($5|0)!=0; //@line 103 "../../../src/go/sauvegarde.c"
@@ -17682,7 +18817,7 @@ function _charger_plateau_texte($file){
  var $couleur;
  $2=$file;
  var $3=$2; //@line 222 "../../../src/go/sauvegarde.c"
- var $4=_fscanf($3,496,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$taille,tempVarArgs)); STACKTOP=tempVarArgs; //@line 222 "../../../src/go/sauvegarde.c"
+ var $4=_fscanf($3,1816,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$taille,tempVarArgs)); STACKTOP=tempVarArgs; //@line 222 "../../../src/go/sauvegarde.c"
  var $5=HEAP32[(($taille)>>2)]; //@line 223 "../../../src/go/sauvegarde.c"
  var $6=_creer_plateau($5); //@line 223 "../../../src/go/sauvegarde.c"
  $plateau=$6; //@line 223 "../../../src/go/sauvegarde.c"
@@ -17710,7 +18845,7 @@ function _charger_plateau_texte($file){
     //@line 228 "../../../src/go/sauvegarde.c"
    while(1) {
     var $18=$2; //@line 229 "../../../src/go/sauvegarde.c"
-    var $19=_fscanf($18,336,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$c,tempVarArgs)); STACKTOP=tempVarArgs; //@line 229 "../../../src/go/sauvegarde.c"
+    var $19=_fscanf($18,960,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$c,tempVarArgs)); STACKTOP=tempVarArgs; //@line 229 "../../../src/go/sauvegarde.c"
      //@line 230 "../../../src/go/sauvegarde.c"
     var $21=HEAP8[($c)]; //@line 230 "../../../src/go/sauvegarde.c"
     var $22=(($21<<24)>>24); //@line 230 "../../../src/go/sauvegarde.c"
@@ -17763,7 +18898,7 @@ function _charger_plateau_texte($file){
    //@line 245 "../../../src/go/sauvegarde.c"
   while(1) {
    var $59=$2; //@line 246 "../../../src/go/sauvegarde.c"
-   var $60=_fscanf($59,336,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$c,tempVarArgs)); STACKTOP=tempVarArgs; //@line 246 "../../../src/go/sauvegarde.c"
+   var $60=_fscanf($59,960,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 8)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$c,tempVarArgs)); STACKTOP=tempVarArgs; //@line 246 "../../../src/go/sauvegarde.c"
     //@line 247 "../../../src/go/sauvegarde.c"
    var $62=HEAP8[($c)]; //@line 247 "../../../src/go/sauvegarde.c"
    var $63=(($62<<24)>>24); //@line 247 "../../../src/go/sauvegarde.c"
@@ -17785,7 +18920,7 @@ function _charger_plateau_texte($file){
   var $42=(($41<<24)>>24); //@line 239 "../../../src/go/sauvegarde.c"
   var $43=$x; //@line 239 "../../../src/go/sauvegarde.c"
   var $44=$y; //@line 239 "../../../src/go/sauvegarde.c"
-  var $45=_fprintf($40,216,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 24)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$42,HEAP32[(((tempVarArgs)+(8))>>2)]=$43,HEAP32[(((tempVarArgs)+(16))>>2)]=$44,tempVarArgs)); STACKTOP=tempVarArgs; //@line 239 "../../../src/go/sauvegarde.c"
+  var $45=_fprintf($40,680,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 24)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=$42,HEAP32[(((tempVarArgs)+(8))>>2)]=$43,HEAP32[(((tempVarArgs)+(16))>>2)]=$44,tempVarArgs)); STACKTOP=tempVarArgs; //@line 239 "../../../src/go/sauvegarde.c"
   var $46=___errno_location(); //@line 240 "../../../src/go/sauvegarde.c"
   HEAP32[(($46)>>2)]=95; //@line 240 "../../../src/go/sauvegarde.c"
   $1=0; //@line 241 "../../../src/go/sauvegarde.c"
@@ -18162,28 +19297,28 @@ function _creer_ensemble_chaine(){
  var $11=$ptrContainer; //@line 69 "../../../src/gosh_ensemble.c"
  var $12=(($11)|0); //@line 69 "../../../src/gosh_ensemble.c"
  var $13=$12; //@line 69 "../../../src/gosh_ensemble.c"
- HEAP32[(($13)>>2)]=108; //@line 69 "../../../src/gosh_ensemble.c"
+ HEAP32[(($13)>>2)]=114; //@line 69 "../../../src/gosh_ensemble.c"
  var $14=$ptrContainer; //@line 70 "../../../src/gosh_ensemble.c"
  var $15=(($14+4)|0); //@line 70 "../../../src/gosh_ensemble.c"
- HEAP32[(($15)>>2)]=240; //@line 70 "../../../src/gosh_ensemble.c"
+ HEAP32[(($15)>>2)]=254; //@line 70 "../../../src/gosh_ensemble.c"
  var $16=$ptrContainer; //@line 71 "../../../src/gosh_ensemble.c"
  var $17=(($16+8)|0); //@line 71 "../../../src/gosh_ensemble.c"
- HEAP32[(($17)>>2)]=182; //@line 71 "../../../src/gosh_ensemble.c"
+ HEAP32[(($17)>>2)]=194; //@line 71 "../../../src/gosh_ensemble.c"
  var $18=$ptrContainer; //@line 72 "../../../src/gosh_ensemble.c"
  var $19=(($18+12)|0); //@line 72 "../../../src/gosh_ensemble.c"
- HEAP32[(($19)>>2)]=64; //@line 72 "../../../src/gosh_ensemble.c"
+ HEAP32[(($19)>>2)]=70; //@line 72 "../../../src/gosh_ensemble.c"
  var $20=$ptrContainer; //@line 73 "../../../src/gosh_ensemble.c"
  var $21=(($20+16)|0); //@line 73 "../../../src/gosh_ensemble.c"
- HEAP32[(($21)>>2)]=272; //@line 73 "../../../src/gosh_ensemble.c"
+ HEAP32[(($21)>>2)]=286; //@line 73 "../../../src/gosh_ensemble.c"
  var $22=$ptrContainer; //@line 74 "../../../src/gosh_ensemble.c"
  var $23=(($22+20)|0); //@line 74 "../../../src/gosh_ensemble.c"
- HEAP32[(($23)>>2)]=10; //@line 74 "../../../src/gosh_ensemble.c"
+ HEAP32[(($23)>>2)]=12; //@line 74 "../../../src/gosh_ensemble.c"
  var $24=$ptrContainer; //@line 75 "../../../src/gosh_ensemble.c"
  var $25=(($24+24)|0); //@line 75 "../../../src/gosh_ensemble.c"
- HEAP32[(($25)>>2)]=332; //@line 75 "../../../src/gosh_ensemble.c"
+ HEAP32[(($25)>>2)]=352; //@line 75 "../../../src/gosh_ensemble.c"
  var $26=$ptrContainer; //@line 76 "../../../src/gosh_ensemble.c"
  var $27=(($26+28)|0); //@line 76 "../../../src/gosh_ensemble.c"
- HEAP32[(($27)>>2)]=74; //@line 76 "../../../src/gosh_ensemble.c"
+ HEAP32[(($27)>>2)]=80; //@line 76 "../../../src/gosh_ensemble.c"
  var $28=$ptrContainer; //@line 78 "../../../src/gosh_ensemble.c"
  STACKTOP=sp;return $28; //@line 78 "../../../src/gosh_ensemble.c"
 }
@@ -18422,7 +19557,7 @@ function _ensemble_chaine_get($ptrContainer,$n){
   var $33=HEAP32[(($32)>>2)]; //@line 153 "../../../src/gosh_ensemble.c"
   STACKTOP=sp;return $33; //@line 153 "../../../src/gosh_ensemble.c"
  }
- ___assert_fail(992,1240,152,1464); //@line 152 "../../../src/gosh_ensemble.c"
+ ___assert_fail(2304,3232,152,3680); //@line 152 "../../../src/gosh_ensemble.c"
  throw "Reached an unreachable!"; //@line 152 "../../../src/gosh_ensemble.c"
   //@line 152 "../../../src/gosh_ensemble.c"
  var $29;
@@ -18588,28 +19723,28 @@ function _creer_ensemble_plateau(){
  var $11=$ptrContainer; //@line 69 "../../../src/gosh_ensemble.c"
  var $12=(($11)|0); //@line 69 "../../../src/gosh_ensemble.c"
  var $13=$12; //@line 69 "../../../src/gosh_ensemble.c"
- HEAP32[(($13)>>2)]=254; //@line 69 "../../../src/gosh_ensemble.c"
+ HEAP32[(($13)>>2)]=268; //@line 69 "../../../src/gosh_ensemble.c"
  var $14=$ptrContainer; //@line 70 "../../../src/gosh_ensemble.c"
  var $15=(($14+4)|0); //@line 70 "../../../src/gosh_ensemble.c"
- HEAP32[(($15)>>2)]=34; //@line 70 "../../../src/gosh_ensemble.c"
+ HEAP32[(($15)>>2)]=40; //@line 70 "../../../src/gosh_ensemble.c"
  var $16=$ptrContainer; //@line 71 "../../../src/gosh_ensemble.c"
  var $17=(($16+8)|0); //@line 71 "../../../src/gosh_ensemble.c"
- HEAP32[(($17)>>2)]=276; //@line 71 "../../../src/gosh_ensemble.c"
+ HEAP32[(($17)>>2)]=290; //@line 71 "../../../src/gosh_ensemble.c"
  var $18=$ptrContainer; //@line 72 "../../../src/gosh_ensemble.c"
  var $19=(($18+12)|0); //@line 72 "../../../src/gosh_ensemble.c"
- HEAP32[(($19)>>2)]=164; //@line 72 "../../../src/gosh_ensemble.c"
+ HEAP32[(($19)>>2)]=172; //@line 72 "../../../src/gosh_ensemble.c"
  var $20=$ptrContainer; //@line 73 "../../../src/gosh_ensemble.c"
  var $21=(($20+16)|0); //@line 73 "../../../src/gosh_ensemble.c"
- HEAP32[(($21)>>2)]=122; //@line 73 "../../../src/gosh_ensemble.c"
+ HEAP32[(($21)>>2)]=130; //@line 73 "../../../src/gosh_ensemble.c"
  var $22=$ptrContainer; //@line 74 "../../../src/gosh_ensemble.c"
  var $23=(($22+20)|0); //@line 74 "../../../src/gosh_ensemble.c"
- HEAP32[(($23)>>2)]=184; //@line 74 "../../../src/gosh_ensemble.c"
+ HEAP32[(($23)>>2)]=196; //@line 74 "../../../src/gosh_ensemble.c"
  var $24=$ptrContainer; //@line 75 "../../../src/gosh_ensemble.c"
  var $25=(($24+24)|0); //@line 75 "../../../src/gosh_ensemble.c"
- HEAP32[(($25)>>2)]=22; //@line 75 "../../../src/gosh_ensemble.c"
+ HEAP32[(($25)>>2)]=26; //@line 75 "../../../src/gosh_ensemble.c"
  var $26=$ptrContainer; //@line 76 "../../../src/gosh_ensemble.c"
  var $27=(($26+28)|0); //@line 76 "../../../src/gosh_ensemble.c"
- HEAP32[(($27)>>2)]=106; //@line 76 "../../../src/gosh_ensemble.c"
+ HEAP32[(($27)>>2)]=112; //@line 76 "../../../src/gosh_ensemble.c"
  var $28=$ptrContainer; //@line 78 "../../../src/gosh_ensemble.c"
  STACKTOP=sp;return $28; //@line 78 "../../../src/gosh_ensemble.c"
 }
@@ -18848,7 +19983,7 @@ function _ensemble_plateau_get($ptrContainer,$n){
   var $33=HEAP32[(($32)>>2)]; //@line 153 "../../../src/gosh_ensemble.c"
   STACKTOP=sp;return $33; //@line 153 "../../../src/gosh_ensemble.c"
  }
- ___assert_fail(960,1208,152,1440); //@line 152 "../../../src/gosh_ensemble.c"
+ ___assert_fail(2272,3200,152,3656); //@line 152 "../../../src/gosh_ensemble.c"
  throw "Reached an unreachable!"; //@line 152 "../../../src/gosh_ensemble.c"
   //@line 152 "../../../src/gosh_ensemble.c"
  var $29;
@@ -19034,7 +20169,7 @@ function _jouer_coup_ordi($data,$partie,$couleur){
  }
  var $45=(($coup)|0); //@line 55 "../../../src/ordinateurs/random/main.c"
  var $46=$45; //@line 55 "../../../src/ordinateurs/random/main.c"
- assert(4 % 1 === 0);HEAP8[($46)]=HEAP8[(1504)];HEAP8[((($46)+(1))|0)]=HEAP8[(1505)];HEAP8[((($46)+(2))|0)]=HEAP8[(1506)];HEAP8[((($46)+(3))|0)]=HEAP8[(1507)]; //@line 55 "../../../src/ordinateurs/random/main.c"
+ assert(4 % 1 === 0);HEAP8[($46)]=HEAP8[(3720)];HEAP8[((($46)+(1))|0)]=HEAP8[(3721)];HEAP8[((($46)+(2))|0)]=HEAP8[(3722)];HEAP8[((($46)+(3))|0)]=HEAP8[(3723)]; //@line 55 "../../../src/ordinateurs/random/main.c"
  var $47=$2; //@line 56 "../../../src/ordinateurs/random/main.c"
  var $48=_partie_jouer_coup($47,$coup); //@line 56 "../../../src/ordinateurs/random/main.c"
   //@line 57 "../../../src/ordinateurs/random/main.c"
@@ -19052,7 +20187,7 @@ function _initialiser_ordi(){
  var $2=_gosh_alloc_size(0); //@line 63 "../../../src/ordinateurs/random/main.c"
  var $3=$2; //@line 63 "../../../src/ordinateurs/random/main.c"
  $data=$3; //@line 63 "../../../src/ordinateurs/random/main.c"
- var $4=_printf(856,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 16)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=1168,HEAP32[(((tempVarArgs)+(8))>>2)]=64,tempVarArgs)); STACKTOP=tempVarArgs; //@line 64 "../../../src/ordinateurs/random/main.c"
+ var $4=_printf(2192,(tempVarArgs=STACKTOP,STACKTOP = (STACKTOP + 16)|0,(assert((STACKTOP|0) < (STACK_MAX|0))|0),HEAP32[((tempVarArgs)>>2)]=3160,HEAP32[(((tempVarArgs)+(8))>>2)]=64,tempVarArgs)); STACKTOP=tempVarArgs; //@line 64 "../../../src/ordinateurs/random/main.c"
  var $5=$data; //@line 65 "../../../src/ordinateurs/random/main.c"
  var $6=$5; //@line 65 "../../../src/ordinateurs/random/main.c"
  STACKTOP=sp;return $6; //@line 65 "../../../src/ordinateurs/random/main.c"
@@ -19087,7 +20222,7 @@ function _malloc($bytes){
    }
    var $8;
    var $9=$8>>>3;
-   var $10=HEAP32[((1600)>>2)];
+   var $10=HEAP32[((3816)>>2)];
    var $11=$10>>>($9>>>0);
    var $12=$11&3;
    var $13=($12|0)==0;
@@ -19096,10 +20231,10 @@ function _malloc($bytes){
     var $16=$15^1;
     var $17=((($16)+($9))|0);
     var $18=$17<<1;
-    var $19=((1640+($18<<2))|0);
+    var $19=((3856+($18<<2))|0);
     var $20=$19;
     var $_sum111=((($18)+(2))|0);
-    var $21=((1640+($_sum111<<2))|0);
+    var $21=((3856+($_sum111<<2))|0);
     var $22=HEAP32[(($21)>>2)];
     var $23=(($22+8)|0);
     var $24=HEAP32[(($23)>>2)];
@@ -19109,10 +20244,10 @@ function _malloc($bytes){
       var $27=1<<$17;
       var $28=$27^-1;
       var $29=$10&$28;
-      HEAP32[((1600)>>2)]=$29;
+      HEAP32[((3816)>>2)]=$29;
      } else {
       var $31=$24;
-      var $32=HEAP32[((1616)>>2)];
+      var $32=HEAP32[((3832)>>2)];
       var $33=($31>>>0)<($32>>>0);
       if ($33) {
        _abort();
@@ -19147,7 +20282,7 @@ function _malloc($bytes){
     var $mem_0;
     return $mem_0;
    }
-   var $50=HEAP32[((1608)>>2)];
+   var $50=HEAP32[((3824)>>2)];
    var $51=($8>>>0)>($50>>>0);
    if (!($51)) {
     var $nb_0=$8;
@@ -19184,10 +20319,10 @@ function _malloc($bytes){
     var $81=$77>>>($79>>>0);
     var $82=((($80)+($81))|0);
     var $83=$82<<1;
-    var $84=((1640+($83<<2))|0);
+    var $84=((3856+($83<<2))|0);
     var $85=$84;
     var $_sum104=((($83)+(2))|0);
-    var $86=((1640+($_sum104<<2))|0);
+    var $86=((3856+($_sum104<<2))|0);
     var $87=HEAP32[(($86)>>2)];
     var $88=(($87+8)|0);
     var $89=HEAP32[(($88)>>2)];
@@ -19197,10 +20332,10 @@ function _malloc($bytes){
       var $92=1<<$82;
       var $93=$92^-1;
       var $94=$10&$93;
-      HEAP32[((1600)>>2)]=$94;
+      HEAP32[((3816)>>2)]=$94;
      } else {
       var $96=$89;
-      var $97=HEAP32[((1616)>>2)];
+      var $97=HEAP32[((3832)>>2)];
       var $98=($96>>>0)<($97>>>0);
       if ($98) {
        _abort();
@@ -19235,31 +20370,31 @@ function _malloc($bytes){
     var $115=(($109+$105)|0);
     var $116=$115;
     HEAP32[(($116)>>2)]=$106;
-    var $117=HEAP32[((1608)>>2)];
+    var $117=HEAP32[((3824)>>2)];
     var $118=($117|0)==0;
     if (!($118)) {
-     var $120=HEAP32[((1620)>>2)];
+     var $120=HEAP32[((3836)>>2)];
      var $121=$117>>>3;
      var $122=$121<<1;
-     var $123=((1640+($122<<2))|0);
+     var $123=((3856+($122<<2))|0);
      var $124=$123;
-     var $125=HEAP32[((1600)>>2)];
+     var $125=HEAP32[((3816)>>2)];
      var $126=1<<$121;
      var $127=$125&$126;
      var $128=($127|0)==0;
      do {
       if ($128) {
        var $130=$125|$126;
-       HEAP32[((1600)>>2)]=$130;
+       HEAP32[((3816)>>2)]=$130;
        var $_sum109_pre=((($122)+(2))|0);
-       var $_pre=((1640+($_sum109_pre<<2))|0);
+       var $_pre=((3856+($_sum109_pre<<2))|0);
        var $F4_0=$124;var $_pre_phi=$_pre;
       } else {
        var $_sum110=((($122)+(2))|0);
-       var $132=((1640+($_sum110<<2))|0);
+       var $132=((3856+($_sum110<<2))|0);
        var $133=HEAP32[(($132)>>2)];
        var $134=$133;
-       var $135=HEAP32[((1616)>>2)];
+       var $135=HEAP32[((3832)>>2)];
        var $136=($134>>>0)<($135>>>0);
        if (!($136)) {
         var $F4_0=$133;var $_pre_phi=$132;
@@ -19279,14 +20414,14 @@ function _malloc($bytes){
      var $141=(($120+12)|0);
      HEAP32[(($141)>>2)]=$124;
     }
-    HEAP32[((1608)>>2)]=$106;
-    HEAP32[((1620)>>2)]=$111;
+    HEAP32[((3824)>>2)]=$106;
+    HEAP32[((3836)>>2)]=$111;
     var $143=$88;
     var $mem_0=$143;
     var $mem_0;
     return $mem_0;
    }
-   var $145=HEAP32[((1604)>>2)];
+   var $145=HEAP32[((3820)>>2)];
    var $146=($145|0)==0;
    if ($146) {
     var $nb_0=$8;
@@ -19315,7 +20450,7 @@ function _malloc($bytes){
    var $168=$164|$167;
    var $169=$165>>>($167>>>0);
    var $170=((($168)+($169))|0);
-   var $171=((1904+($170<<2))|0);
+   var $171=((4120+($170<<2))|0);
    var $172=HEAP32[(($171)>>2)];
    var $173=(($172+4)|0);
    var $174=HEAP32[(($173)>>2)];
@@ -19352,7 +20487,7 @@ function _malloc($bytes){
     var $t_0_i=$185;var $v_0_i=$_v_0_i;var $rsize_0_i=$_rsize_0_i;
    }
    var $192=$v_0_i;
-   var $193=HEAP32[((1616)>>2)];
+   var $193=HEAP32[((3832)>>2)];
    var $194=($192>>>0)<($193>>>0);
    if ($194) {
     _abort();
@@ -19453,7 +20588,7 @@ function _malloc($bytes){
     if (!($240)) {
      var $242=(($v_0_i+28)|0);
      var $243=HEAP32[(($242)>>2)];
-     var $244=((1904+($243<<2))|0);
+     var $244=((4120+($243<<2))|0);
      var $245=HEAP32[(($244)>>2)];
      var $246=($v_0_i|0)==($245|0);
      do {
@@ -19466,13 +20601,13 @@ function _malloc($bytes){
        var $248=HEAP32[(($242)>>2)];
        var $249=1<<$248;
        var $250=$249^-1;
-       var $251=HEAP32[((1604)>>2)];
+       var $251=HEAP32[((3820)>>2)];
        var $252=$251&$250;
-       HEAP32[((1604)>>2)]=$252;
+       HEAP32[((3820)>>2)]=$252;
        break L201;
       } else {
        var $254=$201;
-       var $255=HEAP32[((1616)>>2)];
+       var $255=HEAP32[((3832)>>2)];
        var $256=($254>>>0)<($255>>>0);
        if ($256) {
         _abort();
@@ -19494,7 +20629,7 @@ function _malloc($bytes){
       }
      } while(0);
      var $268=$R_1_i;
-     var $269=HEAP32[((1616)>>2)];
+     var $269=HEAP32[((3832)>>2)];
      var $270=($268>>>0)<($269>>>0);
      if ($270) {
       _abort();
@@ -19508,7 +20643,7 @@ function _malloc($bytes){
      do {
       if (!($275)) {
        var $277=$274;
-       var $278=HEAP32[((1616)>>2)];
+       var $278=HEAP32[((3832)>>2)];
        var $279=($277>>>0)<($278>>>0);
        if ($279) {
         _abort();
@@ -19529,7 +20664,7 @@ function _malloc($bytes){
       break;
      }
      var $289=$286;
-     var $290=HEAP32[((1616)>>2)];
+     var $290=HEAP32[((3832)>>2)];
      var $291=($289>>>0)<($290>>>0);
      if ($291) {
       _abort();
@@ -19568,31 +20703,31 @@ function _malloc($bytes){
     var $313=(($192+$_sum1_i)|0);
     var $314=$313;
     HEAP32[(($314)>>2)]=$rsize_0_i;
-    var $315=HEAP32[((1608)>>2)];
+    var $315=HEAP32[((3824)>>2)];
     var $316=($315|0)==0;
     if (!($316)) {
-     var $318=HEAP32[((1620)>>2)];
+     var $318=HEAP32[((3836)>>2)];
      var $319=$315>>>3;
      var $320=$319<<1;
-     var $321=((1640+($320<<2))|0);
+     var $321=((3856+($320<<2))|0);
      var $322=$321;
-     var $323=HEAP32[((1600)>>2)];
+     var $323=HEAP32[((3816)>>2)];
      var $324=1<<$319;
      var $325=$323&$324;
      var $326=($325|0)==0;
      do {
       if ($326) {
        var $328=$323|$324;
-       HEAP32[((1600)>>2)]=$328;
+       HEAP32[((3816)>>2)]=$328;
        var $_sum2_pre_i=((($320)+(2))|0);
-       var $_pre_i=((1640+($_sum2_pre_i<<2))|0);
+       var $_pre_i=((3856+($_sum2_pre_i<<2))|0);
        var $F1_0_i=$322;var $_pre_phi_i=$_pre_i;
       } else {
        var $_sum3_i=((($320)+(2))|0);
-       var $330=((1640+($_sum3_i<<2))|0);
+       var $330=((3856+($_sum3_i<<2))|0);
        var $331=HEAP32[(($330)>>2)];
        var $332=$331;
-       var $333=HEAP32[((1616)>>2)];
+       var $333=HEAP32[((3832)>>2)];
        var $334=($332>>>0)<($333>>>0);
        if (!($334)) {
         var $F1_0_i=$331;var $_pre_phi_i=$330;
@@ -19612,8 +20747,8 @@ function _malloc($bytes){
      var $339=(($318+12)|0);
      HEAP32[(($339)>>2)]=$322;
     }
-    HEAP32[((1608)>>2)]=$rsize_0_i;
-    HEAP32[((1620)>>2)]=$197;
+    HEAP32[((3824)>>2)]=$rsize_0_i;
+    HEAP32[((3836)>>2)]=$197;
    }
    var $342=(($v_0_i+8)|0);
    var $343=$342;
@@ -19634,7 +20769,7 @@ function _malloc($bytes){
    }
    var $348=((($bytes)+(11))|0);
    var $349=$348&-8;
-   var $350=HEAP32[((1604)>>2)];
+   var $350=HEAP32[((3820)>>2)];
    var $351=($350|0)==0;
    if ($351) {
     var $nb_0=$349;
@@ -19678,7 +20813,7 @@ function _malloc($bytes){
     }
    } while(0);
    var $idx_0_i;
-   var $382=((1904+($idx_0_i<<2))|0);
+   var $382=((4120+($idx_0_i<<2))|0);
    var $383=HEAP32[(($382)>>2)];
    var $384=($383|0)==0;
    L9: do {
@@ -19779,7 +20914,7 @@ function _malloc($bytes){
     var $440=$436|$439;
     var $441=$437>>>($439>>>0);
     var $442=((($440)+($441))|0);
-    var $443=((1904+($442<<2))|0);
+    var $443=((4120+($442<<2))|0);
     var $444=HEAP32[(($443)>>2)];
     var $t_2_ph_i=$444;
    } else {
@@ -19827,7 +20962,7 @@ function _malloc($bytes){
     var $nb_0=$349;
     break;
    }
-   var $459=HEAP32[((1608)>>2)];
+   var $459=HEAP32[((3824)>>2)];
    var $460=((($459)-($349))|0);
    var $461=($rsize_3_lcssa_i>>>0)<($460>>>0);
    if (!($461)) {
@@ -19835,7 +20970,7 @@ function _malloc($bytes){
     break;
    }
    var $463=$v_3_lcssa_i;
-   var $464=HEAP32[((1616)>>2)];
+   var $464=HEAP32[((3832)>>2)];
    var $465=($463>>>0)<($464>>>0);
    if ($465) {
     _abort();
@@ -19936,7 +21071,7 @@ function _malloc($bytes){
     if (!($511)) {
      var $513=(($v_3_lcssa_i+28)|0);
      var $514=HEAP32[(($513)>>2)];
-     var $515=((1904+($514<<2))|0);
+     var $515=((4120+($514<<2))|0);
      var $516=HEAP32[(($515)>>2)];
      var $517=($v_3_lcssa_i|0)==($516|0);
      do {
@@ -19949,13 +21084,13 @@ function _malloc($bytes){
        var $519=HEAP32[(($513)>>2)];
        var $520=1<<$519;
        var $521=$520^-1;
-       var $522=HEAP32[((1604)>>2)];
+       var $522=HEAP32[((3820)>>2)];
        var $523=$522&$521;
-       HEAP32[((1604)>>2)]=$523;
+       HEAP32[((3820)>>2)]=$523;
        break L59;
       } else {
        var $525=$472;
-       var $526=HEAP32[((1616)>>2)];
+       var $526=HEAP32[((3832)>>2)];
        var $527=($525>>>0)<($526>>>0);
        if ($527) {
         _abort();
@@ -19977,7 +21112,7 @@ function _malloc($bytes){
       }
      } while(0);
      var $539=$R_1_i122;
-     var $540=HEAP32[((1616)>>2)];
+     var $540=HEAP32[((3832)>>2)];
      var $541=($539>>>0)<($540>>>0);
      if ($541) {
       _abort();
@@ -19991,7 +21126,7 @@ function _malloc($bytes){
      do {
       if (!($546)) {
        var $548=$545;
-       var $549=HEAP32[((1616)>>2)];
+       var $549=HEAP32[((3832)>>2)];
        var $550=($548>>>0)<($549>>>0);
        if ($550) {
         _abort();
@@ -20012,7 +21147,7 @@ function _malloc($bytes){
       break;
      }
      var $560=$557;
-     var $561=HEAP32[((1616)>>2)];
+     var $561=HEAP32[((3832)>>2)];
      var $562=($560>>>0)<($561>>>0);
      if ($562) {
       _abort();
@@ -20056,25 +21191,25 @@ function _malloc($bytes){
      var $587=($rsize_3_lcssa_i>>>0)<256;
      if ($587) {
       var $589=$586<<1;
-      var $590=((1640+($589<<2))|0);
+      var $590=((3856+($589<<2))|0);
       var $591=$590;
-      var $592=HEAP32[((1600)>>2)];
+      var $592=HEAP32[((3816)>>2)];
       var $593=1<<$586;
       var $594=$592&$593;
       var $595=($594|0)==0;
       do {
        if ($595) {
         var $597=$592|$593;
-        HEAP32[((1600)>>2)]=$597;
+        HEAP32[((3816)>>2)]=$597;
         var $_sum15_pre_i=((($589)+(2))|0);
-        var $_pre_i127=((1640+($_sum15_pre_i<<2))|0);
+        var $_pre_i127=((3856+($_sum15_pre_i<<2))|0);
         var $F5_0_i=$591;var $_pre_phi_i128=$_pre_i127;
        } else {
         var $_sum18_i=((($589)+(2))|0);
-        var $599=((1640+($_sum18_i<<2))|0);
+        var $599=((3856+($_sum18_i<<2))|0);
         var $600=HEAP32[(($599)>>2)];
         var $601=$600;
-        var $602=HEAP32[((1616)>>2)];
+        var $602=HEAP32[((3832)>>2)];
         var $603=($601>>>0)<($602>>>0);
         if (!($603)) {
          var $F5_0_i=$600;var $_pre_phi_i128=$599;
@@ -20137,7 +21272,7 @@ function _malloc($bytes){
       }
      } while(0);
      var $I7_0_i;
-     var $641=((1904+($I7_0_i<<2))|0);
+     var $641=((4120+($I7_0_i<<2))|0);
      var $_sum2_i=((($349)+(28))|0);
      var $642=(($463+$_sum2_i)|0);
      var $643=$642;
@@ -20150,13 +21285,13 @@ function _malloc($bytes){
      HEAP32[(($646)>>2)]=0;
      var $647=$644;
      HEAP32[(($647)>>2)]=0;
-     var $648=HEAP32[((1604)>>2)];
+     var $648=HEAP32[((3820)>>2)];
      var $649=1<<$I7_0_i;
      var $650=$648&$649;
      var $651=($650|0)==0;
      if ($651) {
       var $653=$648|$649;
-      HEAP32[((1604)>>2)]=$653;
+      HEAP32[((3820)>>2)]=$653;
       HEAP32[(($641)>>2)]=$612;
       var $654=$641;
       var $_sum5_i=((($349)+(24))|0);
@@ -20209,7 +21344,7 @@ function _malloc($bytes){
      }
      if (label == 151) {
       var $682=$677;
-      var $683=HEAP32[((1616)>>2)];
+      var $683=HEAP32[((3832)>>2)];
       var $684=($682>>>0)<($683>>>0);
       if ($684) {
        _abort();
@@ -20234,7 +21369,7 @@ function _malloc($bytes){
      var $694=(($T_0_i+8)|0);
      var $695=HEAP32[(($694)>>2)];
      var $696=$T_0_i;
-     var $697=HEAP32[((1616)>>2)];
+     var $697=HEAP32[((3832)>>2)];
      var $698=($696>>>0)<($697>>>0);
      if ($698) {
       _abort();
@@ -20279,18 +21414,18 @@ function _malloc($bytes){
   }
  } while(0);
  var $nb_0;
- var $714=HEAP32[((1608)>>2)];
+ var $714=HEAP32[((3824)>>2)];
  var $715=($nb_0>>>0)>($714>>>0);
  if (!($715)) {
   var $717=((($714)-($nb_0))|0);
-  var $718=HEAP32[((1620)>>2)];
+  var $718=HEAP32[((3836)>>2)];
   var $719=($717>>>0)>15;
   if ($719) {
    var $721=$718;
    var $722=(($721+$nb_0)|0);
    var $723=$722;
-   HEAP32[((1620)>>2)]=$723;
-   HEAP32[((1608)>>2)]=$717;
+   HEAP32[((3836)>>2)]=$723;
+   HEAP32[((3824)>>2)]=$717;
    var $724=$717|1;
    var $_sum102=((($nb_0)+(4))|0);
    var $725=(($721+$_sum102)|0);
@@ -20303,8 +21438,8 @@ function _malloc($bytes){
    var $730=(($718+4)|0);
    HEAP32[(($730)>>2)]=$729;
   } else {
-   HEAP32[((1608)>>2)]=0;
-   HEAP32[((1620)>>2)]=0;
+   HEAP32[((3824)>>2)]=0;
+   HEAP32[((3836)>>2)]=0;
    var $732=$714|3;
    var $733=(($718+4)|0);
    HEAP32[(($733)>>2)]=$732;
@@ -20322,16 +21457,16 @@ function _malloc($bytes){
   var $mem_0;
   return $mem_0;
  }
- var $743=HEAP32[((1612)>>2)];
+ var $743=HEAP32[((3828)>>2)];
  var $744=($nb_0>>>0)<($743>>>0);
  if ($744) {
   var $746=((($743)-($nb_0))|0);
-  HEAP32[((1612)>>2)]=$746;
-  var $747=HEAP32[((1624)>>2)];
+  HEAP32[((3828)>>2)]=$746;
+  var $747=HEAP32[((3840)>>2)];
   var $748=$747;
   var $749=(($748+$nb_0)|0);
   var $750=$749;
-  HEAP32[((1624)>>2)]=$750;
+  HEAP32[((3840)>>2)]=$750;
   var $751=$746|1;
   var $_sum=((($nb_0)+(4))|0);
   var $752=(($748+$_sum)|0);
@@ -20346,7 +21481,7 @@ function _malloc($bytes){
   var $mem_0;
   return $mem_0;
  }
- var $759=HEAP32[((1536)>>2)];
+ var $759=HEAP32[((3752)>>2)];
  var $760=($759|0)==0;
  do {
   if ($760) {
@@ -20355,16 +21490,16 @@ function _malloc($bytes){
    var $764=$763&$762;
    var $765=($764|0)==0;
    if ($765) {
-    HEAP32[((1544)>>2)]=$762;
-    HEAP32[((1540)>>2)]=$762;
-    HEAP32[((1548)>>2)]=-1;
-    HEAP32[((1552)>>2)]=-1;
-    HEAP32[((1556)>>2)]=0;
-    HEAP32[((2044)>>2)]=0;
+    HEAP32[((3760)>>2)]=$762;
+    HEAP32[((3756)>>2)]=$762;
+    HEAP32[((3764)>>2)]=-1;
+    HEAP32[((3768)>>2)]=-1;
+    HEAP32[((3772)>>2)]=0;
+    HEAP32[((4260)>>2)]=0;
     var $767=_time(0);
     var $768=$767&-16;
     var $769=$768^1431655768;
-    HEAP32[((1536)>>2)]=$769;
+    HEAP32[((3752)>>2)]=$769;
     break;
    } else {
     _abort();
@@ -20373,7 +21508,7 @@ function _malloc($bytes){
   }
  } while(0);
  var $771=((($nb_0)+(48))|0);
- var $772=HEAP32[((1544)>>2)];
+ var $772=HEAP32[((3760)>>2)];
  var $773=((($nb_0)+(47))|0);
  var $774=((($772)+($773))|0);
  var $775=(((-$772))|0);
@@ -20384,11 +21519,11 @@ function _malloc($bytes){
   var $mem_0;
   return $mem_0;
  }
- var $779=HEAP32[((2040)>>2)];
+ var $779=HEAP32[((4256)>>2)];
  var $780=($779|0)==0;
  do {
   if (!($780)) {
-   var $782=HEAP32[((2032)>>2)];
+   var $782=HEAP32[((4248)>>2)];
    var $783=((($782)+($776))|0);
    var $784=($783>>>0)<=($782>>>0);
    var $785=($783>>>0)>($779>>>0);
@@ -20402,19 +21537,19 @@ function _malloc($bytes){
    return $mem_0;
   }
  } while(0);
- var $787=HEAP32[((2044)>>2)];
+ var $787=HEAP32[((4260)>>2)];
  var $788=$787&4;
  var $789=($788|0)==0;
  L268: do {
   if ($789) {
-   var $791=HEAP32[((1624)>>2)];
+   var $791=HEAP32[((3840)>>2)];
    var $792=($791|0)==0;
    L270: do {
     if ($792) {
      label = 181;
     } else {
      var $794=$791;
-     var $sp_0_i_i=2048;
+     var $sp_0_i_i=4264;
      while(1) {
       var $sp_0_i_i;
       var $796=(($sp_0_i_i)|0);
@@ -20444,7 +21579,7 @@ function _malloc($bytes){
       label = 181;
       break;
      }
-     var $838=HEAP32[((1612)>>2)];
+     var $838=HEAP32[((3828)>>2)];
      var $839=((($774)-($838))|0);
      var $840=$839&$775;
      var $841=($840>>>0)<2147483647;
@@ -20472,7 +21607,7 @@ function _malloc($bytes){
       break;
      }
      var $812=$809;
-     var $813=HEAP32[((1540)>>2)];
+     var $813=HEAP32[((3756)>>2)];
      var $814=((($813)-(1))|0);
      var $815=$814&$812;
      var $816=($815|0)==0;
@@ -20487,7 +21622,7 @@ function _malloc($bytes){
       var $ssize_0_i=$822;
      }
      var $ssize_0_i;
-     var $824=HEAP32[((2032)>>2)];
+     var $824=HEAP32[((4248)>>2)];
      var $825=((($824)+($ssize_0_i))|0);
      var $826=($ssize_0_i>>>0)>($nb_0>>>0);
      var $827=($ssize_0_i>>>0)<2147483647;
@@ -20496,7 +21631,7 @@ function _malloc($bytes){
       var $tsize_0303639_i=0;
       break;
      }
-     var $829=HEAP32[((2040)>>2)];
+     var $829=HEAP32[((4256)>>2)];
      var $830=($829|0)==0;
      if (!($830)) {
       var $832=($825>>>0)<=($824>>>0);
@@ -20535,7 +21670,7 @@ function _malloc($bytes){
      var $or_cond6_i=$or_cond5_i&$854;
      do {
       if ($or_cond6_i) {
-       var $856=HEAP32[((1544)>>2)];
+       var $856=HEAP32[((3760)>>2)];
        var $857=((($773)-($ssize_1_i))|0);
        var $858=((($857)+($856))|0);
        var $859=(((-$856))|0);
@@ -20572,9 +21707,9 @@ function _malloc($bytes){
     }
    } while(0);
    var $tsize_0303639_i;
-   var $871=HEAP32[((2044)>>2)];
+   var $871=HEAP32[((4260)>>2)];
    var $872=$871|4;
-   HEAP32[((2044)>>2)]=$872;
+   HEAP32[((4260)>>2)]=$872;
    var $tsize_1_i=$tsize_0303639_i;
    label = 198;
   } else {
@@ -20617,42 +21752,42 @@ function _malloc($bytes){
   if (label == 201) {
    var $tbase_245_i;
    var $tsize_244_i;
-   var $885=HEAP32[((2032)>>2)];
+   var $885=HEAP32[((4248)>>2)];
    var $886=((($885)+($tsize_244_i))|0);
-   HEAP32[((2032)>>2)]=$886;
-   var $887=HEAP32[((2036)>>2)];
+   HEAP32[((4248)>>2)]=$886;
+   var $887=HEAP32[((4252)>>2)];
    var $888=($886>>>0)>($887>>>0);
    if ($888) {
-    HEAP32[((2036)>>2)]=$886;
+    HEAP32[((4252)>>2)]=$886;
    }
-   var $890=HEAP32[((1624)>>2)];
+   var $890=HEAP32[((3840)>>2)];
    var $891=($890|0)==0;
    L310: do {
     if ($891) {
-     var $893=HEAP32[((1616)>>2)];
+     var $893=HEAP32[((3832)>>2)];
      var $894=($893|0)==0;
      var $895=($tbase_245_i>>>0)<($893>>>0);
      var $or_cond10_i=$894|$895;
      if ($or_cond10_i) {
-      HEAP32[((1616)>>2)]=$tbase_245_i;
+      HEAP32[((3832)>>2)]=$tbase_245_i;
      }
-     HEAP32[((2048)>>2)]=$tbase_245_i;
-     HEAP32[((2052)>>2)]=$tsize_244_i;
-     HEAP32[((2060)>>2)]=0;
-     var $897=HEAP32[((1536)>>2)];
-     HEAP32[((1636)>>2)]=$897;
-     HEAP32[((1632)>>2)]=-1;
+     HEAP32[((4264)>>2)]=$tbase_245_i;
+     HEAP32[((4268)>>2)]=$tsize_244_i;
+     HEAP32[((4276)>>2)]=0;
+     var $897=HEAP32[((3752)>>2)];
+     HEAP32[((3852)>>2)]=$897;
+     HEAP32[((3848)>>2)]=-1;
      var $i_02_i_i=0;
      while(1) {
       var $i_02_i_i;
       var $899=$i_02_i_i<<1;
-      var $900=((1640+($899<<2))|0);
+      var $900=((3856+($899<<2))|0);
       var $901=$900;
       var $_sum_i_i=((($899)+(3))|0);
-      var $902=((1640+($_sum_i_i<<2))|0);
+      var $902=((3856+($_sum_i_i<<2))|0);
       HEAP32[(($902)>>2)]=$901;
       var $_sum1_i_i=((($899)+(2))|0);
-      var $903=((1640+($_sum1_i_i<<2))|0);
+      var $903=((3856+($_sum1_i_i<<2))|0);
       HEAP32[(($903)>>2)]=$901;
       var $904=((($i_02_i_i)+(1))|0);
       var $905=($904>>>0)<32;
@@ -20678,8 +21813,8 @@ function _malloc($bytes){
      var $915=(($tbase_245_i+$914)|0);
      var $916=$915;
      var $917=((($906)-($914))|0);
-     HEAP32[((1624)>>2)]=$916;
-     HEAP32[((1612)>>2)]=$917;
+     HEAP32[((3840)>>2)]=$916;
+     HEAP32[((3828)>>2)]=$917;
      var $918=$917|1;
      var $_sum_i14_i=((($914)+(4))|0);
      var $919=(($tbase_245_i+$_sum_i14_i)|0);
@@ -20689,10 +21824,10 @@ function _malloc($bytes){
      var $921=(($tbase_245_i+$_sum2_i_i)|0);
      var $922=$921;
      HEAP32[(($922)>>2)]=40;
-     var $923=HEAP32[((1552)>>2)];
-     HEAP32[((1628)>>2)]=$923;
+     var $923=HEAP32[((3768)>>2)];
+     HEAP32[((3844)>>2)]=$923;
     } else {
-     var $sp_067_i=2048;
+     var $sp_067_i=4264;
      while(1) {
       var $sp_067_i;
       var $924=(($sp_067_i)|0);
@@ -20732,8 +21867,8 @@ function _malloc($bytes){
        }
        var $943=((($927)+($tsize_244_i))|0);
        HEAP32[(($926)>>2)]=$943;
-       var $944=HEAP32[((1624)>>2)];
-       var $945=HEAP32[((1612)>>2)];
+       var $944=HEAP32[((3840)>>2)];
+       var $945=HEAP32[((3828)>>2)];
        var $946=((($945)+($tsize_244_i))|0);
        var $947=$944;
        var $948=(($944+8)|0);
@@ -20751,8 +21886,8 @@ function _malloc($bytes){
        var $956=(($947+$955)|0);
        var $957=$956;
        var $958=((($946)-($955))|0);
-       HEAP32[((1624)>>2)]=$957;
-       HEAP32[((1612)>>2)]=$958;
+       HEAP32[((3840)>>2)]=$957;
+       HEAP32[((3828)>>2)]=$958;
        var $959=$958|1;
        var $_sum_i18_i=((($955)+(4))|0);
        var $960=(($947+$_sum_i18_i)|0);
@@ -20762,18 +21897,18 @@ function _malloc($bytes){
        var $962=(($947+$_sum2_i19_i)|0);
        var $963=$962;
        HEAP32[(($963)>>2)]=40;
-       var $964=HEAP32[((1552)>>2)];
-       HEAP32[((1628)>>2)]=$964;
+       var $964=HEAP32[((3768)>>2)];
+       HEAP32[((3844)>>2)]=$964;
        break L310;
       }
      } while(0);
-     var $965=HEAP32[((1616)>>2)];
+     var $965=HEAP32[((3832)>>2)];
      var $966=($tbase_245_i>>>0)<($965>>>0);
      if ($966) {
-      HEAP32[((1616)>>2)]=$tbase_245_i;
+      HEAP32[((3832)>>2)]=$tbase_245_i;
      }
      var $968=(($tbase_245_i+$tsize_244_i)|0);
-     var $sp_160_i=2048;
+     var $sp_160_i=4264;
      while(1) {
       var $sp_160_i;
       var $970=(($sp_160_i)|0);
@@ -20847,27 +21982,27 @@ function _malloc($bytes){
        var $1013=(($tbase_245_i+$_sum1_i22_i)|0);
        var $1014=$1013;
        HEAP32[(($1014)>>2)]=$1012;
-       var $1015=HEAP32[((1624)>>2)];
+       var $1015=HEAP32[((3840)>>2)];
        var $1016=($1005|0)==($1015|0);
        do {
         if ($1016) {
-         var $1018=HEAP32[((1612)>>2)];
+         var $1018=HEAP32[((3828)>>2)];
          var $1019=((($1018)+($1011))|0);
-         HEAP32[((1612)>>2)]=$1019;
-         HEAP32[((1624)>>2)]=$1010;
+         HEAP32[((3828)>>2)]=$1019;
+         HEAP32[((3840)>>2)]=$1010;
          var $1020=$1019|1;
          var $_sum46_i_i=((($_sum_i21_i)+(4))|0);
          var $1021=(($tbase_245_i+$_sum46_i_i)|0);
          var $1022=$1021;
          HEAP32[(($1022)>>2)]=$1020;
         } else {
-         var $1024=HEAP32[((1620)>>2)];
+         var $1024=HEAP32[((3836)>>2)];
          var $1025=($1005|0)==($1024|0);
          if ($1025) {
-          var $1027=HEAP32[((1608)>>2)];
+          var $1027=HEAP32[((3824)>>2)];
           var $1028=((($1027)+($1011))|0);
-          HEAP32[((1608)>>2)]=$1028;
-          HEAP32[((1620)>>2)]=$1010;
+          HEAP32[((3824)>>2)]=$1028;
+          HEAP32[((3836)>>2)]=$1010;
           var $1029=$1028|1;
           var $_sum44_i_i=((($_sum_i21_i)+(4))|0);
           var $1030=(($tbase_245_i+$_sum44_i_i)|0);
@@ -20903,13 +22038,13 @@ function _malloc($bytes){
             var $1049=$1048;
             var $1050=HEAP32[(($1049)>>2)];
             var $1051=$1042<<1;
-            var $1052=((1640+($1051<<2))|0);
+            var $1052=((3856+($1051<<2))|0);
             var $1053=$1052;
             var $1054=($1047|0)==($1053|0);
             do {
              if (!($1054)) {
               var $1056=$1047;
-              var $1057=HEAP32[((1616)>>2)];
+              var $1057=HEAP32[((3832)>>2)];
               var $1058=($1056>>>0)<($1057>>>0);
               if ($1058) {
                _abort();
@@ -20929,9 +22064,9 @@ function _malloc($bytes){
             if ($1063) {
              var $1065=1<<$1042;
              var $1066=$1065^-1;
-             var $1067=HEAP32[((1600)>>2)];
+             var $1067=HEAP32[((3816)>>2)];
              var $1068=$1067&$1066;
-             HEAP32[((1600)>>2)]=$1068;
+             HEAP32[((3816)>>2)]=$1068;
              break;
             }
             var $1070=($1050|0)==($1053|0);
@@ -20941,7 +22076,7 @@ function _malloc($bytes){
               var $_pre_phi57_i_i=$_pre56_i_i;
              } else {
               var $1072=$1050;
-              var $1073=HEAP32[((1616)>>2)];
+              var $1073=HEAP32[((3832)>>2)];
               var $1074=($1072>>>0)<($1073>>>0);
               if ($1074) {
                _abort();
@@ -21018,7 +22153,7 @@ function _malloc($bytes){
                }
               }
               var $1123=$RP_0_i_i;
-              var $1124=HEAP32[((1616)>>2)];
+              var $1124=HEAP32[((3832)>>2)];
               var $1125=($1123>>>0)<($1124>>>0);
               if ($1125) {
                _abort();
@@ -21035,7 +22170,7 @@ function _malloc($bytes){
               var $1091=$1090;
               var $1092=HEAP32[(($1091)>>2)];
               var $1093=$1092;
-              var $1094=HEAP32[((1616)>>2)];
+              var $1094=HEAP32[((3832)>>2)];
               var $1095=($1093>>>0)<($1094>>>0);
               if ($1095) {
                _abort();
@@ -21072,7 +22207,7 @@ function _malloc($bytes){
             var $1131=(($tbase_245_i+$_sum99_i)|0);
             var $1132=$1131;
             var $1133=HEAP32[(($1132)>>2)];
-            var $1134=((1904+($1133<<2))|0);
+            var $1134=((4120+($1133<<2))|0);
             var $1135=HEAP32[(($1134)>>2)];
             var $1136=($1081|0)==($1135|0);
             do {
@@ -21085,13 +22220,13 @@ function _malloc($bytes){
               var $1138=HEAP32[(($1132)>>2)];
               var $1139=1<<$1138;
               var $1140=$1139^-1;
-              var $1141=HEAP32[((1604)>>2)];
+              var $1141=HEAP32[((3820)>>2)];
               var $1142=$1141&$1140;
-              HEAP32[((1604)>>2)]=$1142;
+              HEAP32[((3820)>>2)]=$1142;
               break L355;
              } else {
               var $1144=$1084;
-              var $1145=HEAP32[((1616)>>2)];
+              var $1145=HEAP32[((3832)>>2)];
               var $1146=($1144>>>0)<($1145>>>0);
               if ($1146) {
                _abort();
@@ -21113,7 +22248,7 @@ function _malloc($bytes){
              }
             } while(0);
             var $1158=$R_1_i_i;
-            var $1159=HEAP32[((1616)>>2)];
+            var $1159=HEAP32[((3832)>>2)];
             var $1160=($1158>>>0)<($1159>>>0);
             if ($1160) {
              _abort();
@@ -21130,7 +22265,7 @@ function _malloc($bytes){
             do {
              if (!($1166)) {
               var $1168=$1165;
-              var $1169=HEAP32[((1616)>>2)];
+              var $1169=HEAP32[((3832)>>2)];
               var $1170=($1168>>>0)<($1169>>>0);
               if ($1170) {
                _abort();
@@ -21153,7 +22288,7 @@ function _malloc($bytes){
              break;
             }
             var $1181=$1178;
-            var $1182=HEAP32[((1616)>>2)];
+            var $1182=HEAP32[((3832)>>2)];
             var $1183=($1181>>>0)<($1182>>>0);
             if ($1183) {
              _abort();
@@ -21195,25 +22330,25 @@ function _malloc($bytes){
          var $1203=($qsize_0_i_i>>>0)<256;
          if ($1203) {
           var $1205=$1202<<1;
-          var $1206=((1640+($1205<<2))|0);
+          var $1206=((3856+($1205<<2))|0);
           var $1207=$1206;
-          var $1208=HEAP32[((1600)>>2)];
+          var $1208=HEAP32[((3816)>>2)];
           var $1209=1<<$1202;
           var $1210=$1208&$1209;
           var $1211=($1210|0)==0;
           do {
            if ($1211) {
             var $1213=$1208|$1209;
-            HEAP32[((1600)>>2)]=$1213;
+            HEAP32[((3816)>>2)]=$1213;
             var $_sum27_pre_i_i=((($1205)+(2))|0);
-            var $_pre_i24_i=((1640+($_sum27_pre_i_i<<2))|0);
+            var $_pre_i24_i=((3856+($_sum27_pre_i_i<<2))|0);
             var $F4_0_i_i=$1207;var $_pre_phi_i25_i=$_pre_i24_i;
            } else {
             var $_sum30_i_i=((($1205)+(2))|0);
-            var $1215=((1640+($_sum30_i_i<<2))|0);
+            var $1215=((3856+($_sum30_i_i<<2))|0);
             var $1216=HEAP32[(($1215)>>2)];
             var $1217=$1216;
-            var $1218=HEAP32[((1616)>>2)];
+            var $1218=HEAP32[((3832)>>2)];
             var $1219=($1217>>>0)<($1218>>>0);
             if (!($1219)) {
              var $F4_0_i_i=$1216;var $_pre_phi_i25_i=$1215;
@@ -21276,7 +22411,7 @@ function _malloc($bytes){
           }
          } while(0);
          var $I7_0_i_i;
-         var $1257=((1904+($I7_0_i_i<<2))|0);
+         var $1257=((4120+($I7_0_i_i<<2))|0);
          var $_sum12_i26_i=((($_sum_i21_i)+(28))|0);
          var $1258=(($tbase_245_i+$_sum12_i26_i)|0);
          var $1259=$1258;
@@ -21289,13 +22424,13 @@ function _malloc($bytes){
          HEAP32[(($1262)>>2)]=0;
          var $1263=$1260;
          HEAP32[(($1263)>>2)]=0;
-         var $1264=HEAP32[((1604)>>2)];
+         var $1264=HEAP32[((3820)>>2)];
          var $1265=1<<$I7_0_i_i;
          var $1266=$1264&$1265;
          var $1267=($1266|0)==0;
          if ($1267) {
           var $1269=$1264|$1265;
-          HEAP32[((1604)>>2)]=$1269;
+          HEAP32[((3820)>>2)]=$1269;
           HEAP32[(($1257)>>2)]=$1228;
           var $1270=$1257;
           var $_sum15_i_i=((($_sum_i21_i)+(24))|0);
@@ -21348,7 +22483,7 @@ function _malloc($bytes){
          }
          if (label == 296) {
           var $1298=$1293;
-          var $1299=HEAP32[((1616)>>2)];
+          var $1299=HEAP32[((3832)>>2)];
           var $1300=($1298>>>0)<($1299>>>0);
           if ($1300) {
            _abort();
@@ -21373,7 +22508,7 @@ function _malloc($bytes){
          var $1310=(($T_0_i27_i+8)|0);
          var $1311=HEAP32[(($1310)>>2)];
          var $1312=$T_0_i27_i;
-         var $1313=HEAP32[((1616)>>2)];
+         var $1313=HEAP32[((3832)>>2)];
          var $1314=($1312>>>0)<($1313>>>0);
          if ($1314) {
           _abort();
@@ -21412,7 +22547,7 @@ function _malloc($bytes){
       }
      } while(0);
      var $1327=$890;
-     var $sp_0_i_i_i=2048;
+     var $sp_0_i_i_i=4264;
      while(1) {
       var $sp_0_i_i_i;
       var $1329=(($sp_0_i_i_i)|0);
@@ -21469,8 +22604,8 @@ function _malloc($bytes){
      var $1365=(($tbase_245_i+$1364)|0);
      var $1366=$1365;
      var $1367=((($1356)-($1364))|0);
-     HEAP32[((1624)>>2)]=$1366;
-     HEAP32[((1612)>>2)]=$1367;
+     HEAP32[((3840)>>2)]=$1366;
+     HEAP32[((3828)>>2)]=$1367;
      var $1368=$1367|1;
      var $_sum_i_i_i=((($1364)+(4))|0);
      var $1369=(($tbase_245_i+$_sum_i_i_i)|0);
@@ -21480,16 +22615,16 @@ function _malloc($bytes){
      var $1371=(($tbase_245_i+$_sum2_i_i_i)|0);
      var $1372=$1371;
      HEAP32[(($1372)>>2)]=40;
-     var $1373=HEAP32[((1552)>>2)];
-     HEAP32[((1628)>>2)]=$1373;
+     var $1373=HEAP32[((3768)>>2)];
+     HEAP32[((3844)>>2)]=$1373;
      var $1374=(($1353+4)|0);
      var $1375=$1374;
      HEAP32[(($1375)>>2)]=27;
-     assert(16 % 1 === 0);HEAP32[(($1354)>>2)]=HEAP32[((2048)>>2)];HEAP32[((($1354)+(4))>>2)]=HEAP32[((2052)>>2)];HEAP32[((($1354)+(8))>>2)]=HEAP32[((2056)>>2)];HEAP32[((($1354)+(12))>>2)]=HEAP32[((2060)>>2)];
-     HEAP32[((2048)>>2)]=$tbase_245_i;
-     HEAP32[((2052)>>2)]=$tsize_244_i;
-     HEAP32[((2060)>>2)]=0;
-     HEAP32[((2056)>>2)]=$1355;
+     assert(16 % 1 === 0);HEAP32[(($1354)>>2)]=HEAP32[((4264)>>2)];HEAP32[((($1354)+(4))>>2)]=HEAP32[((4268)>>2)];HEAP32[((($1354)+(8))>>2)]=HEAP32[((4272)>>2)];HEAP32[((($1354)+(12))>>2)]=HEAP32[((4276)>>2)];
+     HEAP32[((4264)>>2)]=$tbase_245_i;
+     HEAP32[((4268)>>2)]=$tsize_244_i;
+     HEAP32[((4276)>>2)]=0;
+     HEAP32[((4272)>>2)]=$1355;
      var $1376=(($1353+28)|0);
      var $1377=$1376;
      HEAP32[(($1377)>>2)]=7;
@@ -21534,25 +22669,25 @@ function _malloc($bytes){
      var $1399=($1389>>>0)<256;
      if ($1399) {
       var $1401=$1398<<1;
-      var $1402=((1640+($1401<<2))|0);
+      var $1402=((3856+($1401<<2))|0);
       var $1403=$1402;
-      var $1404=HEAP32[((1600)>>2)];
+      var $1404=HEAP32[((3816)>>2)];
       var $1405=1<<$1398;
       var $1406=$1404&$1405;
       var $1407=($1406|0)==0;
       do {
        if ($1407) {
         var $1409=$1404|$1405;
-        HEAP32[((1600)>>2)]=$1409;
+        HEAP32[((3816)>>2)]=$1409;
         var $_sum11_pre_i_i=((($1401)+(2))|0);
-        var $_pre_i_i=((1640+($_sum11_pre_i_i<<2))|0);
+        var $_pre_i_i=((3856+($_sum11_pre_i_i<<2))|0);
         var $F_0_i_i=$1403;var $_pre_phi_i_i=$_pre_i_i;
        } else {
         var $_sum12_i_i=((($1401)+(2))|0);
-        var $1411=((1640+($_sum12_i_i<<2))|0);
+        var $1411=((3856+($_sum12_i_i<<2))|0);
         var $1412=HEAP32[(($1411)>>2)];
         var $1413=$1412;
-        var $1414=HEAP32[((1616)>>2)];
+        var $1414=HEAP32[((3832)>>2)];
         var $1415=($1413>>>0)<($1414>>>0);
         if (!($1415)) {
          var $F_0_i_i=$1412;var $_pre_phi_i_i=$1411;
@@ -21611,7 +22746,7 @@ function _malloc($bytes){
       }
      } while(0);
      var $I1_0_i_i;
-     var $1451=((1904+($I1_0_i_i<<2))|0);
+     var $1451=((4120+($I1_0_i_i<<2))|0);
      var $1452=(($890+28)|0);
      var $I1_0_c_i_i=$I1_0_i_i;
      HEAP32[(($1452)>>2)]=$I1_0_c_i_i;
@@ -21619,13 +22754,13 @@ function _malloc($bytes){
      HEAP32[(($1453)>>2)]=0;
      var $1454=(($890+16)|0);
      HEAP32[(($1454)>>2)]=0;
-     var $1455=HEAP32[((1604)>>2)];
+     var $1455=HEAP32[((3820)>>2)];
      var $1456=1<<$I1_0_i_i;
      var $1457=$1455&$1456;
      var $1458=($1457|0)==0;
      if ($1458) {
       var $1460=$1455|$1456;
-      HEAP32[((1604)>>2)]=$1460;
+      HEAP32[((3820)>>2)]=$1460;
       HEAP32[(($1451)>>2)]=$1422;
       var $1461=(($890+24)|0);
       var $_c_i_i=$1451;
@@ -21672,7 +22807,7 @@ function _malloc($bytes){
      }
      if (label == 331) {
       var $1485=$1480;
-      var $1486=HEAP32[((1616)>>2)];
+      var $1486=HEAP32[((3832)>>2)];
       var $1487=($1485>>>0)<($1486>>>0);
       if ($1487) {
        _abort();
@@ -21692,7 +22827,7 @@ function _malloc($bytes){
      var $1494=(($T_0_i_i+8)|0);
      var $1495=HEAP32[(($1494)>>2)];
      var $1496=$T_0_i_i;
-     var $1497=HEAP32[((1616)>>2)];
+     var $1497=HEAP32[((3832)>>2)];
      var $1498=($1496>>>0)<($1497>>>0);
      if ($1498) {
       _abort();
@@ -21719,18 +22854,18 @@ function _malloc($bytes){
      }
     }
    } while(0);
-   var $1507=HEAP32[((1612)>>2)];
+   var $1507=HEAP32[((3828)>>2)];
    var $1508=($1507>>>0)>($nb_0>>>0);
    if (!($1508)) {
     break;
    }
    var $1510=((($1507)-($nb_0))|0);
-   HEAP32[((1612)>>2)]=$1510;
-   var $1511=HEAP32[((1624)>>2)];
+   HEAP32[((3828)>>2)]=$1510;
+   var $1511=HEAP32[((3840)>>2)];
    var $1512=$1511;
    var $1513=(($1512+$nb_0)|0);
    var $1514=$1513;
-   HEAP32[((1624)>>2)]=$1514;
+   HEAP32[((3840)>>2)]=$1514;
    var $1515=$1510|1;
    var $_sum_i134=((($nb_0)+(4))|0);
    var $1516=(($1512+$_sum_i134)|0);
@@ -21763,7 +22898,7 @@ function _free($mem){
  }
  var $3=((($mem)-(8))|0);
  var $4=$3;
- var $5=HEAP32[((1616)>>2)];
+ var $5=HEAP32[((3832)>>2)];
  var $6=($3>>>0)<($5>>>0);
  if ($6) {
   _abort();
@@ -21801,7 +22936,7 @@ function _free($mem){
     _abort();
     throw "Reached an unreachable!";
    }
-   var $29=HEAP32[((1620)>>2)];
+   var $29=HEAP32[((3836)>>2)];
    var $30=($25|0)==($29|0);
    if ($30) {
     var $_sum233=((($14)-(4))|0);
@@ -21814,7 +22949,7 @@ function _free($mem){
      var $p_0=$25;var $psize_0=$26;
      break;
     }
-    HEAP32[((1608)>>2)]=$26;
+    HEAP32[((3824)>>2)]=$26;
     var $182=HEAP32[(($177)>>2)];
     var $183=$182&-2;
     HEAP32[(($177)>>2)]=$183;
@@ -21839,7 +22974,7 @@ function _free($mem){
     var $39=$38;
     var $40=HEAP32[(($39)>>2)];
     var $41=$32<<1;
-    var $42=((1640+($41<<2))|0);
+    var $42=((3856+($41<<2))|0);
     var $43=$42;
     var $44=($37|0)==($43|0);
     do {
@@ -21864,9 +22999,9 @@ function _free($mem){
     if ($52) {
      var $54=1<<$32;
      var $55=$54^-1;
-     var $56=HEAP32[((1600)>>2)];
+     var $56=HEAP32[((3816)>>2)];
      var $57=$56&$55;
-     HEAP32[((1600)>>2)]=$57;
+     HEAP32[((3816)>>2)]=$57;
      var $p_0=$25;var $psize_0=$26;
      break;
     }
@@ -22003,7 +23138,7 @@ function _free($mem){
    var $117=(($mem+$_sum270)|0);
    var $118=$117;
    var $119=HEAP32[(($118)>>2)];
-   var $120=((1904+($119<<2))|0);
+   var $120=((4120+($119<<2))|0);
    var $121=HEAP32[(($120)>>2)];
    var $122=($69|0)==($121|0);
    do {
@@ -22016,14 +23151,14 @@ function _free($mem){
      var $124=HEAP32[(($118)>>2)];
      var $125=1<<$124;
      var $126=$125^-1;
-     var $127=HEAP32[((1604)>>2)];
+     var $127=HEAP32[((3820)>>2)];
      var $128=$127&$126;
-     HEAP32[((1604)>>2)]=$128;
+     HEAP32[((3820)>>2)]=$128;
      var $p_0=$25;var $psize_0=$26;
      break L10;
     } else {
      var $130=$72;
-     var $131=HEAP32[((1616)>>2)];
+     var $131=HEAP32[((3832)>>2)];
      var $132=($130>>>0)<($131>>>0);
      if ($132) {
       _abort();
@@ -22046,7 +23181,7 @@ function _free($mem){
     }
    } while(0);
    var $144=$R_1;
-   var $145=HEAP32[((1616)>>2)];
+   var $145=HEAP32[((3832)>>2)];
    var $146=($144>>>0)<($145>>>0);
    if ($146) {
     _abort();
@@ -22062,7 +23197,7 @@ function _free($mem){
    do {
     if (!($152)) {
      var $154=$151;
-     var $155=HEAP32[((1616)>>2)];
+     var $155=HEAP32[((3832)>>2)];
      var $156=($154>>>0)<($155>>>0);
      if ($156) {
       _abort();
@@ -22086,7 +23221,7 @@ function _free($mem){
     break;
    }
    var $167=$164;
-   var $168=HEAP32[((1616)>>2)];
+   var $168=HEAP32[((3832)>>2)];
    var $169=($167>>>0)<($168>>>0);
    if ($169) {
     _abort();
@@ -22125,32 +23260,32 @@ function _free($mem){
  var $198=($197|0)==0;
  do {
   if ($198) {
-   var $200=HEAP32[((1624)>>2)];
+   var $200=HEAP32[((3840)>>2)];
    var $201=($16|0)==($200|0);
    if ($201) {
-    var $203=HEAP32[((1612)>>2)];
+    var $203=HEAP32[((3828)>>2)];
     var $204=((($203)+($psize_0))|0);
-    HEAP32[((1612)>>2)]=$204;
-    HEAP32[((1624)>>2)]=$p_0;
+    HEAP32[((3828)>>2)]=$204;
+    HEAP32[((3840)>>2)]=$p_0;
     var $205=$204|1;
     var $206=(($p_0+4)|0);
     HEAP32[(($206)>>2)]=$205;
-    var $207=HEAP32[((1620)>>2)];
+    var $207=HEAP32[((3836)>>2)];
     var $208=($p_0|0)==($207|0);
     if (!($208)) {
      return;
     }
-    HEAP32[((1620)>>2)]=0;
-    HEAP32[((1608)>>2)]=0;
+    HEAP32[((3836)>>2)]=0;
+    HEAP32[((3824)>>2)]=0;
     return;
    }
-   var $211=HEAP32[((1620)>>2)];
+   var $211=HEAP32[((3836)>>2)];
    var $212=($16|0)==($211|0);
    if ($212) {
-    var $214=HEAP32[((1608)>>2)];
+    var $214=HEAP32[((3824)>>2)];
     var $215=((($214)+($psize_0))|0);
-    HEAP32[((1608)>>2)]=$215;
-    HEAP32[((1620)>>2)]=$p_0;
+    HEAP32[((3824)>>2)]=$215;
+    HEAP32[((3836)>>2)]=$p_0;
     var $216=$215|1;
     var $217=(($p_0+4)|0);
     HEAP32[(($217)>>2)]=$216;
@@ -22163,7 +23298,7 @@ function _free($mem){
    var $222=((($221)+($psize_0))|0);
    var $223=$194>>>3;
    var $224=($194>>>0)<256;
-   L112: do {
+   L113: do {
     if ($224) {
      var $226=(($mem+$14)|0);
      var $227=$226;
@@ -22173,13 +23308,13 @@ function _free($mem){
      var $230=$229;
      var $231=HEAP32[(($230)>>2)];
      var $232=$223<<1;
-     var $233=((1640+($232<<2))|0);
+     var $233=((3856+($232<<2))|0);
      var $234=$233;
      var $235=($228|0)==($234|0);
      do {
       if (!($235)) {
        var $237=$228;
-       var $238=HEAP32[((1616)>>2)];
+       var $238=HEAP32[((3832)>>2)];
        var $239=($237>>>0)<($238>>>0);
        if ($239) {
         _abort();
@@ -22199,9 +23334,9 @@ function _free($mem){
      if ($244) {
       var $246=1<<$223;
       var $247=$246^-1;
-      var $248=HEAP32[((1600)>>2)];
+      var $248=HEAP32[((3816)>>2)];
       var $249=$248&$247;
-      HEAP32[((1600)>>2)]=$249;
+      HEAP32[((3816)>>2)]=$249;
       break;
      }
      var $251=($231|0)==($234|0);
@@ -22211,7 +23346,7 @@ function _free($mem){
        var $_pre_phi304=$_pre303;
       } else {
        var $253=$231;
-       var $254=HEAP32[((1616)>>2)];
+       var $254=HEAP32[((3832)>>2)];
        var $255=($253>>>0)<($254>>>0);
        if ($255) {
         _abort();
@@ -22285,7 +23420,7 @@ function _free($mem){
         }
        }
        var $304=$RP9_0;
-       var $305=HEAP32[((1616)>>2)];
+       var $305=HEAP32[((3832)>>2)];
        var $306=($304>>>0)<($305>>>0);
        if ($306) {
         _abort();
@@ -22300,7 +23435,7 @@ function _free($mem){
        var $272=$271;
        var $273=HEAP32[(($272)>>2)];
        var $274=$273;
-       var $275=HEAP32[((1616)>>2)];
+       var $275=HEAP32[((3832)>>2)];
        var $276=($274>>>0)<($275>>>0);
        if ($276) {
         _abort();
@@ -22336,7 +23471,7 @@ function _free($mem){
      var $312=(($mem+$_sum250)|0);
      var $313=$312;
      var $314=HEAP32[(($313)>>2)];
-     var $315=((1904+($314<<2))|0);
+     var $315=((4120+($314<<2))|0);
      var $316=HEAP32[(($315)>>2)];
      var $317=($262|0)==($316|0);
      do {
@@ -22349,13 +23484,13 @@ function _free($mem){
        var $319=HEAP32[(($313)>>2)];
        var $320=1<<$319;
        var $321=$320^-1;
-       var $322=HEAP32[((1604)>>2)];
+       var $322=HEAP32[((3820)>>2)];
        var $323=$322&$321;
-       HEAP32[((1604)>>2)]=$323;
-       break L112;
+       HEAP32[((3820)>>2)]=$323;
+       break L113;
       } else {
        var $325=$265;
-       var $326=HEAP32[((1616)>>2)];
+       var $326=HEAP32[((3832)>>2)];
        var $327=($325>>>0)<($326>>>0);
        if ($327) {
         _abort();
@@ -22372,12 +23507,12 @@ function _free($mem){
        }
        var $337=($R7_1|0)==0;
        if ($337) {
-        break L112;
+        break L113;
        }
       }
      } while(0);
      var $339=$R7_1;
-     var $340=HEAP32[((1616)>>2)];
+     var $340=HEAP32[((3832)>>2)];
      var $341=($339>>>0)<($340>>>0);
      if ($341) {
       _abort();
@@ -22393,7 +23528,7 @@ function _free($mem){
      do {
       if (!($347)) {
        var $349=$346;
-       var $350=HEAP32[((1616)>>2)];
+       var $350=HEAP32[((3832)>>2)];
        var $351=($349>>>0)<($350>>>0);
        if ($351) {
         _abort();
@@ -22416,7 +23551,7 @@ function _free($mem){
       break;
      }
      var $362=$359;
-     var $363=HEAP32[((1616)>>2)];
+     var $363=HEAP32[((3832)>>2)];
      var $364=($362>>>0)<($363>>>0);
      if ($364) {
       _abort();
@@ -22436,13 +23571,13 @@ function _free($mem){
    var $373=(($189+$222)|0);
    var $374=$373;
    HEAP32[(($374)>>2)]=$222;
-   var $375=HEAP32[((1620)>>2)];
+   var $375=HEAP32[((3836)>>2)];
    var $376=($p_0|0)==($375|0);
    if (!($376)) {
     var $psize_1=$222;
     break;
    }
-   HEAP32[((1608)>>2)]=$222;
+   HEAP32[((3824)>>2)]=$222;
    return;
   } else {
    var $379=$194&-2;
@@ -22461,25 +23596,25 @@ function _free($mem){
  var $386=($psize_1>>>0)<256;
  if ($386) {
   var $388=$385<<1;
-  var $389=((1640+($388<<2))|0);
+  var $389=((3856+($388<<2))|0);
   var $390=$389;
-  var $391=HEAP32[((1600)>>2)];
+  var $391=HEAP32[((3816)>>2)];
   var $392=1<<$385;
   var $393=$391&$392;
   var $394=($393|0)==0;
   do {
    if ($394) {
     var $396=$391|$392;
-    HEAP32[((1600)>>2)]=$396;
+    HEAP32[((3816)>>2)]=$396;
     var $_sum248_pre=((($388)+(2))|0);
-    var $_pre=((1640+($_sum248_pre<<2))|0);
+    var $_pre=((3856+($_sum248_pre<<2))|0);
     var $F16_0=$390;var $_pre_phi=$_pre;
    } else {
     var $_sum249=((($388)+(2))|0);
-    var $398=((1640+($_sum249<<2))|0);
+    var $398=((3856+($_sum249<<2))|0);
     var $399=HEAP32[(($398)>>2)];
     var $400=$399;
-    var $401=HEAP32[((1616)>>2)];
+    var $401=HEAP32[((3832)>>2)];
     var $402=($400>>>0)<($401>>>0);
     if (!($402)) {
      var $F16_0=$399;var $_pre_phi=$398;
@@ -22538,7 +23673,7 @@ function _free($mem){
   }
  } while(0);
  var $I18_0;
- var $438=((1904+($I18_0<<2))|0);
+ var $438=((4120+($I18_0<<2))|0);
  var $439=(($p_0+28)|0);
  var $I18_0_c=$I18_0;
  HEAP32[(($439)>>2)]=$I18_0_c;
@@ -22546,14 +23681,14 @@ function _free($mem){
  HEAP32[(($440)>>2)]=0;
  var $441=(($p_0+16)|0);
  HEAP32[(($441)>>2)]=0;
- var $442=HEAP32[((1604)>>2)];
+ var $442=HEAP32[((3820)>>2)];
  var $443=1<<$I18_0;
  var $444=$442&$443;
  var $445=($444|0)==0;
  do {
   if ($445) {
    var $447=$442|$443;
-   HEAP32[((1604)>>2)]=$447;
+   HEAP32[((3820)>>2)]=$447;
    HEAP32[(($438)>>2)]=$409;
    var $448=(($p_0+24)|0);
    var $_c=$438;
@@ -22599,7 +23734,7 @@ function _free($mem){
    }
    if (label == 129) {
     var $472=$467;
-    var $473=HEAP32[((1616)>>2)];
+    var $473=HEAP32[((3832)>>2)];
     var $474=($472>>>0)<($473>>>0);
     if ($474) {
      _abort();
@@ -22619,7 +23754,7 @@ function _free($mem){
    var $481=(($T_0+8)|0);
    var $482=HEAP32[(($481)>>2)];
    var $483=$T_0;
-   var $484=HEAP32[((1616)>>2)];
+   var $484=HEAP32[((3832)>>2)];
    var $485=($483>>>0)<($484>>>0);
    if ($485) {
     _abort();
@@ -22646,12 +23781,12 @@ function _free($mem){
    }
   }
  } while(0);
- var $495=HEAP32[((1632)>>2)];
+ var $495=HEAP32[((3848)>>2)];
  var $496=((($495)-(1))|0);
- HEAP32[((1632)>>2)]=$496;
+ HEAP32[((3848)>>2)]=$496;
  var $497=($496|0)==0;
  if ($497) {
-  var $sp_0_in_i=2056;
+  var $sp_0_in_i=4272;
  } else {
   return;
  }
@@ -22666,7 +23801,7 @@ function _free($mem){
    var $sp_0_in_i=$499;
   }
  }
- HEAP32[((1632)>>2)]=-1;
+ HEAP32[((3848)>>2)]=-1;
  return;
 }
 Module["_free"] = _free;
@@ -22743,7 +23878,7 @@ function _try_realloc_chunk($p,$nb){
  var $4=$p;
  var $5=(($4+$3)|0);
  var $6=$5;
- var $7=HEAP32[((1616)>>2)];
+ var $7=HEAP32[((3832)>>2)];
  var $8=($4>>>0)<($7>>>0);
  if ($8) {
   _abort();
@@ -22780,7 +23915,7 @@ function _try_realloc_chunk($p,$nb){
   do {
    if (!($24)) {
     var $26=((($3)-($nb))|0);
-    var $27=HEAP32[((1544)>>2)];
+    var $27=HEAP32[((3760)>>2)];
     var $28=$27<<1;
     var $29=($26>>>0)>($28>>>0);
     if ($29) {
@@ -22824,10 +23959,10 @@ function _try_realloc_chunk($p,$nb){
   var $newp_0;
   return $newp_0;
  }
- var $48=HEAP32[((1624)>>2)];
+ var $48=HEAP32[((3840)>>2)];
  var $49=($6|0)==($48|0);
  if ($49) {
-  var $51=HEAP32[((1612)>>2)];
+  var $51=HEAP32[((3828)>>2)];
   var $52=((($51)+($3))|0);
   var $53=($52>>>0)>($nb>>>0);
   if (!($53)) {
@@ -22847,16 +23982,16 @@ function _try_realloc_chunk($p,$nb){
   var $62=$61;
   var $63=$55|1;
   HEAP32[(($62)>>2)]=$63;
-  HEAP32[((1624)>>2)]=$57;
-  HEAP32[((1612)>>2)]=$55;
+  HEAP32[((3840)>>2)]=$57;
+  HEAP32[((3828)>>2)]=$55;
   var $newp_0=$p;
   var $newp_0;
   return $newp_0;
  }
- var $65=HEAP32[((1620)>>2)];
+ var $65=HEAP32[((3836)>>2)];
  var $66=($6|0)==($65|0);
  if ($66) {
-  var $68=HEAP32[((1608)>>2)];
+  var $68=HEAP32[((3824)>>2)];
   var $69=((($68)+($3))|0);
   var $70=($69>>>0)<($nb>>>0);
   if ($70) {
@@ -22903,8 +24038,8 @@ function _try_realloc_chunk($p,$nb){
   }
   var $storemerge27;
   var $storemerge;
-  HEAP32[((1608)>>2)]=$storemerge27;
-  HEAP32[((1620)>>2)]=$storemerge;
+  HEAP32[((3824)>>2)]=$storemerge27;
+  HEAP32[((3836)>>2)]=$storemerge;
   var $newp_0=$p;
   var $newp_0;
   return $newp_0;
@@ -22938,7 +24073,7 @@ function _try_realloc_chunk($p,$nb){
    var $114=$113;
    var $115=HEAP32[(($114)>>2)];
    var $116=$107<<1;
-   var $117=((1640+($116<<2))|0);
+   var $117=((3856+($116<<2))|0);
    var $118=$117;
    var $119=($112|0)==($118|0);
    do {
@@ -22963,9 +24098,9 @@ function _try_realloc_chunk($p,$nb){
    if ($127) {
     var $129=1<<$107;
     var $130=$129^-1;
-    var $131=HEAP32[((1600)>>2)];
+    var $131=HEAP32[((3816)>>2)];
     var $132=$131&$130;
-    HEAP32[((1600)>>2)]=$132;
+    HEAP32[((3816)>>2)]=$132;
     break;
    }
    var $134=($115|0)==($118|0);
@@ -23098,7 +24233,7 @@ function _try_realloc_chunk($p,$nb){
    var $192=(($4+$_sum11)|0);
    var $193=$192;
    var $194=HEAP32[(($193)>>2)];
-   var $195=((1904+($194<<2))|0);
+   var $195=((4120+($194<<2))|0);
    var $196=HEAP32[(($195)>>2)];
    var $197=($144|0)==($196|0);
    do {
@@ -23111,13 +24246,13 @@ function _try_realloc_chunk($p,$nb){
      var $199=HEAP32[(($193)>>2)];
      var $200=1<<$199;
      var $201=$200^-1;
-     var $202=HEAP32[((1604)>>2)];
+     var $202=HEAP32[((3820)>>2)];
      var $203=$202&$201;
-     HEAP32[((1604)>>2)]=$203;
+     HEAP32[((3820)>>2)]=$203;
      break L52;
     } else {
      var $205=$147;
-     var $206=HEAP32[((1616)>>2)];
+     var $206=HEAP32[((3832)>>2)];
      var $207=($205>>>0)<($206>>>0);
      if ($207) {
       _abort();
@@ -23139,7 +24274,7 @@ function _try_realloc_chunk($p,$nb){
     }
    } while(0);
    var $219=$R_1;
-   var $220=HEAP32[((1616)>>2)];
+   var $220=HEAP32[((3832)>>2)];
    var $221=($219>>>0)<($220>>>0);
    if ($221) {
     _abort();
@@ -23155,7 +24290,7 @@ function _try_realloc_chunk($p,$nb){
    do {
     if (!($227)) {
      var $229=$226;
-     var $230=HEAP32[((1616)>>2)];
+     var $230=HEAP32[((3832)>>2)];
      var $231=($229>>>0)<($230>>>0);
      if ($231) {
       _abort();
@@ -23178,7 +24313,7 @@ function _try_realloc_chunk($p,$nb){
     break;
    }
    var $242=$239;
-   var $243=HEAP32[((1616)>>2)];
+   var $243=HEAP32[((3832)>>2)];
    var $244=($242>>>0)<($243>>>0);
    if ($244) {
     _abort();
@@ -23258,13 +24393,13 @@ function _dispose_chunk($p,$psize){
    var $15=(($1+$14)|0);
    var $16=$15;
    var $17=((($10)+($psize))|0);
-   var $18=HEAP32[((1616)>>2)];
+   var $18=HEAP32[((3832)>>2)];
    var $19=($15>>>0)<($18>>>0);
    if ($19) {
     _abort();
     throw "Reached an unreachable!";
    }
-   var $21=HEAP32[((1620)>>2)];
+   var $21=HEAP32[((3836)>>2)];
    var $22=($16|0)==($21|0);
    if ($22) {
     var $_sum=((($psize)+(4))|0);
@@ -23277,7 +24412,7 @@ function _dispose_chunk($p,$psize){
      var $_0=$16;var $_0277=$17;
      break;
     }
-    HEAP32[((1608)>>2)]=$17;
+    HEAP32[((3824)>>2)]=$17;
     var $174=HEAP32[(($169)>>2)];
     var $175=$174&-2;
     HEAP32[(($169)>>2)]=$175;
@@ -23302,7 +24437,7 @@ function _dispose_chunk($p,$psize){
     var $31=$30;
     var $32=HEAP32[(($31)>>2)];
     var $33=$24<<1;
-    var $34=((1640+($33<<2))|0);
+    var $34=((3856+($33<<2))|0);
     var $35=$34;
     var $36=($29|0)==($35|0);
     do {
@@ -23327,9 +24462,9 @@ function _dispose_chunk($p,$psize){
     if ($44) {
      var $46=1<<$24;
      var $47=$46^-1;
-     var $48=HEAP32[((1600)>>2)];
+     var $48=HEAP32[((3816)>>2)];
      var $49=$48&$47;
-     HEAP32[((1600)>>2)]=$49;
+     HEAP32[((3816)>>2)]=$49;
      var $_0=$16;var $_0277=$17;
      break;
     }
@@ -23466,7 +24601,7 @@ function _dispose_chunk($p,$psize){
    var $109=(($1+$_sum30)|0);
    var $110=$109;
    var $111=HEAP32[(($110)>>2)];
-   var $112=((1904+($111<<2))|0);
+   var $112=((4120+($111<<2))|0);
    var $113=HEAP32[(($112)>>2)];
    var $114=($61|0)==($113|0);
    do {
@@ -23479,14 +24614,14 @@ function _dispose_chunk($p,$psize){
      var $116=HEAP32[(($110)>>2)];
      var $117=1<<$116;
      var $118=$117^-1;
-     var $119=HEAP32[((1604)>>2)];
+     var $119=HEAP32[((3820)>>2)];
      var $120=$119&$118;
-     HEAP32[((1604)>>2)]=$120;
+     HEAP32[((3820)>>2)]=$120;
      var $_0=$16;var $_0277=$17;
      break L1;
     } else {
      var $122=$64;
-     var $123=HEAP32[((1616)>>2)];
+     var $123=HEAP32[((3832)>>2)];
      var $124=($122>>>0)<($123>>>0);
      if ($124) {
       _abort();
@@ -23509,7 +24644,7 @@ function _dispose_chunk($p,$psize){
     }
    } while(0);
    var $136=$R_1;
-   var $137=HEAP32[((1616)>>2)];
+   var $137=HEAP32[((3832)>>2)];
    var $138=($136>>>0)<($137>>>0);
    if ($138) {
     _abort();
@@ -23525,7 +24660,7 @@ function _dispose_chunk($p,$psize){
    do {
     if (!($144)) {
      var $146=$143;
-     var $147=HEAP32[((1616)>>2)];
+     var $147=HEAP32[((3832)>>2)];
      var $148=($146>>>0)<($147>>>0);
      if ($148) {
       _abort();
@@ -23549,7 +24684,7 @@ function _dispose_chunk($p,$psize){
     break;
    }
    var $159=$156;
-   var $160=HEAP32[((1616)>>2)];
+   var $160=HEAP32[((3832)>>2)];
    var $161=($159>>>0)<($160>>>0);
    if ($161) {
     _abort();
@@ -23568,7 +24703,7 @@ function _dispose_chunk($p,$psize){
  } while(0);
  var $_0277;
  var $_0;
- var $181=HEAP32[((1616)>>2)];
+ var $181=HEAP32[((3832)>>2)];
  var $182=($2>>>0)<($181>>>0);
  if ($182) {
   _abort();
@@ -23582,32 +24717,32 @@ function _dispose_chunk($p,$psize){
  var $188=($187|0)==0;
  do {
   if ($188) {
-   var $190=HEAP32[((1624)>>2)];
+   var $190=HEAP32[((3840)>>2)];
    var $191=($3|0)==($190|0);
    if ($191) {
-    var $193=HEAP32[((1612)>>2)];
+    var $193=HEAP32[((3828)>>2)];
     var $194=((($193)+($_0277))|0);
-    HEAP32[((1612)>>2)]=$194;
-    HEAP32[((1624)>>2)]=$_0;
+    HEAP32[((3828)>>2)]=$194;
+    HEAP32[((3840)>>2)]=$_0;
     var $195=$194|1;
     var $196=(($_0+4)|0);
     HEAP32[(($196)>>2)]=$195;
-    var $197=HEAP32[((1620)>>2)];
+    var $197=HEAP32[((3836)>>2)];
     var $198=($_0|0)==($197|0);
     if (!($198)) {
      return;
     }
-    HEAP32[((1620)>>2)]=0;
-    HEAP32[((1608)>>2)]=0;
+    HEAP32[((3836)>>2)]=0;
+    HEAP32[((3824)>>2)]=0;
     return;
    }
-   var $201=HEAP32[((1620)>>2)];
+   var $201=HEAP32[((3836)>>2)];
    var $202=($3|0)==($201|0);
    if ($202) {
-    var $204=HEAP32[((1608)>>2)];
+    var $204=HEAP32[((3824)>>2)];
     var $205=((($204)+($_0277))|0);
-    HEAP32[((1608)>>2)]=$205;
-    HEAP32[((1620)>>2)]=$_0;
+    HEAP32[((3824)>>2)]=$205;
+    HEAP32[((3836)>>2)]=$_0;
     var $206=$205|1;
     var $207=(($_0+4)|0);
     HEAP32[(($207)>>2)]=$206;
@@ -23621,7 +24756,7 @@ function _dispose_chunk($p,$psize){
    var $213=((($212)+($_0277))|0);
    var $214=$186>>>3;
    var $215=($186>>>0)<256;
-   L100: do {
+   L101: do {
     if ($215) {
      var $_sum20=((($psize)+(8))|0);
      var $217=(($1+$_sum20)|0);
@@ -23632,7 +24767,7 @@ function _dispose_chunk($p,$psize){
      var $221=$220;
      var $222=HEAP32[(($221)>>2)];
      var $223=$214<<1;
-     var $224=((1640+($223<<2))|0);
+     var $224=((3856+($223<<2))|0);
      var $225=$224;
      var $226=($219|0)==($225|0);
      do {
@@ -23657,9 +24792,9 @@ function _dispose_chunk($p,$psize){
      if ($234) {
       var $236=1<<$214;
       var $237=$236^-1;
-      var $238=HEAP32[((1600)>>2)];
+      var $238=HEAP32[((3816)>>2)];
       var $239=$238&$237;
-      HEAP32[((1600)>>2)]=$239;
+      HEAP32[((3816)>>2)]=$239;
       break;
      }
      var $241=($222|0)==($225|0);
@@ -23792,7 +24927,7 @@ function _dispose_chunk($p,$psize){
      var $299=(($1+$_sum15)|0);
      var $300=$299;
      var $301=HEAP32[(($300)>>2)];
-     var $302=((1904+($301<<2))|0);
+     var $302=((4120+($301<<2))|0);
      var $303=HEAP32[(($302)>>2)];
      var $304=($251|0)==($303|0);
      do {
@@ -23805,13 +24940,13 @@ function _dispose_chunk($p,$psize){
        var $306=HEAP32[(($300)>>2)];
        var $307=1<<$306;
        var $308=$307^-1;
-       var $309=HEAP32[((1604)>>2)];
+       var $309=HEAP32[((3820)>>2)];
        var $310=$309&$308;
-       HEAP32[((1604)>>2)]=$310;
-       break L100;
+       HEAP32[((3820)>>2)]=$310;
+       break L101;
       } else {
        var $312=$254;
-       var $313=HEAP32[((1616)>>2)];
+       var $313=HEAP32[((3832)>>2)];
        var $314=($312>>>0)<($313>>>0);
        if ($314) {
         _abort();
@@ -23828,12 +24963,12 @@ function _dispose_chunk($p,$psize){
        }
        var $324=($R7_1|0)==0;
        if ($324) {
-        break L100;
+        break L101;
        }
       }
      } while(0);
      var $326=$R7_1;
-     var $327=HEAP32[((1616)>>2)];
+     var $327=HEAP32[((3832)>>2)];
      var $328=($326>>>0)<($327>>>0);
      if ($328) {
       _abort();
@@ -23849,7 +24984,7 @@ function _dispose_chunk($p,$psize){
      do {
       if (!($334)) {
        var $336=$333;
-       var $337=HEAP32[((1616)>>2)];
+       var $337=HEAP32[((3832)>>2)];
        var $338=($336>>>0)<($337>>>0);
        if ($338) {
         _abort();
@@ -23872,7 +25007,7 @@ function _dispose_chunk($p,$psize){
       break;
      }
      var $349=$346;
-     var $350=HEAP32[((1616)>>2)];
+     var $350=HEAP32[((3832)>>2)];
      var $351=($349>>>0)<($350>>>0);
      if ($351) {
       _abort();
@@ -23893,13 +25028,13 @@ function _dispose_chunk($p,$psize){
    var $361=(($360+$213)|0);
    var $362=$361;
    HEAP32[(($362)>>2)]=$213;
-   var $363=HEAP32[((1620)>>2)];
+   var $363=HEAP32[((3836)>>2)];
    var $364=($_0|0)==($363|0);
    if (!($364)) {
     var $_1=$213;
     break;
    }
-   HEAP32[((1608)>>2)]=$213;
+   HEAP32[((3824)>>2)]=$213;
    return;
   } else {
    var $367=$186&-2;
@@ -23919,25 +25054,25 @@ function _dispose_chunk($p,$psize){
  var $375=($_1>>>0)<256;
  if ($375) {
   var $377=$374<<1;
-  var $378=((1640+($377<<2))|0);
+  var $378=((3856+($377<<2))|0);
   var $379=$378;
-  var $380=HEAP32[((1600)>>2)];
+  var $380=HEAP32[((3816)>>2)];
   var $381=1<<$374;
   var $382=$380&$381;
   var $383=($382|0)==0;
   do {
    if ($383) {
     var $385=$380|$381;
-    HEAP32[((1600)>>2)]=$385;
+    HEAP32[((3816)>>2)]=$385;
     var $_sum13_pre=((($377)+(2))|0);
-    var $_pre=((1640+($_sum13_pre<<2))|0);
+    var $_pre=((3856+($_sum13_pre<<2))|0);
     var $F16_0=$379;var $_pre_phi=$_pre;
    } else {
     var $_sum14=((($377)+(2))|0);
-    var $387=((1640+($_sum14<<2))|0);
+    var $387=((3856+($_sum14<<2))|0);
     var $388=HEAP32[(($387)>>2)];
     var $389=$388;
-    var $390=HEAP32[((1616)>>2)];
+    var $390=HEAP32[((3832)>>2)];
     var $391=($389>>>0)<($390>>>0);
     if (!($391)) {
      var $F16_0=$388;var $_pre_phi=$387;
@@ -23996,7 +25131,7 @@ function _dispose_chunk($p,$psize){
   }
  } while(0);
  var $I19_0;
- var $427=((1904+($I19_0<<2))|0);
+ var $427=((4120+($I19_0<<2))|0);
  var $428=(($_0+28)|0);
  var $I19_0_c=$I19_0;
  HEAP32[(($428)>>2)]=$I19_0_c;
@@ -24004,13 +25139,13 @@ function _dispose_chunk($p,$psize){
  HEAP32[(($429)>>2)]=0;
  var $430=(($_0+16)|0);
  HEAP32[(($430)>>2)]=0;
- var $431=HEAP32[((1604)>>2)];
+ var $431=HEAP32[((3820)>>2)];
  var $432=1<<$I19_0;
  var $433=$431&$432;
  var $434=($433|0)==0;
  if ($434) {
   var $436=$431|$432;
-  HEAP32[((1604)>>2)]=$436;
+  HEAP32[((3820)>>2)]=$436;
   HEAP32[(($427)>>2)]=$398;
   var $437=(($_0+24)|0);
   var $_c=$427;
@@ -24057,7 +25192,7 @@ function _dispose_chunk($p,$psize){
  }
  if (label == 126) {
   var $461=$456;
-  var $462=HEAP32[((1616)>>2)];
+  var $462=HEAP32[((3832)>>2)];
   var $463=($461>>>0)<($462>>>0);
   if ($463) {
    _abort();
@@ -24076,7 +25211,7 @@ function _dispose_chunk($p,$psize){
  var $470=(($T_0+8)|0);
  var $471=HEAP32[(($470)>>2)];
  var $472=$T_0;
- var $473=HEAP32[((1616)>>2)];
+ var $473=HEAP32[((3832)>>2)];
  var $474=($472>>>0)<($473>>>0);
  if ($474) {
   _abort();
