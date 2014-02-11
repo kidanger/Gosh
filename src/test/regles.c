@@ -33,7 +33,13 @@
 #include "cli/deroulement_partie.h"
 #include "cli/affichage.h"
 
-
+/** @ingroup test
+ *  @brief Teste l'opération "passer son tour".
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @return vrai si le test a réussi
+ */
 bool handle_passer(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -43,7 +49,13 @@ bool handle_passer(Partie partie, FILE* file, const char* arguments)
 	return partie_jouer_coup(partie, coup);
 }
 
-
+/** @ingroup test
+ *  @brief Teste l'affichage du plateau.
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @return vrai
+ */
 bool handle_afficher(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -52,6 +64,14 @@ bool handle_afficher(Partie partie, FILE* file, const char* arguments)
 	cli_afficher_plateau(partie->plateau);
 	return true;
 }
+
+/** @ingroup test
+ *  @brief Teste la coloration de la console
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @param message à afficher
+ *  @return vrai
+ */
 bool handle_message(Partie partie, FILE* file, const char* arguments)
 {
 	(void) partie;
@@ -59,6 +79,14 @@ bool handle_message(Partie partie, FILE* file, const char* arguments)
 	printf(C_YELLOW "%s\n" C_NORMAL, arguments);
 	return true;
 }
+
+/** @ingroup test
+ *  @brief Retourne vrai.
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @return vrai
+ */
 bool handle_commentaire(Partie partie, FILE* file, const char* arguments)
 {
 	(void) partie;
@@ -66,6 +94,14 @@ bool handle_commentaire(Partie partie, FILE* file, const char* arguments)
 	(void) arguments;
 	return true;
 }
+
+/** @ingroup test
+ *  @brief Teste la conversion d'une chaîne de caractère en un coup.
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param Chaîne de caractère à convertir
+ *  @return vrai si la chaîne de caractère est valide
+ */
 bool handle_fail(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -75,6 +111,14 @@ bool handle_fail(Partie partie, FILE* file, const char* arguments)
 		valide &= partie_jouer_coup(partie, coup) == false;
 	return valide;
 }
+
+/** @ingroup test
+ *  @brief teste si la case est vide
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param coup joué
+ *  @return vrai si la case est vide, sinon retourne faux
+ */
 bool handle_vide(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -86,6 +130,14 @@ bool handle_vide(Partie partie, FILE* file, const char* arguments)
 		printf("La case %s n'est pas vide.\n", arguments);
 	return valide;
 }
+
+/** @ingroup test
+ *  @brief Test un coup joué
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param coup joué
+ *  @return
+ */
 bool handle_coup(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -95,6 +147,14 @@ bool handle_coup(Partie partie, FILE* file, const char* arguments)
 		valide &= partie_jouer_coup(partie, coup);
 	return valide;
 }
+
+/** @ingroup test
+ *  @brief Teste le chargement d'une partie
+ *  @param partie de test
+ *  @param Fichier à charger
+ *  @param inutilisé
+ *  @return vrai
+ */
 bool handle_charger(Partie partie, FILE* file, const char* arguments)
 {
 	(void) arguments;
@@ -102,6 +162,14 @@ bool handle_charger(Partie partie, FILE* file, const char* arguments)
 	partie->plateau = charger_plateau(file);
 	return true;
 }
+
+/** @ingroup test
+ *  @brief Teste l'annulation d'un coup
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @return valeur de retour de partie_annuler_coup
+ */
 bool handle_annuler(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -109,6 +177,14 @@ bool handle_annuler(Partie partie, FILE* file, const char* arguments)
 	bool valide = partie_annuler_coup(partie);
 	return valide;
 }
+
+/** @ingroup test
+ *  @brief Teste le rejout d'un coup
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param inutilisé
+ *  @return valeur de retour de partie_rejouer_coup
+ */
 bool handle_rejouer(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -116,6 +192,15 @@ bool handle_rejouer(Partie partie, FILE* file, const char* arguments)
 	bool valide = partie_rejouer_coup(partie);
 	return valide;
 }
+
+/** @ingroup test
+ *  @param teste si la partie est finie
+ *  @param partie de test
+ *  @param inutilisé
+ *  @param "true" si doit retourner vrai si la partie est fini, "false" si doit retourner faux si la
+ *  partie est finie
+ *  @return faux si arguments est invalide ou une valeur dépendantes d'arguments et de partie->finie
+ */
 bool handle_assert_partie_finie(Partie partie, FILE* file, const char* arguments)
 {
 	(void) file;
@@ -128,6 +213,13 @@ bool handle_assert_partie_finie(Partie partie, FILE* file, const char* arguments
 	return false;
 }
 
+/** @ingroup test
+ *  @brief Réponds aux questions posées
+ *  @param Question à laquelle répondre
+ *  @param partie de test
+ *  @param inutilisé
+ *  @return vrai
+ */
 bool test_reponses_aux_questions(enum Question question, Partie partie, void* userdata)
 {
 	(void) userdata;
@@ -153,8 +245,9 @@ bool test_reponses_aux_questions(enum Question question, Partie partie, void* us
 }
 
 /** @ingroup test
- *  @brief Teste un fichier
- *  @param fichier à tester
+ *  @brief Teste les fonctions de gosh grâce à un fichier de test
+ *  @param fichier de test
+ *  @param fichier de test
  *  @return Retourne vrai si le teste à réussi, faux sinon.
  */
 bool tester(const char* filename)

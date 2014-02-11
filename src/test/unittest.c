@@ -14,6 +14,10 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 
+/** @defgroup test
+ *  @brief Ensemble des fonctions et des fichiers de tests.
+ */
+
 /** @file unittest.c
  *  @author Jéremy Anger
  *  @author Denis Migdal
@@ -213,7 +217,7 @@ void test_chaines(void)
 	gosh_ajouter(ch, c);
 	gosh_ajouter(ch, c2);
 
-	detruire_chaines(ch); // à tester sur valgrind
+    detruire_chaines(ch);
 }
 
 
