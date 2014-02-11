@@ -303,9 +303,10 @@ void detruire_tutoriel(struct state* state)
 		for (int i = 0; i < tuto->nb_labels[e]; i++) {
 			detruire_label(tuto->labels[e][i]);
 		}
+		gosh_free(tuto->labels[e]);
 		detruire_plateau(tuto->plateaux[e]);
 	}
-	gosh_free(state->data);
+	gosh_free(tuto);
 	gosh_free(state);
 }
 
