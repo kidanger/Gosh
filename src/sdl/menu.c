@@ -41,6 +41,7 @@
 #include "sdl/textinput.h"
 #include "sdl/main.h"
 #include "sdl/charger.h"
+#include "sdl/tutoriel.h"
 #include "sdl/jouer.h"
 #include "sdl/menu.h"
 
@@ -60,7 +61,7 @@
 
 						[Jouer]
 
-	[Quitter]						[Charger]
+	[Quitter]		[Tutoriel] 		[Charger]
 */
 
 /** @brief Indice du groupe radio correspondant au type du joueur 1 */
@@ -74,7 +75,7 @@
 /** @brief Indice du groupe radio correspondant à la taille du Goban */
 #define GROUPE_TAILLE 4
 
-#define NUM_BOUTONS 3
+#define NUM_BOUTONS 4
 #define NUM_LABELS 8
 #define NUM_GROUPES 5
 #define NUM_TEXTINPUTS 3
@@ -130,6 +131,10 @@ static void menu_bouton_jouer(struct bouton*, void *);
  */
 static void menu_bouton_charger(struct bouton*, void *);
 /** @ingroup sdl
+ *  @brief Entre dans le "tutoriel"
+ */
+static void menu_bouton_tutoriel(struct bouton*, void *);
+/** @ingroup sdl
  *  @brief Appelé lorsque l'utilisateur coche une case
  */
 static void menu_radio_type_joueur(struct groupe_radio*, void*);
@@ -171,6 +176,12 @@ struct state* creer_menu()
 	set_color(50, 50, 200);
 	bouton = creer_bouton("Charger", W * .7, H * .9, 100, 30);
 	bouton->callback = menu_bouton_charger;
+	bouton->userdata = state;
+	menu->boutons[id_bouton++] = bouton;
+
+	set_color(50, 200, 200);
+	bouton = creer_bouton("Tutoriel", W * .5, H * .9, 100, 30);
+	bouton->callback = menu_bouton_tutoriel;
 	bouton->userdata = state;
 	menu->boutons[id_bouton++] = bouton;
 
@@ -437,6 +448,14 @@ static void menu_bouton_charger(struct bouton* bouton, void * data)
 	(void) bouton;
 	struct state* state = data;
 	struct state* new_state = creer_charger(state);
+	set_state(new_state);
+}
+
+static void menu_bouton_tutoriel(struct bouton* bouton, void * data)
+{
+	(void) bouton;
+	struct state* state = data;
+	struct state* new_state = creer_tutoriel(state);
 	set_state(new_state);
 }
 

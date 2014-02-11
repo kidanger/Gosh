@@ -39,5 +39,21 @@ struct state* creer_jouer(struct state* parent, Partie partie);
  */
 void detruire_jouer(struct state*);
 
+/** @ingroup sdl
+ *  @brief Calcul la position d'une case à l'écran
+ *  @param Taille du plateau
+ *  @param Coordonnée x de la case
+ *  @param Coordonnée y de la case
+ *  @param Coordonnée x à l'écran
+ *  @param Coordonnée y à l'écran
+ *  @param Début du plateau en X en pixel
+ *  @param Début du plateau en Y en pixel
+ *  @param Taille du plateau en pixel
+ */
+void get_position_vers_ecran(int taille, int x, int y, int* sx, int* sy, int x1, int y1, int w);
+
+
+int get_marge(int i, int taille);
+
 #endif
 

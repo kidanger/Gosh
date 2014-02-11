@@ -246,19 +246,15 @@ Position get_position_depuis_ecran(struct jouerdata* jouer, int x, int y)
 	               jouer->taille);
 	return pos;
 }
-void get_position_vers_ecran(struct jouerdata* jouer, int x, int y, int* sx, int* sy)
+void get_position_vers_ecran(int taille, int x, int y, int* sx, int* sy, int x1, int y1, int w)
 {
-	int x1 = W * .2;
-	int y1 = H * .2;
-	int w = MAX(W * .8 - x1, H * .8 - y1);
-	w -= w % jouer->taille;
-	int pixel_par_case = w / jouer->taille;
-	int bordure = (w - pixel_par_case * (jouer->taille - 1)) / 2;
+	int pixel_par_case = w / taille;
+	int bordure = (w - pixel_par_case * (taille - 1)) / 2;
 	*sx = x1 + bordure + x * pixel_par_case;
 	*sy = y1 + bordure + y * pixel_par_case;
 }
 
-static int get_marge(int i, int taille)
+int get_marge(int i, int taille)
 {
 	if (i < taille / 2)
 		return i;
@@ -330,7 +326,7 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 			if (draw) {
 				// affichage de la pierre
 				int sx, sy;
-				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				get_position_vers_ecran(taille, x, y, &sx, &sy, x1, y1, w);
 				sx -= taille_stone / 2;
 				sy -= taille_stone / 2;
 				draw_rect(surface, sx, sy, taille_stone, taille_stone);
@@ -338,7 +334,7 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 					&& (get_marge(y, taille) == marge || y == taille / 2)) {
 				// affichage du hoshi
 				int sx, sy;
-				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				get_position_vers_ecran(taille, x, y, &sx, &sy, x1, y1, w);
 				set_color(0, 0, 0);
 				draw_rect(surface, sx - 3, sy - 3, 6, 6);
 			}
@@ -357,7 +353,7 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 			}
 			if (draw) {
 				int sx, sy;
-				get_position_vers_ecran(jouer, x, y, &sx, &sy);
+				get_position_vers_ecran(taille, x, y, &sx, &sy, x1, y1, w);
 				sx -= taille_stone2 / 2;
 				sy -= taille_stone2 / 2;
 				draw_rect(surface, sx, sy, taille_stone2, taille_stone2);

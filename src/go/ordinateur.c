@@ -61,8 +61,13 @@ Ordinateur charger_ordinateur(const char* name)
 	const char* extension = ".so";
 #else
 	const char* extension = ".dll";
+#define BUILD_PATH ""
+#define INSTALL_PATH ""
 #endif
-	const char* paths[] = { BUILD_PATH"/src/ordinateurs/", INSTALL_PATH"/share/gosh/" };
+	const char* paths[] = {
+		BUILD_PATH"/src/ordinateurs/",
+		INSTALL_PATH"/share/gosh/"
+	};
 	char filename[256];
 
 	unsigned p = 0;;
