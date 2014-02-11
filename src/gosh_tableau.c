@@ -13,6 +13,15 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file gosh_tableau.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup outils
+ *  @brief Défini les méthodes d'utilisation des tableaux.
+ */
+
 #ifdef TYPE
 
 struct IMPL_CONTAINER_NAME {

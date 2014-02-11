@@ -14,12 +14,16 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 
+/** @defgroup random
+ *  @brief Ensemble des fonctions et des fichiers relatifs à l'IA aléaoire.
+ */
+
 /** @file random/main.c
  *  @author Jéremy Anger
  *  @author Denis Migdal
  *  @date 08/02/2014
- *  @ingroup ordinateurs
- *  @brief Bibliothèque de l'ordinateur qui utilise GNU Go
+ *  @ingroup random
+ *  @brief Bibliothèque de l'IA aléatoire
  */
 
 
@@ -32,11 +36,13 @@
 #include "gosh_macros.h"
 #include "gosh_alloc.h"
 
-// non utilisé dans le cas de l'ordinateur random
-typedef struct {
-} *Data;
-
-void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
+/** @ingroup random
+ *  @brief Demande à l'IA aléatoire de jouer un coup
+ *  @param vide
+ *  @param Partie en cours
+ *  @param Joueur joué par l'IA aléatoire
+ */
+void JOUER_COUP(void* data, Partie partie, enum CouleurJoueur couleur)
 {
 	(void) data;
 	(void) couleur;
@@ -57,16 +63,14 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 	}
 }
 
+/** @ingroup random
+ *  @brief Initialise l'IA aléatoire
+ *  @return E/S (vide)
+ */
 void* INITIALISER()
 {
-	srand(time(NULL));
-	Data data = gosh_alloc(*data);
+    srand(time(NULL));
 	gosh_debug("Initialisation du botrandom");
-	return data;
-}
-
-void LIBERER(Data data)
-{
-	free(data);
+    return (void*) 0x1;
 }
 
