@@ -47,15 +47,15 @@ Exécuter
 Mode console
 ------------
 
-Sous Linux, entrez la commande goshcli.\\
-Goshcli utilise l'utf-8, vous pouvez donc rencontrer des problèmes d'encodages si votre console n'est pas configurée pour utiliser l'utf-8.
+Sous Linux, entrez la commande *goshcli* ou *./build/src/cli/goshcli* si le programme n'est pas installé.
 
-Sous Windows, recherchez l'exécutable goshcli.exe et doublez-cliquez dessus.
+Goshcli utilise l'UTF-8, vous pouvez donc rencontrer des problèmes d'encodages si votre console n'est pas configurée pour utiliser l'UTF-8
 
 
 Mode graphique
 --------------
 
-Sous Linux, entrez la commande goshsdl.
+Sous Linux, entrez la commande *goshsdl* ou *./build/src/sdl/goshsdl* si le programme n'est pas installé.
 
 Sous Windows, recherchez l'exécutable goshsdl.exe et doublez-cliquez dessus.
+
