@@ -103,11 +103,9 @@
 #define C_BACKGROUND_NORMAL ""
 #endif
 
-#define C_YELLOW_BG "\033[43m"
-
 /** @ingroup cli
- *  @brief Affiche un tableau
- *  @param Tableau à afficher
+ *  @brief Affiche un plateau
+ *  @param Plateau à afficher
  */
 void cli_afficher_plateau(Plateau plateau);
 

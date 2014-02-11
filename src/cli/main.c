@@ -28,11 +28,8 @@
 
 #include "cli/menu_principal.h"
 
-int main(int argc, const char *argv[])
+int main(void)
 {
-	(void) argc;
-	(void) argv;
-
 	afficher_menu_principal();
 
 	return EXIT_SUCCESS;

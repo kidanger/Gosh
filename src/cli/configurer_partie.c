@@ -89,7 +89,7 @@ bool saisir_nom_joueur(Partie partie, enum CouleurJoueur couleur)
 
 
 /** @ingroup cli
- *  @brief Demande à l'utilisateur d'entrer le type de robot à utiliser
+ *  @brief Demande à l'utilisateur d'entrer le type d'IA de l'ordinateur à utiliser
  *  @param Partie à configurer
  *  @param Couleur du joueur à configurer
  *  @return Retourne faux en cas d'échec.
@@ -169,7 +169,7 @@ bool saisir_handicap(Partie partie)
  *  @brief Demande à l'utilisateur de répondre à une question
  *  @param Question à laquelle l'utilisateur doit répondre
  *  @param Partie à configurer
- *  @param Données quelconques
+ *  @param Données passées à la question.
  *  @return Retourne faux en cas d'échec.
  */
 bool questions_callback(enum Question question, Partie partie, void* userdata)

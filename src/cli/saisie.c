@@ -68,6 +68,10 @@ static void fin(void)
 	fflush(stdout);
 }
 
+/** @def NUM_OPTIONS
+ *  @ingroup cli
+ *  @brief Nombres d'options maximum par choix.
+ */
 #define NUM_OPTIONS 16
 
 char cli_choisir_option2(const char *prompt, char defaut, const Option * options)
