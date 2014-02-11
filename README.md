@@ -41,6 +41,15 @@ make
 make install
 ```
 
+Générer la documentation
+------------------------
+
+Pour générer la documentation Doxygen, tapez les commandes suivantes et ouvrez *doc/html/index.html*.
+```
+cd doc
+doxygen
+```
+
 Exécuter
 =======
 
