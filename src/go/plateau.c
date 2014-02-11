@@ -19,7 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
- *  @brief Implémente tous les fonctions liées au plateau
+ *  @brief Implémente tous les fonctions liées aux plateaux
  */
 
 #include <stdlib.h>
@@ -44,13 +44,14 @@ struct s_Plateau {
 /** @ingroup go
  *  @brief Donne la taille en "cases" des données du tableau
  *  @param taille du tableau
- *  @return taille en "cases" des données du tableau
+ *  @return taille en nombre de uint32_t des données du tableau
  */
 size_t impl_get_nbCases(size_t taille)
 {
 	size_t tailleCasesEnBits = (taille * taille * 2);
 	size_t tailleUneCaseEnBits = (sizeof(uint32_t) * 8);
-	size_t nbCases = (tailleCasesEnBits + tailleUneCaseEnBits - 1) / tailleUneCaseEnBits; //arrondit à l'entier supérieur.
+    //arrondit à l'entier supérieur.
+    size_t nbCases = (tailleCasesEnBits + tailleUneCaseEnBits - 1) / tailleUneCaseEnBits;
 	return nbCases;
 }
 

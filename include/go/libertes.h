@@ -21,7 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
- *  @brief Déclare les fonctions relatives aux libertés
+ *  @brief Déclare les fonctions relatives aux libertés ainsi que les ensembles de libertés
  */
 
 #include "go/plateau.h"

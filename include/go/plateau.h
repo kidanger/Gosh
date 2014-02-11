@@ -125,7 +125,7 @@ void plateau_copie(Plateau from, Plateau to);
 
 
 /** @ingroup go
- *  @brief Copie un plateau.
+ *  @brief Clone un plateau.
  *  @param plateau à copier
  *  @return plateau ainsi crée
  */

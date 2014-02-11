@@ -35,7 +35,7 @@
 typedef EnsembleColore Chaine;
 
 /** @ingroup go
- *  @brief Détermine la position des yeux relatifs à une chaine.
+ *  @brief Détermine la position des yeux appartenant à une chaine.
  *
  *  Si la chaine n’a aucun oeil alors la valeur retournée est NULL.
  *  @param Chaine à tester

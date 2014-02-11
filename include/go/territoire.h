@@ -21,6 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Déclare les fonctions et les types liées aux territoires
  */
 
 #include "go/plateau_type.h"
@@ -33,7 +34,7 @@
 typedef EnsembleColore Territoire;
 
 /** @ingroup go
- *  @brief retourne un ensemble d’intersections inoccupées voisines de proche
+ *  @brief Retourne un ensemble d’intersections inoccupées voisines de proche
  * en proche délimitees par des pierres de même couleur en commencant par l’intersection
  * vide à la position pos.
  *

@@ -21,6 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Déclare la fonction de conversion de chaîne de caractères en coup.
  */
 
 #include <stdbool.h>
@@ -43,7 +44,7 @@ typedef struct {
  *
  *  @param chaine de caractère à convertir
  *  @param taille de la chaine de caractère
- *  @param est mis à faux si la chaine de caractères représente un coup invalide
+ *  @param si non NULL, est mis à faux si la chaine de caractères représente un coup invalide
  *  @return Coup représenté par la chaîne de caractères.
  */
 s_Coup str2coup(const char* str, int taille, bool* valide);

@@ -19,6 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Implémente la fonction de conversion de chaîne de caractères en coup.
  */
 
 #include <stdlib.h>

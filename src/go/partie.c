@@ -28,6 +28,10 @@
 #include "go/ordinateur.h"
 #include "go/partie.h"
 
+/** @def JOUEUR_SUIVANT(couleur)
+ *  @ingroup go
+ *  @brief Donne le joueur suivant
+ */
 #define JOUEUR_SUIVANT(couleur) ((couleur) == JOUEUR_BLANC ? JOUEUR_NOIR : JOUEUR_BLANC)
 
 Partie creer_partie(void)

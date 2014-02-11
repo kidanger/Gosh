@@ -21,6 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Déclare la structure pion (=pierres)
  */
 
 #include "go/couleur.h"
@@ -28,7 +29,7 @@
 
 
 /** @ingroup go
- *  @brief Défini un pion
+ *  @brief Défini un pion (=pierre)
  */
 typedef struct {
 	/** @brief Couleur du pion */

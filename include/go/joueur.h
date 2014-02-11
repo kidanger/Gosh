@@ -28,7 +28,7 @@
 
 /** @def TAILLE_NOM_JOUEUR
  *  @ingroup go
- *  @brief Taille maximale pour le nom d'un joueur.
+ *  @brief Taille maximale pour le nom d'un joueur + 1.
  */
 #define TAILLE_NOM_JOUEUR 12
 
@@ -64,7 +64,9 @@ struct s_Joueur {
 };
 
 
-/** @brief Joueur */
+/** @ingroup go
+ *  @brief Défini le type Joueur
+ */
 typedef struct s_Joueur* Joueur;
 
 #endif

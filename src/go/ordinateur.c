@@ -27,8 +27,20 @@
 #include <string.h>
 #ifndef _WIN32
 #include <dlfcn.h>
+/** @def DLOPEN(path)
+ *  @ingroup go
+ *  @brief Ouvre une bibliothèque dynamique et retourne un "handle" sur cette dernière
+ */
 #define DLOPEN(path) dlopen(path, RTLD_LAZY)
+/** @def DLSYM
+ *  @ingroup go
+ *  @brief Recherche un symbole dans une bibliothèque dynamique et retourne un pointeur sur celui-ci.
+ */
 #define DLSYM dlsym
+/** @def DLCLOSE
+ *  @ingroup go
+ *  @brief Ferme une biblithèque dynamique et libère les ressources associées.
+ */
 #define DLCLOSE dlclose
 #else
 #include <windows.h>
