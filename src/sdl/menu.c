@@ -409,6 +409,8 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			strcpy(partie->joueurs[JOUEUR_NOIR].nom, menu->textinputs[0]->buffer);
 			break;
 		case PROGRAMME_JOUEUR_NOIR:
+			partie->joueurs[JOUEUR_NOIR].ordinateur = charger_ordinateur(
+					menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ? "gnugo" : "random");
 			return partie->joueurs[JOUEUR_NOIR].ordinateur != NULL;
 
 		case TAILLE_PLATEAU: {
