@@ -14,11 +14,15 @@
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
 
+/** @defgroup gnugo
+ *  @brief Ensemble des fonctions et des fichiers relatifs à l'IA gnugo.
+ */
+
 /** @file gnugo/main.c
  *  @author Jéremy Anger
  *  @author Denis Migdal
  *  @date 08/02/2014
- *  @ingroup ordinateurs
+ *  @ingroup gnugo
  *  @brief Bibliothèque de l'ordinateur qui joue aléatoirement
  */
 
@@ -36,21 +40,45 @@
 #include "gosh_macros.h"
 #include "gosh_alloc.h"
 
+/** @ingroup gnugo
+ *  @brief Commande et arguments utilisés pour lancer gnugo
+ */
 char * const GNUGO_COMMAND[] = { "gnugo", "--mode=gtp", NULL };
 
+/** @ingroup gnugo
+ *  @brief Convertit une lettre de gosh vers gnugo
+ *
+ *  Les lettres servent à identifier la colonne d'une position sur le plateau. Or gnugo n'utilise pas la
+ *  lettre "i".
+ */
 char GOSH_TO_GNUGNO[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
                           'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'
                         };
+
+/** @ingroup gnugo
+ *  @brief Convertit une lettre de gnugo vers gosh
+ *
+ *  Les lettres servent à identifier la colonne d'une position sur le plateau. Or gnugo n'utilise pas la
+ *  lettre "i".
+ */
 char GNUGO_TO_GOSH[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'x', 'I',
                          'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S'
                        };
 
+/** @ingroup gnugo
+ *  @brief Ensemble des files descriptions utilisés pour les E/S avec gnugo
+ */
 typedef struct {
+    /** @brief file descriptor utilisé comme entrée */
 	int fdin;
+    /** @brief file descriptor utilisé comme sortie */
 	int fdout;
 } *Data;
 
-
+/** @ingroup gnugo
+ *  @brief Vide les E/S
+ *  @param E/S à vider
+ */
 void ignorer_sortie(Data data)
 {
 	// vide la sortie de gnugo
@@ -65,6 +93,11 @@ void ignorer_sortie(Data data)
 	}
 }
 
+/** @ingroup gnugo
+ *  @brief Envoie une instruction à gnugo
+ *  @param E/S
+ *  @param Commande à envoyer
+ */
 bool envoyer_commande(Data data, const char* commande)
 {
 	gosh_debug("GNUGO => %s", commande);
@@ -90,6 +123,11 @@ bool envoyer_commande(Data data, const char* commande)
 	}
 }
 
+/** @ingroup gnugo
+ *  @brief Récupère le coup joué par gnugo
+ *  @param E/S
+ *  @param partie en cours
+ */
 s_Coup recuperer_coup(Data data, Partie partie)
 {
 	int taille = plateau_get_taille(partie->plateau);
@@ -106,6 +144,12 @@ s_Coup recuperer_coup(Data data, Partie partie)
 	return coup;
 }
 
+/** @ingroup gnugo
+ *  @brief Demande à gnugo de jouer un coup
+ *  @param E/S
+ *  @param Partie en cours
+ *  @param Joueur joué par gnugo
+ */
 void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 {
 	const char* cmd = couleur == JOUEUR_BLANC ? "reg_genmove white" : "reg_genmove black";
@@ -120,6 +164,13 @@ void JOUER_COUP(Data data, Partie partie, enum CouleurJoueur couleur)
 	}
 }
 
+/** @ingroup gnugo
+ *  @brief Notifie gnugo d'un coup joué
+ *  @param E/S
+ *  @param Partie en cours
+ *  @param Joueur ayant joué
+ *  @param coup joué
+ */
 void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_Coup coup)
 {
 	(void) partie;
@@ -133,6 +184,11 @@ void NOTIFICATION_COUP(Data data, Partie partie, enum CouleurJoueur couleur, s_C
 	}
 }
 
+/** @ingrou gnugo
+ *  @brief Change le plateau utilisé par gnugo
+ *  @param E/S
+ *  @param Nouveau plateau à utiliser
+ */
 void REMPLACER_PLATEAU(Data data, Plateau plateau)
 {
 	int taille = plateau_get_taille(plateau);
@@ -157,6 +213,10 @@ void REMPLACER_PLATEAU(Data data, Plateau plateau)
 	}
 }
 
+/** @ingroup gnugo
+ *  @brief Initialise gnugo
+ *  @return E/S
+ */
 void* INITIALISER()
 {
 	srand(time(0));
