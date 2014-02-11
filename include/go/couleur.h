@@ -27,7 +27,7 @@
 /** @ingroup go
  *  @brief Type couleur
  *
- *  A chaque joueur correspond une couleur différente. Le joueur peut donc être désigné par sa couleur
+ *  A chaque joueur correspond une couleur différente (blanc ou noir). Le joueur peut donc être désigné par sa couleur.
  */
 typedef enum {
 	/** @brief Pas de couleur

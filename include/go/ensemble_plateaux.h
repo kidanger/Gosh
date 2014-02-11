@@ -21,6 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Défini les ensembles de plateaux.
  */
 
 #include "go/plateau_type.h"

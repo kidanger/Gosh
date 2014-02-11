@@ -21,10 +21,11 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Défini le type Plateau
  */
 
 /** @ingroup go
- *  @brief Défini Plateau
+ *  @brief Défini le type Plateau
  */
 typedef struct s_Plateau* Plateau;
 

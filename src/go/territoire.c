@@ -22,6 +22,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Implémentes les fonctions liées aux territoires.
  */
 
 Territoire determiner_territoire(Plateau plateau, Position position)

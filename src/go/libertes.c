@@ -19,6 +19,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Implémente les fonctions relatives aux libertés ainsi que les ensembles de libertés.
  */
 
 #include "gosh_macros.h"

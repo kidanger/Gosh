@@ -26,17 +26,50 @@
 
 #include "go/partie.h"
 
+
+/** @def JOUER_COUP_STR
+ *  @ingroup go
+ *  @brief Nom de la fonction demandant à l'IA de jouer un coup sous forme de chaîne de caractères
+ */
 #define JOUER_COUP_STR "jouer_coup_ordi"
+
 #define JOUER_COUP __attribute__((used)) jouer_coup_ordi
+/** @def INITIALISER_STR
+ *  @ingroup go
+ *  @brief Nom de la fonction permettant d'initialiser l'IA sous forme de chaîne de caractères
+ */
 #define INITIALISER_STR "initialiser_ordi"
+
 #define INITIALISER __attribute__((used)) initialiser_ordi
+/** @def REMPLACER_PLATEAU_STR
+ *  @ingroup go
+ *  @brief Nom de la fonction, sous forme de chaîne de caractères,
+ *  permettant de changer le plateau que l'IA doit connaître.
+ */
 #define REMPLACER_PLATEAU_STR "remplacer_plateau_ordi"
+
 #define REMPLACER_PLATEAU __attribute__((used)) remplacer_plateau_ordi
+/** @def NOTIFICATION_COUP_STR
+ *  @ingroup go
+ *  @brief Nom de la fonction, sous forme de chaîne de caractères,
+ *  permettant de notifier l'IA qu'un coup a été joué.
+ */
 #define NOTIFICATION_COUP_STR "notification_coup_ordi"
+
 #define NOTIFICATION_COUP __attribute__((used)) notification_coup_ordi
 
+
+/** @ingroup go
+ *  @brief Type des pointeurs de fonction utilisée pour demander à l'IA de jouer.
+ */
 typedef void(*JouerFunc)(void*, Partie, enum CouleurJoueur);
+/** @ingroup go
+ *  @brief Type des pointeurs de fonction utilisée pour changer le plateau que l'IA doit utiliser.
+ */
 typedef void(*RemplacerPlateauFunc)(void*, Plateau);
+/** @ingroup go
+ *  @brief Type des pointeurs de fonction utilisée pour notifier l'IA qu'un coup a été joué.
+ */
 typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 
 /** @ingroup go
@@ -45,6 +78,7 @@ typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 struct s_Ordinateur {
 	/** @brief bibliothèque dynamique contenant l'IA */
 	char * name;
+    /** @brief Pointeur sur le "handle" de la biblithèque dynamique contenant l'IA */
 	void* dlptr;
 	/** @brief Fonction jouer */
 	JouerFunc jouer;
@@ -81,9 +115,9 @@ void decharger_ordinateur(Ordinateur ordi);
 void ordinateur_jouer_coup(Ordinateur ordi, Partie partie, enum CouleurJoueur couleur);
 
 /** @ingroup go
- *  @brief Remplace le plateau
+ *  @brief Change le plateau que l'IA doit utiliser.
  *  @param IA
- *  @param Nouveau plateau
+ *  @param Nouveau plateau que l'IA doit connaître et utiliser
  */
 void ordinateur_remplacer_plateau(Ordinateur ordi, Plateau plateau);
 

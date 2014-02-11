@@ -21,6 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
+ *  @brief Déclare les ensembles de positions.
  */
 
 #include "position.h"

@@ -21,7 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup go
- *  @brief Déclare un ensemble de couleurs
+ *  @brief Déclare un ensemble coloré
  */
 
 #include "ensemble_positions.h"
@@ -30,19 +30,22 @@
 struct ImplEnsembleColore;
 
 struct s_EnsembleColore {
-	TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
-	GoshIterateur(*createIterateur)(void);
-	bool (*vide)(struct s_EnsembleColore *);
-	void (*ajouter)(struct s_EnsembleColore *, TYPE);
-	bool (*appartient)(struct s_EnsembleColore *, TYPE);
-	int (*nombre_elements)(struct s_EnsembleColore *);
+    TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
+    GoshIterateur(*createIterateur)(void);
+    bool (*vide)(struct s_EnsembleColore *);
+    void (*ajouter)(struct s_EnsembleColore *, TYPE);
+    bool (*appartient)(struct s_EnsembleColore *, TYPE);
+    int (*nombre_elements)(struct s_EnsembleColore *);
 
-	struct ImplEnsembleColore * data;
+    struct ImplEnsembleColore * data;
 
 };
 
 /** @ingroup go
- *  @brief Ensemble de couleurs
+ *  @brief Ensemble coloré, ensemble de positions de cases ayant des pierres de même couleurs
+ *
+ *  S'utilise exactement comme les ensembles de gosh_ensemble.h
+ *  @note on considère que les cases n'ayant pas de pierres, on la couleur "vide".
  */
 typedef struct s_EnsembleColore * EnsembleColore;
 

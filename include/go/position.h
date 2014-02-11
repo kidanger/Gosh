@@ -38,17 +38,17 @@ typedef struct {
 	int8_t y;
 	/** @brief Taille du plateau */
 	int8_t taille;
-	/** @brief Indique si la position est valide */
+    /** @brief Indique si la position est valide ou non */
 	bool valide;
 } Position;
 
 /** @ingroup go
- *  @brief Défini une position invalide */
+ *  @brief Position invalide */
 extern Position POSITION_INVALIDE;
 
 /** @def POSITION_VOISINS(position)
  *  @ingroup go
- *  @brief Donne la liste des positions voisine d'une position
+ *  @brief Donne la liste des positions voisine d'une position (haut, bas, gauche et droite)
  */
 #define POSITION_VOISINS(position) { \
 		position_gauche(position), \
