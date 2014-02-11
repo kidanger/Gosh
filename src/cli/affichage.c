@@ -13,6 +13,16 @@
 
    You should have received a copy of the GNU General Public License
    along with Gosh.  If not, see <http://www.gnu.org/licenses/>. */
+
+/** @file affichage.c
+ *  @author Jéremy Anger
+ *  @author Denis Migdal
+ *  @date 08/02/2014
+ *  @ingroup cli
+ *  @brief Implémente les fonctions d'affichage
+ */
+
+
 #include <stdio.h>
 
 #include "cli/affichage.h"

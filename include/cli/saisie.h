@@ -21,7 +21,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup cli
- *  @brief Déclare les fonctions de demande d'informations à l'utilisateur.
+ *  @brief Déclare les fonctions de demande de saisie.
  */
 
 #include <stdbool.h>
@@ -42,7 +42,7 @@ typedef struct {
 /** @ingroup cli
  *  @brief Demande à l'utilisateur de faire un choix
  *
- *  La liste des options doit se terminer par 0.
+ *  La liste des options doit se terminer par 0 (ou NULL).
  *
  *  Utilisation : cli_choisir_option("Que voulez-vous faire ?", 'p',
                                    'p', "Créer une nouvelle partie",
