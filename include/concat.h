@@ -6,7 +6,7 @@
  *  @author Denis Migdal
  *  @date 08/02/2014
  *  @ingroup outils
- *  @brief Macro permettant de concaténer les arguments passés en paramètre.
+ *  @brief Macros permettant de concaténer les arguments passés en paramètre.
  *  @see http://www.parashift.com/c++-faq/macros-with-token-pasting.html
  */
 
