@@ -86,7 +86,7 @@ typedef void(*NotificationCoupFunc)(void*, Partie, enum CouleurJoueur, s_Coup);
 struct s_Ordinateur {
 	/** @brief bibliothèque dynamique contenant l'IA */
 	char * name;
-    /** @brief Pointeur sur le "handle" de la biblithèque dynamique contenant l'IA */
+	/** @brief Pointeur sur le "handle" de la biblithèque dynamique contenant l'IA */
 	void* dlptr;
 	/** @brief Fonction jouer */
 	JouerFunc jouer;

@@ -50,8 +50,8 @@ size_t impl_get_nbCases(size_t taille)
 {
 	size_t tailleCasesEnBits = (taille * taille * 2);
 	size_t tailleUneCaseEnBits = (sizeof(uint32_t) * 8);
-    //arrondit à l'entier supérieur.
-    size_t nbCases = (tailleCasesEnBits + tailleUneCaseEnBits - 1) / tailleUneCaseEnBits;
+	//arrondit à l'entier supérieur.
+	size_t nbCases = (tailleCasesEnBits + tailleUneCaseEnBits - 1) / tailleUneCaseEnBits;
 	return nbCases;
 }
 

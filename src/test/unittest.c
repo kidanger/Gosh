@@ -217,7 +217,7 @@ void test_chaines(void)
 	gosh_ajouter(ch, c);
 	gosh_ajouter(ch, c2);
 
-    detruire_chaines(ch);
+	detruire_chaines(ch);
 }
 
 

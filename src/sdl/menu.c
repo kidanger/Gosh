@@ -400,7 +400,7 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			break;
 		case PROGRAMME_JOUEUR_BLANC:
 			partie->joueurs[JOUEUR_BLANC].ordinateur = charger_ordinateur(
-					menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ? "gnugo" : "random");
+			            menu->groupes[GROUPE_PROGRAMME_J2]->courante == 0 ? "gnugo" : "random");
 			return partie->joueurs[JOUEUR_BLANC].ordinateur != NULL;
 		case TYPE_JOUEUR_NOIR:
 			partie->joueurs[JOUEUR_NOIR].type = menu->groupes[GROUPE_TYPE_J1]->courante == 0 ? HUMAIN : ORDINATEUR;
@@ -410,7 +410,7 @@ static bool construction_function(enum Question question, Partie partie, void* u
 			break;
 		case PROGRAMME_JOUEUR_NOIR:
 			partie->joueurs[JOUEUR_NOIR].ordinateur = charger_ordinateur(
-					menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ? "gnugo" : "random");
+			            menu->groupes[GROUPE_PROGRAMME_J1]->courante == 0 ? "gnugo" : "random");
 			return partie->joueurs[JOUEUR_NOIR].ordinateur != NULL;
 
 		case TAILLE_PLATEAU: {

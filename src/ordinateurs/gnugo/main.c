@@ -69,9 +69,9 @@ char GNUGO_TO_GOSH[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'x', 'I',
  *  @brief Ensemble des files descriptions utilisés pour les E/S avec gnugo
  */
 typedef struct {
-    /** @brief file descriptor utilisé comme entrée */
+	/** @brief file descriptor utilisé comme entrée */
 	int fdin;
-    /** @brief file descriptor utilisé comme sortie */
+	/** @brief file descriptor utilisé comme sortie */
 	int fdout;
 } *Data;
 
@@ -213,7 +213,8 @@ void REMPLACER_PLATEAU(Data data, Plateau plateau)
 	}
 }
 
-static bool fichier_existe(const char* path) {
+static bool fichier_existe(const char* path)
+{
 	FILE* f_test = fopen(path, "r");
 	if (!f_test) {
 		return false;
@@ -231,9 +232,9 @@ void* INITIALISER()
 	srand(time(0));
 	gosh_debug("Initialisation du botgnugo");
 	if (!fichier_existe("/usr/bin/gnugo")
-			&& !fichier_existe("/usr/games/gnugo")
-			&& !fichier_existe("/usr/local/games/gnugo")
-			&& !fichier_existe("/usr/local/bin/gnugo")) {
+	        && !fichier_existe("/usr/games/gnugo")
+	        && !fichier_existe("/usr/local/games/gnugo")
+	        && !fichier_existe("/usr/local/bin/gnugo")) {
 		fprintf(stderr, "Binaire \"gnugo\" non présent dans /usr/bin ni /usr/games.\n");
 		return NULL;
 	}

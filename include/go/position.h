@@ -38,7 +38,7 @@ typedef struct {
 	int8_t y;
 	/** @brief Taille du plateau */
 	int8_t taille;
-    /** @brief Indique si la position est valide ou non */
+	/** @brief Indique si la position est valide ou non */
 	bool valide;
 } Position;
 

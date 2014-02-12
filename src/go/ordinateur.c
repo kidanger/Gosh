@@ -83,7 +83,7 @@ Ordinateur charger_ordinateur(const char* name)
 	char filename[256];
 
 	unsigned p = 0;;
-	while (dlptr == NULL && p < sizeof(paths)/sizeof(paths[0])) {
+	while (dlptr == NULL && p < sizeof(paths) / sizeof(paths[0])) {
 		snprintf(filename, sizeof(filename), "%slib%s%s", paths[p], name, extension);
 		dlptr = DLOPEN(filename);
 		if (dlptr == NULL) {

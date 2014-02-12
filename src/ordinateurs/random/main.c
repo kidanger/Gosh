@@ -69,8 +69,8 @@ void JOUER_COUP(void* data, Partie partie, enum CouleurJoueur couleur)
  */
 void* INITIALISER()
 {
-    srand(time(NULL));
+	srand(time(NULL));
 	gosh_debug("Initialisation du botrandom");
-    return (void*) 0x1;
+	return (void*) 0x1;
 }
 

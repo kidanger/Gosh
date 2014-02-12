@@ -331,7 +331,7 @@ static void afficher_jouer(struct state* state, SDL_Surface* surface)
 				sy -= taille_stone / 2;
 				draw_rect(surface, sx, sy, taille_stone, taille_stone);
 			} else if ((get_marge(x, taille) == marge || x == taille / 2)
-					&& (get_marge(y, taille) == marge || y == taille / 2)) {
+			           && (get_marge(y, taille) == marge || y == taille / 2)) {
 				// affichage du hoshi
 				int sx, sy;
 				get_position_vers_ecran(taille, x, y, &sx, &sy, x1, y1, w);

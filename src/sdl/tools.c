@@ -108,7 +108,7 @@ TTF_Font* get_font(enum FontSize size)
 	int i = size;
 	if (!fonts[i]) {
 		unsigned p = 0;
-		while (!fonts[i] && p < sizeof(FONT_FILENAMES)/sizeof(FONT_FILENAMES[0])) {
+		while (!fonts[i] && p < sizeof(FONT_FILENAMES) / sizeof(FONT_FILENAMES[0])) {
 			fonts[i] = TTF_OpenFont(FONT_FILENAMES[p], font_sizes[i]);
 			p++;
 		}

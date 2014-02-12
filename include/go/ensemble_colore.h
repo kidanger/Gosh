@@ -30,14 +30,14 @@
 struct ImplEnsembleColore;
 
 struct s_EnsembleColore {
-    TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
-    GoshIterateur(*createIterateur)(void);
-    bool (*vide)(struct s_EnsembleColore *);
-    void (*ajouter)(struct s_EnsembleColore *, TYPE);
-    bool (*appartient)(struct s_EnsembleColore *, TYPE);
-    int (*nombre_elements)(struct s_EnsembleColore *);
+	TYPE * (* next)(GoshIterateur *, struct s_EnsembleColore *, TYPE *);
+	GoshIterateur(*createIterateur)(void);
+	bool (*vide)(struct s_EnsembleColore *);
+	void (*ajouter)(struct s_EnsembleColore *, TYPE);
+	bool (*appartient)(struct s_EnsembleColore *, TYPE);
+	int (*nombre_elements)(struct s_EnsembleColore *);
 
-    struct ImplEnsembleColore * data;
+	struct ImplEnsembleColore * data;
 
 };
 
